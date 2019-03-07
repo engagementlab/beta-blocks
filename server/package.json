@@ -1,0 +1,29 @@
+{
+  "name": "beta-blocks",
+  "version": "0.0.1",
+  "main": "app.js",
+  "license": "MIT",
+  "description": "",
+  "scripts": {
+    "start": "source ~/.nvm/nvm.sh; nvm use; nodemon"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/engagementlab/beta-blocks.git"
+  },
+  "dependencies": {
+    "@engagementlab/el-bootstrapper": "^0.0.5",
+    "axios": "^0.18.0",
+    "bluebird": "^3.5.3",
+    "cloudinary": "^1.13.2",
+    "connect-flash": "^0.1.1",
+    "dotenv": "^6.1.0",
+    "express": "^4.16.4",
+    "keystone-storage-adapter-azure": "^1.1.0",
+    "mongoose": "^5.4.17",
+    "redis": "^2.8.0",
+    "validator": "^10.9.0",
+    "winston": "^3.2.1",
+    "yieldable-json": "^1.0.1"
+  }
+}
