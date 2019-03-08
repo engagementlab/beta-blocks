@@ -10,7 +10,8 @@
  */
 
 const redis = require('../../redis-client');
-const yj = require('yieldable-json');
+const yj = require('yieldable-json'),
+_ = require('underscore');
 
 var buildData = (options, res) => {
 
@@ -22,7 +23,7 @@ var buildData = (options, res) => {
                 data: parsed
             });
         });
-        
+
     });
 
 }
@@ -46,8 +47,21 @@ exports.set = function (req, res) {
     request(
         'https://res.cloudinary.com/engagement-lab-home/raw/upload/v1551983475/beta-blocks/data2.geojson'
         , (err, response, body) => {
-            // console.log(body);
-            redis.set('mapData', body);
+            // console.log(_.pluck(body.features, 'sidewalks'));
+            
+            yj.parseAsync(body, (err, parsed) => {
+                _.each(parsed.features, (feat) => {
+                    feat.properties = _.pick(feat.properties, 'sidewalks');
+                    feat.properties.score = feat.properties.sidewalks.score;
+                    delete feat.properties.sidewalks;
+                });
+                
+                res.status(200).json({
+                status: 200,
+                data: parsed
+            });
+            redis.set('mapData', JSON.stringify(parsed));
+        });
         });
 
 }

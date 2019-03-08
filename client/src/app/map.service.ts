@@ -20,8 +20,9 @@ export class MapService {
 
 
   public getJSON(): Observable<any> {
-    return this.http.get("./assets/data2.geojson")
-                    .map((res:any) => res);
+    // return this.http.get("./assets/data2.geojson")
+    return this.http.get("http://localhost:3000/api/data/get")
+                    .map((res:any) => res.data);
 
   }
 }
