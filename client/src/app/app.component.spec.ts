@@ -20,16 +20,16 @@ describe('AppComponent', () => {
     expect(app).toBeTruthy();
   });
 
-  it(`should have as title 'maps'`, () => {
+  it(`should have as title 'make-foia-work-client'`, () => {
     const fixture = TestBed.createComponent(AppComponent);
     const app = fixture.debugElement.componentInstance;
-    expect(app.title).toEqual('maps');
+    expect(app.title).toEqual('make-foia-work-client');
   });
 
   it('should render title in a h1 tag', () => {
     const fixture = TestBed.createComponent(AppComponent);
     fixture.detectChanges();
     const compiled = fixture.debugElement.nativeElement;
-    expect(compiled.querySelector('h1').textContent).toContain('Welcome to maps!');
+    expect(compiled.querySelector('h1').textContent).toContain('Welcome to make-foia-work-client!');
   });
 });

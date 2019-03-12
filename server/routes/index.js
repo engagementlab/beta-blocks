@@ -33,4 +33,6 @@ router.all('/*', function(req, res, next) {
 router.get('/api/data/get', routeIncludes, routes.api.data.get);
 router.get('/api/data/set', routeIncludes, routes.api.data.set);
 
+router.get('/api/events/get', routeIncludes, routes.api.events.get);
+
 module.exports = router;
