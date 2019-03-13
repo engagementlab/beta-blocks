@@ -11,20 +11,24 @@ import * as _ from 'underscore';
 })
 export class MapBoxComponent implements OnInit {
 
+  @Input() mapType: string = 'default';
   @Input() width: number;
   @Input() height: number;
 
-  /// default settings
-  mapBox: mapboxgl.Map;
-  style = 'mapbox://styles/mapbox/light-v9';
-
-  // data
-  source: any;
-  markers: any;
+  // settings
+  private mapBox: mapboxgl.Map;
+  private style = 'mapbox://styles/mapbox/streets-v11';
+  private config: object;
 
   constructor(private mapService: MapService) {}
 
   ngOnInit() {
+
+    switch(this.mapType) {
+        case 'sidewalk':
+            this.style = 'mapbox://styles/mapbox/light-v9';
+            break;
+    }
 
     this.buildMap();
 
@@ -35,24 +39,24 @@ export class MapBoxComponent implements OnInit {
     this.mapBox = new mapboxgl.Map({
         container: 'map',
         style: this.style,
-        center: [-71.07, 42.35],
-        zoom: 13,
+        center: [-70.95, 42.35],
+        zoom: 11,
         maxZoom: 14,
         minZoom: 11
     });
 
     this.mapBox.on('load', () => {
 
+        if(this.mapType === 'default') return;
+
         this.mapService.getJSON().subscribe((data: any) => {
-            // console.log(data)
+
             this.mapBox.addSource('shapes', {
                 type: 'geojson',
                 data: data
-                // cluster: true,
-                // clusterMaxZoom: 14, // Max zoom to cluster points on
-                // clusterRadius: 50 // Radius of each cluster when clustering points (defaults to 50)
             });
 
+            // Create temp source for adjacent hexes and add to map
             let adjacentSrc = {
                 'type': 'geojson',
                 'data': {
@@ -63,7 +67,7 @@ export class MapBoxComponent implements OnInit {
             this.mapBox.addSource('adjacent', adjacentSrc);
 
             this.mapBox.addLayer({
-                "id": "sidewalk",
+                "id": "defaultLayer",
                 "source": "shapes",
                 "type": "fill",
                 "paint": {
@@ -71,7 +75,11 @@ export class MapBoxComponent implements OnInit {
                         'interpolate',
                         ['linear'],
                         ['get', 'score'],
-                        0, '#f72923',
+                        0, '#2e7baf',
+                        1083, '#6baabb',
+                        2166, '#aed9b9',
+                        3249, '#f8eca6',
+                        4332, '#ecb24e',
                         6500, '#00ab9e'
                     ],
                     'fill-outline-color': '#f6a536',
@@ -95,7 +103,7 @@ export class MapBoxComponent implements OnInit {
                 closeOnClick: false
             });
 
-            this.mapBox.on('click', 'sidewalk', function(e) {
+            this.mapBox.on('click', 'defaultLayer', function(e) {
                 var bbox = [
                     [e.point.x - 30, e.point.y - 30],
                     [e.point.x + 30, e.point.y + 30]
@@ -103,12 +111,9 @@ export class MapBoxComponent implements OnInit {
 
                 // Change the cursor style as a UI indicator.
                 e.target.getCanvas().style.cursor = 'pointer';
-               
-                // Populate the popup and set its coordinates
-                // based on the feature found.
 
                 var features = e.target.queryRenderedFeatures(bbox, {
-                    layers: ['sidewalk']
+                    layers: ['defaultLayer']
                 });
                 e.target.getSource('adjacent').setData({
                     type: 'FeatureCollection',
@@ -119,13 +124,10 @@ export class MapBoxComponent implements OnInit {
                     return memo + feature.properties.score;
                 }, 0);
                 let description = 'Sidewalk average score: ' + (Math.round(sum / features.length) * .001);
-
-                popup.setLngLat(e.lngLat)
-                    .setHTML(description)
-                    .addTo(e.target);
+                document.getElementById('avg').innerText = description;
 
             });
-            this.mapBox.on('mouseleave', 'sidewalk', function() {
+            this.mapBox.on('mouseleave', 'defaultLayer', function() {
                 popup.remove();
             });
 
