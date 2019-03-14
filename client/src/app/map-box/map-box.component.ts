@@ -11,43 +11,65 @@ import * as _ from 'underscore';
 })
 export class MapBoxComponent implements OnInit {
 
-  @Input() mapType: string = 'default';
+    
+  @Input('mapType') set mapTypeSetter(val: string) {
+      this.mapType = val;
+
+      if(this.mapType !== 'default')
+        this.updateMap();
+  };
   @Input() width: number;
   @Input() height: number;
 
   // settings
+  private mapType: string = 'default';
   private mapBox: mapboxgl.Map;
-  private style = 'mapbox://styles/mapbox/streets-v11';
+  private adjacentSrc: mapboxgl.GeoJSONSourceRaw ;
+
+  private style: string = 'mapbox://styles/engagementlab/cjt7or6171f3v1flhg6ulw3ta';
   private config: object;
 
   constructor(private mapService: MapService) {}
 
   ngOnInit() {
 
-    switch(this.mapType) {
-        case 'sidewalk':
-            this.style = 'mapbox://styles/mapbox/light-v9';
-            break;
+    if (navigator.geolocation) {
+        navigator.geolocation.getCurrentPosition((position) => {
+            this.buildMap(position.coords);
+        });
     }
-
-    this.buildMap();
+    else
+        this.buildMap();
 
   }
 
-  buildMap() {
+  buildMap(userPosition=undefined) {
 
+    let position = (userPosition ? [userPosition.longitude, userPosition.latitude] : [-70.95, 42.35]);
+    let lnglat = new mapboxgl.LngLat(position[0], position[1]);
     this.mapBox = new mapboxgl.Map({
         container: 'map',
         style: this.style,
-        center: [-70.95, 42.35],
-        zoom: 11,
-        maxZoom: 14,
-        minZoom: 11
+        center: lnglat,
+        pitch: 40,
+        zoom: 13,
+        maxZoom: 16,
+   //      minZoom: 11
     });
 
     this.mapBox.on('load', () => {
 
-        if(this.mapType === 'default') return;
+        // Add location marker
+        if(position) {
+            var el = document.createElement('div');
+            el.className = 'marker';
+            
+            new mapboxgl.Marker(el)
+                .setLngLat(lnglat)
+                .addTo(this.mapBox);
+        };
+
+        // if(this.mapType === 'default') return;
 
         this.mapService.getJSON().subscribe((data: any) => {
 
@@ -57,14 +79,60 @@ export class MapBoxComponent implements OnInit {
             });
 
             // Create temp source for adjacent hexes and add to map
-            let adjacentSrc = {
-                'type': 'geojson',
-                'data': {
+            this.adjacentSrc = {
+                type: 'geojson',
+                data: {
                     'type': 'FeatureCollection',
                     'features': []
-                }
-            };
-            this.mapBox.addSource('adjacent', adjacentSrc);
+            }};
+            this.mapBox.addSource('adjacent', this.adjacentSrc);
+
+            // Create a popup, but don't add it to the map yet.
+            var popup = new mapboxgl.Popup({
+                closeButton: false,
+                closeOnClick: false
+            });
+
+            this.mapBox.on('click', 'defaultLayer', function(e: mapboxgl.MapMouseEvent) {
+
+                var bbox: mapboxgl.Point[] = 
+                    [new mapboxgl.Point(e.point.x - 20, e.point.y - 20),
+                    new mapboxgl.Point(e.point.x + 20, e.point.y + 20)];
+
+                // Change the cursor style as a UI indicator.
+                e.target.getCanvas().style.cursor = 'pointer';
+
+                var features = e.target.queryRenderedFeatures([bbox[0], bbox[1]], {
+                    layers: ['defaultLayer']
+                });
+                console.log(features)
+                // Adjust source w/ new box
+                (e.target.getSource('adjacent') as mapboxgl.GeoJSONSource).setData({
+                    type: 'FeatureCollection',
+                    features: features
+                });
+
+                let sum = _.reduce(features, (memo, feature) => {
+                    return memo + feature.properties.score;
+                }, 0);
+                let description = 'Sidewalk average score: ' + (Math.round(sum / features.length) * .001);
+                document.getElementById('avg').innerText = description;
+
+            });
+            this.mapBox.on('mouseleave', 'defaultLayer', function() {
+                popup.remove();
+            });
+
+        });
+
+    });
+  }
+
+  updateMap() {
+
+    switch(this.mapType) {
+        case 'sidewalk':
+            this.style = 'mapbox://styles/mapbox/light-v9';
 
             this.mapBox.addLayer({
                 "id": "defaultLayer",
@@ -97,43 +165,10 @@ export class MapBoxComponent implements OnInit {
                 }
             });
 
-            // Create a popup, but don't add it to the map yet.
-            var popup = new mapboxgl.Popup({
-                closeButton: false,
-                closeOnClick: false
-            });
+            break;
+    }
 
-            this.mapBox.on('click', 'defaultLayer', function(e) {
-                var bbox = [
-                    [e.point.x - 30, e.point.y - 30],
-                    [e.point.x + 30, e.point.y + 30]
-                ];
-
-                // Change the cursor style as a UI indicator.
-                e.target.getCanvas().style.cursor = 'pointer';
-
-                var features = e.target.queryRenderedFeatures(bbox, {
-                    layers: ['defaultLayer']
-                });
-                e.target.getSource('adjacent').setData({
-                    type: 'FeatureCollection',
-                    features: features
-                });
-
-                let sum = _.reduce(features, (memo, feature) => {
-                    return memo + feature.properties.score;
-                }, 0);
-                let description = 'Sidewalk average score: ' + (Math.round(sum / features.length) * .001);
-                document.getElementById('avg').innerText = description;
-
-            });
-            this.mapBox.on('mouseleave', 'defaultLayer', function() {
-                popup.remove();
-            });
-
-        });
-
-    });
+    // this.mapBox.setStyle(this.style)
   }
 
 }

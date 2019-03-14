@@ -5,3 +5,13 @@ $tablet: 768px;
 @import "~bulma/sass/elements/container";
 
 @import '_variables';
+
+.marker {
+    display: block;
+    background-color: red;
+    width: 10px;
+    height: 10px;
+    border-radius: 50%;
+    cursor: pointer;
+  }
+  

@@ -2,7 +2,7 @@
 
     <div class="column is-5">
 
-        <map-box [width]="646" [height]="736"></map-box>
+        <map-box mapType="{{mapType}}" [width]="646" [height]="736"></map-box>
 
     </div>
 
@@ -27,6 +27,9 @@
 
             3. Do you think the information in this map is an important factor when deciding where to make street
             repairs?</p>
+
+        <app-button ></app-button>
+        <app-button label="{{ {desktop:'Click',mobile:'Tap'} | deviceAction }} here to continue" ariaLabel="{{ {desktop:'Click',mobile:'Tap'} | deviceAction }} here to continue" clickData="true" (click)="nextStep()"></app-button>
 
     </div>
 

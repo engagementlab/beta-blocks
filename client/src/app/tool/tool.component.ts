@@ -7,9 +7,17 @@ import { Component, OnInit } from '@angular/core';
 })
 export class ToolComponent implements OnInit {
 
+  public mapType = 'default';
+  public toolStep: number = 0;
+
   constructor() { }
 
   ngOnInit() {
+  }
+
+  nextStep() {
+    this.toolStep++;
+    this.mapType = 'sidewalk';
   }
 
 }

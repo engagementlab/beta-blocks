@@ -9,15 +9,20 @@ import { HomeComponent } from './home/home.component';
 import { HttpClientModule } from '@angular/common/http';
 import { NavComponent } from './nav/nav.component';
 import { GetinvolvedComponent } from './getinvolved/getinvolved.component';
+import { ButtonComponent } from './utils/app-button/button.component';
+import { DeviceactionPipe } from './utils/deviceaction.pipe';
 
 @NgModule({
   declarations: [
+    DeviceactionPipe,
+    
     AppComponent,
     MapBoxComponent,
     ToolComponent,
     HomeComponent,
     NavComponent,
-    GetinvolvedComponent
+    GetinvolvedComponent,
+    ButtonComponent
   ],
   imports: [
     AppRoutingModule,

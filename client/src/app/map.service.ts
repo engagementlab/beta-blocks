@@ -12,7 +12,9 @@ import 'rxjs/add/operator/map';
 export class MapService {
 
   constructor(private http: HttpClient) {
-    mapboxgl.accessToken = environment.mapbox.accessToken
+    
+    Object.getOwnPropertyDescriptor(mapboxgl, "accessToken").set(environment.mapbox.accessToken);
+
   }
 
 
