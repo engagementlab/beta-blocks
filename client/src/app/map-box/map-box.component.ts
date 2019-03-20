@@ -105,7 +105,7 @@ export class MapBoxComponent implements OnInit {
                 var features = e.target.queryRenderedFeatures([bbox[0], bbox[1]], {
                     layers: ['defaultLayer']
                 });
-                console.log(features)
+                
                 // Adjust source w/ new box
                 (e.target.getSource('adjacent') as mapboxgl.GeoJSONSource).setData({
                     type: 'FeatureCollection',

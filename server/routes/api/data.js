@@ -42,26 +42,36 @@ exports.get = function (req, res) {
 }
 exports.set = function (req, res) {
 
-    const request = require('request');
+    const request = require('request'),
+          dictionary = require('../../dictionary');
+    let keys = _.keys(dictionary);
 
     request(
-        'https://res.cloudinary.com/engagement-lab-home/raw/upload/v1551983475/beta-blocks/data2.geojson'
+        'https://res.cloudinary.com/engagement-lab-home/raw/upload/beta-blocks/data.geojson'
         , (err, response, body) => {
-            // console.log(_.pluck(body.features, 'sidewalks'));
-            
+
             yj.parseAsync(body, (err, parsed) => {
                 _.each(parsed.features, (feat) => {
-                    feat.properties = _.pick(feat.properties, 'sidewalks');
-                    feat.properties.score = feat.properties.sidewalks.score;
-                    delete feat.properties.sidewalks;
+
+                    // feat.properties = _.pick(feat.properties, 'sidewalks');
+                    // feat.properties.score = feat.properties.sidewalks.score;
+                    _.each(keys, (key) => {
+                        let value = feat.properties['census_'+key];
+                        if(value) {
+                            feat.properties[dictionary[key]] = value;
+                            delete feat.properties['census_'+key];
+                        }
+                    });
+
                 });
                 
                 res.status(200).json({
-                status: 200,
-                data: parsed
+                    status: 200,
+                    data: parsed
+                });
+                redis.set('mapData', JSON.stringify(parsed));
             });
-            redis.set('mapData', JSON.stringify(parsed));
-        });
+
         });
 
 }
