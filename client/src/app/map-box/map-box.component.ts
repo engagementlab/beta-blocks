@@ -107,10 +107,12 @@ export class MapBoxComponent implements OnInit {
                 });
 
                 let sum = _.reduce(features, (memo, feature) => {
-                    console.log(feature.properties.sidewalk)
                     return memo + feature.properties.sidewalk;
                 }, 0);
-                let description = 'Sidewalk average score: ' + Math.round(sum / features.length);
+
+                let score = Math.round(sum / features.length);
+                // console.log(score, )
+                let description = 'Sidewalk average score: ' + (Number.isNaN(score) ? 'No score!' : score);
                 document.getElementById('avg').innerText = description;
 
             });
