@@ -51,17 +51,36 @@ exports.set = function (req, res) {
         , (err, response, body) => {
 
             yj.parseAsync(body, (err, parsed) => {
+
                 _.each(parsed.features, (feat) => {
 
-                    // feat.properties = _.pick(feat.properties, 'sidewalks');
-                    // feat.properties.score = feat.properties.sidewalks.score;
-                    _.each(keys, (key) => {
+                    let props = feat.properties;
+
+                    _.each(feat.geometry.coordinates[0], (coord) => {
+
+                        coord[0] = coord[0].toPrecision(6);
+                        coord[1] = coord[1].toPrecision(6);
+
+                    });
+                    
+                    props.sidewalk = Math.round(props.sidewalks_area_score/props.sidewalks_area);
+                    props.pop = props.census_b01003001 * (props._area/props.census_area);
+                    props.origin = [props.origin[0].toPrecision(6), props.origin[1].toPrecision(6)]
+                    
+                    // delete props.sidewalks_area_score;
+                    // delete props.sidewalks_area;
+                    // delete props.sidewalks_score;
+                    // delete props.sidewalks_count;
+                    delete props.census_area;
+                    delete props._area;
+                    
+                    /* _.each(keys, (key) => {
                         let value = feat.properties['census_'+key];
                         if(value) {
                             feat.properties[dictionary[key]] = value;
                             delete feat.properties['census_'+key];
                         }
-                    });
+                    }); */
 
                 });
                 

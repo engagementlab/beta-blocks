@@ -51,7 +51,7 @@ export class MapBoxComponent implements OnInit {
         container: 'map',
         style: this.style,
         center: lnglat,
-        pitch: 40,
+        pitch: 0,
         zoom: 13,
         maxZoom: 16,
    //      minZoom: 11
@@ -87,12 +87,6 @@ export class MapBoxComponent implements OnInit {
             }};
             this.mapBox.addSource('adjacent', this.adjacentSrc);
 
-            // Create a popup, but don't add it to the map yet.
-            var popup = new mapboxgl.Popup({
-                closeButton: false,
-                closeOnClick: false
-            });
-
             this.mapBox.on('click', 'defaultLayer', function(e: mapboxgl.MapMouseEvent) {
 
                 var bbox: mapboxgl.Point[] = 
@@ -113,14 +107,12 @@ export class MapBoxComponent implements OnInit {
                 });
 
                 let sum = _.reduce(features, (memo, feature) => {
-                    return memo + feature.properties.score;
+                    console.log(feature.properties.sidewalk)
+                    return memo + feature.properties.sidewalk;
                 }, 0);
-                let description = 'Sidewalk average score: ' + (Math.round(sum / features.length) * .001);
+                let description = 'Sidewalk average score: ' + Math.round(sum / features.length);
                 document.getElementById('avg').innerText = description;
 
-            });
-            this.mapBox.on('mouseleave', 'defaultLayer', function() {
-                popup.remove();
             });
 
         });
@@ -142,13 +134,13 @@ export class MapBoxComponent implements OnInit {
                     'fill-color': [
                         'interpolate',
                         ['linear'],
-                        ['get', 'score'],
+                        ['get', 'sidewalk'],
                         0, '#2e7baf',
-                        1083, '#6baabb',
-                        2166, '#aed9b9',
-                        3249, '#f8eca6',
-                        4332, '#ecb24e',
-                        6500, '#00ab9e'
+                        20, '#6baabb',
+                        40, '#aed9b9',
+                        60, '#f8eca6',
+                        80, '#ecb24e',
+                        100, '#00ab9e'
                     ],
                     'fill-outline-color': '#f6a536',
                     "fill-opacity": .4
