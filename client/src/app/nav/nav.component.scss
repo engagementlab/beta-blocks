@@ -1,0 +1,82 @@
+@import "~src/style/_variables";
+
+nav {
+    position: relative;
+    padding-top: 3%;
+    margin-bottom: 3% !important;
+    z-index: 4;
+
+    @include mobile-only {
+    }
+}
+
+#menu-btn {
+
+    display: flex;
+
+    font-family: Overpass;
+    font-size: 18px;
+    font-weight: 600;
+    letter-spacing: 2.3px;
+    cursor: pointer;
+
+    #lines {
+        position: relative;
+        top: 6px;
+
+        @include mobile-only {
+            padding-left: 40%;
+        }
+
+        span {
+            display: block;
+            height: 2px;
+            width: 50px;
+            background: black;
+            opacity: 1;
+            left: 0;
+
+            @include transform(rotate(0deg));
+            @include transition(all, .7s, ease-in-out);
+
+            &:nth-child(2) {
+                position: relative;
+                top: 10px;
+            }
+
+        }
+
+    }
+
+    #label {
+        display: flex;
+
+        @include mobile-only {
+            display: none;
+        }
+
+        .open {
+            position: absolute;
+        }
+
+        .close {
+            opacity: 0;
+        }
+    }
+
+    &.open {
+
+        #lines {
+            span {
+                &:nth-child(1) {
+                    @include transform(rotate(155deg));
+                }
+
+                &:nth-child(2) {
+                    @include transform(rotate(-155deg) translate(6px, 10px));
+                }
+            }
+        }
+
+    }
+}

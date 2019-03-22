@@ -1,4 +1,6 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, ViewChild } from '@angular/core';
+import { DataService } from '../utils/data.service';
+import { MapBoxComponent } from '../map-box/map-box.component';
 
 @Component({
   selector: 'app-getinvolved',
@@ -7,9 +9,27 @@ import { Component, OnInit } from '@angular/core';
 })
 export class GetinvolvedComponent implements OnInit {
 
-  constructor() { }
+  public hasContent;
+  public events: any[];
+
+  @ViewChild('map') mapBox: MapBoxComponent;
+
+  constructor(private _dataSvc: DataService) {
+
+    _dataSvc.getDataForUrl('/api/events/get').subscribe((data: any) => {
+
+      this.events = data;
+      this.hasContent = true;
+
+    });
+
+   }
 
   ngOnInit() {
+  }
+
+  public clickEvent(e: any) {
+    this.mapBox.move(e.lat, e.lng, e.id);
   }
 
 }

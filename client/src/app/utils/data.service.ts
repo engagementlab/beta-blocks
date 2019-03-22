@@ -42,15 +42,12 @@ export class DataService {
     }); 
   }
 	
-  public getDataForUrl(urlParam: string, search: boolean = false): Observable<any> {
+  public getDataForUrl(urlParam: string): Observable<any> {
 
-      if(!search)
-        this.isLoading.next(true);
-
+      this.isLoading.next(true);
       this.serverProblem.next(false);
 
       let url = this.baseUrl; 
-      url +=  search ? '/search/' : '/api/';
       url += urlParam;
       
       return this.http.get(url)
@@ -63,8 +60,7 @@ export class DataService {
           return;
         }
 
-        if(!search)        
-          this.isLoading.next(false);
+        this.isLoading.next(false);
         
         return res.data;
       })

@@ -1,4 +1,4 @@
-<div class="columns">
+<!-- <div class="columns">
 
   <div class="column is-half">
 
@@ -20,23 +20,27 @@
 
   </div>
 
-</div>
+</div> -->
 
 <h1>
   Workshops
 </h1>
 
-<div class="columns">
+<div class="columns" *ngIf="hasContent">
 
     <div class="column is-half">
   
       <h2>Workshop Calendar</h2>
-      <!-- [Calendar here] -->
+      <div class="event" *ngFor="let event of events">
+        <h3 (click)="clickEvent(event)" [innerHtml]="event.name"></h3>
+      </div>
+    </div>
 
-    <div class="column is-half">
+    <div class="column is-5">
   
       <h2>Workshop Descriptions</h2>
-      [Email field here]
+      <!-- [Email field here] -->
+      <map-box #map mapType="events" [mapData]="events" [width]="646" [height]="736"></map-box>
   
     </div>
   

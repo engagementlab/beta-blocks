@@ -3,6 +3,7 @@ import { MapService } from '../map.service';
 
 import * as mapboxgl from 'mapbox-gl';
 import * as _ from 'underscore';
+import { Marker } from './marker';
 
 @Component({
   selector: 'map-box',
@@ -15,9 +16,13 @@ export class MapBoxComponent implements OnInit {
   @Input('mapType') set mapTypeSetter(val: string) {
       this.mapType = val;
 
+      if(!this.ready) return;
+
       if(this.mapType !== 'default')
         this.updateMap();
+  
   };
+  @Input() mapData: any[];
   @Input() width: number;
   @Input() height: number;
 
@@ -29,6 +34,9 @@ export class MapBoxComponent implements OnInit {
   private style: string = 'mapbox://styles/engagementlab/cjt7or6171f3v1flhg6ulw3ta';
   private config: object;
 
+  private ready: boolean;
+  private markers: Marker<mapboxgl.Marker> = {};
+ 
   constructor(private mapService: MapService) {}
 
   ngOnInit() {
@@ -40,6 +48,8 @@ export class MapBoxComponent implements OnInit {
     }
     else
         this.buildMap();
+
+    this.ready = true;
 
   }
 
@@ -68,6 +78,7 @@ export class MapBoxComponent implements OnInit {
                 .setLngLat(lnglat)
                 .addTo(this.mapBox);
         };
+        this.updateMap();
 
         // if(this.mapType === 'default') return;
 
@@ -126,7 +137,7 @@ export class MapBoxComponent implements OnInit {
 
     switch(this.mapType) {
         case 'sidewalk':
-            this.style = 'mapbox://styles/mapbox/light-v9';
+            // this.style = 'mapbox://styles/mapbox/light-v9';
 
             this.mapBox.addLayer({
                 "id": "defaultLayer",
@@ -160,9 +171,50 @@ export class MapBoxComponent implements OnInit {
             });
 
             break;
+
+        case 'events': 
+
+            for(let event of this.mapData) {
+
+                var el = document.createElement('div');
+                el.className = 'marker event';
+                let lnglat = new mapboxgl.LngLat(event.lng, event.lat);
+                 
+                var popup = new mapboxgl.Popup({offset: 25, closeOnClick: true, closeButton: false})
+                .setHTML('<h3>' + event.street + '</h3>' + '<br /><i>' + event.date + '</i><br /><a href="'+ event.url + '">More info...</a>');
+
+                let marker = new mapboxgl.Marker(el)
+                            .setLngLat(lnglat)
+                            .setPopup(popup)
+                            .addTo(this.mapBox);
+
+                this.markers[event.id] = marker;
+            }
+
+            break;
     }
 
     // this.mapBox.setStyle(this.style)
+  }
+
+  public move(lat: number, lng: number, id: number=null) {
+    
+    this.mapBox.flyTo({
+        center: [
+            lng,
+            lat
+        ],
+        zoom: 15
+    });
+
+    if(id) {
+        _.each(this.markers, (marker) => {
+            marker.getPopup().remove();
+        })
+
+        this.markers[id].getPopup().addTo(this.mapBox)
+    }
+
   }
 
 }

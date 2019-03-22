@@ -11,6 +11,7 @@ import { NavComponent } from './nav/nav.component';
 import { GetinvolvedComponent } from './getinvolved/getinvolved.component';
 import { ButtonComponent } from './utils/app-button/button.component';
 import { DeviceactionPipe } from './utils/deviceaction.pipe';
+import { DataService } from './utils/data.service';
 
 @NgModule({
   declarations: [
@@ -29,7 +30,9 @@ import { DeviceactionPipe } from './utils/deviceaction.pipe';
     BrowserModule,
     HttpClientModule
   ],
-  providers: [],
+  providers: [
+    DataService
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

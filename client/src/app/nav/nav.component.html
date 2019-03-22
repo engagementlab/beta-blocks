@@ -1,7 +1,21 @@
-<div class="is-full columns column">
-  <div class="column is-half"></div>
-  <div class="column is-half">
-    <a routerLink="/getinvolved">Get Involved</a> | <a routerLink="/about">About</a>
-  </div>  
+<nav class="columns is-mobile" id="nav">
 
-</div>
+  <div class="column is-three-fifths-mobile is-three-quarters-tablet is-four-fifths-desktop">
+      <a id="home" routerLink="/" (click)="logoClick()">
+      </a>
+  </div>
+
+  <div class="column">
+      <a id="menu-btn" (click)="openCloseNav()" class="columns uppercase">
+          <div id="lines" class="column is-one-quarter">
+              <span></span>
+              <span></span>
+          </div>
+          <div id="label" class="column">
+              <div class="open">Me<br />nu</div>
+              <div class="close">Close</div>
+          </div>
+      </a>
+  </div>
+
+</nav>
