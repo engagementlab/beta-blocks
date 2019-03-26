@@ -1,0 +1,117 @@
+@import '~src/style/_variables';
+
+.bleed {
+
+    .right {
+        display: flex;
+
+        @include phones {
+            padding-top: 0;
+            margin-top: -1.5rem;
+        }
+    }
+
+    @include phones {
+        &.columns {
+            margin-left: -8px;
+            margin-right: -8px;
+            padding: 0;
+        }
+        .column {
+            padding: 0;
+        }
+    }
+}
+
+#about-box {
+    position: relative;
+    align-self: flex-end;
+
+    .text {
+        background-color: $light-pink;
+    }
+    
+}
+
+#events {
+
+    .text {
+        background-color: $marigold;
+    }
+}
+
+.text {
+    
+    @include not-phones {
+        @include translate(-25%, 0);
+    }
+    padding: 5%;
+
+}
+
+.arrow {
+
+    display: inline-flex;
+    justify-content: center;
+    align-items: center;
+
+    border: solid 4px;
+    width: 100px;
+    height: 100px;
+    
+    
+    @include not-phones {
+        border-left: none;
+        width: 200px;
+        height: 200px;
+
+        @include translate(-1.5rem, 0);
+    }
+
+    svg {
+        width: 50%;
+    }
+    
+    &.pink {
+        border-color: $light-pink;
+    }
+    &.marigold {
+        border-color: $marigold;
+    }
+}
+
+// MC Email form
+#newsletter {
+
+    input[type=email] {
+        // width: 100%;
+        font-family: 'SpaceGrotesk-SemiBold';
+        @include pxtoem(24, 48);
+        color: white;
+        border: none;
+        
+        background-color: $grape;
+        
+        padding-top: 5%;
+        padding-bottom: 5%;
+        padding-left: 5%;
+
+        @include placeholder {
+            font-family: 'SpaceGrotesk-SemiBold';
+            color: rgba(255, 255, 255, .5);
+        }
+    }
+
+    input[type=submit] {
+        @include pxtoem(24, 48);
+        background: none;
+
+        color: rgba(64, 43, 89, .5);
+        border: solid 4px rgba(64, 43, 89, .5);
+
+        padding: 5%;
+        width: 100%;
+
+    }
+
+}

@@ -17,12 +17,11 @@ const sdk = eventbrite({
     token: process.env.EVENTBRITE_TOKEN
 });
 
-
 /*
  * Get data
  */
 exports.get = function (req, res) {
-    // https://www.eventbriteapi.com/v3/organizers/11331505152/events/?token=NWTWHFDRUG7FOHJBKXSQ
+    
     sdk.request('/organizers/11331505152/events/?expand=venue').then(data => {
         let filtered = [];
 
@@ -43,4 +42,5 @@ exports.get = function (req, res) {
     }).catch((err) => {
         console.error(err);
     });
+
 }

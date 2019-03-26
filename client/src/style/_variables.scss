@@ -2,7 +2,40 @@
 $cloudinary-account: 'engagement-lab-home';
 $cdn-product: 'beta-blocks';
 
-// @import url('https://fonts.googleapis.com/css?family=Overpass:400,600,900');
+@font-face {
+    font-family: 'VG5000';
+    src: url('https://res.cloudinary.com/engagement-lab-home/raw/upload/beta-blocks/fonts/VG5000-Regular.otf') format('opentype');
+}
+@font-face {
+    font-family: 'SpaceGrotesk';
+    src: url('https://res.cloudinary.com/engagement-lab-home/raw/upload/beta-blocks/fonts/SpaceGrotesk-Regular.otf') format('opentype');
+}
+@font-face {
+    font-family: 'SpaceGrotesk-SemiBold';
+    src: url('https://res.cloudinary.com/engagement-lab-home/raw/upload/beta-blocks/fonts/SpaceGrotesk-SemiBold.otf') format('opentype');
+}
+
+
+// FONT CONFIG
+$base-font-size: 14;
+$base-font-size-mobile: 12;
+
+@mixin pxtoem($mobile, $desktop: $base-font-size) {
+    font-size: ($desktop / $base-font-size) + em;
+    @include mq($until: tabletPortrait) {
+        font-size: ($mobile / $base-font-size-mobile) + em;
+    }
+}
+
+/* Color palette */
+
+$grape: #402b59;
+$grape-purple: #7b223b;
+$rouge: #b5191d;
+$rusty-orange: #d96b14;
+$marigold: #fcbd0b;
+$wheat: #feca7c;
+$light-pink: #ffd7ed;
 
 $mq-breakpoints: (
     mobile:  320px,

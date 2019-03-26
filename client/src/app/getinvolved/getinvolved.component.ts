@@ -29,7 +29,9 @@ export class GetinvolvedComponent implements OnInit {
   }
 
   public clickEvent(e: any) {
+
     this.mapBox.move(e.lat, e.lng, e.id);
+    
   }
 
 }

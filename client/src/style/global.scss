@@ -6,6 +6,54 @@ $tablet: 768px;
 
 @import '_variables';
 
+body {
+  font-family: 'VG5000';
+    font-size: 14px;
+    color: black;
+  
+    @include mobile-only {
+        font-size: 12px;
+    }
+}
+
+// Global styles
+h2 {
+
+  font-family: 'SpaceGrotesk';
+  @include pxtoem(20, 30);
+  font-weight: 600;
+  line-height: 1.42;
+  letter-spacing: 1px;
+  
+  text-transform: uppercase;
+  text-align: center;
+
+  &.lower {
+    @include pxtoem(18, 24);
+    text-transform: capitalize;
+  }
+}
+
+h3 {
+
+  font-family: 'SpaceGrotesk';
+  @include pxtoem(18, 30);
+  font-weight: bold;
+  line-height: 1.4;
+  letter-spacing: 1px;
+
+  b {
+    letter-spacing: 3px;
+  }
+
+}
+
+// Fonts
+.space-grotesk {
+  font-family: 'SpaceGrotesk';
+}
+
+// Mapbox
 .marker {
     display: block;
     background-color: red;

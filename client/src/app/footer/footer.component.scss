@@ -1,0 +1,15 @@
+@import '~src/style/_variables';
+
+a.link {
+
+    display: block;
+    color: black;
+    text-decoration: none;
+
+    font-family: 'VG5000';
+    @include pxtoem(24, 48);
+
+    line-height: 1;
+    letter-spacing: 2.3px;
+  
+}

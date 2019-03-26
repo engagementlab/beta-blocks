@@ -12,22 +12,36 @@ import { GetinvolvedComponent } from './getinvolved/getinvolved.component';
 import { ButtonComponent } from './utils/app-button/button.component';
 import { DeviceactionPipe } from './utils/deviceaction.pipe';
 import { DataService } from './utils/data.service';
+import { FooterComponent } from './footer/footer.component';
+import { CdnImageComponent } from './utils/cdn-image/cdn-image.component';
+
+// NPM
+import { Cloudinary as CloudinaryCore } from 'cloudinary-core';
+import { CloudinaryConfiguration, CloudinaryModule } from '@cloudinary/angular-5.x';
+import cloudinaryConfiguration from './cdn.config';
+
+export const cloudinary = {
+  Cloudinary: CloudinaryCore
+};
+export const config: CloudinaryConfiguration = cloudinaryConfiguration;
 
 @NgModule({
-  declarations: [
-    DeviceactionPipe,
-    
+  declarations: [    
     AppComponent,
+    CdnImageComponent,
+    DeviceactionPipe,
     MapBoxComponent,
     ToolComponent,
     HomeComponent,
     NavComponent,
     GetinvolvedComponent,
-    ButtonComponent
+    ButtonComponent,
+    FooterComponent
   ],
   imports: [
     AppRoutingModule,
     BrowserModule,
+    CloudinaryModule.forRoot(cloudinary, config),
     HttpClientModule
   ],
   providers: [
