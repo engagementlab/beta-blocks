@@ -14,6 +14,16 @@ $cdn-product: 'beta-blocks';
     font-family: 'SpaceGrotesk-SemiBold';
     src: url('https://res.cloudinary.com/engagement-lab-home/raw/upload/beta-blocks/fonts/SpaceGrotesk-SemiBold.otf') format('opentype');
 }
+@font-face {
+    font-family: 'SpaceGrotesk-Bold';
+    src: url('https://res.cloudinary.com/engagement-lab-home/raw/upload/beta-blocks/fonts/SpaceGrotesk-Bold.otf') format('opentype');
+}
+@font-face {
+    font-family: 'Lunchtype';
+    src: url('https://res.cloudinary.com/engagement-lab-home/raw/upload/beta-blocks/fonts/lunchtype24-medium-expanded-webfont.woff2') format('woff2'), /* Super modern browsers */
+         url('https://res.cloudinary.com/engagement-lab-home/raw/upload/beta-blocks/fonts/lunchtype24-medium-expanded-webfont.woff') format('woff'), /* Modern browsers */
+         url('https://res.cloudinary.com/engagement-lab-home/raw/upload/beta-blocks/fonts/Lunchtype24-medium-expanded-webfont.ttf')  format('truetype'); /* Safari, Android, iOS */
+  }
 
 
 // FONT CONFIG

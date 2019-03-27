@@ -19,9 +19,8 @@ body {
 // Global styles
 h2 {
 
-  font-family: 'SpaceGrotesk';
+  font-family: 'SpaceGrotesk-Bold';
   @include pxtoem(20, 30);
-  font-weight: 600;
   line-height: 1.42;
   letter-spacing: 1px;
   
@@ -29,6 +28,10 @@ h2 {
   text-align: center;
 
   &.lower {
+    @include pxtoem(18, 24);
+    text-transform: none;
+  }
+  &.cap {
     @include pxtoem(18, 24);
     text-transform: capitalize;
   }
@@ -46,6 +49,42 @@ h3 {
     letter-spacing: 3px;
   }
 
+}
+
+.center-all {
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+}
+
+.btn {
+
+  
+	&::before {  
+    
+    content: "";
+    position: absolute;
+    z-index: -1;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    // background: $pine;
+
+    transform-origin: center left;
+
+    @include transform(scaleX(0));
+    @include transition(transform, .3s, ease-out);
+
+  }
+  
+  &:hover {
+    &::before {
+      @include transform(scaleX(1));
+    }
+  }
 }
 
 // Fonts

@@ -12,4 +12,10 @@ export class NavComponent implements OnInit {
   ngOnInit() {
   }
 
+  openCloseNav() {
+
+    document.getElementById('menu-btn').classList.toggle('open');
+
+  }
+
 }

@@ -1,5 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 
+import * as ismobile from 'ismobilejs';
+
 @Component({
   selector: 'app-home',
   templateUrl: './home.component.html',
@@ -7,7 +9,13 @@ import { Component, OnInit } from '@angular/core';
 })
 export class HomeComponent implements OnInit {
 
-  constructor() { }
+  public isPhone: boolean;
+
+  constructor() {
+    
+    this.isPhone = ismobile.phone;
+
+  }
 
   ngOnInit() {
   }

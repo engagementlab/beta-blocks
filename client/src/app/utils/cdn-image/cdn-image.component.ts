@@ -1,6 +1,8 @@
 import { Component, OnInit, Input } from '@angular/core';
 import { DomSanitizer, SafeStyle } from '@angular/platform-browser';
 
+import * as ismobile from 'ismobilejs';
+
 @Component({
   selector: 'cdn-image',
   templateUrl: './cdn-image.component.html',
@@ -15,7 +17,8 @@ export class CdnImageComponent implements OnInit {
   @Input() crop: string = 'scale';
   @Input() gravity: string = 'auto:none';
   @Input() height: number;
-	@Input() width: string;
+	@Input() width: string = 'auto';
+	@Input() phoneWidth: string;
   @Input() quality: number;
 
   @Input() responsive: boolean = true;
@@ -25,15 +28,22 @@ export class CdnImageComponent implements OnInit {
   public widthCss: SafeStyle;
   public widthAuto: SafeStyle;
   public imgId: string;
+  public isPhone: boolean;
 
   constructor(private _sanitizer: DomSanitizer) {
+
+    this.isPhone = ismobile.phone;
+
   }
   
   ngOnInit() {
 
     this.imgId = (this.cloudinaryPrefix ? this.cloudinaryPrefix : 'beta-blocks/') + this.cloudinaryId;
+    let useMobileWidth = (this.isPhone && this.phoneWidth);
 
-    if(this.width)
+    if(useMobileWidth)
+      this.widthCss = this._sanitizer.bypassSecurityTrustStyle('width:' + this.phoneWidth + 'px; max-width:' + this.phoneWidth+'px');
+    else if(this.width)
       this.widthCss = this._sanitizer.bypassSecurityTrustStyle('width:' + this.width + 'px; max-width:' + this.width+'px');
 
   }

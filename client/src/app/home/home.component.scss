@@ -1,5 +1,7 @@
 @import '~src/style/_variables';
 
+h4 {}
+
 .bleed {
 
     .right {
@@ -17,36 +19,83 @@
             margin-right: -8px;
             padding: 0;
         }
+
         .column {
             padding: 0;
         }
     }
 }
 
+#tagline {
+    @include pxtoem(24, 48);
+    margin-top: -8%;
+
+    @include phones {
+        margin-top: -8%;
+    }
+}
+
+#about {
+
+    color: black;
+    text-decoration: none;
+
+    &:hover {
+        .btn {
+            &::before {
+                @include transform(scaleX(1));
+            }
+        }
+    }
+}
+
 #about-box {
     position: relative;
-    align-self: flex-end;
+    align-self: center;
 
     .text {
         background-color: $light-pink;
+        @include pxtoem(18, 24);
+
+        @include not-phones {
+            @include translate(-25%, 0);
+        }
+
+        padding: 5%;
+
     }
-    
+
 }
 
 #events {
 
     .text {
+        position: relative;
+        z-index: 2;
         background-color: $marigold;
-    }
-}
 
-.text {
-    
-    @include not-phones {
-        @include translate(-25%, 0);
-    }
-    padding: 5%;
+        @include not-phones {
+            @include translate(-4%, 0);
+        }
 
+        padding: 5%;
+    }
+
+    .left {
+        display: flex;
+    }
+
+    #photo {
+        margin-top: -22%;
+
+        @include tablet-portrait {
+            margin-top: -24%;
+        }
+
+        @include phones {
+            margin-top: 0;
+        }
+    }
 }
 
 .arrow {
@@ -58,8 +107,8 @@
     border: solid 4px;
     width: 100px;
     height: 100px;
-    
-    
+
+
     @include not-phones {
         border-left: none;
         width: 200px;
@@ -71,12 +120,120 @@
     svg {
         width: 50%;
     }
-    
+
     &.pink {
         border-color: $light-pink;
+
+        &::before {
+            background-color: $light-pink;
+        }
     }
+
     &.marigold {
         border-color: $marigold;
+    }
+}
+
+#exhibit {
+
+    h2 {
+        text-align: left;
+    }
+
+    a.view {
+        font-family: 'Lunchtype';
+        @include pxtoem(14, 18);
+
+        width: 175px;
+        height: 50px;
+        border-radius: 50px;
+
+        text-align: center;
+
+        color: white;
+        background-color: $rouge;
+    }
+
+    .location {
+        text-align: left;
+
+        svg text {
+            @include pxtoem(48, 72);
+            fill: white;
+            stroke-width: 2px;
+            paint-order: stroke;
+            stroke: $rouge;
+        }
+    }
+
+    #map {
+        position: relative;
+        z-index: 4;
+    }
+
+    #circle-purple {
+        position: absolute;
+        @include translate(5%, 5%);
+    }
+
+    #circle-red,
+    #circle-yellow {
+        position: relative;
+        top: -30%;
+        left: 40%;
+        z-index: 5;
+    }
+
+    #circle-yellow {
+        @include phones {
+            max-width: 57px;
+        }
+    }
+
+    #circle-red {
+        // top: -30%;
+        left: 50%;
+
+        @include phones {
+            max-width: 39px;
+        }
+    }
+
+    #squiggle {
+        position: relative;
+        z-index: 5;
+        top: -30%;
+
+        @include phones {
+            max-width: 86px;
+        }
+    }
+
+}
+
+#social {
+    a {
+        color: black;
+        text-decoration: none;
+
+        h2 {
+            padding-bottom: 5%;
+            text-align: left;
+            border-bottom: solid 2px black;
+        }
+
+        &:hover {
+            h2 {
+                border-bottom-width: 4px;
+            }
+        }
+    }
+
+    #logos {
+        display: flex;
+        flex-direction: row;
+        justify-content: space-evenly;
+        align-items: center;
     }
 }
 
@@ -84,14 +241,15 @@
 #newsletter {
 
     input[type=email] {
-        // width: 100%;
         font-family: 'SpaceGrotesk-SemiBold';
         @include pxtoem(24, 48);
         color: white;
         border: none;
-        
+
         background-color: $grape;
-        
+
+        flex: none;
+        width: 60%;
         padding-top: 5%;
         padding-bottom: 5%;
         padding-left: 5%;
@@ -112,6 +270,19 @@
         padding: 5%;
         width: 100%;
 
+    }
+
+    @include not-phones {
+        .mc-field-group {
+            display: flex;
+        }
+
+    }
+
+    @include phones {
+        input[type=email] {
+            width: 95%;
+        }
     }
 
 }

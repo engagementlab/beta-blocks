@@ -1,12 +1,15 @@
 <cdn-image cloudinaryId="img/home/above-fold" width="1440" [responsive]="true" autoFormat="true" alt="Above-fold art">
 </cdn-image>
-<p id="tagline">A block-level experimentation zone that encourages communities to invent, adopt, and adapt technologies
-  to improve their lives.</p>
+
+<div id="tagline" class="column is-11-mobile is-10-tablet">
+  <p>A block-level exploration zone where communities invent, adopt, and adapt technologies to improve their lives.</p>
+</div>
 
 <h2>About</h2>
 
 <!-- ABOUT -->
-<div id="about" class="bleed columns column is-full">
+<a id="about" routerLink="/about">
+<div class="bleed columns column is-full">
 
   <div class="column is-half">
     <cdn-image cloudinaryId="img/home/about" width="700" [responsive]="true" autoFormat="true" alt="'About' image">
@@ -16,16 +19,12 @@
 
     <div id="about-box" class="space-grotesk">
       <div class="text">
-        <p>Just think about these things in your mind and drop em' on canvas. Get tough with it, get strong. A big strong
-        tree needs big strong roots.</p>
-      This is your world. Talent is a pursued interest. That is to say, anything you practice you can do. All kinds of
-      happy little splashes. We're not trying to teach you a thing to copy. We're just here to teach you a technique,
-      then let you loose into the world. If these lines aren't straight, your water's going to run right out of your
-      painting and get your floor wet. With practice comes confidence. Put your feelings into it, your heart, it's your
-      world. In this world, everything can be happy.
+        <p>Just think about these things in your mind and drop em' on canvas. Get tough with it, get strong. A big
+          strong
+          tree needs big strong roots.</p>
       </div>
 
-      <div class="arrow pink">
+      <div class="arrow pink btn">
         <svg width="110" height="110" fill="none" viewBox="0 0 110 110">
           <path stroke="#FFD7ED" stroke-width="4" d="M53.084 1.416L106.17 54.5l-53.085 53.084M0 54.5h106.103" />
         </svg>
@@ -33,78 +32,181 @@
     </div>
   </div>
 </div>
+</a>
 
 <h2>Events</h2>
 
 <!-- EVENTS -->
-<div id="events" class="bleed columns column is-full">
+<div id="events" class="bleed columns column is-full is-multiline">
 
-  <div class="column is-half">
+  <div class="column is-8 left" *ngIf="!isPhone">
+
+    <div id="events-box" class="space-grotesk text">
+      <div class="columns">
+        <h3 class="column is-one-quarter">
+          <b>3/14</b>
+        </h3>
+        <div class="column">
+          <h3>With practice comes confidence.</h3>
+          I thought today we would make a happy little stream that's just running through the woods here. Poor old tree.
+        </div>
+      </div>
+      <div class="columns">
+        <h3 class="column is-one-quarter">
+          <b>4/11</b>
+        </h3>
+        <div class="column">
+          <h3>With practice comes confidence.</h3>
+          I thought today we would make a happy little stream that's just running through the woods here. Poor old tree.
+        </div>
+      </div>
+    </div>
+
+    <div class="arrow marigold">
+      <svg width="110" height="110" fill="none" viewBox="0 0 110 110">
+        <path stroke="#FCBD0B" stroke-width="4" d="M53.084 1.416L106.17 54.5l-53.085 53.084M0 54.5h106.103" />
+      </svg>
+    </div>
+  </div>
+  <div id="photo" class="column is-10-tablet is-offset-2-tablet">
     <cdn-image cloudinaryId="img/home/events" width="700" [responsive]="true" autoFormat="true" alt="'About' image">
     </cdn-image>
   </div>
-  <div class="column is-half right">
 
-    <div id="about-box" class="space-grotesk">
-      <div class="text">
-        <h3>
-          <b>3/14</b>
-           <br />
+  <div class="column is-full-mobile" *ngIf="isPhone">
+
+    <div id="events-box" class="space-grotesk text">
+      <h3 class="column is-one-quarter">
+        <b>3/14</b><br />
+        With practice comes confidence.
+      </h3>
+        I thought today we would make a happy little stream that's just running through the woods here. Poor old tree.
+        <h3 class="column is-one-quarter">
+          <b>4/11</b><br />
           With practice comes confidence.
         </h3>
-        I thought today we would make a happy little stream that's just running through the woods here. Poor old tree.
-      </div>
-
-      <div class="arrow marigold">
-        <svg width="110" height="110" fill="none" viewBox="0 0 110 110">
-          <path stroke="#FCBD0B" stroke-width="4" d="M53.084 1.416L106.17 54.5l-53.085 53.084M0 54.5h106.103" />
-        </svg>
-      </div>
+          I thought today we would make a happy little stream that's just running through the woods here. Poor old tree.
     </div>
+
+    <div class="arrow marigold">
+      <svg width="110" height="110" fill="none" viewBox="0 0 110 110">
+        <path stroke="#FCBD0B" stroke-width="4" d="M53.084 1.416L106.17 54.5l-53.085 53.084M0 54.5h106.103" />
+      </svg>
+    </div>
+  </div>
+</div>
+
+<!-- LOCATION -->
+<h2>Exhibit Location</h2>
+<div id="exhibit" class="columns is-multiline is-mobile">
+  <!-- Tablet+ -->
+  <div class="column is-half location" *ngIf="!isPhone">
+
+    <h2 class="lower">The exhibit is now in . . .</h2>
+    <!-- <h4> -->
+    <svg width="500" height="80" fill="none" viewBox="0 0 500 80"><text x="0" y="98%">Chinatown</text></svg>
+    <!-- </h4> -->
+    <a class="view center-all">view more info</a>
+
+  </div>
+  <!-- Map -->
+  <div class="column is-11-mobile">
+    <svg id="circle-purple" width="116" height="116" fill="none" viewBox="0 0 116 116">
+      <path fill="#402B59" d="M58 116c32.032 0 58-25.968 58-58S90.032 0 58 0 0 25.968 0 58s25.968 58 58 58z" />
+    </svg>
+    <cdn-image id="map" cloudinaryId="img/home/boston-map" width="600" [responsive]="true" autoFormat="true" alt="Boston map">
+    </cdn-image>
+
+
+    <svg id="squiggle" width="168" height="88" fill="none" viewBox="0 0 168 88">
+      <path stroke="#FFD7ED" stroke-linecap="round" stroke-miterlimit="10" stroke-width="12"
+        d="M161.975 6.025c-14.895 8.755-21.843-3.001-36.737 5.753-14.895 8.755-8.003 20.35-22.897 29.104-14.895 8.755-21.843-3-36.737 5.754-14.895 8.754-8.002 20.35-22.897 29.104-14.895 8.754-21.787-2.841-36.682 5.913" />
+    </svg>
+    <svg id="circle-red" width="78" height="78" fill="none" viewBox="0 0 78 78">
+      <path fill="#B5191D" d="M39 78c21.54 0 39-17.46 39-39S60.54 0 39 0 0 17.46 0 39s17.46 39 39 39z" />
+    </svg>
+    <svg id="circle-yellow" width="127" height="128" fill="none" viewBox="0 0 127 128">
+      <path stroke="#FCBD0B" stroke-miterlimit="10" stroke-width="12"
+        d="M63.5 122c31.756 0 57.5-25.968 57.5-58S95.256 6 63.5 6 6 31.968 6 64s25.744 58 57.5 58z" />
+    </svg>
+
+
+  </div>
+  <!-- Phones -->
+  <div class="column is-full-mobile location" *ngIf="isPhone">
+
+    <h2 class="lower">The exhibit is now in . . .</h2>
+    <svg width="500" height="80" fill="none" viewBox="0 0 500 80"><text x="0" y="98%">Chinatown</text></svg>
+    <a class="view center-all">view more info</a>
+
   </div>
 </div>
 
 <!-- SIGNUP -->
 <h2>Stay In the Loop</h2>
-<h2 class="lower">Life is too short to be alone, too precious. Share it with a friend.
+<h2 class="cap">Life is too short to be alone, too precious. Share it with a friend.
 </h2>
 
 <!-- Begin MailChimp Signup Form -->
 <div id="newsletter">
-    <form
-        action="https://engagementgamelab.us6.list-manage.com/subscribe/post?u=8cb16e3042072f11cc0680d36&amp;id=e9f56f4f4d"
-        method="post" id="mc-embedded-subscribe-form" name="mc-embedded-subscribe-form" class="validate" target="_blank"
-        novalidate>
-        <div id="mc_embed_signup_scroll">
+  <form
+    action="https://engagementgamelab.us6.list-manage.com/subscribe/post?u=8cb16e3042072f11cc0680d36&amp;id=e9f56f4f4d"
+    method="post" id="mc-embedded-subscribe-form" name="mc-embedded-subscribe-form" class="validate" target="_blank"
+    novalidate>
+    <div id="mc_embed_signup_scroll">
 
-            <div class="mc-field-group">
-                <input type="email" placeholder="your email" name="EMAIL" class="required email" id="mce-EMAIL">
-                <input type="submit" value="Sign up" name="subscribe" id="mc-embedded-subscribe"
-                    class="button">
-            </div>
+      <div class="mc-field-group">
+        <input type="email" placeholder="your email" name="EMAIL" class="required email" id="mce-EMAIL">
+        <input type="submit" value="Sign up" name="subscribe" id="mc-embedded-subscribe" class="button">
+      </div>
 
-            <div id="mce-responses" class="clear">
-                <div class="response" id="mce-error-response" style="display:none"></div>
-                <div class="response" id="mce-success-response" style="display:none"></div>
-            </div>
-            <div style="position: absolute; left: -5000px;" aria-hidden="true"><input type="text"
-                    name="b_8cb16e3042072f11cc0680d36_e9f56f4f4d" tabindex="-1" value=""></div>
-        </div>
-    </form>
+      <div id="mce-responses" class="clear">
+        <div class="response" id="mce-error-response" style="display:none"></div>
+        <div class="response" id="mce-success-response" style="display:none"></div>
+      </div>
+      <div style="position: absolute; left: -5000px;" aria-hidden="true"><input type="text"
+          name="b_8cb16e3042072f11cc0680d36_e9f56f4f4d" tabindex="-1" value=""></div>
+    </div>
+  </form>
 </div>
 <script type='text/javascript' src='//s3.amazonaws.com/downloads.mailchimp.com/js/mc-validate.js'></script>
 <script type='text/javascript'>
-    (function ($) {
-        window.fnames = new Array();
-        window.ftypes = new Array();
-        fnames[0] = 'EMAIL';
-        ftypes[0] = 'email';
-        fnames[1] = 'FNAME';
-        ftypes[1] = 'text';
-        fnames[2] = 'LNAME';
-        ftypes[2] = 'text';
-        fnames[3] = 'MMERGE3';
-        ftypes[3] = 'text';
-    }(jQuery));
-    var $mcj = jQuery.noConflict(true);
+  (function ($) {
+    window.fnames = new Array();
+    window.ftypes = new Array();
+    fnames[0] = 'EMAIL';
+    ftypes[0] = 'email';
+    fnames[1] = 'FNAME';
+    ftypes[1] = 'text';
+    fnames[2] = 'LNAME';
+    ftypes[2] = 'text';
+    fnames[3] = 'MMERGE3';
+    ftypes[3] = 'text';
+  }(jQuery));
+  var $mcj = jQuery.noConflict(true);
 </script>
+
+<!-- SOCIAL -->
+<div class="columns is-mobile" id="social">
+  <div class="column">
+    <a href="">
+      <h2 class="cap">Visit the<br />Boston.gov<br />Beta Blocks site</h2>
+    </a>
+  </div>
+  <div class="column" id="logos">
+
+    <a href="">
+      <cdn-image cloudinaryPrefix="homepage-2.0/" cloudinaryId="logos/fb" width="28" phoneWidth="14" svg="true"
+        alt="Facebook logo"></cdn-image>
+    </a>
+    <a href="">
+      <cdn-image cloudinaryPrefix="homepage-2.0/" cloudinaryId="logos/ig" width="28" phoneWidth="30" svg="true"
+        alt="Instagram logo"></cdn-image>
+    </a>
+    <a href="">
+      <cdn-image cloudinaryPrefix="homepage-2.0/" cloudinaryId="logos/tw" width="28" phoneWidth="36" svg="true"
+        alt="Twitter logo"></cdn-image>
+    </a>
+
+  </div>
+</div>

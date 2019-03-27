@@ -1,19 +1,19 @@
 <nav class="columns is-mobile" id="nav">
 
-  <div class="column is-three-fifths-mobile is-three-quarters-tablet is-four-fifths-desktop">
+  <div class="column is-8-mobile is-three-quarters-tablet is-four-fifths-desktop">
       <a id="home" routerLink="/" (click)="logoClick()">
-        <cdn-image cloudinaryId="img/logo-sm" width="200" svg="true" alt="Beta Blocks logo"></cdn-image>
+        <cdn-image cloudinaryId="img/logo-sm" width="200" phoneWidth="150" svg="true" alt="Beta Blocks logo"></cdn-image>
 
       </a>
   </div>
 
   <div class="column">
       <a id="menu-btn" (click)="openCloseNav()" class="columns uppercase">
-          <div id="lines" class="column is-one-quarter">
+          <div id="lines">
               <span></span>
               <span></span>
           </div>
-          <div id="label" class="column">
+          <div id="label">
               <div class="open">Me<br />nu</div>
               <div class="close">Close</div>
           </div>
