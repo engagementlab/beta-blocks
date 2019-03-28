@@ -146,18 +146,10 @@
         text-align: left;
     }
 
-    a.view {
-        font-family: 'Lunchtype';
-        @include pxtoem(14, 18);
-
-        width: 175px;
-        height: 50px;
-        border-radius: 50px;
-
-        text-align: center;
-
-        color: white;
-        background-color: $rouge;
+    app-button {
+        ::ng-deep a {
+            margin-top: 11%;
+        }
     }
 
     .location {

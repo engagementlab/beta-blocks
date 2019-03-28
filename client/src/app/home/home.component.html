@@ -107,12 +107,12 @@
   <div class="column is-half location" *ngIf="!isPhone">
 
     <h2 class="lower">The exhibit is now in . . .</h2>
-    <!-- <h4> -->
     <svg width="500" height="80" fill="none" viewBox="0 0 500 80"><text x="0" y="98%">Chinatown</text></svg>
-    <!-- </h4> -->
-    <a class="view center-all">view more info</a>
+
+    <app-button route="/getinvolved" label="view more info"></app-button>
 
   </div>
+
   <!-- Map -->
   <div class="column is-11-mobile">
     <svg id="circle-purple" width="116" height="116" fill="none" viewBox="0 0 116 116">
@@ -121,7 +121,6 @@
     <cdn-image id="map" cloudinaryId="img/home/boston-map" width="600" [responsive]="true" autoFormat="true"
       alt="Boston map">
     </cdn-image>
-
 
     <svg id="squiggle" width="168" height="88" fill="none" viewBox="0 0 168 88">
       <path stroke="#FFD7ED" stroke-linecap="round" stroke-miterlimit="10" stroke-width="12"
@@ -135,14 +134,15 @@
         d="M63.5 122c31.756 0 57.5-25.968 57.5-58S95.256 6 63.5 6 6 31.968 6 64s25.744 58 57.5 58z" />
     </svg>
 
-
   </div>
+
   <!-- Phones -->
   <div class="column is-full-mobile location" *ngIf="isPhone">
 
     <h2 class="lower">The exhibit is now in . . .</h2>
     <svg width="500" height="80" fill="none" viewBox="0 0 500 80"><text x="0" y="98%">Chinatown</text></svg>
-    <a class="view center-all">view more info</a>
+
+    <app-button route="/getinvolved" label="view more info" class="center-all"></app-button>
 
   </div>
 </div>
