@@ -9,13 +9,13 @@
  * ==========
  */
 
-const redis = require('../../redis-client');
-const yj = require('yieldable-json'),
-_ = require('underscore');
+// const redis = require('../../redis-client');
+// const yj = require('yieldable-json'),
+// _ = require('underscore');
 
 var buildData = (options, res) => {
 
-    redis.getAsync('mapData').then((data) => {
+/*     redis.getAsync('mapData').then((data) => {
 
         yj.parseAsync(data, (err, parsed) => {
             res.status(200).json({
@@ -24,7 +24,7 @@ var buildData = (options, res) => {
             });
         });
 
-    });
+    }); */
 
 }
 
@@ -42,7 +42,7 @@ exports.get = function (req, res) {
 }
 exports.set = function (req, res) {
 
-    const request = require('request'),
+/*     const request = require('request'),
           dictionary = require('../../dictionary');
           
         //   console.log(dictionary['b01001008'])
@@ -73,9 +73,6 @@ exports.set = function (req, res) {
                     props.sidewalk = Math.round(props.sidewalks_area_score/props.sidewalks_area);
                     
                     _.each(censusKeys, (key) => {
-                        /* if(dictionary[key.replace('census_', '')])
-                            props[dictionary[key.replace('census_', '')]] = props[key] * (props._area/props.census_area);
-                        else */
                             props[key.replace('census_', '')] = props[key] * (props._area/props.census_area);
 
                         // props[key+'_norm'] = props[key] * (props._area/props.census_area);
@@ -89,14 +86,6 @@ exports.set = function (req, res) {
                     delete props.sidewalks_count;
                     // delete props.census_area;
                     // delete props._area;
-                    
-                    /* _.each(keys, (key) => {
-                        let value = feat.properties['census_'+key];
-                        if(value) {
-                            feat.properties[dictionary[key]] = value;
-                            delete feat.properties['census_'+key];
-                        }
-                    }); */
 
                 });
                 
@@ -107,6 +96,6 @@ exports.set = function (req, res) {
                 redis.set('mapData', JSON.stringify(parsed));
             });
 
-        });
+        }); */
 
 }
