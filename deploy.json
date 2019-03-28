@@ -1,0 +1,48 @@
+{
+  "apps" : [
+    {
+      "name": "beta-blocks-server",
+      "script": "app.js",      
+      "exec_interpreter": "/home/node/.nvm/versions/node/v10.15.3/bin/node",
+      "env_production": {
+        "NODE_ENV": "production"
+      },
+      "env_staging": {
+        "NODE_ENV": "staging"
+      }
+    },
+    {
+      "name": "beta-blocks-client",      
+      "exec_interpreter": "/home/node/.nvm/versions/node/v10.15.3/bin/node",
+      "script": "/home/node/.nvm/versions/node/v10.15.3/bin/http-server",
+      "args": "/srv/beta-blocks-2.0/source/client/dist -p 8081"
+    }],
+  "deploy" : {
+
+    "staging" : {
+      "user": "node",
+      "host": "159.203.174.12",
+      "repo": "git@github.com:engagementlab/beta-blocks.git",
+      "ref": "origin/master",
+      "path": "/srv/beta-blocks",
+      "post-deploy" : "bash deploy.sh qa",
+      "env": {
+        "NODE_ENV": "staging"
+      }
+    },
+
+    "production" : {
+      "user": "node",
+      "host": "209.97.145.13",
+      "repo": "git@github.com:engagementlab/beta-blocks.git",
+      "ref": "origin/production",
+      "path": "/srv/beta-blocks",
+      "pre-deploy-local" : "echo 'Cloning and building.';",
+      "post-deploy" : "bash deploy.sh prod",
+      "env": {
+        "NODE_ENV": "production"
+      }
+    }
+
+  }
+}
