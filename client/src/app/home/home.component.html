@@ -9,96 +9,100 @@
 
 <!-- ABOUT -->
 <a id="about" routerLink="/about">
-<div class="bleed columns column is-full">
+  <div class="bleed columns column is-11-tablet is-full-desktop">
 
-  <div class="column is-half">
-    <cdn-image cloudinaryId="img/home/about" width="700" [responsive]="true" autoFormat="true" alt="'About' image">
-    </cdn-image>
-  </div>
-  <div class="column is-half right">
+    <div class="column is-half">
+      <cdn-image cloudinaryId="img/home/about" width="700" [responsive]="true" autoFormat="true" alt="'About' image">
+      </cdn-image>
+    </div>
+    <div class="column is-half right">
 
-    <div id="about-box" class="space-grotesk">
-      <div class="text">
-        <p>Just think about these things in your mind and drop em' on canvas. Get tough with it, get strong. A big
-          strong
-          tree needs big strong roots.</p>
-      </div>
+      <div id="about-box" class="space-grotesk">
+        <div class="text">
+          <p>Just think about these things in your mind and drop em' on canvas. Get tough with it, get strong. A big
+            strong
+            tree needs big strong roots.</p>
+        </div>
 
-      <div class="arrow pink btn">
-        <svg width="110" height="110" fill="none" viewBox="0 0 110 110">
-          <path stroke="#FFD7ED" stroke-width="4" d="M53.084 1.416L106.17 54.5l-53.085 53.084M0 54.5h106.103" />
-        </svg>
+        <div class="arrow pink btn">
+          <svg width="110" height="110" fill="none" viewBox="0 0 110 110">
+            <path stroke="#FFD7ED" stroke-width="4" d="M53.084 1.416L106.17 54.5l-53.085 53.084M0 54.5h106.103" />
+          </svg>
+        </div>
       </div>
     </div>
   </div>
-</div>
 </a>
 
 <h2>Events</h2>
 
 <!-- EVENTS -->
-<div id="events" class="bleed columns column is-full is-multiline">
+<a id="events" routerLink="/events">
+  <div class="bleed columns column is-11-tablet is-full-desktop is-multiline">
 
-  <div class="column is-8 left" *ngIf="!isPhone">
+    <div class="column is-12-tablet is-8-desktop left" *ngIf="!isPhone">
 
-    <div id="events-box" class="space-grotesk text">
-      <div class="columns">
-        <h3 class="column is-one-quarter">
-          <b>3/14</b>
-        </h3>
-        <div class="column">
-          <h3>With practice comes confidence.</h3>
-          I thought today we would make a happy little stream that's just running through the woods here. Poor old tree.
+      <div id="events-box" class="space-grotesk text">
+        <div class="columns">
+          <h3 class="column is-one-quarter">
+            <b>3/14</b>
+          </h3>
+          <div class="column">
+            <h3>With practice comes confidence.</h3>
+            I thought today we would make a happy little stream that's just running through the woods here. Poor old
+            tree.
+          </div>
+        </div>
+        <div class="columns">
+          <h3 class="column is-one-quarter">
+            <b>4/11</b>
+          </h3>
+          <div class="column">
+            <h3>With practice comes confidence.</h3>
+            I thought today we would make a happy little stream that's just running through the woods here. Poor old
+            tree.
+          </div>
         </div>
       </div>
-      <div class="columns">
-        <h3 class="column is-one-quarter">
-          <b>4/11</b>
-        </h3>
-        <div class="column">
-          <h3>With practice comes confidence.</h3>
-          I thought today we would make a happy little stream that's just running through the woods here. Poor old tree.
-        </div>
+
+      <div class="arrow marigold btn">
+        <svg width="110" height="110" fill="none" viewBox="0 0 110 110">
+          <path stroke="#FCBD0B" stroke-width="4" d="M53.084 1.416L106.17 54.5l-53.085 53.084M0 54.5h106.103" />
+        </svg>
       </div>
     </div>
-
-    <div class="arrow marigold">
-      <svg width="110" height="110" fill="none" viewBox="0 0 110 110">
-        <path stroke="#FCBD0B" stroke-width="4" d="M53.084 1.416L106.17 54.5l-53.085 53.084M0 54.5h106.103" />
-      </svg>
+    <div id="photo" class="column is-10-tablet is-offset-2-tablet">
+      <cdn-image cloudinaryId="img/home/events" width="700" [responsive]="true" autoFormat="true" alt="'About' image">
+      </cdn-image>
     </div>
-  </div>
-  <div id="photo" class="column is-10-tablet is-offset-2-tablet">
-    <cdn-image cloudinaryId="img/home/events" width="700" [responsive]="true" autoFormat="true" alt="'About' image">
-    </cdn-image>
-  </div>
 
-  <div class="column is-full-mobile" *ngIf="isPhone">
+    <div class="column is-full-mobile" *ngIf="isPhone">
 
-    <div id="events-box" class="space-grotesk text">
-      <h3 class="column is-one-quarter">
-        <b>3/14</b><br />
-        With practice comes confidence.
-      </h3>
+      <div id="events-box" class="space-grotesk text">
+        <h3 class="column is-one-quarter">
+          <b>3/14</b><br />
+          With practice comes confidence.
+        </h3>
         I thought today we would make a happy little stream that's just running through the woods here. Poor old tree.
         <h3 class="column is-one-quarter">
           <b>4/11</b><br />
           With practice comes confidence.
         </h3>
-          I thought today we would make a happy little stream that's just running through the woods here. Poor old tree.
-    </div>
+        I thought today we would make a happy little stream that's just running through the woods here. Poor old tree.
+      </div>
 
-    <div class="arrow marigold">
-      <svg width="110" height="110" fill="none" viewBox="0 0 110 110">
-        <path stroke="#FCBD0B" stroke-width="4" d="M53.084 1.416L106.17 54.5l-53.085 53.084M0 54.5h106.103" />
-      </svg>
+      <div class="arrow marigold">
+        <svg width="110" height="110" fill="none" viewBox="0 0 110 110">
+          <path stroke="#FCBD0B" stroke-width="4" d="M53.084 1.416L106.17 54.5l-53.085 53.084M0 54.5h106.103" />
+        </svg>
+      </div>
     </div>
   </div>
-</div>
+</a>
 
 <!-- LOCATION -->
 <h2>Exhibit Location</h2>
-<div id="exhibit" class="columns is-multiline is-mobile">
+<div id="exhibit" class="columns column is-full-mobile is-multiline is-mobile no-margin">
   <!-- Tablet+ -->
   <div class="column is-half location" *ngIf="!isPhone">
 
@@ -114,7 +118,8 @@
     <svg id="circle-purple" width="116" height="116" fill="none" viewBox="0 0 116 116">
       <path fill="#402B59" d="M58 116c32.032 0 58-25.968 58-58S90.032 0 58 0 0 25.968 0 58s25.968 58 58 58z" />
     </svg>
-    <cdn-image id="map" cloudinaryId="img/home/boston-map" width="600" [responsive]="true" autoFormat="true" alt="Boston map">
+    <cdn-image id="map" cloudinaryId="img/home/boston-map" width="600" [responsive]="true" autoFormat="true"
+      alt="Boston map">
     </cdn-image>
 
 
@@ -187,10 +192,12 @@
 </script>
 
 <!-- SOCIAL -->
-<div class="columns is-mobile" id="social">
+<div
+  class="columns column is-full-mobile is-8-tablet is-offset-4-tablet is-half-desktop is-offset-half-desktop is-mobile"
+  id="social">
   <div class="column">
-    <a href="">
-      <h2 class="cap">Visit the<br />Boston.gov<br />Beta Blocks site</h2>
+    <a class="link" href="">
+      <h2 class="cap">Visit the Boston.gov<br />Beta Blocks site</h2>
     </a>
   </div>
   <div class="column" id="logos">
@@ -200,11 +207,11 @@
         alt="Facebook logo"></cdn-image>
     </a>
     <a href="">
-      <cdn-image cloudinaryPrefix="homepage-2.0/" cloudinaryId="logos/ig" width="28" phoneWidth="30" svg="true"
+      <cdn-image cloudinaryPrefix="homepage-2.0/" cloudinaryId="logos/ig" width="60" phoneWidth="30" svg="true"
         alt="Instagram logo"></cdn-image>
     </a>
     <a href="">
-      <cdn-image cloudinaryPrefix="homepage-2.0/" cloudinaryId="logos/tw" width="28" phoneWidth="36" svg="true"
+      <cdn-image cloudinaryPrefix="homepage-2.0/" cloudinaryId="logos/tw" width="73" phoneWidth="36" svg="true"
         alt="Twitter logo"></cdn-image>
     </a>
 
