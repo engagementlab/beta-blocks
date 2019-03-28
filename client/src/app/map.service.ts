@@ -13,7 +13,7 @@ export class MapService {
 
   constructor(private http: HttpClient) {
     
-    Object.getOwnPropertyDescriptor(mapboxgl, "accessToken").set(environment.mapbox.accessToken);
+    Object.getOwnPropertyDescriptor(mapboxgl, "accessToken").set(environment['MAPBOX']);
 
   }
 
