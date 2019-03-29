@@ -21,3 +21,54 @@
   </div>
 
 </nav>
+
+<section id="menu">
+
+    <div id="links">
+            <a id="home" routerLink="/" (click)="logoClick()">
+              <cdn-image cloudinaryId="img/logo-sm" width="200" phoneWidth="150" svg="true" alt="Beta Blocks logo"></cdn-image>
+            </a>
+
+            <!-- <a class="link" routerLink="/about">About</a> -->
+            <a *ngIf="itemActive('about')" class="active link" (click)="openCloseNav()">About</a>
+            <a *ngIf="!itemActive('about')" class="link" routerLink="/about">About</a>
+
+            <a *ngIf="itemActive('getinvolved')" class="active link" (click)="openCloseNav()">Get Involved</a>
+            <a *ngIf="!itemActive('getinvolved')" class="link" routerLink="/getinvolved">Get Involved</a>
+
+            <a *ngIf="itemActive('exhibit')" class="active link" (click)="openCloseNav()">Get to Know Exhibit</a>
+            <a *ngIf="!itemActive('exhibit')" class="link" routerLink="/exhibit">Get to Know Exhibit</a>
+
+            <a *ngIf="itemActive('tech')" class="active link" (click)="openCloseNav()">Tech Explorers</a>
+            <a *ngIf="!itemActive('tech')" class="link" routerLink="/tech">Tech Explorers</a>
+             
+            <div id="info">
+                    <div>
+                        engagementlab@emerson.edu<br />
+                        120 Boylston St. Boston, MA 02116
+                    </div>
+                    <div id="social">
+                        <a href="">
+                            <cdn-image cloudinaryPrefix="homepage-2.0/" cloudinaryId="logos/fb" width="28" phoneWidth="14" svg="true"
+                            alt="Facebook logo"></cdn-image>
+                        </a>
+                        <a href="">
+                            <cdn-image cloudinaryPrefix="homepage-2.0/" cloudinaryId="logos/ig" width="60" phoneWidth="30" svg="true"
+                            alt="Instagram logo"></cdn-image>
+                        </a>
+                        <a href="">
+                            <cdn-image cloudinaryPrefix="homepage-2.0/" cloudinaryId="logos/tw" width="73" phoneWidth="36" svg="true"
+                            alt="Twitter logo"></cdn-image>
+                        </a>
+                    </div>
+            </div>
+    </div>
+
+    <div id="close">
+        <svg xmlns="http://www.w3.org/2000/svg" width="204" height="204" fill="none" viewBox="0 0 204 204" (click)="openCloseNav()">
+            <path stroke="#fff" stroke-width="4" d="M2 2h200v200H2zM50.414 47.586l106 106M156.598 50.414l-106 106"/>
+        </svg>
+            
+    </div>
+        
+</section>

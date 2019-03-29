@@ -1,5 +1,23 @@
 @import "~src/style/_variables";
 
+@keyframes show {
+    0%     {background-color: rgba(64, 43, 89, 0); display: flex;}
+    100%  {background-color: rgba(64, 43, 89, 0.9);}
+}
+@keyframes hide {
+    0%     {background-color: rgba(64, 43, 89, 0.9);}
+    100%  {background-color: rgba(64, 43, 89, 0); display: none;}
+}
+@keyframes show-links {
+    0%     {opacity: 0;}
+    100%  {opacity: 1;}
+}
+@keyframes show-close {
+    0%     {opacity: 0;}
+    100%  {opacity: 1;}
+}
+
+
 nav {
     position: relative;
     margin-bottom: 3% !important;
@@ -73,6 +91,148 @@ nav {
                     @include transform(rotate(-155deg) translate(6px, 10px));
                 }
             }
+        }
+
+    }
+}
+
+#menu {
+    display: none;
+
+    position: fixed;
+    z-index: 4;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    flex-direction: row;
+    animation: hide 1s forwards;
+
+    &.show {
+        display: flex;
+        animation: show 1s forwards;
+
+        #links {
+            animation: show-links .7s forwards .7s;
+        }
+        #close {
+            animation: show-close .7s forwards .8s;
+        }
+    }
+    &.hide {
+
+        display: flex;
+        animation: hide 1s forwards;
+        // #links {z
+        //     animation: show-links .7s forwards .7s;
+        // }
+        // #close {
+        //     animation: show-close .7s forwards .8s;
+        // }
+    }
+
+    #links {
+
+        opacity: 0;
+        top: 0;
+        left: 0;
+        height: 100%;
+        background-color: $light-pink;
+        flex: none;
+
+        padding-left: 5%;
+        padding-top: 3%;
+
+        
+        @include phones {
+            width: 70%;
+        }
+        @include not-phones {
+            width: 50%;
+        }
+        
+        a.link {
+            
+            display: block;
+            color: black;
+            text-decoration: none;
+            
+            font-family: 'VG5000';
+            @include pxtoem(24, 48);
+            
+            line-height: 1;
+            letter-spacing: 2.3px;
+            
+            padding-top: 6%;
+            padding-bottom: 6%;
+            
+            border: none;
+            
+            @include tablet-portrait {
+                @include pxtoem(28, 28);
+            }
+            
+            &.active {
+                color: rgba(0, 0, 0, 0.5);
+            }
+        
+        }
+
+        #info {
+            position: absolute;
+            display: flex;
+            flex-direction: column;
+
+            color: black;
+            background-color: $marigold;
+
+            bottom: 0;
+            left: 0;
+
+            padding-left: 5%;
+            padding-top: 3%;
+
+            font-family: 'Lunchtype';
+            font-weight: 500;
+            font-stretch: expanded;
+            line-height: 1.17;
+            letter-spacing: 1px;
+            
+            @include pxtoem(14, 18);
+            
+            @include phones {
+                width: 70%;
+            }
+            @include not-phones {
+                width: 50%;
+                flex-direction: row;
+
+                #social {
+                    flex-grow: 1;
+                }
+            }
+
+            #social {
+                display: flex;
+                flex-direction: row;
+                justify-content: space-evenly;
+
+            }
+        }
+    }
+
+    #close {
+
+        opacity: 0;
+
+        display: flex;
+        flex-grow: 1;
+
+        justify-content: center;
+        align-items: center;
+
+        svg {
+            width: 80%;
         }
 
     }
