@@ -253,11 +253,18 @@
         background-color: $grape;
 
         flex: none;
-        width: 60%;
+        
         padding-top: 5%;
         padding-bottom: 5%;
         padding-left: 5%;
+        
+        @include mq($until: 759px) {
+            width: 95%;
 
+        }
+        @include mq($from: 760px) {
+            width: 60%;
+        }
         @include placeholder {
             font-family: 'SpaceGrotesk-SemiBold';
             color: rgba(255, 255, 255, .5);
@@ -281,12 +288,6 @@
             display: flex;
         }
 
-    }
-
-    @include phones {
-        input[type=email] {
-            width: 95%;
-        }
     }
 
 }

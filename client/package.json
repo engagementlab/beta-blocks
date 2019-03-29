@@ -8,6 +8,7 @@
     "api": "cd ../server; nodemon",
     "build": "ng build --configuration=production --prod",
     "build-qa": "ng build --configuration=qa --prod",
+    "build-ci": "ng build --configuration=ci --prod",
     "test": "ng test",
     "lint": "ng lint",
     "e2e": "ng e2e"
