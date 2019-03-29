@@ -1,8 +1,14 @@
-<a *ngIf="route !== undefined" id="{{id && id || '' }}" class="app-button btn center-all {{class}}" [class.odd]="odd" role="button"
-  routerLink="{{route}}" routerLinkActive="active" attr.aria-label="{{ariaLabel}}">{{label}}</a>
+<a *ngIf="route !== undefined" id="{{id && id || '' }}" class="app-button btn center-all {{class}}" [class.odd]="odd"
+  role="button" routerLink="{{route}}" routerLinkActive="active" attr.aria-label="{{ariaLabel}}">{{label}}</a>
 
-<a *ngIf="href !== undefined" id="{{id && id || '' }}" class="app-button btn {{class}}" role="button" href="{{href}}"
-  target="{{newWindow && '_blank' || '' }}" attr.aria-label="{{ariaLabel}}">{{label}}</a>
+<a *ngIf="href !== undefined" id="{{id && id || '' }}" class="app-button btn center-all {{class}}" role="button"
+href="{{href}}" target="{{newWindow && '_blank' || '' }}" attr.aria-label="{{ariaLabel}}">
+  <span [innerHtml]="label | linebreak"></span>
+
+  <svg width="42" height="42" fill="none" viewBox="0 0 42 42">
+    <path stroke="#fff" stroke-width="2" d="M20.283.717L40.566 21 20.283 41.283M0 20.751h40.541" />
+  </svg>
+</a>
 
 <a *ngIf="clickData !== undefined" id="{{id && id || '' }}" class="app-button btn {{class}}" role="button"
   attr.aria-label="{{ariaLabel}}" (click)="clickHandler(clickData)">{{label}}</a>

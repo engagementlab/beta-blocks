@@ -1,28 +1,81 @@
-<!-- <div class="columns">
+<section class="container desktop">
 
-  <div class="column is-half">
-
-    <h2>What Tech Explorers Do</h2>
-    Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt ut laoreet dolore
-    magna aliquam erat volutpat. Ut wisi enim ad
-
-    <h2>Tech Exploration Zones</h2>
-    [Map here]
-
-  </div>
-  <div class="column is-half">
-
-    <h2>Sign up for updates!</h2>
-    [Email field here]
-
-    <h2>Ready to get started? Visit our workshop page and register for Tech Explorer Workshop</h2>
-    [Link to workshop signups]
-
+  <div class="column is-11-mobile is-10-tablet">
+    <h4>Very easy to work these to death. Here's something that's fun. Maybe, just to play a little, we'll put a little
+      tree here.
+    </h4>
   </div>
 
-</div> -->
+  <!-- EXPLORER -->
+  <div id="explorer" class="no-margin columns is-mobile is-multiline is-11-mobile is-full-tablet">
 
-<h1>
+    <div class="column is-11-mobile is-half-tablet">
+      <cdn-image cloudinaryId="img/getinvolved/become" phoneWidth="300" svg="true"
+        alt="'Become a Tech Explorer' image"></cdn-image>
+    </div>
+    <div class="column is-11-mobile space-grotesk">
+      <p>We'll put all the little clouds in and let them dance around and have fun. You can spend all day playing with
+        mountains.</p>
+
+      <app-button route="/getinvolved" label="learn more" class="grape"></app-button>
+
+    </div>
+
+  </div>
+
+  <!-- EXHIBIT -->
+  <div id="exhibit" class="no-margin columns is-mobile is-11-mobile is-full-tablet">
+    
+    <div class="column is-11-mobile is-half-tablet space-grotesk">
+      <p>We'll put all the little clouds in and let them dance around and have fun. You can spend all day playing with
+        mountains.</p>
+
+      <app-button route="/exhibit" label="learn more" class="grape"></app-button>
+
+    </div>
+    <div class="column is-11-mobile">
+      <cdn-image cloudinaryId="img/getinvolved/visit" phoneWidth="300" svg="true"
+        alt="'Visit Exhibit' image"></cdn-image>
+    </div>
+
+  </div>
+
+  <!-- WORKSHOPS -->
+  <div id="workshops" class="no-margin column columns is-mobile is-multiline is-11-mobile is-11-tablet is-full-desktop">
+      <h2 class="column is-full">Attend Beta Blocks workshops</h2>
+
+    <!-- <div class="column columns is-11-mobile is-full-tablet"> -->
+    <div class="event column columns is-multiline is-full-mobile is-8-desktop">
+      <p class="column is-full">Absolutely No Pressure</p>
+      <div class="info no-pad column is-full-mobile is-full-tablet is-4-desktop">
+        <!-- <div class="event columns is-mobile is-multiline"> -->
+        <span class="date">03/29/2019</span>
+        <span class="time">2:00pm</span>
+        <span class="address">120 Boylston St.<br />
+          Boston, MA 02116</span>
+      </div>
+
+      <div class="description no-pad column is-full-mobile is-full-tablet is-6-desktop">
+
+        <span>
+          Think about a cloud. Just float around and be there. We tell people sometimes: we're like drug dealers, come
+          into town and get everybody absolutely addicted to painting. It doesn't take much to get you addicted. If I
+          paint something, I don't want to have to explain what it is. There's not a thing in the world wrong with
+          washing your brush.
+        </span>
+      </div>
+    </div>
+
+    <div class="no-pad button column">
+      <app-button href="/exhibit" label="sign up with\n eventbrite" class="full" [arrow]="true" *ngIf="!isPhone"></app-button>
+      <app-button href="/exhibit" label="sign up with eventbrite" class="full" [arrow]="true" *ngIf="isPhone"></app-button>
+    </div>
+  </div>
+
+
+</section>
+
+<!-- <h1>
   Workshops
 </h1>
 
@@ -39,10 +92,9 @@
     <div class="column is-5">
   
       <h2>Workshop Descriptions</h2>
-      <!-- [Email field here] -->
       <map-box #map mapType="events" [mapData]="events" [width]="646" [height]="736"></map-box>
   
     </div>
   
   </div>
-  
+   -->

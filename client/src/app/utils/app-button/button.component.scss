@@ -2,24 +2,65 @@
 
 .btn {
 
-    font-family: 'Lunchtype';
-    @include pxtoem(14, 18);
+  font-family: 'Lunchtype';
+  @include pxtoem(14, 18);
 
-    width: 175px;
-    height: 50px;
-    border-radius: 50px;
+  width: 175px;
+  height: 50px;
+  border-radius: 50px;
 
-    text-align: center;
-    text-decoration: none;
+  text-align: center;
+  text-decoration: none;
 
-    color: white;
-    background-color: $rouge;
+  color: white;
+  background-color: $rouge;
+
+  @include not-phones {
+
+    width: 280px;
+    height: 80px;
+
+  }
+
+  &.full {
+    @include pxtoem(18, 24);
+
+    @include desktop {
+
+      display: flex;
+      justify-content: space-evenly;
+
+      width: 370px;
+      height: 130px;
+      border-radius: 80px;
+      text-align: left;
+
+    }
+
+    @include phones {
+
+      width: 100%;
+      height: 50px;
+
+      svg {
+        @include scale(.5);
+      }
+
+    }
+  }
+
+
+  &.grape {
+    background-color: $grape;
+
 
     @include not-phones {
 
       width: 280px;
       height: 80px;
-      
+
     }
 
+
   }
+}

@@ -1,29 +1,5 @@
 @import '~src/style/_variables';
 
-.bleed {
-
-    .right {
-        display: flex;
-
-        @include phones {
-            padding-top: 0;
-            margin-top: -1.5rem;
-        }
-    }
-
-    @include phones {
-        &.columns {
-            margin-left: -8px;
-            margin-right: -8px;
-            padding: 0;
-        }
-
-        .column {
-            padding: 0;
-        }
-    }
-}
-
 #tagline {
     @include pxtoem(24, 48);
     margin-top: -8%;

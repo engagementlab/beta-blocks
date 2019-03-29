@@ -1,3 +1,99 @@
-h3 {
-    cursor: pointer;
+@import '~src/style/_variables';
+
+h4 {
+    @include pxtoem(24, 48);
+    line-height: 1;
+    letter-spacing: 2px;
+}
+
+p {
+    font-family: 'SpaceGrotesk';
+    @include pxtoem(18, 24);
+    font-weight: 600;
+    line-height: 1.17;
+    letter-spacing: 1px;
+}
+
+#explorer {
+    
+    ::ng-deep img {
+        width: 700px;
+        max-width: 100%;
+    }
+
+}
+
+#exhibit {
+
+    margin-top: 21%;
+    
+    @include phones {
+        flex-direction: column-reverse;
+    }
+
+}
+
+#workshops {
+
+    margin-top: 15%;
+
+    .button {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
+
+    .event {
+
+        font-family: 'Lunchtype';
+        @include pxtoem(14, 14);
+
+        font-stretch: expanded;
+        line-height: 1.29;
+        letter-spacing: 2px;
+
+        span {
+            color: $rouge;
+
+            display: block;
+            padding: 2%;
+
+            &.time,
+            &.address {
+                border-top: solid 2px $rouge;
+            }
+        }
+
+        .info {
+            display: flex;
+            flex-direction: column;
+            flex-grow: 1;
+
+            border: solid 2px $rouge;
+
+            @include phones {
+                padding-bottom: 0;
+            }
+
+            @include desktop {
+                padding: 0;
+            }
+        }
+
+        .description {
+            border-top: solid 2px $rouge;
+            border-right: solid 2px $rouge;
+            border-bottom: solid 2px $rouge;
+
+            @include not-desktop {
+                border-top: 0;
+                border-left: solid 2px $rouge;
+
+            }
+
+            @include desktop {
+                padding: 0;
+            }
+        }
+    }
 }

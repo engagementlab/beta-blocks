@@ -23,3 +23,9 @@ script:
    - cd client
    - npm install
    - npm run build-ci
+
+notifications:
+   slack:
+      rooms:
+      - engagelab:SQxy4szJPRe7nn1w8Thn4ygl#code
+      - engagelab:SQxy4szJPRe7nn1w8Thn4ygl#beta-blocks-dev

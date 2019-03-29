@@ -13,8 +13,7 @@ export class ButtonComponent implements OnInit {
   @Input() href: string;
 	@Input() class: string;
 	@Input() ariaLabel: string;
-	@Input() newWindow: boolean;
-  @Input() customSfx: boolean;
+	@Input() arrow: boolean;
   @Input() clickData: any;
 
   @Output() clickEvent = new EventEmitter<any>();

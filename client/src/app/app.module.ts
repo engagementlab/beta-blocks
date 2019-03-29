@@ -19,6 +19,7 @@ import { CdnImageComponent } from './utils/cdn-image/cdn-image.component';
 import { Cloudinary as CloudinaryCore } from 'cloudinary-core';
 import { CloudinaryConfiguration, CloudinaryModule } from '@cloudinary/angular-5.x';
 import cloudinaryConfiguration from './cdn.config';
+import { LinebreakPipe } from './utils/linebreak.pipe';
 
 export const cloudinary = {
   Cloudinary: CloudinaryCore
@@ -36,7 +37,8 @@ export const config: CloudinaryConfiguration = cloudinaryConfiguration;
     NavComponent,
     GetinvolvedComponent,
     ButtonComponent,
-    FooterComponent
+    FooterComponent,
+    LinebreakPipe
   ],
   imports: [
     AppRoutingModule,

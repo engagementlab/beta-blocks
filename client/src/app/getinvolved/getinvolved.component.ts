@@ -2,6 +2,8 @@ import { Component, OnInit, ViewChild } from '@angular/core';
 import { DataService } from '../utils/data.service';
 import { MapBoxComponent } from '../map-box/map-box.component';
 
+import * as ismobile from 'ismobilejs';
+
 @Component({
   selector: 'app-getinvolved',
   templateUrl: './getinvolved.component.html',
@@ -9,6 +11,7 @@ import { MapBoxComponent } from '../map-box/map-box.component';
 })
 export class GetinvolvedComponent implements OnInit {
 
+  public isPhone: boolean;
   public hasContent;
   public events: any[];
 
@@ -16,7 +19,9 @@ export class GetinvolvedComponent implements OnInit {
 
   constructor(private _dataSvc: DataService) {
 
-    _dataSvc.getDataForUrl('/api/events/get').subscribe((data: any) => {
+      this.isPhone = ismobile.phone;
+      
+      _dataSvc.getDataForUrl('/api/events/get').subscribe((data: any) => {
 
       this.events = data;
       this.hasContent = true;
