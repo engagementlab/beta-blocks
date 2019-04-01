@@ -3,7 +3,7 @@
     public-id="{{imgId}}" 
     secure="true"
     fetch-format="auto"
-    crop="scale" attr.alt="{{alt}}" class="cdn-image">
+    crop="scale" attr.alt="{{alt}}" [style]="widthCss" class="cdn-image">
 
   <!-- Photo (jpg,png) transforms -->
   <cl-transformation attr.width="{{width}}" attr.quality="{{quality}}" attr.effect="{{effect}}" attr.gravity="{{gravity}}" ></cl-transformation>

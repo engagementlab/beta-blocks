@@ -37,6 +37,11 @@ a.link {
     @include tablet-portrait {
         @include pxtoem(28, 28);
     }
+    &.active {
+        cursor: default;
+        color: rgba(0, 0, 0, 0.5);
+
+    }
 
 }
 

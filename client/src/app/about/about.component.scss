@@ -1,0 +1,133 @@
+@import '~src/style/_variables';
+
+#blurb {
+    background-color: $light-pink;
+
+    @include pxtoem(12, 14);
+    font-family: Lunchtype;
+    font-stretch: expanded;
+
+    line-height: 1.29;
+    letter-spacing: 1px;
+
+    @include not-phones {
+        padding: 0;
+    }
+
+    .text {
+        padding: 5%;
+    }
+
+    #link {
+        padding: 0;
+        background-color: white;
+    }
+
+    strong {
+        @include pxtoem(14, 18);
+        font-family: 'LunchtypeMed';
+        font-weight: 500;
+        line-height: 1.5;
+        letter-spacing: 1px;
+    }
+
+    a {
+        display: flex;
+        @include pxtoem(18, 24);
+        background-color: white;
+        text-decoration: none;
+        font-weight: 600;
+        line-height: 1.17;
+        letter-spacing: 1px;
+        color: $light-pink;
+        border-left: solid 8px $light-pink;
+
+        &::before {
+            background-color: $light-pink;
+        }
+
+        span {
+            padding: 5%;
+            border: solid 4px $light-pink;
+            display: flex;
+            align-items: center;
+        }
+
+        div {
+
+            padding: 5%;
+            border: solid 4px $light-pink;
+
+            flex-grow: 1;
+
+            svg {
+                max-width: 53px;
+            }
+        }
+    }
+}
+
+#shapes {
+    @include phones {
+        #red {
+            ::ng-deep img {
+                position: relative;
+                right: -40%
+            }
+        }
+        #circle {
+            @include translate(150%, -200%);
+        }
+        #gold {
+            ::ng-deep img {
+                @include translate(-153%, 40%);
+                margin-top: -15%;
+            }
+        }
+        #squiggle {
+            max-width: 103px;
+            @include translate(134%, 81%);
+            z-index: -1;
+        }
+    }
+}
+
+#people {
+    .column {
+
+        &:nth-child(1) {
+            display: flex;
+            flex-direction: column;
+            padding: 0;
+            // align-items: flex-end;
+
+            .text {
+                color: $grape;
+
+                border: solid 4px $grape;
+                padding: 2%;
+
+                @include pxtoem(14, 18);
+                font-family: 'LunchtypeMed';
+                font-stretch: expanded;
+                font-weight: 500;
+                line-height: 1.5;
+                letter-spacing: 1px;
+            }
+
+            ::ng-deep img {
+                @include translate(50%, -66%);
+            }
+        }
+
+        &:nth-child(2) {
+            color: white;
+            background-color: $grape;
+
+            @include pxtoem(18, 24);
+            font-family: 'SpaceGrotesk-SemiBold';
+            line-height: 1.17;
+            letter-spacing: 1px;
+        }
+    }
+}

@@ -20,6 +20,7 @@ import { Cloudinary as CloudinaryCore } from 'cloudinary-core';
 import { CloudinaryConfiguration, CloudinaryModule } from '@cloudinary/angular-5.x';
 import cloudinaryConfiguration from './cdn.config';
 import { LinebreakPipe } from './utils/linebreak.pipe';
+import { AboutComponent } from './about/about.component';
 
 export const cloudinary = {
   Cloudinary: CloudinaryCore
@@ -38,7 +39,8 @@ export const config: CloudinaryConfiguration = cloudinaryConfiguration;
     GetinvolvedComponent,
     ButtonComponent,
     FooterComponent,
-    LinebreakPipe
+    LinebreakPipe,
+    AboutComponent
   ],
   imports: [
     AppRoutingModule,

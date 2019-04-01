@@ -1,5 +1,5 @@
-import { Component, OnInit } from '@angular/core';
-import { Router, NavigationEnd } from '@angular/router';
+import { Component, OnInit, ViewChild, ElementRef } from '@angular/core';
+import { Router, NavigationEnd, NavigationStart } from '@angular/router';
 
 import { filter } from 'rxjs/operators';
 
@@ -11,8 +11,14 @@ import { filter } from 'rxjs/operators';
 export class NavComponent implements OnInit {
 
   private currentUrl: string;
+  @ViewChild('menu') menu: ElementRef;
 
   constructor(private _router: Router) { 
+
+    // Close menu when nav starts
+    _router.events.pipe(filter(e => e instanceof NavigationStart)).subscribe(e => {
+      this.closeNav();
+    });
   
     // Get nav route when nav ends
     _router.events.pipe(filter(e => e instanceof NavigationEnd)).subscribe(e => {
@@ -26,15 +32,28 @@ export class NavComponent implements OnInit {
 
   openCloseNav() {
 
-    if(document.getElementById('menu').classList.contains('show')) {
-      document.getElementById('menu').classList.remove('show');
-      document.getElementById('menu').classList.add('hide');
+    let menuDom = this.menu.nativeElement;
 
+    if(menuDom.classList.contains('show')) {
+      this.closeNav();
     }
     else {
-      document.getElementById('menu').classList.remove('hide');
-      document.getElementById('menu').classList.add('show');
+      menuDom.classList.remove('hide');
+      menuDom.classList.add('show');
+      menuDom.style.display = 'flex';
     }
+
+  }
+
+  closeNav() {
+    let menuDom = this.menu.nativeElement;
+
+    menuDom.classList.remove('show');
+    menuDom.classList.add('hide');
+
+    setTimeout(() => {
+      menuDom.style.display = 'none';
+    }, 1000);
 
   }
 

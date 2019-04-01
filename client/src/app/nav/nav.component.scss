@@ -1,12 +1,12 @@
 @import "~src/style/_variables";
 
 @keyframes show {
-    0%     {background-color: rgba(64, 43, 89, 0); display: flex;}
+    0%     {background-color: rgba(64, 43, 89, 0);}
     100%  {background-color: rgba(64, 43, 89, 0.9);}
 }
 @keyframes hide {
     0%     {background-color: rgba(64, 43, 89, 0.9);}
-    100%  {background-color: rgba(64, 43, 89, 0); display: none;}
+    100%  {background-color: rgba(64, 43, 89, 0);}
 }
 @keyframes show-links {
     0%     {opacity: 0;}

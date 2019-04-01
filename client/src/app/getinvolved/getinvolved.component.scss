@@ -1,11 +1,5 @@
 @import '~src/style/_variables';
 
-h4 {
-    @include pxtoem(24, 48);
-    line-height: 1;
-    letter-spacing: 2px;
-}
-
 p {
     font-family: 'SpaceGrotesk';
     @include pxtoem(18, 24);

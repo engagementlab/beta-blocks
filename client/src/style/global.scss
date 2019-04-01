@@ -23,11 +23,14 @@ h2 {
 
   font-family: 'SpaceGrotesk-Bold';
   @include pxtoem(20, 30);
-  line-height: 1.42;
-  letter-spacing: 1px;
+  line-height: 1.4;
+  letter-spacing: 6px;
   
   text-transform: uppercase;
   text-align: center;
+  
+  padding-top: 5%;
+  padding-bottom: 4%;
 
   &.lower {
     @include pxtoem(18, 24);
@@ -52,6 +55,15 @@ h3 {
   }
 
 }
+
+h4 {
+    @include pxtoem(24, 48);
+    line-height: 1;
+    letter-spacing: 2px;
+
+    padding-bottom: 2%;
+}
+
 
 .center-all {
 
@@ -93,9 +105,11 @@ h3 {
 
   @include transition(border, .3s, ease-in-out);
 
-  &:hover {
-      border-bottom-width: 4px;
-      border-color: black;
+  &:not(.active) {
+    &:hover {
+        border-bottom-width: 4px;
+        border-color: black;
+    }
   }
   
 }
