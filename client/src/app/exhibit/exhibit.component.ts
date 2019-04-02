@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 
 import * as _ from 'underscore';
+import { DataService } from '../utils/data.service';
 
 @Component({
   selector: 'app-exhibit',
@@ -9,7 +10,16 @@ import * as _ from 'underscore';
 })
 export class ExhibitComponent implements OnInit {
 
-  constructor() { }
+  public events: any[];
+
+  constructor(private _dataSvc: DataService) {
+    
+    _dataSvc.getDataForUrl('/api/events/get').subscribe((data: any) => {
+
+      this.events = data.events;
+    });
+
+  };
 
   ngOnInit() {
   }

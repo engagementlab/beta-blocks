@@ -62,7 +62,7 @@ export class DataService {
 
         this.isLoading.next(false);
         
-        return res.data;
+        return res;
       })
       .catch((error:any) => { 
           this.isLoading.next(false);

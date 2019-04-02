@@ -42,21 +42,27 @@
 
 #info {
 
+    font-family: Lunchtype;
+    @include pxtoem(12, 14);
+    
+    font-weight: 500;
+    font-stretch: expanded;
+
+    line-height: 1.29;
+    letter-spacing: 2px;
+
     ul {
         list-style: none;
         width: 100%;
         padding: 0;
 
         h4 {
-            margin-top: 0;
-            margin-bottom: 0;
+            margin: 0;
 
             background-color: $grape;
             color: white;
 
-            @include not-phones {
-                margin: 0;
-            }
+            font-family: 'VG5000';
 
             cursor: pointer;
 
@@ -70,17 +76,22 @@
             }
         }
 
-        li div.columns {
-            max-height: 0;
-            opacity: 0;
-            overflow: hidden;
-            @include transition(max-height, 500ms, ease-out);
-        }
-
         li {
             list-style: none;
-
             border: solid 4px $grape;
+
+            div.columns {
+                max-height: 0;
+                opacity: 0;
+                overflow: hidden;
+
+                @include transition(max-height, 500ms, ease-out);
+            }
+
+            .icon {
+                display: flex;
+                justify-content: flex-end;
+            }
         }
 
         li.active {
