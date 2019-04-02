@@ -15,20 +15,13 @@ export class ExhibitComponent implements OnInit {
   }
 
   toggleInfo(evt: Event) {
+    
     let items = document.querySelectorAll('#info ul li');
     _.each(items, (item) => {
       item.classList.remove('active');
     });
-    // ul.addEventListener('click', function(e){
-        // for (let item of items) {
-        //   item..remove('active');
-        // }
-        
-        // if (e.target && e.target.nodeName == 'H4') {
-           (<Element>evt.currentTarget).classList.add('active')
-            // .classList.toggle('active');
-        // }
-    // });
+    (<Element>evt.currentTarget).classList.toggle('active');
+
   }
 
 }

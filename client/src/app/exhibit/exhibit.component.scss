@@ -54,6 +54,12 @@
             background-color: $grape;
             color: white;
 
+            @include not-phones {
+                margin: 0;
+            }
+
+            cursor: pointer;
+
             svg {
                 line {
                     stroke: white;
@@ -63,32 +69,42 @@
                 }
             }
         }
-          li div.columns {
+
+        li div.columns {
             max-height: 0;
             opacity: 0;
             overflow: hidden;
             @include transition(max-height, 500ms, ease-out);
         }
-          
-          li {
+
+        li {
             list-style: none;
 
-  border: solid 4px $grape;
-          }
-          
-          li.active { 
-              h4 {
-                  svg {
-                      .vert {
-                          opacity: 0;
-                          @include transform(rotateZ(90deg));
-                      }
-                  }
-              }
-              div.columns {
-                  max-height: 1000px;
-            opacity: 1;
-          }
+            border: solid 4px $grape;
+        }
+
+        li.active {
+            h4 {
+                cursor: default;
+                background-color: white;
+                color: $grape;
+
+                svg {
+                    line {
+                        stroke: $grape;
+                    }
+
+                    .vert {
+                        opacity: 0;
+                        @include transform(rotateZ(90deg));
+                    }
+                }
+            }
+
+            div.columns {
+                max-height: 1000px;
+                opacity: 1;
+            }
         }
     }
 
