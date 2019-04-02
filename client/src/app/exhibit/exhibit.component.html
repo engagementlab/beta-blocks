@@ -1,0 +1,108 @@
+<section class="container desktop">
+
+  <div class="column is-11-mobile is-10-tablet">
+    <h4>Isn't that fantastic? You can just push a little tree out of your brush like that.</h4>
+  </div>
+
+  <h2>Exhibit Location</h2>
+</section>
+<map-box #map mapType="exhibit" [height]="720"></map-box>
+<section class="container desktop">
+
+  <!-- LOCATION -->
+  <div id="location" class="columns column is-full">
+
+    <div class="column is-half-tablet">
+      <div class="text">
+       
+          <h2 class="lower">The exhibit is now in . . .</h2>
+          <svg height="80" fill="none" viewBox="0 0 400 80" preserveAspectRatio="xMinYMin meet"><text x="0" y="98%">Chinatown</text></svg>
+
+      </div>
+    </div>
+
+    <div class="column">
+        <p>Nothing's gonna make your husband or wife madder than coming home and having a snow-covered dinner. There's nothing wrong with having a tree as a friend. Steve wants reflections, so let's give him reflections.</p>
+
+        <p>04/01 — 04/05<br />
+        120 Boylston St. Boston, MA 02116
+      </p>
+    </div>
+
+  </div>
+
+  <div id="info">
+
+<ul>
+  <li class='active' (click)="toggleInfo($event)">
+      <h4 class="columns is-mobile">
+        <span class="column is-9-mobile is-10-tablet">See</span>
+        <span class="column">
+          <svg width="40" height="40" fill="none" viewBox="0 0 40 40">
+            <line class="" x1="0" x2="40" y1="20" y2="20" />
+            <line class="vert" x1="20" x2="20" y1="0" y2="40" />
+        </svg>    
+      </span>
+    </h4>
+      <div class="columns column is-11-mobile">
+        <div class="column">
+            Get tough with it, get strong. You can do anything your heart can imagine. That easy. Nature is so fantastic, enjoy it. Let it make you happy.
+        </div>
+        <div class="column">
+            <p>See there, told you that would be easy. A tree needs to be your friend if you're going to paint him. Look at them little rascals. The very fact that you're aware of suffering is enough reason to be overjoyed that you're alive and can experience it.</p>
+            <p>Every highlight needs it's own personal shadow. They say everything looks better with odd numbers of things. But sometimes I put even numbers—just to upset the critics. And maybe a little bush lives there.</p>
+        </div>
+      </div>
+    </li>
+    <li (click)="toggleInfo($event)">
+        <h4 class="columns is-mobile">
+            <span class="column is-9-mobile is-10-tablet">Explore</span>
+            <span class="column">
+              <svg width="40" height="40" fill="none" viewBox="0 0 40 40">
+                <line class="" x1="0" x2="40" y1="20" y2="20" />
+                <line class="vert" x1="20" x2="20" y1="0" y2="40" />
+            </svg>    
+          </span>
+        </h4>
+        <div class="columns column is-11-mobile">
+          <div class="column">
+              Get tough with it, get strong. You can do anything your heart can imagine. That easy. Nature is so fantastic, enjoy it. Let it make you happy.
+          </div>
+          <div class="column">
+              <p>See there, told you that would be easy. A tree needs to be your friend if you're going to paint him. Look at them little rascals. The very fact that you're aware of suffering is enough reason to be overjoyed that you're alive and can experience it.</p>
+              <p>Every highlight needs it's own personal shadow. They say everything looks better with odd numbers of things. But sometimes I put even numbers—just to upset the critics. And maybe a little bush lives there.</p>
+          </div>
+        </div>
+      </li>
+      <li (click)="toggleInfo($event)">
+          <h4 class="columns is-mobile">
+              <span class="column is-9-mobile is-10-tablet">Reflect</span>
+              <span class="column">
+                <svg width="40" height="40" fill="none" viewBox="0 0 40 40">
+                  <line class="" x1="0" x2="40" y1="20" y2="20" />
+                  <line class="vert" x1="20" x2="20" y1="0" y2="40" />
+              </svg>    
+            </span>
+            </h4>
+          <div class="columns column is-11-mobile">
+            <div class="column">
+                Get tough with it, get strong. You can do anything your heart can imagine. That easy. Nature is so fantastic, enjoy it. Let it make you happy.
+            </div>
+            <div class="column">
+                <p>See there, told you that would be easy. A tree needs to be your friend if you're going to paint him. Look at them little rascals. The very fact that you're aware of suffering is enough reason to be overjoyed that you're alive and can experience it.</p>
+                <p>Every highlight needs it's own personal shadow. They say everything looks better with odd numbers of things. But sometimes I put even numbers—just to upset the critics. And maybe a little bush lives there.</p>
+            </div>
+          </div>
+        </li>
+    <!-- <li>
+      <h4>Item2</h4>
+      <div>Content 2</div>
+    </li>
+    <li>
+      <h4>Item3</h4>
+      <div>Content 3</div>
+    </li> -->
+  </ul>
+  </div>
+
+</section>

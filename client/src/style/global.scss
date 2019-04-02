@@ -146,11 +146,17 @@ h4 {
 // Mapbox
 .marker {
     display: block;
-    background-color: red;
+    // background-color: red;
     width: 10px;
     height: 10px;
     border-radius: 50%;
-    cursor: pointer;
+    // cursor: pointer;
+
+    &.exhibit {
+      width: 100px;
+      height: 153px;
+      background-image: cdn-image('img/exhibit/inflatable-pin', c_fill, f_auto, w_100);
+    }
   }
 /* Marker tweaks */
 .mapboxgl-popup-close-button {

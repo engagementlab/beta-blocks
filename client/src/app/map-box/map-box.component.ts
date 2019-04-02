@@ -31,7 +31,8 @@ export class MapBoxComponent implements OnInit {
   private mapBox: mapboxgl.Map;
   private adjacentSrc: mapboxgl.GeoJSONSourceRaw ;
 
-  private style: string = 'mapbox://styles/engagementlab/cjt7or6171f3v1flhg6ulw3ta';
+    //   'mapbox://styles/engagementlab/cjt7or6171f3v1flhg6ulw3ta';
+  private style: string = 'mapbox://styles/mapbox/light-v10'
   private config: object;
 
   private ready: boolean;
@@ -136,42 +137,7 @@ export class MapBoxComponent implements OnInit {
   updateMap() {
 
     switch(this.mapType) {
-        case 'sidewalk':
-            // this.style = 'mapbox://styles/mapbox/light-v9';
-
-            this.mapBox.addLayer({
-                "id": "defaultLayer",
-                "source": "shapes",
-                "type": "fill",
-                "paint": {
-                    'fill-color': [
-                        'interpolate',
-                        ['linear'],
-                        ['get', 'sidewalk'],
-                        0, '#2e7baf',
-                        20, '#6baabb',
-                        40, '#aed9b9',
-                        60, '#f8eca6',
-                        80, '#ecb24e',
-                        100, '#00ab9e'
-                    ],
-                    'fill-outline-color': '#f6a536',
-                    "fill-opacity": .4
-                }
-            });
-            this.mapBox.addLayer({
-                "id": "highlighted",
-                "type": "fill",
-                "source": "adjacent",
-                "paint": {
-                    "fill-outline-color": "#484896",
-                    "fill-color": "#6e599f",
-                    "fill-opacity": 0.75
-                }
-            });
-
-            break;
-
+       
         case 'events': 
 
             for(let event of this.mapData) {
@@ -190,6 +156,23 @@ export class MapBoxComponent implements OnInit {
 
                 this.markers[event.id] = marker;
             }
+
+            break;
+
+        case 'exhibit':
+
+                this.mapBox.scrollZoom.disable();
+                this.mapBox.setZoom(15);
+                this.mapBox.dragPan.disable();
+
+                var el = document.createElement('div');
+                el.className = 'marker exhibit';
+                let lnglat = new mapboxgl.LngLat(-71.06668400, 42.352264);
+                
+                var popup = new mapboxgl.Popup({offset: -25, closeOnClick: true, closeButton: false});
+                let marker = new mapboxgl.Marker(el)
+                            .setLngLat(lnglat)
+                            .addTo(this.mapBox);
 
             break;
     }
