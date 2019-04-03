@@ -23,8 +23,10 @@ nav {
     margin-bottom: 3% !important;
     z-index: 4;
 
-    @include mobile-only {
-    }
+    display: flex;
+    justify-content: space-between;
+
+    padding: 0.75rem;
 }
 
 #menu-btn {
@@ -120,15 +122,8 @@ nav {
         }
     }
     &.hide {
-
         display: flex;
         animation: hide 1s forwards;
-        // #links {z
-        //     animation: show-links .7s forwards .7s;
-        // }
-        // #close {
-        //     animation: show-close .7s forwards .8s;
-        // }
     }
 
     #links {
@@ -190,34 +185,44 @@ nav {
             left: 0;
 
             padding-left: 5%;
-            padding-top: 3%;
+            padding-top: 5%;
 
-            font-family: 'Lunchtype';
+            font-family: 'LunchtypeMed';
             font-weight: 500;
             font-stretch: expanded;
             line-height: 1.17;
             letter-spacing: 1px;
             
             @include pxtoem(14, 18);
-            
-            @include phones {
-                width: 70%;
-            }
-            @include not-phones {
-                width: 50%;
-                flex-direction: row;
-
-                #social {
-                    flex-grow: 1;
-                }
-            }
 
             #social {
                 display: flex;
                 flex-direction: row;
                 justify-content: space-evenly;
-
+                
+                padding: 5%;
+                padding-left: 0;
             }
+
+            @include phones {
+                width: 70%;
+            }
+            @include not-phones {
+                width: 50%;
+            }
+            @include desktop {
+                flex-direction: row;
+
+                padding-top: 2%;
+                padding-bottom: 2%;
+
+                #social {
+                    flex-grow: 1;
+                    padding: 0;
+                    align-items: center;
+                }
+            }
+
         }
     }
 
