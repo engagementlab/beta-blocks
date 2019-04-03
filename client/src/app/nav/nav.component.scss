@@ -74,6 +74,7 @@ nav {
         font-family: 'SpaceGrotesk-Bold';
 
         margin-left: 20%;
+        padding-right: 0.75rem;
     }
 }
 
@@ -189,6 +190,7 @@ nav {
 
             @include phones {
                 width: 70%;
+                flex-basis: 70%;
             }
             @include not-phones {
                 width: 50%;
@@ -214,10 +216,16 @@ nav {
         opacity: 0;
 
         display: flex;
-        flex-grow: 1;
+        flex: none;
 
         justify-content: center;
         align-items: center;
+
+        width: 50%;
+
+        @include phones {
+            width: 25%;
+        }
 
         svg {
             width: 80%;
