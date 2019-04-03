@@ -75,22 +75,6 @@ nav {
 
         margin-left: 20%;
     }
-
-    &.open {
-
-        #lines {
-            span {
-                &:nth-child(1) {
-                    @include transform(rotate(155deg) translate(5px, -10px));
-                                }
-
-                &:nth-child(2) {
-                    @include transform(rotate(-155deg) translate(6px, 10px));
-                }
-            }
-        }
-
-    }
 }
 
 #menu {
@@ -188,7 +172,7 @@ nav {
             line-height: 1.17;
             letter-spacing: 1px;
             
-            @include pxtoem(14, 18);
+            @include pxtoem(12, 18);
 
             #social {
                 display: flex;
@@ -197,6 +181,10 @@ nav {
                 
                 padding: 5%;
                 padding-left: 0;
+            }
+
+            @include mq($from: mobileLg) {
+                @include pxtoem(14, 18);
             }
 
             @include phones {
