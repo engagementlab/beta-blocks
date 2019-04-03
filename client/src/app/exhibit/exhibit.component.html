@@ -127,20 +127,25 @@
 
   <h2>Visit Exhibit</h2>
 
-  <div id="events" class="columns column is-mobile" *ngIf="events !== undefined">
-    <div class="column is-11-mobile is-half-tablet">
+  <div id="events" class="columns column is-mobile is-multiline" *ngIf="events !== undefined">
 
-      <div class="column columns">
+    <div class="columns column is-11-mobile is-half-tablet is-mobile" *ngFor="let event of events">
+   
+      <div class="column is-1-mobile">
         <svg width="36" height="45" fill="none" viewBox="0 0 36 45">
-          <path stroke="#B5191D" stroke-miterlimit="10" stroke-width="4" d="M34 18c0 8.8-16 24-16 24S2 26.8 2 18 9.2 2 18 2s16 7.2 16 16z"/>
-          <path stroke="#B5191D" stroke-miterlimit="10" stroke-width="4" d="M18 22a5 5 0 1 0 0-10 5 5 0 0 0 0 10z"/>
+          <path stroke="#B5191D" stroke-miterlimit="10" stroke-width="4"
+            d="M34 18c0 8.8-16 24-16 24S2 26.8 2 18 9.2 2 18 2s16 7.2 16 16z" />
+          <path stroke="#B5191D" stroke-miterlimit="10" stroke-width="4" d="M18 22a5 5 0 1 0 0-10 5 5 0 0 0 0 10z" />
         </svg>
-        
       </div>
-      <div class="event" [class.current]="event.current" *ngFor="let event of events">
+   
+      <div class="column event" [class.current]="event.current">
         <strong>{{event.name}}</strong>
-        <div>{{event.startDate | date:'MM/dd'}}</div>
-        <div>{{event.address}}</div>
+        
+        <div class="info">
+          <div>{{event.startDate | date:'MM/dd'}} - {{event.endDate | date:'MM/dd'}}</div>
+          <div>{{event.address}}</div>
+        </div>
       </div>
 
     </div>

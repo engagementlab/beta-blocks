@@ -130,12 +130,33 @@
     letter-spacing: 1px;
 
     .event {
+
+        margin-left: 2%;
+        padding: 0;
+
         strong {
 
+            display: block;
             font-family: SpaceGrotesk;
-    @include pxtoem(14, 18);
+            @include pxtoem(14, 18);
+            
+            padding: 4%;
+            
             font-weight: 600;
             line-height: 1.17;
+
+        }
+
+        .info {
+            padding: 4%;
+        }
+
+        &.current {
+            border: solid 4px $marigold;
+
+            strong {
+                border-bottom: solid 4px $marigold;
+            }
         }
     }
 }
