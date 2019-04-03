@@ -107,12 +107,12 @@
 
   <!-- LOCATION -->
   <h2>Exhibit Location</h2>
-  <div id="exhibit" class="columns column is-full-mobile is-multiline is-mobile no-margin">
+  <div id="exhibit" class="columns column is-11-mobile is-multiline is-mobile no-margin">
     <!-- Tablet+ -->
     <div class="column is-half location" *ngIf="!isPhone">
 
       <h2 class="lower">The exhibit is now in . . .</h2>
-      <svg width="500" height="80" fill="none" viewBox="0 0 500 80"><text x="0" y="98%">Chinatown</text></svg>
+      <svg fill="none" viewBox="0 0 500 80"><text x="0%" y="98%">Chinatown</text></svg>
 
       <app-button route="/getinvolved" label="view more info"></app-button>
 
@@ -142,7 +142,7 @@
     </div>
 
     <!-- Phones -->
-    <div class="column is-full-mobile location" *ngIf="isPhone">
+    <div class="column is-11-mobile location" *ngIf="isPhone">
 
       <h2 class="lower">The exhibit is now in . . .</h2>
       <svg width="500" height="80" fill="none" viewBox="0 0 500 80"><text x="0" y="98%">Chinatown</text></svg>

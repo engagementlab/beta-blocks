@@ -4,7 +4,7 @@
   "scripts": {
     "ng": "ng",
     "start": "npm-run-all -l -p browser api",
-    "browser": "ng serve --configuration=dev",
+    "browser": "ng serve --configuration=dev --port 8000 --host 0.0.0.0 --disableHostCheck true",
     "api": "cd ../server; nodemon",
     "build": "ng build --configuration=production --prod",
     "build-qa": "ng build --configuration=qa --prod",

@@ -132,11 +132,19 @@
         text-align: left;
 
         svg text {
-            @include pxtoem(48, 72);
+            @include pxtoem(84, 72);
             fill: white;
             stroke-width: 2px;
             paint-order: stroke;
             stroke: $rouge;
+
+            @include phones {
+                stroke-width: 4px;
+            }
+        }
+
+        svg {
+            max-width: 100%;
         }
     }
 
