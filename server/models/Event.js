@@ -45,10 +45,13 @@ Event.add({
 		required: true,
 		initial: true
 	},
-	date: {
+	startDate: {
 		type: Types.Datetime,
 		required: true,
 		initial: true
+	},
+	endDate: {
+		type: Types.Datetime
 	},
 	address: {
 		type: String,
@@ -60,6 +63,10 @@ Event.add({
 		type: Types.Textarea,
 		required: true,
 		initial: true
+	},
+	current: {
+		type: Boolean,
+		label: 'Event is happening now.'
 	}
 });
 

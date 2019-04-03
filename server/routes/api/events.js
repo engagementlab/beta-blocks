@@ -26,7 +26,7 @@ const sdk = eventbrite({
  * Get data
  */
 exports.get = function (req, res) {
-    let eventFields = 'name description date address latlng -_id';
+    let eventFields = 'name description startDate endDate address current latlng -_id';
     let event = keystone.list('Event').model;
 
     // Get events
