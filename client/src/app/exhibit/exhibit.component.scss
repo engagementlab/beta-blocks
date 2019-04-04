@@ -129,6 +129,34 @@
     line-height: 1.5;
     letter-spacing: 1px;
 
+    .columns {
+        &:nth-child(4n+1) {
+            svg path {
+                stroke: $rouge;
+            }
+        }
+        &:nth-child(4n+2) {
+            svg path {
+                stroke: $marigold;
+            }
+        }
+        &:nth-child(4n+3) {
+            svg path {
+                stroke: $light-pink;
+            }
+        }
+        &:nth-child(4n+4) {
+            svg path {
+                stroke: $grape;
+            }
+        }
+
+        .column:nth-child(1) {
+            display: flex;
+            justify-content: center;
+        }
+    }
+
     .event {
 
         margin-left: 2%;
