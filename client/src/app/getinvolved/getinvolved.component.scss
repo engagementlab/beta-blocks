@@ -17,9 +17,11 @@ p {
 
 }
 
-#exhibit {
-
+#exhibit, #partner {
     margin-top: 21%;
+}
+
+#exhibit {
     
     @include phones {
         flex-direction: column-reverse;

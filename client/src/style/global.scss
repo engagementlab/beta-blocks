@@ -71,6 +71,61 @@ h4 {
   padding-bottom: 2%;
 }
 
+// Form styles
+form {
+   
+  width: 90%;
+  
+  input, textarea {
+    font-family: 'SpaceGrotesk-SemiBold';
+    @include pxtoem(18, 36);
+    color: white;
+    border: none;
+
+    background-color: $grape;
+
+    flex: none;
+    
+    padding-top: 20px;
+    padding-bottom: 20px;
+    padding-left: 27px;
+    
+        width: 95%;
+
+    @include placeholder {
+        font-family: 'SpaceGrotesk-SemiBold';
+        color: rgba(255, 255, 255, .5);
+    }
+  }
+
+  input[type=submit] {
+      @include pxtoem(18, 36);
+      background: none;
+
+      color: rgba(64, 43, 89, .5);
+      border: solid 4px rgba(64, 43, 89, .5);
+
+      padding: 5%;
+      // width: 100%;
+
+  }
+
+  button {
+
+    font-family: 'SpaceGrotesk-SemiBold';
+    @include pxtoem(18, 36);
+    color: rgba(64, 43, 89, 0.5);
+
+    border: solid 4px rgba(64, 43, 89, 0.5);
+    background-color: white;
+    
+    padding-top: 3%;
+    padding-bottom: 3%;
+    padding-left: 5%;
+
+    width: 95%;
+  }
+}
 
 .center-all {
 

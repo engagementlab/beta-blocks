@@ -24,7 +24,7 @@ router.all('/*', function(req, res, next) {
     res.header("Access-Control-Allow-Headers", "Access-Control-Allow-Headers, Origin,Accept, X-Requested-With, Content-Type, Access-Control-Request-Method");
     
     if(req.method === 'OPTIONS')
-        res.send(200);
+        res.sendStatus(200);
     else
         next();
 
@@ -34,5 +34,7 @@ router.get('/api/data/get', routeIncludes, routes.api.data.get);
 router.get('/api/data/set', routeIncludes, routes.api.data.set);
 
 router.get('/api/events/get', routeIncludes, routes.api.events.get);
+
+router.post('/api/contact', routeIncludes, routes.api.contact.send);
 
 module.exports = router;

@@ -15,6 +15,8 @@
   color: white;
   background-color: $rouge;
 
+  cursor: pointer;
+
   @include not-phones {
 
     width: 280px;

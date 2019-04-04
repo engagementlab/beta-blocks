@@ -10,5 +10,5 @@ href="{{href}}" target="{{newWindow && '_blank' || '' }}" attr.aria-label="{{ari
   </svg>
 </a>
 
-<a *ngIf="clickData !== undefined" id="{{id && id || '' }}" class="app-button btn {{class}}" role="button"
+<a *ngIf="clickData !== undefined" id="{{id && id || '' }}" class="app-button btn center-all {{class}}" role="button"
   attr.aria-label="{{ariaLabel}}" (click)="clickHandler(clickData)">{{label}}</a>

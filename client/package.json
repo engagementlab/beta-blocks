@@ -4,7 +4,8 @@
   "scripts": {
     "ng": "ng",
     "start": "npm-run-all -l -p browser api",
-    "browser": "ng serve --configuration=dev --port 8000 --host 0.0.0.0 --disableHostCheck true",
+    "browser": "ng serve --configuration=dev",
+    "browser-testing": "ng serve --configuration=dev --port 8000 --host 0.0.0.0 --disableHostCheck true",
     "api": "cd ../server; nodemon",
     "build": "ng build --configuration=production --prod",
     "build-qa": "ng build --configuration=qa --prod",
@@ -25,6 +26,7 @@
     "@angular/router": "~7.2.0",
     "@cloudinary/angular-5.x": "^1.0.2",
     "@engagementlab/el-scss": "0.0.6",
+    "@nicky-lenaers/ngx-scroll-to": "^2.0.0",
     "@types/mapbox-gl": "^0.51.4",
     "bulma": "^0.7.4",
     "cloudinary-core": "^2.6.2",

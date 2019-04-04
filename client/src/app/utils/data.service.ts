@@ -70,5 +70,27 @@ export class DataService {
       });
 
   }
+	
+  public sendDataToUrl(urlParam: string, formData: any): Observable<any> {
+
+      this.isLoading.next(true);
+      this.serverProblem.next(false);
+
+      let url = this.baseUrl; 
+      url += urlParam;
+      
+      return this.http.post(url, formData)
+      .map((res:any)=> {
+
+        this.isLoading.next(false);
+        
+        return res;
+      })
+      .catch((error:any) => { 
+          this.isLoading.next(false);
+          return throwError(error);
+      });
+
+  }
   
 }

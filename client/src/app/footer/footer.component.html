@@ -5,18 +5,23 @@
     <div class="column is-11-mobile is-5-tablet">
         <a class="link" [class.active]="itemActive('about')" routerLink="/about">About</a>
         <a class="link" [class.active]="itemActive('getinvolved')" routerLink="/getinvolved">Get Involved</a>
+        <a class="link" [class.active]="itemActive('zones')" routerLink="/zones">Exploration Zones</a>
     </div>
 
     <div class="column is-11-mobile is-5-tablet">
         <a class="link" [class.active]="itemActive('exhibit')" routerLink="/exhibit">Get to Know Exhibit</a>
         <a class="link" [class.active]="itemActive('tech')" routerLink="/tech">Tech Explorers</a>
+        <a class="link" [class.active]="itemActive('tool')" routerLink="/tool">Data Tool</a>
     </div>
 
 </div>
 
 <div id="info">
     <cdn-image cloudinaryId="img/logo" width="200" phoneWidth="160" svg="true" alt="Beta Blocks large logo"></cdn-image>
-    <!-- <p class="hidden-mobile">engagementlab@emerson.edu</p> -->
-    <!-- <p class="hidden-tablet-plus">engagementlab@<br />emerson.edu</p> -->
+    
     <p>120 Boylston St. Boston, MA 02116</p>
+
+    <a href="https://elab.emerson.edu"><cdn-image cloudinaryId="img/elab-logo" width="141" phoneWidth="160" svg="true" alt="Engagement Lab logo"></cdn-image></a>
+    <a id="monum" href="https://www.boston.gov/departments/new-urban-mechanics"><cdn-image cloudinaryId="img/monum-logo" width="167" phoneWidth="160" svg="true" alt="Mayor's Office of New Urban Mechanics logo"></cdn-image></a>
+
 </div>
