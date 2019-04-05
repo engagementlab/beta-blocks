@@ -95,7 +95,7 @@
   <!-- SIGNUP -->
   <h2 id="form">Sign up to become a Tech Partner!</h2>
 
-  <form class="columns column is-11-mobile is-full-tablet is-multiline" [formGroup]="userForm" (submit)="submitForm()">
+  <form class="columns column is-11-mobile is-full-tablet is-multiline" [formGroup]="userForm" (submit)="submitForm()" *ngIf="!received">
     <div class="column is-full-mobile is-6-tablet">
       <input formControlName="firstName" id="firstName" placeholder="first name" required />
       <div *ngIf="submitted && f.firstName.invalid">Required</div>
@@ -139,6 +139,9 @@
       <button type="submit">sign up</button>
     </div>
   </form>
-
+  <!-- email sent -->
+  <div *ngIf="received" class="space-grotesk">
+    Thanks for your message! Somebody will be in touch with you shortly!
+  </div>
 
 </section>

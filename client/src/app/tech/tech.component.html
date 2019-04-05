@@ -1,3 +1,64 @@
-<p>
-  tech works!
-</p>
+<section class="container desktop">
+
+  <div class="columns">
+    <div class="column is-11-mobile is-8-tablet">
+      <h4>Tech Explorers are key partners in Beta Blocks.
+      </h4>
+    </div>
+
+    <div class="column">
+
+      <div class="arrow btn space-grotesk-semi">
+        <a (click)="goToForm()" class="center-all">
+          <div>Sign<br />up</div>
+          <svg width="110" height="110" fill="none" viewBox="0 0 110 110">
+            <path stroke="#B5191D" stroke-width="4" d="M107.584 53.084L54.5 106.17 1.416 53.084M54.5 0v106.103" />
+          </svg>
+        </a>
+      </div>
+    </div>
+  </div>
+
+  <!-- SIGNUP -->
+  <h2 id="form">Sign up to become a Tech Partner!</h2>
+
+  <form class="columns column is-11-mobile is-full-tablet is-multiline" [formGroup]="userForm" (submit)="submitForm()" *ngIf="!received">
+    <div class="column is-full-mobile is-6-tablet">
+      <input formControlName="firstName" id="firstName" placeholder="first name" required />
+      <div *ngIf="submitted && f.firstName.invalid">Required</div>
+    </div>
+
+    <div class="column is-full-mobile">
+      <input formControlName="lastName" id="lastName" placeholder="last name" required />
+      <div *ngIf="submitted && f.lastName.invalid">Required</div>
+    </div>
+
+    <div class="column is-full-mobile is-full-tablet">
+      <input formControlName="org" id="org" class="full" placeholder="organization" required />
+      <div *ngIf="submitted && f.org.invalid">Required</div>
+    </div>
+
+    <div class="column is-full-mobile is-full-tablet">
+      <input formControlName="email" id="email" class="full" placeholder="email" required />
+      <div *ngIf="submitted && f.email.invalid">
+        <span *ngIf="f.email.errors.required">Required. </span>
+        <span *ngIf="f.email.errors.email">Please enter a valid email address.</span>
+      </div>
+    </div>
+
+    <div class="column is-full-mobile is-half-tablet">
+      <input formControlName="phone" id="phone" placeholder="phone" required />
+      <div *ngIf="submitted && f.phone.invalid">
+        <span *ngIf="f.phone.errors.required">Required. </span>
+        <span *ngIf="f.phone.errors.invalidNumber">Please enter a valid phone number.</span>
+      </div>
+    </div>
+    <div class="column is-full-mobile">
+      <button type="submit">sign up</button>
+    </div>
+  </form>
+  <!-- email sent -->
+  <div *ngIf="received" class="space-grotesk">
+    Thanks for your message! Somebody will be in touch with you shortly!
+  </div>
+</section>

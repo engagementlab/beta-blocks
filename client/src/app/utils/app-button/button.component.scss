@@ -55,7 +55,6 @@
   &.grape {
     background-color: $grape;
 
-
     @include not-phones {
 
       width: 280px;

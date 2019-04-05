@@ -1,0 +1,57 @@
+@import "~src/style/_variables";
+
+@keyframes hover {
+
+    0% {
+        background: linear-gradient(to bottom, $rouge 0%, $rouge 0%, #ffffff 0%, #ffffff 100%);
+    }
+
+    100% {
+        background: linear-gradient(to bottom, $rouge 0%, $rouge 100%, #ffffff 100%, #ffffff 100%);
+
+    }
+
+}
+
+.btn {
+
+    @include pxtoem(36, 48);
+
+    width: 350px;
+    height: 200px;
+
+    flex-direction: row;
+    text-align: center;
+
+    border: solid 4px $rouge;
+    border-top-width: 2px;
+    cursor: pointer;
+
+    a {
+        height: 100%;
+        line-height: 1.21;
+        letter-spacing: 2px;
+        text-decoration: none;
+        color: $rouge;
+
+        background-image: linear-gradient(to bottom, $rouge 1%, #ffffff 1%, #ffffff 100%);
+        background-size: 100% 100%;
+        
+        @include transition(all, .3s, ease-out);
+
+        svg path {
+            @include transition(all, .3s, ease-out);
+
+        }
+
+    }
+
+    &:hover a {
+        background-size: 100% 10000%;
+        color: white;
+
+        svg path {
+            stroke: white;
+        }
+    }
+}
