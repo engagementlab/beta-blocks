@@ -73,10 +73,11 @@ h4 {
 
 // Form styles
 form {
-   
+
   width: 90%;
-  
-  input, textarea {
+
+  input,
+  textarea {
     font-family: 'SpaceGrotesk-SemiBold';
     @include pxtoem(18, 36);
     color: white;
@@ -85,28 +86,33 @@ form {
     background-color: $grape;
 
     flex: none;
-    
+
     padding-top: 20px;
     padding-bottom: 20px;
     padding-left: 27px;
-    
-        width: 95%;
+
+    width: 95%;
+
+    &.full {
+      width: 96%;
+
+    }
 
     @include placeholder {
-        font-family: 'SpaceGrotesk-SemiBold';
-        color: rgba(255, 255, 255, .5);
+      font-family: 'SpaceGrotesk-SemiBold';
+      color: rgba(255, 255, 255, .5);
     }
   }
 
   input[type=submit] {
-      @include pxtoem(18, 36);
-      background: none;
+    @include pxtoem(18, 36);
+    background: none;
 
-      color: rgba(64, 43, 89, .5);
-      border: solid 4px rgba(64, 43, 89, .5);
+    color: rgba(64, 43, 89, .5);
+    border: solid 4px rgba(64, 43, 89, .5);
 
-      padding: 5%;
-      // width: 100%;
+    padding: 5%;
+    // width: 100%;
 
   }
 
@@ -118,12 +124,12 @@ form {
 
     border: solid 4px rgba(64, 43, 89, 0.5);
     background-color: white;
-    
+
     padding-top: 3%;
     padding-bottom: 3%;
     padding-left: 5%;
 
-    width: 95%;
+    width: 99%;
   }
 }
 

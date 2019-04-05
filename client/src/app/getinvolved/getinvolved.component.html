@@ -25,7 +25,7 @@
 
   <!-- EXHIBIT -->
   <div id="exhibit" class="no-margin columns is-mobile is-11-mobile is-full-tablet">
-    
+
     <div class="column is-11-mobile is-4-tablet space-grotesk">
       <p>We'll put all the little clouds in and let them dance around and have fun. You can spend all day playing with
         mountains.</p>
@@ -43,23 +43,24 @@
   <!-- PARTNER -->
   <div id="partner" class="no-margin columns is-mobile is-multiline is-11-mobile is-full-tablet">
 
-      <div class="column is-11-mobile is-half-tablet">
-        <cdn-image cloudinaryId="img/getinvolved/partner" width="700" [responsive]="true" autoFormat="true" alt="'Become a Tech Partner' image">
-        </cdn-image>
-      </div>
-
-      <div class="column is-11-mobile is-4-tablet is-offset-1-tablet space-grotesk">
-        <p>You are just a whisper floating across a mountain. All you have to learn here is how to have fun..</p>
-  
-        <app-button clickData="true" (clickEvent)="goToForm()" label="sign up" class="grape"></app-button>
-  
-      </div>
-  
+    <div class="column is-11-mobile is-half-tablet">
+      <cdn-image cloudinaryId="img/getinvolved/partner" width="700" [responsive]="true" autoFormat="true"
+        alt="'Become a Tech Partner' image">
+      </cdn-image>
     </div>
+
+    <div class="column is-11-mobile is-4-tablet is-offset-1-tablet space-grotesk">
+      <p>You are just a whisper floating across a mountain. All you have to learn here is how to have fun..</p>
+
+      <app-button clickData="true" (clickEvent)="goToForm()" label="sign up" class="grape"></app-button>
+
+    </div>
+
+  </div>
 
   <!-- WORKSHOPS -->
   <div id="workshops" class="no-margin column columns is-mobile is-multiline is-11-mobile is-11-tablet is-full-desktop">
-      <h2 class="column is-full">Attend Beta Blocks workshops</h2>
+    <h2 class="column is-full">Attend Beta Blocks workshops</h2>
 
     <!-- <div class="column columns is-11-mobile is-full-tablet"> -->
     <div class="event column columns is-multiline is-full-mobile is-8-desktop">
@@ -84,44 +85,58 @@
     </div>
 
     <div class="no-pad button column">
-      <app-button href="/exhibit" label="sign up with\n eventbrite" class="full" [arrow]="true" *ngIf="!isPhone"></app-button>
-      <app-button href="/exhibit" label="sign up with eventbrite" class="full" [arrow]="true" *ngIf="isPhone"></app-button>
+      <app-button href="/exhibit" label="sign up with\n eventbrite" class="full" [arrow]="true" *ngIf="!isPhone">
+      </app-button>
+      <app-button href="/exhibit" label="sign up with eventbrite" class="full" [arrow]="true" *ngIf="isPhone">
+      </app-button>
     </div>
   </div>
 
   <!-- SIGNUP -->
   <h2 id="form">Sign up to become a Tech Partner!</h2>
-  
+
   <form class="columns column is-11-mobile is-full-tablet is-multiline" [formGroup]="userForm" (submit)="submitForm()">
     <div class="column is-full-mobile is-6-tablet">
       <input formControlName="firstName" id="firstName" placeholder="first name" required />
-      <!-- <div [hidden]="name.valid">Required</div> -->
+      <div *ngIf="submitted && f.firstName.invalid">Required</div>
     </div>
+
     <div class="column is-full-mobile">
       <input formControlName="lastName" id="lastName" placeholder="last name" required />
-      <!-- <div [hidden]="name.valid">Required</div> -->
+      <div *ngIf="submitted && f.lastName.invalid">Required</div>
     </div>
 
     <div class="column is-full-mobile is-full-tablet">
-      <input formControlName="url" id="url" type="url" placeholder="company website url" required />
-      <!-- <div [hidden]="email.valid">Invalid</div> -->
-    </div>
-    <div class="column is-full-mobile is-full-tablet">
-      <textarea formControlName="message" id="message" name="message" placeholder="description of technology"
-        required></textarea>
+      <input formControlName="url" id="url" class="full" type="url" placeholder="company website url" required />
+      <div *ngIf="submitted && f.url.invalid">
+        <span *ngIf="f.url.errors.required">Required. </span>
+        <span *ngIf="f.url.errors.pattern">Please enter a valid URL.</span>
+      </div>
     </div>
 
     <div class="column is-full-mobile is-full-tablet">
-      <input formControlName="email" id="email" placeholder="email" required />
-      <!-- <div [hidden]="email.valid">Invalid</div> -->
+      <textarea formControlName="message" id="message" class="full" name="message"
+        placeholder="description of technology" required></textarea>
+      <div *ngIf="submitted && f.message.invalid">Required</div>
     </div>
+
+    <div class="column is-full-mobile is-full-tablet">
+      <input formControlName="email" id="email" class="full" placeholder="email" required />
+      <div *ngIf="submitted && f.email.invalid">
+        <span *ngIf="f.email.errors.required">Required. </span>
+        <span *ngIf="f.email.errors.email">Please enter a valid email address.</span>
+      </div>
+    </div>
+
     <div class="column is-full-mobile is-half-tablet">
       <input formControlName="phone" id="phone" placeholder="phone" required />
-      <!-- <div [hidden]="email.valid">Invalid</div> -->
+      <div *ngIf="submitted && f.phone.invalid">
+        <span *ngIf="f.phone.errors.required">Required. </span>
+        <span *ngIf="f.phone.errors.invalidNumber">Please enter a valid phone number.</span>
+      </div>
     </div>
     <div class="column is-full-mobile">
-
-      <button type="submit" [disabled]="!userForm.valid">sign up</button>
+      <button type="submit">sign up</button>
     </div>
   </form>
 

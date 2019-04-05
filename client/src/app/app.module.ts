@@ -24,6 +24,8 @@ import { Cloudinary as CloudinaryCore } from 'cloudinary-core';
 import { CloudinaryConfiguration, CloudinaryModule } from '@cloudinary/angular-5.x';
 import cloudinaryConfiguration from './cdn.config';
 import { ScrollToModule } from '@nicky-lenaers/ngx-scroll-to';
+import { ZonesComponent } from './zones/zones.component';
+import { TechComponent } from './tech/tech.component';
 
 export const cloudinary = {
   Cloudinary: CloudinaryCore
@@ -44,7 +46,9 @@ export const config: CloudinaryConfiguration = cloudinaryConfiguration;
     FooterComponent,
     LinebreakPipe,
     AboutComponent,
-    ExhibitComponent
+    ExhibitComponent,
+    ZonesComponent,
+    TechComponent
   ],
   imports: [
     AppRoutingModule,

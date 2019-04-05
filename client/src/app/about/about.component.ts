@@ -12,30 +12,47 @@ import { DataService } from '../utils/data.service';
 export class AboutComponent implements OnInit {
 
   public isPhone: boolean;
+  public submitted: boolean;
+  public received: boolean;
+
   private userForm: any;
 
   constructor(private _dataSvc: DataService, private _formBuilder: FormBuilder) {
     
     this.isPhone = ismobile.phone;
-    this.userForm = _formBuilder.group({
-      'name': ['', Validators.required],
-      'email': ['', [Validators.required, Validators.email]],
-      'message': ['', [Validators.required, Validators.minLength(30)]]
-    });
   
   }
 
   ngOnInit() {
+    this.userForm = this._formBuilder.group({
+      'name': ['', Validators.required],
+      'email': ['', [Validators.required, Validators.email]],
+      'message': ['', [Validators.required, Validators.minLength(10)]]
+    });
+  }
+  
+  // convenience getter for easy access to form fields
+  get f() {
+    return this.userForm.controls;
   }
 
   submitForm() {
 
-    console.log(this.userForm.value)
+    this.submitted = true;
 
-    this._dataSvc.sendDataToUrl('/api/contact', this.userForm.value).subscribe((data: any) => {
+    // stop here if form is invalid
+    if (this.userForm.invalid) {
+        return;
+    }
 
+    let data = this.userForm.value;
+    data.type = 'General';
+    this._dataSvc.sendDataToUrl('/api/contact', data).subscribe((data: any) => {
+
+      this.received = true;
 
     });
+
   }
 
 }
