@@ -28,6 +28,7 @@
     cursor: pointer;
 
     a {
+
         height: 100%;
         line-height: 1.21;
         letter-spacing: 2px;
@@ -36,7 +37,7 @@
 
         background-image: linear-gradient(to bottom, $rouge 1%, #ffffff 1%, #ffffff 100%);
         background-size: 100% 100%;
-        
+
         @include transition(all, .3s, ease-out);
 
         svg path {
@@ -53,5 +54,132 @@
         svg path {
             stroke: white;
         }
+    }
+}
+
+.left {
+
+    @include pxtoem(18, 24);
+
+    line-height: 1.42;
+    letter-spacing: 2px;
+
+}
+
+.lunch-reg {
+    @include pxtoem(12, 14);
+
+    line-height: 1.29;
+}
+
+#explorer {
+
+    h5 {
+        font-stretch: expanded;
+        line-height: 1.33;
+        letter-spacing: 2px;
+        color: $grape;
+    }
+
+    #steps {
+        .column {
+            text-align: center;
+            width: 31%;
+
+            @include phones {
+                width: 50%;
+            }
+
+            &.space-grotesk-semi {
+                @include pxtoem(18, 24);
+
+                line-height: 1.42;
+                letter-spacing: 2px;
+                color: $rouge;
+            }
+        }
+
+        p {
+            text-align: left;
+
+            @include pxtoem(14, 18);
+            font-weight: 500;
+            line-height: 1.33;
+            letter-spacing: 2px;
+        }
+
+        strong {
+            @include pxtoem(48, 72);
+
+            letter-spacing: 2px;
+            color: $rouge;
+
+        }
+    }
+}
+
+#partners {
+
+    .partner {
+        @include phones {
+            flex-direction: column-reverse;
+        }
+        h2 {
+            text-transform: capitalize;
+            text-align: left;
+            margin: 0;
+            padding-top: 0;
+        }
+        strong {
+            @include pxtoem(14, 18);
+
+            font-stretch: expanded;
+            line-height: 1.33;
+            letter-spacing: 2px;
+        }
+        .bleed {
+            display: grid;
+        }
+        .text {
+            position: relative;
+            align-self: flex-end;
+            background-color: $marigold;
+            
+            padding: 3%;
+        }
+        
+        ::ng-deep img {
+            border: solid 4px $marigold;
+        }
+
+        &:nth-child(1n+2) {
+            .text {
+                background-color: $marigold;
+            }
+        }
+        &:nth-child(2n+2) {
+            .text {
+                background-color: $light-pink;
+            }
+            ::ng-deep img {
+                border-color: $light-pink;
+            }
+        }
+
+        @include not-phones {
+            &:nth-child(even) {
+                flex-direction: row-reverse
+            }
+        }
+/*         &:nth-child(3n+4) {
+            .text {
+                background-color: $rouge;
+            }
+        }
+        &:nth-child(4n+4) {
+            .text {
+                background-color: $grape;
+            }
+        } */
     }
 }

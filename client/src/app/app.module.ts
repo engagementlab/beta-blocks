@@ -10,14 +10,16 @@ import { HomeComponent } from './home/home.component';
 import { HttpClientModule } from '@angular/common/http';
 import { NavComponent } from './nav/nav.component';
 import { GetinvolvedComponent } from './getinvolved/getinvolved.component';
-import { ButtonComponent } from './utils/app-button/button.component';
-import { DeviceactionPipe } from './utils/deviceaction.pipe';
-import { DataService } from './utils/data.service';
 import { FooterComponent } from './footer/footer.component';
 import { CdnImageComponent } from './utils/cdn-image/cdn-image.component';
-import { LinebreakPipe } from './utils/linebreak.pipe';
 import { AboutComponent } from './about/about.component';
 import { ExhibitComponent } from './exhibit/exhibit.component';
+import { ButtonComponent } from './utils/app-button/button.component';
+
+import { DeviceactionPipe } from './utils/deviceaction.pipe';
+import { DataService } from './utils/data.service';
+import { LinebreakPipe } from './utils/linebreak.pipe';
+import { PrettyUrlPipe } from './utils/pretty-url.pipe';
 
 // NPM
 import { Cloudinary as CloudinaryCore } from 'cloudinary-core';
@@ -48,7 +50,8 @@ export const config: CloudinaryConfiguration = cloudinaryConfiguration;
     AboutComponent,
     ExhibitComponent,
     ZonesComponent,
-    TechComponent
+    TechComponent,
+    PrettyUrlPipe
   ],
   imports: [
     AppRoutingModule,

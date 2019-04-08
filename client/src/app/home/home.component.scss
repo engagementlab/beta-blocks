@@ -1,12 +1,12 @@
 @import '~src/style/_variables';
 
-#tagline {
-    @include pxtoem(24, 48);
+#offset {
     margin-top: -8%;
+}
 
-    @include phones {
-        margin-top: -8%;
-    }
+#tagline {
+
+    @include pxtoem(24, 48);
 }
 
 #about {

@@ -65,8 +65,9 @@ h3 {
 
 h4 {
   @include pxtoem(24, 48);
-  line-height: 1;
-  letter-spacing: 2px;
+  
+  line-height: 1.42;
+  letter-spacing: 4px;
 
   padding-bottom: 2%;
 }
@@ -195,8 +196,6 @@ form {
 
   @include phones {
     &.columns {
-      // margin-left: -8px;
-      // margin-right: -8px;
       padding: 0;
     }
 
@@ -212,6 +211,12 @@ form {
 }
 .space-grotesk-semi {
   font-family: 'SpaceGrotesk-SemiBold';
+}
+.lunch-reg {
+  font-family: 'Lunchtype';
+}
+.lunch-med {
+  font-family: 'LunchtypeMed';
 }
 
 // Mapbox

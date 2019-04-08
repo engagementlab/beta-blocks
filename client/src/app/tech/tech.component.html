@@ -19,10 +19,88 @@
     </div>
   </div>
 
+  <!-- BECOMING A TECH EXPLORER -->
+  <h2>Becoming a Tech Explorer</h2>
+
+  <div id="explorer" class="columns column is-full is-multiline">
+
+    <div class="left column is-11-mobile is-half-tablet space-grotesk-semi">
+      Communities know their blocks inside out. Becoming a Tech Explorer gives you the chance to try smart tech before
+      it hits the streets and share your ideas for how it could work for Boston.
+    </div>
+    <div class="lunch-reg column is-full-mobile">
+      This is your chance to turn your ideas for using and improving tech into real experiments. As at Tech Explorer,
+      you’ll also learn lots of new things and have the chance to shape the future of Boston’s streets.
+      <br />
+      <br />
+      We are looking for Tech Explorers from all walks of life. All we ask is that you’re 12+, live or work in Greater
+      Boston and can take part in six hours of meet ups and workshops. Absolutely no technical experience necessary, and
+      we’ll give you a $100 gift card for your time.
+    </div>
+
+    <h5 class="lunch-reg column is-full center-all">Find out more about Tech Explorers below.</h5>
+
+    <div id="steps" class="columns column is-full is-mobile is-multiline">
+      <div class="column is-4-tablet" *ngFor="let txt of stepTxt; let i = index;">
+        <h2>STEP</h2>
+        <strong>{{i+1}}</strong>
+        <br />
+
+        <svg width="98" height="14" fill="none" viewBox="0 0 98 14">
+          <path stroke="#FCBD0B" stroke-linecap="round" stroke-miterlimit="10" stroke-width="6"
+            d="M94.971 10.24c-9.194 0-9.194-7.211-18.388-7.211-9.195 0-9.195 7.21-18.389 7.21C49 10.24 49 3.03 39.806 3.03s-9.194 7.21-18.389 7.21c-9.194 0-9.194-7.21-18.388-7.21" />
+        </svg>
+        <p class="lunch-med">{{txt}}</p>
+      </div>
+      <div class="column is-4-tablet space-grotesk-semi center-all">
+        If you like, keep in touch with us on our chat or by email. We may also ask if you want to get involved in
+        similar projects in the future.
+      </div>
+    </div>
+
+  </div>
+
+  <!-- TECH -->
+  <h2>Smart Tech</h2>
+
+  <div id="tech" class="columns column is-full is-multiline">
+
+    <div class="left column is-11-mobile is-half-tablet space-grotesk-semi">
+      Tech Explorers will get the chance to try some new smart tech and come up with ideas for how they would want it to
+      work for their neighborhood.
+    </div>
+    <div class="lunch-reg column is-full-mobile">
+      Below is a taster of some of the tech that will be available to the Tech Explorers in the Beta Blocks project.
+    </div>
+
+    <div id="partners">
+
+      <div class="partner columns column is-full is-mobile" *ngFor="let partner of partners;">
+        <div class="bleed no-pad column is-full-mobile is-half-tablet lunch-reg">
+          <div class="text">
+            <h2>{{partner.name}}</h2>
+            <strong class="lunch-med">{{partner.subheading}}</strong>
+            <p>{{partner.description}}</p>
+            <a href="{{partner.website}}">{{partner.website | prettyUrl}}</a>
+          </div>
+        </div>
+        <div class="no-pad is-full-mobile is-half-tablet column">
+          <cdn-image cloudinaryId="{{partner.image.public_id}}" cloudinaryPrefix="/" width="585" [responsive]="true"
+            autoFormat="true" alt="Image for {{partner.name}} tech">
+          </cdn-image>
+        </div>
+      </div>
+
+    </div>
+
+    <h5 class="lunch-reg column is-full center-all">Watch this space for more smart tech ...</h5>
+  </div>
+
   <!-- SIGNUP -->
   <h2 id="form">Sign up to become a Tech Partner!</h2>
 
-  <form class="columns column is-11-mobile is-full-tablet is-multiline" [formGroup]="userForm" (submit)="submitForm()" *ngIf="!received">
+  <form class="columns column is-11-mobile is-full-tablet is-multiline" [formGroup]="userForm" (submit)="submitForm()"
+    *ngIf="!received">
     <div class="column is-full-mobile is-6-tablet">
       <input formControlName="firstName" id="firstName" placeholder="first name" required />
       <div *ngIf="submitted && f.firstName.invalid">Required</div>

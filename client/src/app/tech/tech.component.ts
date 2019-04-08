@@ -14,12 +14,29 @@ export class TechComponent implements OnInit {
   
   public submitted: boolean;
   public received: boolean;
-
-  public hasContent;
+  public hasContent: boolean;
 
   public userForm: FormGroup;
 
+  public stepTxt: string[];
+  public partners: any[];
+
   constructor(private _dataSvc: DataService, private _formBuilder: FormBuilder, private _scrollToService: ScrollToService) {
+
+    this.stepTxt = [
+      'Sign up to become a Tech Explorer below. Once you’re on board, start recording your thoughts and e-meet the other Explorers you’ll be working with.',
+      'Pay a short visit to your chosen Exploration Zone and answer a couple of questions while you’re there.',
+      'Come along to one of our workshops to plan out how you want the tech to work for your neighborhood, all over a free lunch.',
+      'Go and see your experiment come to life. Then, come together with our project’s tech partners over coffee to share your thoughts.',
+      'Come to a second workshop over lunch to reflect on your experiments and think about what we could do next.'
+    ];
+
+    _dataSvc.getDataForUrl('/api/tech/get').subscribe((data: any) => {
+
+      this.partners = data.techData;
+      this.hasContent = true;
+
+    });
 
   }
 
