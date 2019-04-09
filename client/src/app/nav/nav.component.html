@@ -38,6 +38,12 @@
 
         <a *ngIf="itemActive('tech')" class="active link" (click)="openCloseNav()">Tech Explorers</a>
         <a *ngIf="!itemActive('tech')" class="link" routerLink="/tech">Tech Explorers</a>
+
+        <a *ngIf="itemActive('zones')" class="active link" (click)="openCloseNav()">Exploration Zones</a>
+        <a *ngIf="!itemActive('zones')" class="link" routerLink="/zones">Exploration Zones</a>
+
+        <a *ngIf="itemActive('tool')" class="active link" (click)="openCloseNav()">Tool Data</a>
+        <a *ngIf="!itemActive('tool')" class="link" routerLink="/tool">Tool Data</a>
             
         <div id="info">
                 <div>

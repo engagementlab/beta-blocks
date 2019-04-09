@@ -6,7 +6,7 @@ import { Pipe, PipeTransform } from '@angular/core';
 export class PrettyUrlPipe implements PipeTransform {
 
   transform(value: string): string {
-    return value.replace(/(^\w+:|^)\/\//, '').replace('www.', '');
+    return value.replace(/(^\w+:|^)\/\//, '').replace('www.', '').replace('/', '');
   }
 
 }

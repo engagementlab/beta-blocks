@@ -1,0 +1,23 @@
+@import '~src/style/_variables';
+
+.right {
+    .text {
+        @include pxtoem(18, 24);
+
+        background-color: $grape;
+        align-self: flex-end;
+
+        color: white;
+        padding: 5%;
+
+        line-height: 1.42;
+        letter-spacing: 2px;
+    }
+
+        @include not-phones {
+            @include translate(-50%, 0);
+        }
+        @include tablet-portrait {
+            @include translate(-7%, 0);
+        }
+}

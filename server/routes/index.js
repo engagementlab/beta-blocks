@@ -35,6 +35,7 @@ router.get('/api/data/set', routeIncludes, routes.api.data.set);
 
 router.get('/api/events/get', routeIncludes, routes.api.events.get);
 router.get('/api/tech/get', routeIncludes, routes.api.tech.get);
+router.get('/api/zones/get', routeIncludes, routes.api.zones.get);
 
 router.post('/api/contact', routeIncludes, routes.api.contact.send);
 

@@ -22,8 +22,9 @@ var Types = keystone.Field.Types;
  */
 var Tech = new keystone.List('Tech', 
 	{
-		label: 'Tech Parnters',
+		label: 'Tech Partners',
 		singular: 'Tech Partner',
+		plural: 'Tech Partners'
 	});
 
 /**

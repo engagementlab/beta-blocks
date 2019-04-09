@@ -15,7 +15,7 @@
 
 .btn {
 
-    @include pxtoem(36, 48);
+    @include pxtoem(24, 48);
 
     width: 350px;
     height: 200px;
@@ -26,6 +26,12 @@
     border: solid 4px $rouge;
     border-top-width: 2px;
     cursor: pointer;
+
+    @include phones {
+        width: 175px;
+        height: 100px;
+        margin-left: 5%;
+    }
 
     a {
 
@@ -44,6 +50,12 @@
             @include transition(all, .3s, ease-out);
 
         }
+
+    @include phones {
+        svg {
+            @include scale(.5);
+        }
+    }
 
     }
 
@@ -146,6 +158,14 @@
             background-color: $marigold;
             
             padding: 3%;
+
+            a, a:visited {
+                color: black;
+            }
+        }
+
+        ::ng-deep cl-image {
+            display: grid;
         }
         
         ::ng-deep img {
@@ -171,15 +191,5 @@
                 flex-direction: row-reverse
             }
         }
-/*         &:nth-child(3n+4) {
-            .text {
-                background-color: $rouge;
-            }
-        }
-        &:nth-child(4n+4) {
-            .text {
-                background-color: $grape;
-            }
-        } */
     }
 }
