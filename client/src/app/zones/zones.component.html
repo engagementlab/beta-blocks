@@ -1,4 +1,4 @@
-<section class="container desktop">
+<section class="container desktop" *ngIf="hasContent">
 
   <div class="column is-11-mobile is-8-tablet">
     <h4>We don’t really know where this goes — and I’m not sure we really care.
@@ -8,26 +8,56 @@
   <!-- EXPLORATION ZONES -->
   <h2>Exploration Zones</h2>
 
-  <div id="photo" class="bleed columns column is-full" *ngIf="hasContent">
+  <div id="photo" class="bleed columns column is-full">
 
     <div class="column is-8">
-      <cdn-image cloudinaryId="{{content.exampleImage.public_id}}" cloudinaryPrefix="/" width="900" [responsive]="true" autoFormat="true"
-        alt="Exploration Zone example image">
+      <cdn-image cloudinaryId="{{content.exampleImage.public_id}}" cloudinaryPrefix="/" width="900" [responsive]="true"
+        autoFormat="true" alt="Exploration Zone example image">
       </cdn-image>
     </div>
 
     <div class="column right is-half">
-        <div class="text space-grotesk-semi">
-          The project has three Exploration Zones in three neighborhoods of Boston. These are the city blocks where you
-          will be invited to experiment with the tech and judge how well it’s working for your neighborhood.
-        </div>
+      <div class="text space-grotesk-semi">
+        The project has three Exploration Zones in three neighborhoods of Boston. These are the city blocks where you
+        will be invited to experiment with the tech and judge how well it’s working for your neighborhood.
+      </div>
     </div>
   </div>
 
-  <div id="map">
-    <div id="legend">
-      
+  <div id="map" class="column is-full">
+    <div id="legend" class="lunch-med">
+      <span class="location" *ngFor="let i of locationIndices;" (click)="goToZone(i)">
+
+        <svg width="36" height="45" fill="none" viewBox="0 0 36 45">
+          <path stroke-miterlimit="10" stroke-width="4"
+            d="M34 18c0 8.8-16 24-16 24S2 26.8 2 18 9.2 2 18 2s16 7.2 16 16z" />
+          <path stroke-miterlimit="10" stroke-width="4" d="M18 22a5 5 0 1 0 0-10 5 5 0 0 0 0 10z" />
+        </svg>
+        {{getLocationInfo(i).name}}
+
+      </span>
     </div>
+  </div>
+
+  <div id="zones">
+
+    <div id="zone{{i}}" class="columns column is-offset-1-tablet is-11-tablet is-mobile" *ngFor="let i of locationIndices;">
+
+      <div class="column is-11-mobile is-one-third-tablet">
+        <cdn-image cloudinaryId="img/zones/{{i}}" width="500" [responsive]="true" autoFormat="true"
+          alt="Image for {{getLocationInfo(i).name}} zone"></cdn-image>
+      </div>
+
+      <div class="column is-11-mobile">
+      
+        <h3>{{getLocationInfo(i).name}}</h3>
+        <h2>{{getLocationInfo(i).address}}</h2>
+        <p class="lunch-med">{{getLocationInfo(i).description}}</p>
+      
+      </div>
+
+    </div>
+
   </div>
 
 </section>

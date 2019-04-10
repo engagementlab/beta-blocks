@@ -1,0 +1,48 @@
+@import '~src/style/_variables';
+
+@include keyframes(banner) {
+
+    0% {
+	top: calc(100% + 76px);        
+    }
+
+    20% {
+	top: calc(100% - 76px);
+        
+    }
+    80% {
+	top: calc(100% - 76px);
+        
+    }
+
+    100% {
+        top: calc(100% + 76px);        
+        }
+}
+
+#qa-build {
+	position: fixed;
+	top: calc(100% + 76px);
+	left: 0;
+    right: 0;
+
+    height: 76px;
+    width: 100%;
+
+	color: white;
+	background-color: $rouge;
+	text-align: center;
+	font-weight: bold;
+	font-size: large;
+    z-index: 100;
+    
+    animation: banner 6s cubic-bezier(0.785, 0.135, 0.150, 0.860) 2s 1 forwards;
+
+	#text {
+		font-size: xx-large;
+	}
+	span {
+		vertical-align: top;
+	}
+	
+}

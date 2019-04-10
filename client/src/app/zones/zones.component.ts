@@ -13,6 +13,8 @@ export class ZonesComponent implements OnInit {
   public hasContent: boolean;
   public content: any;
 
+  public locationIndices: Number[] = [1, 2, 3];
+
   constructor(private _dataSvc: DataService, private _scrollToService: ScrollToService) {
 
     _dataSvc.getDataForUrl('/api/zones/get').subscribe((data: any) => {
@@ -25,6 +27,28 @@ export class ZonesComponent implements OnInit {
   }
 
   ngOnInit() {
+  }
+
+  getLocationInfo(i: number) {
+    
+    return {
+      name: this.content['location' + i + 'Name'],
+      description: this.content['location' + i + 'Description'],
+      address: this.content['location' + i + 'Address']
+    };
+
+  }
+
+  goToZone(i: number) {
+
+    this._scrollToService
+      .scrollTo({
+        target: document.getElementById('zone' + i),
+        offset: 0,
+        easing: 'easeOutQuint',
+        duration: 700
+      });
+
   }
 
 }
