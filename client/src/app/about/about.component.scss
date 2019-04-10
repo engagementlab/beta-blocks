@@ -39,8 +39,14 @@
         font-weight: 600;
         line-height: 1.17;
         letter-spacing: 1px;
-        color: $light-pink;
-        border-left: solid 8px $light-pink;
+
+        color: black;
+        border-left: solid 1px $light-pink;
+
+        background-image: linear-gradient(to right, $light-pink 1%, #ffffff 1%, #ffffff 100%);
+        background-size: 100% 100%;
+
+        @include transition(all, .3s, ease-out);
 
         span {
             padding: 5%;
@@ -54,23 +60,54 @@
             padding: 5%;
             border: solid 4px $light-pink;
             flex-grow: 1;
+        }
 
-            transition: background-size 2s ease-in;
-            // background-color: $light-pink;
-            // background-size: 0% 50%;
-            // background: -moz-linear-gradient(top, $light-pink 0%, $light-pink 100%); /* FF3.6-15 */
+        svg path {
+            @include transition(all, .3s, ease-out);
+        }
+
+        @include phones {
             svg {
-                max-width: 53px;
+                @include scale(.5);
+            }
+        }
+
+        &:hover {
+            background-size: 10000% 100%;
+
+            svg path {
+                stroke: white;
             }
         }
     }
 }
 
 #shapes {
+    #red {
+        ::ng-deep img {
+            position: relative;
+            right: -80%
+        }
+    }
+    #circle {
+        position: relative;
+        z-index: -1;
+        @include translate(450%, -309%);
+    }
+    #gold {
+        ::ng-deep img {
+            @include translate(-190%, 40%);
+            margin-top: -15%;
+        }
+    }
+    #squiggle {
+        @include translate(400%, 270%);
+        z-index: 1;
+    }
+
     @include phones {
         #red {
             ::ng-deep img {
-                position: relative;
                 right: -40%
             }
         }
@@ -79,13 +116,14 @@
         }
         #gold {
             ::ng-deep img {
-                @include translate(-153%, 40%);
+                @include translate(-190%, 40%);
                 margin-top: -15%;
             }
         }
         #squiggle {
+            position: relative;
             max-width: 103px;
-            @include translate(134%, 81%);
+            @include translate(191%, 81%);
             z-index: -1;
         }
     }
@@ -101,9 +139,7 @@
             // align-items: flex-end;
 
             .text {
-                color: $grape;
-
-                border: solid 4px $grape;
+                border: solid 4px $marigold;
                 padding: 2%;
 
                 @include pxtoem(14, 18);
@@ -120,8 +156,7 @@
         }
 
         &:nth-child(2) {
-            color: white;
-            background-color: $grape;
+            background-color: $marigold;
 
             @include pxtoem(18, 24);
             font-family: 'SpaceGrotesk-SemiBold';
