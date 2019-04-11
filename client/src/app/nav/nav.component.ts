@@ -46,6 +46,7 @@ export class NavComponent implements OnInit {
   }
 
   closeNav() {
+
     let menuDom = this.menu.nativeElement;
 
     menuDom.classList.remove('show');

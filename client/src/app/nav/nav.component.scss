@@ -108,16 +108,19 @@ nav {
 
     #links {
 
+        display: flex;
+        flex-direction: column;
+        justify-content: space-evenly;
+
         opacity: 0;
         top: 0;
         left: 0;
-        height: 100%;
+        
         background-color: $light-pink;
         flex: none;
 
         padding-left: 5%;
         padding-top: 3%;
-
         
         @include phones {
             width: 70%;
@@ -153,62 +156,6 @@ nav {
         
         }
 
-        #info {
-            position: absolute;
-            display: flex;
-            flex-direction: column;
-
-            color: black;
-            background-color: $marigold;
-
-            bottom: 0;
-            left: 0;
-
-            padding-left: 5%;
-            padding-top: 5%;
-
-            font-family: 'LunchtypeMed';
-            font-weight: 500;
-            font-stretch: expanded;
-            line-height: 1.17;
-            letter-spacing: 1px;
-            
-            @include pxtoem(12, 18);
-
-            #social {
-                display: flex;
-                flex-direction: row;
-                justify-content: space-evenly;
-                
-                padding: 5%;
-                padding-left: 0;
-            }
-
-            @include mq($from: mobileLg) {
-                @include pxtoem(14, 18);
-            }
-
-            @include phones {
-                width: 70%;
-                flex-basis: 70%;
-            }
-            @include not-phones {
-                width: 50%;
-            }
-            @include desktop {
-                flex-direction: row;
-
-                padding-top: 2%;
-                padding-bottom: 2%;
-
-                #social {
-                    flex-grow: 1;
-                    padding: 0;
-                    align-items: center;
-                }
-            }
-
-        }
     }
 
     #close {
@@ -228,7 +175,13 @@ nav {
         }
 
         svg {
+            @include transition(transform, .5s, ease-in-out);
+            cursor: pointer;
             width: 80%;
+
+            &:hover {
+                @include scale(1.05);
+            }
         }
 
     }
