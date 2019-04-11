@@ -90,10 +90,14 @@ form {
 
     padding-top: 20px;
     padding-bottom: 20px;
-    padding-left: 27px;
+    padding-left: 20px;
 
     @include placeholder {
       font-family: 'SpaceGrotesk-SemiBold';
+      font-weight: 600;
+
+      line-height: 0.94;
+      letter-spacing: 2px;
       color: rgba(255, 255, 255, .5);
     }
   }
@@ -103,7 +107,7 @@ form {
     width: 95%;
 
     &.full {
-      width: 96%;
+      width: 100%;
     }
     
     @include phones {
@@ -140,6 +144,14 @@ form {
     padding-top: 3%;
     padding-bottom: 3%;
     padding-left: 5%;
+
+    width: 100%;
+  }
+
+  .fields {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
 
     width: 100%;
   }

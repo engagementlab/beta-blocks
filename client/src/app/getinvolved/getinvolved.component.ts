@@ -30,7 +30,7 @@ export class GetinvolvedComponent implements OnInit {
 
     this.isPhone = ismobile.phone;
 
-    _dataSvc.getDataForUrl('/api/events/get').subscribe((data: any) => {
+    _dataSvc.getDataForUrl('/api/events/get/eventbrite').subscribe((data: any) => {
 
       this.events = data;
       this.hasContent = true;

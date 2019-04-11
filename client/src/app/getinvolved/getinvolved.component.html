@@ -53,14 +53,12 @@
   </div>
 
   <!-- WORKSHOPS -->
-  <div id="workshops" class="no-margin column columns is-mobile is-multiline is-11-mobile is-11-tablet is-full-desktop">
+  <div id="workshops" class="no-margin column columns is-mobile is-multiline is-11-mobile is-11-tablet is-full-desktop" *ngIf="hasContent">
     <h2 class="column is-full">Attend Beta Blocks workshops</h2>
 
-    <!-- <div class="column columns is-11-mobile is-full-tablet"> -->
     <div class="event column columns is-multiline is-full-mobile is-8-desktop">
       <p class="column is-full">Absolutely No Pressure</p>
       <div class="info no-pad column is-full-mobile is-full-tablet is-4-desktop">
-        <!-- <div class="event columns is-mobile is-multiline"> -->
         <span class="date">03/29/2019</span>
         <span class="time">2:00pm</span>
         <span class="address">120 Boylston St.<br />
@@ -68,7 +66,6 @@
       </div>
 
       <div class="description no-pad column is-full-mobile is-full-tablet is-6-desktop">
-
         <span>
           Think about a cloud. Just float around and be there. We tell people sometimes: we're like drug dealers, come
           into town and get everybody absolutely addicted to painting. It doesn't take much to get you addicted. If I
@@ -89,18 +86,41 @@
   <!-- SIGNUP -->
   <h2 id="form">Sign up to become a Tech Partner!</h2>
 
-  <form class="columns column is-11-mobile is-full-tablet is-multiline" [formGroup]="userForm" (submit)="submitForm()" *ngIf="!received">
-    <div class="column is-full-mobile is-6-tablet">
-      <input formControlName="firstName" id="firstName" placeholder="first name" required />
-      <div *ngIf="submitted && f.firstName.invalid">Required</div>
+  <form class="columns column is-11-mobile is-full-tablet is-multiline" [formGroup]="userForm" (submit)="submitForm()"
+    *ngIf="!received">
+    <div class="fields">
+
+      <div class="column is-full-mobile is-half-tablet">
+        <input formControlName="firstName" id="firstName" placeholder="first name" required />
+        <div *ngIf="submitted && f.firstName.invalid">Required</div>
+      </div>
+
+      <div class="column is-full-mobile is-half-tablet">
+        <input formControlName="lastName" id="lastName" placeholder="last name" required />
+        <div *ngIf="submitted && f.lastName.invalid">Required</div>
+      </div>
     </div>
 
-    <div class="column is-full-mobile">
-      <input formControlName="lastName" id="lastName" placeholder="last name" required />
-      <div *ngIf="submitted && f.lastName.invalid">Required</div>
+    <div class="fields">
+      <div class="column is-full-mobile is-half-tablet">
+        <input formControlName="email" id="email" placeholder="email" required />
+        <div *ngIf="submitted && f.email.invalid">
+          <span *ngIf="f.email.errors.required">Required. </span>
+          <span *ngIf="f.email.errors.email">Please enter a valid email address.</span>
+        </div>
+      </div>
+
+      <div class="column is-full-mobile is-half-tablet">
+        <input formControlName="phone" id="phone" placeholder="phone" required />
+        <div *ngIf="submitted && f.phone.invalid">
+          <span *ngIf="f.phone.errors.required">Required. </span>
+          <span *ngIf="f.phone.errors.invalidNumber">Please enter a valid phone number.</span>
+        </div>
+
+      </div>
     </div>
 
-    <div class="column is-full-mobile is-full-tablet">
+    <div class="column is-full">
       <input formControlName="url" id="url" class="full" type="url" placeholder="company website url" required />
       <div *ngIf="submitted && f.url.invalid">
         <span *ngIf="f.url.errors.required">Required. </span>
@@ -108,30 +128,19 @@
       </div>
     </div>
 
-    <div class="column is-full-mobile is-full-tablet">
+    <div class="column is-full">
       <textarea formControlName="message" id="message" class="full" name="message"
-        placeholder="description of technology" required></textarea>
+        placeholder="description of technology" rows="3" required></textarea>
       <div *ngIf="submitted && f.message.invalid">Required</div>
     </div>
 
-    <div class="column is-full-mobile is-full-tablet">
-      <input formControlName="email" id="email" class="full" placeholder="email" required />
-      <div *ngIf="submitted && f.email.invalid">
-        <span *ngIf="f.email.errors.required">Required. </span>
-        <span *ngIf="f.email.errors.email">Please enter a valid email address.</span>
+    <div class="fields">
+      <div class="column is-half-tablet"></div>
+      <div class="column">
+        <button type="submit">Sign up</button>
       </div>
     </div>
 
-    <div class="column is-full-mobile is-half-tablet">
-      <input formControlName="phone" id="phone" placeholder="phone" required />
-      <div *ngIf="submitted && f.phone.invalid">
-        <span *ngIf="f.phone.errors.required">Required. </span>
-        <span *ngIf="f.phone.errors.invalidNumber">Please enter a valid phone number.</span>
-      </div>
-    </div>
-    <div class="column is-full-mobile">
-      <button type="submit">sign up</button>
-    </div>
   </form>
   <!-- email sent -->
   <div *ngIf="received" class="space-grotesk">

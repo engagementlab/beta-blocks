@@ -33,10 +33,20 @@ p {
 
     margin-top: 15%;
 
+    @include phones {
+        app-button {
+            width: 100%;
+        }
+    }
+
     .button {
         display: flex;
         align-items: center;
         justify-content: center;
+
+        @include not-phones {
+            margin-top: 5%;
+        }
     }
 
     .event {

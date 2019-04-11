@@ -25,7 +25,35 @@ const sdk = eventbrite({
 /*
  * Get data
  */
-exports.get = function (req, res) {
+exports.get = function (req, res) { 
+    
+    if (req.params.eventbrite) {
+        sdk.request('/organizers/11331505152/events/?expand=venue').then(data => {
+            let filtered = [];
+
+            filtered = _.map(data.events, (e) => {
+                return {
+                    id: e.id,
+                    name: e.name.html,
+                    url: e.url,
+                    lat: e.venue.address.latitude,
+                    lng: e.venue.address.longitude,
+                    description: e.description.text,
+                    date: new Date(e.start.local).toUTCString(),
+                    street: e.venue.address.address_1 + '\n' + e.venue.address.address_2
+                }
+    
+            });
+            res.status(200).json({
+                eventbrite: filtered
+            });
+        }).catch((err) => {
+            console.error(err);
+        });
+
+        return;
+    }
+
     let eventFields = 'name description startDate endDate address current latlng -_id';
     let event = keystone.list('Event').model;
 
@@ -35,31 +63,10 @@ exports.get = function (req, res) {
     Bluebird.props({
             events: eventsData
         })
-        .then(results => {
+        .then(results => {           
 
-            sdk.request('/organizers/11331505152/events/?expand=venue').then(data => {
-                let filtered = [];
-
-                filtered = _.map(data.events, (e) => {
-                    return {
-                        id: e.id,
-                        name: e.name.html,
-                        url: e.url,
-                        lat: e.venue.address.latitude,
-                        lng: e.venue.address.longitude,
-                        description: e.description.text,
-                        date: new Date(e.start.local).toUTCString(),
-                        street: e.venue.address.address_1 + '\n' + e.venue.address.address_2
-                    }
-                });
-
-                res.status(200).json({
-                    events: results.events,
-                    eventbrite: filtered
-                });
-
-            }).catch((err) => {
-                console.error(err);
+            res.status(200).json({
+                events: results.events
             });
 
         }).catch(err => {
