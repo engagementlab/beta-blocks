@@ -14,7 +14,10 @@
     color: black;
     text-decoration: none;
 
-    @include btnhover();
+    a {
+        @include btnhover();
+    }
+
 }
 
 #about-box {
@@ -61,17 +64,25 @@
     }
 
     #photo {
-        margin-top: -22%;
+        margin-top: -21.5%;
+        margin-left: 15.7%;
 
         @include tablet-portrait {
-            margin-top: -41%;
+            margin-top: -43%;
+            margin-left: 12.6%;
         }
         @include phones {
             margin-top: 0;
         }
     }
 
-    @include btnhover();
+    a {
+        @include btnhover();
+
+        @include not-phones {
+            @include translate(-1%, 0);
+        }
+    }
 
 }
 
@@ -134,7 +145,7 @@
         svg text {
             @include pxtoem(84, 72);
             fill: white;
-            stroke-width: 2px;
+            stroke-width: 4px;
             paint-order: stroke;
             stroke: $rouge;
 
