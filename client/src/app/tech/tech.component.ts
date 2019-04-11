@@ -47,8 +47,7 @@ export class TechComponent implements OnInit {
       'lastName': ['', Validators.required],
       'org': ['', Validators.required],
       'email': ['', [Validators.required, Validators.email]],
-      'phone': ['', [Validators.required, this.phoneValidator]],
-      'message': ['', [Validators.required, Validators.minLength(10)]]
+      'phone': ['', [Validators.required, this.phoneValidator]]
     });
 
   }

@@ -123,9 +123,27 @@
         #squiggle {
             position: relative;
             max-width: 103px;
-            @include translate(191%, 81%);
             z-index: -1;
+            @include translate(191%, 81%);
         }
+    }
+
+    @include not-desktop {
+        #squiggle {
+            position: relative;
+            z-index: -1;
+            @include translate(100%, 170%);
+        }
+    }
+}
+
+#cone {
+    ::ng-deep img {
+        position: relative;
+        right: -30%;
+
+        margin-top: 4%;
+        margin-bottom: 4%;
     }
 }
 

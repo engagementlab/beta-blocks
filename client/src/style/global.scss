@@ -92,17 +92,28 @@ form {
     padding-bottom: 20px;
     padding-left: 27px;
 
-    width: 95%;
-
-    &.full {
-      width: 96%;
-
-    }
-
     @include placeholder {
       font-family: 'SpaceGrotesk-SemiBold';
       color: rgba(255, 255, 255, .5);
     }
+  }
+
+  input {
+
+    width: 95%;
+
+    &.full {
+      width: 96%;
+    }
+    
+    @include phones {
+      width: 91%;
+    }
+
+  }
+
+  textarea {
+    width: 100%;
   }
 
   input[type=submit] {
@@ -113,7 +124,7 @@ form {
     border: solid 4px rgba(64, 43, 89, .5);
 
     padding: 5%;
-    // width: 100%;
+    width: 100%;
 
   }
 
@@ -130,7 +141,7 @@ form {
     padding-bottom: 3%;
     padding-left: 5%;
 
-    width: 99%;
+    width: 100%;
   }
 }
 
@@ -217,57 +228,4 @@ form {
 }
 .lunch-med {
   font-family: 'LunchtypeMed';
-}
-
-// Mapbox
-.marker {
-  display: block;
-  // background-color: red;
-  width: 10px;
-  height: 10px;
-  border-radius: 50%;
-  // cursor: pointer;
-
-  &.exhibit {
-    width: 100px;
-    height: 153px;
-    background-image: cdn-image('img/exhibit/inflatable-pin', c_fill, f_auto, w_100);
-  }
-}
-
-/* Marker tweaks */
-.mapboxgl-popup-close-button {
-  display: none;
-}
-
-.mapboxgl-popup-content {
-  font: 400 15px/22px 'Source Sans Pro', 'Helvetica Neue', Sans-serif;
-  padding: 0;
-  width: 180px;
-}
-
-.mapboxgl-popup-content-wrapper {
-  padding: 1%;
-}
-
-.mapboxgl-popup-content h3 {
-  background: #91c949;
-  color: #fff;
-  margin: 0;
-  display: block;
-  padding: 10px;
-  border-radius: 3px 3px 0 0;
-  font-weight: 700;
-  margin-top: -15px;
-}
-
-.mapboxgl-popup-content h4 {
-  margin: 0;
-  display: block;
-  padding: 10px;
-  font-weight: 400;
-}
-
-.mapboxgl-popup-content div {
-  padding: 10px;
 }

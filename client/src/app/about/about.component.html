@@ -20,6 +20,7 @@
           and a little bit of Prussian Blue.</p>
       </div>
     </div>
+
     <div id="link" class="column is-full-mobile space-grotesk">
       <a id="boston.gov" href="https://www.boston.gov/departments/new-urban-mechanics/beta-blocks">
         <span>Visit the Boston.gov Beta Blocks site</span>
@@ -89,6 +90,9 @@
 
   </div>
 
+  <cdn-image id="cone" cloudinaryId="img/about/cone" width="83" phoneWidth="54" autoFormat="false" svg="false"
+  [responsive]="false"></cdn-image>
+
   <!-- CONTACT -->
   <form class="columns column is-11-mobile is-full-tablet is-multiline" [formGroup]="userForm" (submit)="submitForm()" *ngIf="!received">
     <div class="column is-full-mobile is-6-tablet">
@@ -103,12 +107,12 @@
         <span *ngIf="f.email.errors.email">Please enter a valid email address.</span>
         </div>            
     </div>
-    <div class="column is-full-mobile is-11-tablet">
+    <div class="column is-full-mobile is-11-tablet is-full-desktop">
       <textarea formControlName="message" id="message" name="message" placeholder="Enter your message here"
       required></textarea>
       <div *ngIf="submitted && f.message.invalid">Required</div>
     </div>
-    <div class="column is-full-mobile is-11-tablet">
+    <div class="column is-full-mobile is-11-tablet is-full-desktop">
 
       <button type="submit">Submit</button>
     </div>
