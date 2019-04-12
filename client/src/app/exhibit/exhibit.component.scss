@@ -1,6 +1,23 @@
 @import '~src/style/_variables';
 
+
+#map {
+
+    position: relative;
+    z-index: -1;
+    min-height: 720px;
+
+    background-image: cdn-image('img/exhibit/map', c_fill, f_auto, w_1440);
+    background-size: cover;
+
+}
+
+#offset {
+    margin-top: -8%;
+}
 #location {
+
+    margin-bottom: 9%;
 
     .column {
         &:nth-child(1) {
@@ -22,10 +39,6 @@
                 paint-order: stroke;
                 stroke: white;
             }
-
-            @include not-phones {
-                @include translate(0, -50%);
-            }
         }
 
         &:nth-child(2) {
@@ -35,6 +48,10 @@
             line-height: 1.5;
             letter-spacing: 1px;
             border: solid 4px $rouge;
+
+            @include not-phones {
+                @include translate(0, 52%);
+            }
         }
     }
 
@@ -57,12 +74,12 @@
         padding: 0;
 
         h4 {
-            margin: 0;
-
-            background-color: $grape;
+            margin: 0;  
             color: white;
 
             font-family: 'VG5000';
+            font-weight: normal;
+            padding: 2% 1% 2%;
 
             cursor: pointer;
 
@@ -72,49 +89,79 @@
                     stroke-width: 4;
                     transform-origin: center center;
                     @include transition(all, 500ms, ease-in-out);
+
+                    &.vert {
+                        @include transform(scale(1, 0));
+                    }
                 }
             }
         }
 
         li {
             list-style: none;
-            border: solid 4px $grape;
-
+            
             div.columns {
                 max-height: 0;
-                opacity: 0;
                 overflow: hidden;
-
+                color: black;
                 @include transition(max-height, 500ms, ease-out);
             }
 
             .icon {
                 display: flex;
                 justify-content: flex-end;
+                align-items: center;
+            }
+
+            &:not(.active) {
+                &:nth-child(1) h4 {
+                    background-color: $grape;
+                }
+                &:nth-child(2) h4 {
+                    background-color: $light-pink;
+                    color: black;
+                    svg line {
+                        stroke: black;
+                    }
+                }
+                &:nth-child(3) h4 {
+                    background-color: $marigold;
+                    color: black;
+                    svg line {
+                        stroke: black;
+                    }
+                }
+                &:nth-child(4) h4 {
+                    background-color: $rouge;
+                }
+                &:nth-child(5) h4 {
+                    background-color: $grape;
+                }
             }
         }
 
         li.active {
+            border: solid 4px black;
+
             h4 {
                 cursor: default;
                 background-color: white;
-                color: $grape;
+                color: black;
 
                 svg {
                     line {
-                        stroke: $grape;
+                        stroke: black;
                     }
 
                     .vert {
-                        opacity: 0;
-                        @include transform(rotateZ(90deg));
+                        @include transform(scale(1, 1));
                     }
                 }
             }
 
             div.columns {
                 max-height: 1000px;
-                opacity: 1;
+                // opacity: 1;
             }
         }
     }

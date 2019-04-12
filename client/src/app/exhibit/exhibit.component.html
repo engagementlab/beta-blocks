@@ -3,8 +3,12 @@
   <h2>Exhibit Location</h2>
 
 </section>
-<map-box #map mapType="exhibit" [height]="720"></map-box>
-<section class="container desktop">
+
+<div id="map" class="column is-full">
+
+</div>
+
+<section class="container desktop" id="offset" *ngIf="hasContent">
 
   <!-- LOCATION -->
   <div id="location" class="columns column is-full">
@@ -46,18 +50,8 @@
           </span>
         </h4>
         <div class="columns column is-11-mobile">
-          <div class="column">
-            Get tough with it, get strong. You can do anything your heart can imagine. That easy. Nature is so
-            fantastic, enjoy it. Let it make you happy.
-          </div>
-          <div class="column">
-            <p>See there, told you that would be easy. A tree needs to be your friend if you're going to paint him. Look
-              at them little rascals. The very fact that you're aware of suffering is enough reason to be overjoyed that
-              you're alive and can experience it.</p>
-            <p>Every highlight needs it's own personal shadow. They say everything looks better with odd numbers of
-              things. But sometimes I put even numbers—just to upset the critics. And maybe a little bush lives there.
-            </p>
-          </div>
+          <div class="column" [innerHtml]="info.see[0]"></div>
+          <div class="column" [innerHtml]="info.see[1]"></div>
         </div>
       </li>
       <li (click)="toggleInfo($event)">
@@ -71,18 +65,8 @@
           </span>
         </h4>
         <div class="columns column is-11-mobile">
-          <div class="column">
-            Get tough with it, get strong. You can do anything your heart can imagine. That easy. Nature is so
-            fantastic, enjoy it. Let it make you happy.
-          </div>
-          <div class="column">
-            <p>See there, told you that would be easy. A tree needs to be your friend if you're going to paint him. Look
-              at them little rascals. The very fact that you're aware of suffering is enough reason to be overjoyed that
-              you're alive and can experience it.</p>
-            <p>Every highlight needs it's own personal shadow. They say everything looks better with odd numbers of
-              things. But sometimes I put even numbers—just to upset the critics. And maybe a little bush lives there.
-            </p>
-          </div>
+          <div class="column" [innerHtml]="info.explore[0]"></div>
+          <div class="column" [innerHtml]="info.explore[1]"></div>
         </div>
       </li>
       <li (click)="toggleInfo($event)">
@@ -96,28 +80,40 @@
           </span>
         </h4>
         <div class="columns column is-11-mobile">
-          <div class="column">
-            Get tough with it, get strong. You can do anything your heart can imagine. That easy. Nature is so
-            fantastic, enjoy it. Let it make you happy.
-          </div>
-          <div class="column">
-            <p>See there, told you that would be easy. A tree needs to be your friend if you're going to paint him. Look
-              at them little rascals. The very fact that you're aware of suffering is enough reason to be overjoyed that
-              you're alive and can experience it.</p>
-            <p>Every highlight needs it's own personal shadow. They say everything looks better with odd numbers of
-              things. But sometimes I put even numbers—just to upset the critics. And maybe a little bush lives there.
-            </p>
-          </div>
+          <div class="column" [innerHtml]="info.reflect[0]"></div>
+          <div class="column" [innerHtml]="info.reflect[1]"></div>
         </div>
       </li>
-      <!-- <li>
-      <h4>Item2</h4>
-      <div>Content 2</div>
-    </li>
-    <li>
-      <h4>Item3</h4>
-      <div>Content 3</div>
-    </li> -->
+      <li (click)="toggleInfo($event)">
+        <h4 class="columns is-mobile">
+          <span class="column is-9-mobile is-10-tablet">Gather</span>
+          <span class="column icon">
+            <svg width="40" height="40" fill="none" viewBox="0 0 40 40">
+              <line class="" x1="0" x2="40" y1="20" y2="20" />
+              <line class="vert" x1="20" x2="20" y1="0" y2="40" />
+            </svg>
+          </span>
+        </h4>
+        <div class="columns column is-11-mobile">
+          <div class="column" [innerHtml]="info.gather[1]"></div>
+          <div class="column" [innerHtml]="info.gather[0]"></div>
+        </div>
+      </li>
+      <li (click)="toggleInfo($event)">
+        <h4 class="columns is-mobile">
+          <span class="column is-9-mobile is-10-tablet">Tinker</span>
+          <span class="column icon">
+            <svg width="40" height="40" fill="none" viewBox="0 0 40 40">
+              <line class="" x1="0" x2="40" y1="20" y2="20" />
+              <line class="vert" x1="20" x2="20" y1="0" y2="40" />
+            </svg>
+          </span>
+        </h4>
+        <div class="columns column is-11-mobile">
+          <div class="column" [innerHtml]="info.tinker[1]"></div>
+          <div class="column" [innerHtml]="info.tinker[0]"></div>
+        </div>
+      </li>
     </ul>
 
   </div>

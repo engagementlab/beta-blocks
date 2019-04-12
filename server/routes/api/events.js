@@ -32,6 +32,12 @@ exports.get = function (req, res) {
             let filtered = [];
 
             filtered = _.map(data.events, (e) => {
+                let addr2 = e.venue.address.address_2;
+                if(!addr2) 
+                    addr2 = '';
+                else
+                    addr2 = '<br />' + addr2;
+
                 return {
                     id: e.id,
                     name: e.name.html,
@@ -40,7 +46,7 @@ exports.get = function (req, res) {
                     lng: e.venue.address.longitude,
                     description: e.description.text,
                     date: new Date(e.start.local),
-                    street: e.venue.address.address_1 + '<br />' + e.venue.address.address_2
+                    street: e.venue.address.address_1 + addr2
                 }
     
             });

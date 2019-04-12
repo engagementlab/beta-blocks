@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 
-import * as _ from 'underscore';
 import { DataService } from '../utils/data.service';
+import * as _ from 'underscore';
 
 @Component({
   selector: 'app-exhibit',
@@ -9,14 +9,21 @@ import { DataService } from '../utils/data.service';
   styleUrls: ['./exhibit.component.scss']
 })
 export class ExhibitComponent implements OnInit {
+  
+  public hasContent;
 
   public events: any[];
+  public info: any[];
 
   constructor(private _dataSvc: DataService) {
     
-    _dataSvc.getDataForUrl('/api/events/get').subscribe((data: any) => {
+    _dataSvc.getDataForUrl('/api/exhibit/get').subscribe((data: any) => {
 
-      this.events = data.events;
+      this.events = data.eventsData;
+      this.info = data.exhibitData;
+
+      this.hasContent = true;
+
     });
 
   };
