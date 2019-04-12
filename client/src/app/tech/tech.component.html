@@ -3,32 +3,39 @@
   <!-- BECOMING A TECH EXPLORER -->
   <h2>Becoming a Tech Explorer</h2>
 
-  <div class="center-all column is-full">
-
-    <div class="arrow btn space-grotesk-semi">
-      <a (click)="goToForm()" class="center-all">
-        <div>Sign<br />up</div>
-        <svg width="110" height="110" fill="none" viewBox="0 0 110 110">
-          <path stroke="#B5191D" stroke-width="4" d="M107.584 53.084L54.5 106.17 1.416 53.084M54.5 0v106.103" />
-        </svg>
-      </a>
+  <div class="columns" id="top">
+    <div class="center-all column is-7" id="tagline">
+      Tech Explorers are key partners in Beta Blocks.
     </div>
 
+    <div class="center-all column is-full-mobile" id="right">
+
+      <div class="arrow btn space-grotesk-semi">
+        <a (click)="goToForm()" class="center-all">
+          <div>Sign up</div>
+          <svg width="110" height="110" fill="none" viewBox="0 0 110 110">
+            <path stroke="#B5191D" stroke-width="4" d="M107.584 53.084L54.5 106.17 1.416 53.084M54.5 0v106.103" />
+          </svg>
+        </a>
+      </div>
+
+    </div>
   </div>
 
   <div id="explorer" class="columns column is-full is-multiline">
 
-    <div class="left column is-11-mobile is-half-tablet space-grotesk-semi">
+    <div class="left column is-11-mobile is-5-tablet space-grotesk-semi">
       Communities know their blocks inside out. Becoming a Tech Explorer gives you the chance to try smart tech before
       it hits the streets and share your ideas for how it could work for Boston.
     </div>
-    <div class="lunch-reg column is-full-mobile">
+    <div class="lunch-reg column is-full-mobile is-offset-1-tablet">
       This is your chance to turn your ideas for using and improving tech into real experiments. As at Tech Explorer,
       you’ll also learn lots of new things and have the chance to shape the future of Boston’s streets.
       <br />
       <br />
       We are looking for Tech Explorers from all walks of life. All we ask is that you’re 12+, live or work in Greater
-      Boston and can take part in six hours of meet ups and workshops. Absolutely no technical experience necessary, and
+      Boston and can take part in six hours of meet ups and workshops. Absolutely no technical experience necessary,
+      and
       we’ll give you a $100 gift card for your time.
     </div>
 
@@ -60,7 +67,8 @@
   <div id="tech" class="columns column is-full is-multiline">
 
     <div class="left column is-11-mobile is-half-tablet space-grotesk-semi">
-      Tech Explorers will get the chance to try some new smart tech and come up with ideas for how they would want it to
+      Tech Explorers will get the chance to try some new smart tech and come up with ideas for how they would want it
+      to
       work for their neighborhood.
     </div>
     <div class="lunch-reg column is-full-mobile">
@@ -95,42 +103,74 @@
 
   <form class="columns column is-11-mobile is-full-tablet is-multiline" [formGroup]="userForm" (submit)="submitForm()"
     *ngIf="!received">
-    <div class="column is-full-mobile is-6-tablet">
-      <input formControlName="firstName" id="firstName" placeholder="first name" required />
-      <div *ngIf="submitted && f.firstName.invalid">Required</div>
-    </div>
 
-    <div class="column is-full-mobile">
-      <input formControlName="lastName" id="lastName" placeholder="last name" required />
-      <div *ngIf="submitted && f.lastName.invalid">Required</div>
-    </div>
 
-    <div class="column is-full-mobile is-full-tablet">
-      <input formControlName="org" id="org" class="full" placeholder="organization" required />
-      <div *ngIf="submitted && f.org.invalid">Required</div>
-    </div>
+    <div class="fields">
 
-    <div class="column is-full-mobile is-full-tablet">
-      <input formControlName="email" id="email" class="full" placeholder="email" required />
-      <div *ngIf="submitted && f.email.invalid">
-        <span *ngIf="f.email.errors.required">Required. </span>
-        <span *ngIf="f.email.errors.email">Please enter a valid email address.</span>
+        <div class="column is-full-mobile is-half-tablet">
+          <input formControlName="firstName" id="firstName" placeholder="first name" required />
+          <div *ngIf="submitted && f.firstName.invalid">Required</div>
+        </div>
+  
+        <div class="column is-full-mobile is-half-tablet">
+          <input formControlName="lastName" id="lastName" placeholder="last name" required />
+          <div *ngIf="submitted && f.lastName.invalid">Required</div>
+        </div>
       </div>
-    </div>
-
-    <div class="column is-full-mobile is-half-tablet">
-      <input formControlName="phone" id="phone" placeholder="phone" required />
-      <div *ngIf="submitted && f.phone.invalid">
-        <span *ngIf="f.phone.errors.required">Required. </span>
-        <span *ngIf="f.phone.errors.invalidNumber">Please enter a valid phone number.</span>
+  
+      <div class="fields">
+        <div class="column is-full-mobile is-half-tablet">
+          <input formControlName="email" id="email" placeholder="email" required />
+          <div *ngIf="submitted && f.email.invalid">
+            <span *ngIf="f.email.errors.required">Required. </span>
+            <span *ngIf="f.email.errors.email">Please enter a valid email address.</span>
+          </div>
+        </div>
+  
+        <div class="column is-full-mobile is-half-tablet">
+          <input formControlName="phone" id="phone" placeholder="phone" required />
+          <div *ngIf="submitted && f.phone.invalid">
+            <span *ngIf="f.phone.errors.required">Required. </span>
+            <span *ngIf="f.phone.errors.invalidNumber">Please enter a valid phone number.</span>
+          </div>
+  
+        </div>
       </div>
-    </div>
-    <div class="column is-full-mobile">
-      <button type="submit">sign up</button>
+  
+      <div class="column is-full">
+        <input formControlName="org" id="org" class="full" placeholder="organization" required />
+        <div *ngIf="submitted && f.url.invalid">
+          <span *ngIf="f.url.errors.required">Required. </span>
+        </div>
+      </div>
+      
+    <div class="fields">
+      <div class="column is-half-tablet"></div>
+      <div class="column">
+        <button type="submit">Sign up</button>
+      </div>
     </div>
   </form>
   <!-- email sent -->
   <div *ngIf="received" class="space-grotesk">
     Thanks for your message! Somebody will be in touch with you shortly!
   </div>
+  
+  <div id="end" class="columns column is-full is-multiline">
+
+    <div class="column is-11-mobile is-half-tablet">
+      <p class="space-grotesk-semi">All we ask is that:</p>
+
+      <p class="lunch-med">You’re at least 12 years old;<br />
+      You live or work in the City of Boston;<br />
+      You can commit to six hours’ worth of workshops and meet ups between [month 1-month 2].</p>
+      
+      <p class="lunch-med">We don’t require any technical or coding knowledge to take part. All we ask for is your enthusiasm and commitment!</p>
+    </div>
+    <div class="space-grotesk-semi center-all column is-full-mobile is-offset-1-tablet">
+        If you come to all of the meet ups and workshops, we will reward your hard work with $100.
+    </div>
+  
+  </div>
+
 </section>

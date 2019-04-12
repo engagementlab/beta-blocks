@@ -93,10 +93,8 @@ form {
     padding-left: 20px;
 
     @include placeholder {
-      font-family: 'SpaceGrotesk-SemiBold';
-      font-weight: 600;
+      font-family: 'SpaceGrotesk';
 
-      line-height: 0.94;
       letter-spacing: 2px;
       color: rgba(255, 255, 255, .5);
     }
@@ -154,6 +152,10 @@ form {
     justify-content: space-between;
 
     width: 100%;
+    
+    @include phones {
+      flex-wrap: wrap;
+    }
   }
 }
 
@@ -240,4 +242,8 @@ form {
 }
 .lunch-med {
   font-family: 'LunchtypeMed';
+}
+
+#tagline {
+  @include pxtoem(24, 48);
 }
