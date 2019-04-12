@@ -12,6 +12,7 @@ export class ExhibitComponent implements OnInit {
   
   public hasContent;
 
+  public currentEvent: any;
   public events: any[];
   public info: any[];
 
@@ -19,8 +20,9 @@ export class ExhibitComponent implements OnInit {
     
     _dataSvc.getDataForUrl('/api/exhibit/get').subscribe((data: any) => {
 
-      this.events = data.eventsData;
       this.info = data.exhibitData;
+      this.events = data.eventsData;
+      this.currentEvent = _.where(this.events, {current: true})[0];
 
       this.hasContent = true;
 
