@@ -44,9 +44,9 @@ p {
         align-items: center;
         justify-content: center;
 
-        @include not-phones {
+        /* @include not-phones {
             margin-top: 5%;
-        }
+        } */
     }
 
     .event {
@@ -73,7 +73,6 @@ p {
         .info {
             display: flex;
             flex-direction: column;
-            flex-grow: 1;
 
             border: solid 2px $rouge;
 

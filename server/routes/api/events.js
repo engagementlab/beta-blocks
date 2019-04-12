@@ -28,7 +28,7 @@ const sdk = eventbrite({
 exports.get = function (req, res) { 
     
     if (req.params.eventbrite) {
-        sdk.request('/organizers/11331505152/events/?expand=venue').then(data => {
+        sdk.request('/organizers/19752347294/events/?expand=venue').then(data => {
             let filtered = [];
 
             filtered = _.map(data.events, (e) => {
@@ -39,8 +39,8 @@ exports.get = function (req, res) {
                     lat: e.venue.address.latitude,
                     lng: e.venue.address.longitude,
                     description: e.description.text,
-                    date: new Date(e.start.local).toUTCString(),
-                    street: e.venue.address.address_1 + '\n' + e.venue.address.address_2
+                    date: new Date(e.start.local),
+                    street: e.venue.address.address_1 + '<br />' + e.venue.address.address_2
                 }
     
             });

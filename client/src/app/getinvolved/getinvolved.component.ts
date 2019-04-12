@@ -32,7 +32,7 @@ export class GetinvolvedComponent implements OnInit {
 
     _dataSvc.getDataForUrl('/api/events/get/eventbrite').subscribe((data: any) => {
 
-      this.events = data;
+      this.events = data.eventbrite;
       this.hasContent = true;
 
     });

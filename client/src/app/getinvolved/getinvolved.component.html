@@ -56,31 +56,27 @@
   <div id="workshops" class="no-margin column columns is-mobile is-multiline is-11-mobile is-11-tablet is-full-desktop" *ngIf="hasContent">
     <h2 class="column is-full">Attend Beta Blocks workshops</h2>
 
-    <div class="event column columns is-multiline is-full-mobile is-8-desktop">
-      <p class="column is-full">Absolutely No Pressure</p>
-      <div class="info no-pad column is-full-mobile is-full-tablet is-4-desktop">
-        <span class="date">03/29/2019</span>
-        <span class="time">2:00pm</span>
-        <span class="address">120 Boylston St.<br />
-          Boston, MA 02116</span>
+    <div class="event column columns is-multiline is-full" *ngFor="let event of events">
+      <p class="column is-full" [innerHtml]="event.name"></p>
+      <div class="info no-pad column is-full-mobile is-full-tablet is-3-desktop">
+        <span class="date">{{event.date | date:'MM/dd'}}</span>
+        <span class="time">{{event.date | date:'hh:mma'}}</span>
+        <span class="address" [innerHtml]="event.street"></span>
       </div>
 
-      <div class="description no-pad column is-full-mobile is-full-tablet is-6-desktop">
+      <div class="description no-pad column is-full-mobile is-full-tablet is-3-desktop">
         <span>
-          Think about a cloud. Just float around and be there. We tell people sometimes: we're like drug dealers, come
-          into town and get everybody absolutely addicted to painting. It doesn't take much to get you addicted. If I
-          paint something, I don't want to have to explain what it is. There's not a thing in the world wrong with
-          washing your brush.
+          {{event.description}}
         </span>
       </div>
+    <div class="no-pad button column">
+      <app-button href="{{event.url}}" label="sign up with\n eventbrite" class="full" [arrow]="true" *ngIf="!isPhone">
+      </app-button>
+      <app-button href="{{event.url}}" label="sign up with eventbrite" class="full" [arrow]="true" *ngIf="isPhone">
+      </app-button>
+    </div>
     </div>
 
-    <div class="no-pad button column">
-      <app-button href="/exhibit" label="sign up with\n eventbrite" class="full" [arrow]="true" *ngIf="!isPhone">
-      </app-button>
-      <app-button href="/exhibit" label="sign up with eventbrite" class="full" [arrow]="true" *ngIf="isPhone">
-      </app-button>
-    </div>
   </div>
 
   <!-- SIGNUP -->
