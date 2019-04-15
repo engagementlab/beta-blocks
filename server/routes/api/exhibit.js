@@ -26,13 +26,20 @@ exports.get = function (req, res) {
     // Get exhibit info and events (exhibit locations)
     let eventFields = 'name description startDate endDate address current latlng -_id';
     
+    let filter = req.params.current ? {current:true} : {};
     let exhibitData = exhibit.findOne({}, 'see explore reflect gather tinker -_id');
-    let eventsData = event.find({}, eventFields);
+    let eventsData = event.find(filter, eventFields);
 
-    Bluebird.props({
-            exhibitData,
-            eventsData
-        })
+    let queryProps = {
+        exhibitData,
+        eventsData
+    };
+
+    if (req.params.current)
+        queryProps = { eventsData };
+    
+
+    Bluebird.props(queryProps)
         .then(results => {
 
             res.status(200).json(results);

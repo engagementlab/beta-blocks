@@ -28,7 +28,7 @@ const sdk = eventbrite({
 exports.get = function (req, res) { 
     
     if (req.params.eventbrite) {
-        sdk.request('/organizers/19752347294/events/?expand=venue').then(data => {
+        sdk.request('/events/search/?organizer.id=19752347294&sort_by=date&expand=venue').then(data => {
             let filtered = [];
 
             filtered = _.map(data.events, (e) => {

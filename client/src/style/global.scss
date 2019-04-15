@@ -51,7 +51,7 @@ h2 {
 
 h3 {
 
-  font-family: 'SpaceGrotesk';
+  font-family: 'SpaceGrotesk-Bold';
   @include pxtoem(18, 30);
   font-weight: bold;
   line-height: 1.4;
@@ -152,7 +152,7 @@ form {
     justify-content: space-between;
 
     width: 100%;
-    
+
     @include phones {
       flex-wrap: wrap;
     }

@@ -40,29 +40,18 @@
   <h2>Events</h2>
 
   <!-- EVENTS -->
-  <div id="events" class="bleed columns column is-11-tablet is-full-desktop is-multiline">
+  <div id="events" class="bleed columns column is-11-tablet is-full-desktop is-multiline" *ngIf="hasContent">
 
     <div class="column is-12-tablet is-8-desktop left" *ngIf="!isPhone">
 
       <div id="events-box" class="space-grotesk text">
-        <div class="columns">
+        <div class="columns" *ngFor="let event of events">
           <h3 class="column is-one-quarter">
-            <b>3/14</b>
+            <b>{{event.date | date:'MM/dd'}}</b>
           </h3>
           <div class="column">
-            <h3>With practice comes confidence.</h3>
-            I thought today we would make a happy little stream that's just running through the woods here. Poor old
-            tree.
-          </div>
-        </div>
-        <div class="columns">
-          <h3 class="column is-one-quarter">
-            <b>4/11</b>
-          </h3>
-          <div class="column">
-            <h3>With practice comes confidence.</h3>
-            I thought today we would make a happy little stream that's just running through the woods here. Poor old
-            tree.
+            <p class="space-grotesk-semi">{{event.name}}</p>
+            {{event.description}}
           </div>
         </div>
       </div>
@@ -88,14 +77,14 @@
           With practice comes confidence.
         </h3>
         I thought today we would make a happy little stream that's just running through the woods here. Poor old tree.
-        <h3 class="column is-one-quarter">
+        <!-- <h3 class="column is-one-quarter">
           <b>4/11</b><br />
           With practice comes confidence.
         </h3>
-        I thought today we would make a happy little stream that's just running through the woods here. Poor old tree.
+        I thought today we would make a happy little stream that's just running through the woods here. Poor old tree. -->
       </div>
 
-      <a routerLink="/events">
+      <a routerLink="/getinvolved">
         <div class="arrow marigold">
           <svg width="110" height="110" fill="none" viewBox="0 0 110 110">
             <path stroke="#FCBD0B" stroke-width="4" d="M53.084 1.416L106.17 54.5l-53.085 53.084M0 54.5h106.103" />
@@ -107,14 +96,14 @@
 
   <!-- LOCATION -->
   <h2>Exhibit Location</h2>
-  <div id="exhibit" class="columns column is-11-mobile is-multiline is-mobile no-margin">
+  <div id="exhibit" class="columns column is-11-mobile is-multiline is-mobile no-margin" *ngIf="hasContent">
     <!-- Tablet+ -->
     <div class="column is-half location" *ngIf="!isPhone">
 
       <h2 class="lower">The exhibit is now in . . .</h2>
-      <svg fill="none" viewBox="0 0 500 80"><text x="0%" y="98%">Chinatown</text></svg>
+      <svg fill="none" viewBox="0 0 500 80"><text x="0%" y="98%">{{currentEvent.name}}</text></svg>
 
-      <app-button route="/getinvolved" label="view more info"></app-button>
+      <app-button route="/exhibit" label="view more info"></app-button>
 
     </div>
 
@@ -145,17 +134,17 @@
     <div class="column is-11-mobile location" *ngIf="isPhone">
 
       <h2 class="lower">The exhibit is now in . . .</h2>
-      <svg width="500" height="80" fill="none" viewBox="0 0 500 80"><text x="0" y="98%">Chinatown</text></svg>
+      <svg width="500" height="80" fill="none" viewBox="0 0 500 80"><text x="0" y="98%">{{currentEvent.name}}</text></svg>
 
-      <app-button route="/getinvolved" label="view more info" class="center-all"></app-button>
+      <app-button route="/exhibit" label="view more info" class="center-all"></app-button>
 
     </div>
   </div>
 
   <!-- SIGNUP -->
   <h2>Stay In the Loop</h2>
-  <h2 class="cap">Life is too short to be alone, too precious. Share it with a friend.
-  </h2>
+  <!-- <h2 class="cap">Life is too short to be alone, too precious. Share it with a friend.
+  </h2> -->
 
   <!-- Begin MailChimp Signup Form -->
   <!-- <div id="newsletter">
@@ -197,28 +186,11 @@
   </script> -->
 
   <!-- SOCIAL -->
-  <div
-    class="columns column is-full-mobile is-8-tablet is-offset-4-tablet is-half-desktop is-offset-half-desktop is-mobile" id="social">
-    <div class="column">
-      <a class="link" href="https://www.boston.gov/departments/new-urban-mechanics/beta-blocks">
-        <h2 class="cap">Visit the Boston.gov<br />Beta Blocks site</h2>
+  <div class="column is-full" id="social">
+    <div class="column center-all">
+      <a class="link space-grotesk-semi" href="https://www.boston.gov/departments/new-urban-mechanics/beta-blocks">
+        Visit the Boston.gov Beta Blocks site
       </a>
-    </div>
-    <div class="column" id="logos">
-
-      <a href="">
-        <cdn-image cloudinaryPrefix="homepage-2.0/" cloudinaryId="logos/fb" width="28" phoneWidth="14" svg="true"
-          alt="Facebook logo"></cdn-image>
-      </a>
-      <a href="">
-        <cdn-image cloudinaryPrefix="homepage-2.0/" cloudinaryId="logos/ig" width="60" phoneWidth="30" svg="true"
-          alt="Instagram logo"></cdn-image>
-      </a>
-      <a href="">
-        <cdn-image cloudinaryPrefix="homepage-2.0/" cloudinaryId="logos/tw" width="73" phoneWidth="36" svg="true"
-          alt="Twitter logo"></cdn-image>
-      </a>
-
     </div>
   </div>
 
