@@ -151,6 +151,14 @@
     .column {
 
         &:nth-child(1) {
+            background-color: $marigold;
+
+            @include pxtoem(18, 24);
+            line-height: 1.17;
+            letter-spacing: 1px;
+        }
+
+        &:nth-child(2) {
             display: flex;
             flex-direction: column;
             padding: 0;
@@ -171,15 +179,6 @@
             ::ng-deep img {
                 @include translate(50%, -66%);
             }
-        }
-
-        &:nth-child(2) {
-            background-color: $marigold;
-
-            @include pxtoem(18, 24);
-            font-family: 'SpaceGrotesk-SemiBold';
-            line-height: 1.17;
-            letter-spacing: 1px;
         }
     }
 }

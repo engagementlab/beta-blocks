@@ -167,31 +167,9 @@ form {
 
 }
 
-.btn {
+/* .btn {
 
-  &::before {
-
-    content: "";
-    position: absolute;
-    z-index: -1;
-    top: 0;
-    bottom: 0;
-    left: 0;
-    right: 0;
-
-    transform-origin: center left;
-
-    @include transform(scaleX(0));
-    @include transition(transform, .3s, ease-out);
-
-  }
-
-  &:hover {
-    &::before {
-      @include transform(scaleX(1));
-    }
-  }
-}
+} */
 
 .link {
 

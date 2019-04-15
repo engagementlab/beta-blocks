@@ -14,6 +14,9 @@
 
   color: white;
   background-color: $rouge;
+  border: solid 4px $rouge;
+
+  @include transition(background, .3s, ease-in-out);
 
   cursor: pointer;
 
@@ -51,9 +54,9 @@
     }
   }
 
-
   &.grape {
     background-color: $grape;
+    border-color: $grape;
 
     @include not-phones {
 
@@ -63,5 +66,44 @@
     }
 
 
+  }
+
+  
+
+  &::before {
+    content: '';
+    position: absolute;
+    z-index: -1;
+
+    width: 175px;
+    height: 50px;
+    border-radius: 50px;
+
+    @include transition(opacity, 0.3s, ease-in-out);
+    opacity: 0;
+
+    @include box-shadow(0, 0, 20px, rgba(0, 0, 0, 0.25));
+
+    @include not-phones {
+
+      width: 280px;
+      height: 80px;
+
+    }
+  }
+
+  &:hover {
+
+    background-color: white;
+    color: $rouge;
+
+    &.grape {
+      color: $grape;
+    }
+
+    &::before {
+      opacity: 1;
+
+    }
   }
 }
