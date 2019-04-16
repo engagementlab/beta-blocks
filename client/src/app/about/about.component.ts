@@ -25,7 +25,7 @@ export class AboutComponent implements OnInit, AfterViewChecked {
   public selectedBio: string;
 
   private userForm: any;
-  private peopleLoaded: boolean;
+  public peopleLoaded: boolean;
 
   constructor(private _dataSvc: DataService, private _formBuilder: FormBuilder) {
     
