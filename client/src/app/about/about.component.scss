@@ -89,17 +89,20 @@
             right: -80%
         }
     }
+
     #circle {
         position: relative;
         z-index: -1;
         @include translate(450%, -309%);
     }
+
     #gold {
         ::ng-deep img {
             @include translate(-190%, 40%);
             margin-top: -15%;
         }
     }
+
     #squiggle {
         @include translate(400%, 270%);
         z-index: 1;
@@ -111,15 +114,18 @@
                 right: -40%
             }
         }
+
         #circle {
             @include translate(150%, -200%);
         }
+
         #gold {
             ::ng-deep img {
                 @include translate(-190%, 40%);
                 margin-top: -15%;
             }
         }
+
         #squiggle {
             position: relative;
             max-width: 103px;
@@ -156,20 +162,42 @@
             @include pxtoem(18, 24);
             line-height: 1.17;
             letter-spacing: 1px;
+
+            p {
+                display: inline-block;
+                cursor: pointer;
+
+                span {
+                    color: rgba(0, 0, 0, 0.5);
+                }
+
+                &.active {
+                    border-bottom: solid 1px black;
+                }
+            }
         }
 
         &:nth-child(2) {
             display: flex;
             flex-direction: column;
-            padding: 0;
-            // align-items: flex-end;
+            border: solid 4px $marigold;
+            padding: 2%;
+
+            .name {
+
+                @include pxtoem(18, 24);
+                line-height: 1.17;
+                letter-spacing: 1px;
+
+                span {
+                    color: rgba(0, 0, 0, 0.5);
+                }
+
+            }
 
             .text {
-                border: solid 4px $marigold;
-                padding: 2%;
 
                 @include pxtoem(14, 18);
-                font-family: 'LunchtypeMed';
                 font-stretch: expanded;
                 font-weight: 500;
                 line-height: 1.5;

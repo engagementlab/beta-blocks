@@ -35,6 +35,8 @@ router.get('/api/data/set', routeIncludes, routes.api.data.set);
 
 router.get('/api/exhibit/get/:current?', routeIncludes, routes.api.exhibit.get);
 router.get('/api/events/get/:eventbrite?', routeIncludes, routes.api.events.get);
+
+router.get('/api/people/get', routeIncludes, routes.api.people.get);
 router.get('/api/tech/get', routeIncludes, routes.api.tech.get);
 router.get('/api/zones/get', routeIncludes, routes.api.zones.get);
 

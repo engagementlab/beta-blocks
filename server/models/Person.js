@@ -57,10 +57,6 @@ Person.add({
 	websiteURL: {
 		type: Types.Url,
 		label: 'Website URL',
-	},
-	email: {
-		type: String,
-		label: 'Email',
 	}
 
 });

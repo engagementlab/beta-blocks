@@ -43,49 +43,31 @@
     <cdn-image id="red" cloudinaryId="img/about/red" width="200" phoneWidth="135" autoFormat="false" svg="false"
       [responsive]="false">
     </cdn-image>
-    <cdn-image id="gold" cloudinaryId="img/about/gold" width="85" autoFormat="false" svg="false" [responsive]="false"
+    <!-- <cdn-image id="gold" cloudinaryId="img/about/gold" width="85" autoFormat="false" svg="false" [responsive]="false"
       *ngIf="isPhone">
     </cdn-image>
 
     <svg id="squiggle" width="168" height="88" fill="none" viewBox="0 0 168 88">
       <path stroke="#FFD7ED" stroke-linecap="round" stroke-miterlimit="10" stroke-width="12"
         d="M161.975 6.025c-14.895 8.755-21.843-3.001-36.737 5.753-14.895 8.755-8.003 20.35-22.897 29.104-14.895 8.755-21.843-3-36.737 5.754-14.895 8.754-8.002 20.35-22.897 29.104-14.895 8.754-21.787-2.841-36.682 5.913" />
-    </svg>
+    </svg> -->
 
   </div>
 
   <h2>People Involved</h2>
 
   <!-- PEOPLE INVOLVED -->
-  <div id="people" class="columns column is-full-mobile is-full-tablet">
+  <div id="people" class="columns column is-full-mobile is-full-tablet" *ngIf="peopleLoaded">
 
     <div class="space-grotesk-semi column is-full-mobile">
-      <p>Scott Margeson </p>
-
-      <p>Eric Gordon</p>
-
-
-      <p>John Harlow</p>
-
-      <p>Nigel / NUM</p>
-
-      <p>Johnny Richardson</p>
-
-      <p>Courtney Lord</p>
+      <p (click)="getPerson(i)" *ngFor="let person of people; let i = index;">{{person.name.first}} {{person.name.last}}<span> / {{person.title}}</span></p>
     </div>
-    <div class="column is-full-mobile is-5-tablet">
-      <cdn-image cloudinaryId="img/about/gold" width="136" autoFormat="false" svg="false" [responsive]="false"
+    <div class="column is-full-mobile is-half-tablet">
+      <!-- <cdn-image cloudinaryId="img/about/gold" width="136" autoFormat="false" svg="false" [responsive]="false"
         *ngIf="!isPhone">
-      </cdn-image>
-      <div class="text">
-        <p>Get tough with it, get strong. You can do anything your heart can imagine. That easy. Nature is so fantastic,
-          enjoy it. Let it make you happy.</p>
-
-        <p>Nothing's gonna make your husband or wife madder than coming home and having a snow-covered dinner. There's
-          nothing wrong with having a tree as a friend. Steve wants reflections, so let's give him reflections. Maybe,
-          just to play a little, we'll put a little tree here. We'll have a super time. This is truly an almighty
-          mountain.</p>
-      </div>
+      </cdn-image> -->
+      <div class="space-grotesk-semi name">{{selectedName}} <span>/ {{selectedTitle}}</span></div>
+      <div class="lunch-med text" [innerHtml]="selectedBio"></div>
     </div>
 
   </div>
