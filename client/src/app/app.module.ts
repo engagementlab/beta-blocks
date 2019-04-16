@@ -8,6 +8,7 @@ import { MapBoxComponent } from './map-box/map-box.component';
 import { ToolComponent } from './tool/tool.component';
 import { HomeComponent } from './home/home.component';
 import { HttpClientModule } from '@angular/common/http';
+import { ExplorerComponent } from './explorer/explorer.component';
 import { NavComponent } from './nav/nav.component';
 import { GetinvolvedComponent } from './getinvolved/getinvolved.component';
 import { FooterComponent } from './footer/footer.component';
@@ -50,8 +51,9 @@ export const config: CloudinaryConfiguration = cloudinaryConfiguration;
     AboutComponent,
     ExhibitComponent,
     ZonesComponent,
-    TechComponent,
-    PrettyUrlPipe
+    ExplorerComponent,
+    PrettyUrlPipe,
+    TechComponent
   ],
   imports: [
     AppRoutingModule,

@@ -1,9 +1,7 @@
 import { Component, OnInit } from '@angular/core';
-import { FormBuilder, Validators, FormGroup  } from '@angular/forms';
+import { FormGroup, FormBuilder, Validators } from '@angular/forms';
 
 import { DataService } from '../utils/data.service';
-
-import { ScrollToService } from '@nicky-lenaers/ngx-scroll-to';
 
 @Component({
   selector: 'app-tech',
@@ -11,25 +9,16 @@ import { ScrollToService } from '@nicky-lenaers/ngx-scroll-to';
   styleUrls: ['./tech.component.scss']
 })
 export class TechComponent implements OnInit {
-  
+
   public submitted: boolean;
   public received: boolean;
   public hasContent: boolean;
 
-  public userForm: FormGroup;
-
-  public stepTxt: string[];
   public partners: any[];
 
-  constructor(private _dataSvc: DataService, private _formBuilder: FormBuilder, private _scrollToService: ScrollToService) {
+  public userForm: FormGroup;
 
-    this.stepTxt = [
-      'Sign up to become a Tech Explorer below. Once you’re on board, start recording your thoughts and e-meet the other Explorers you’ll be working with.',
-      'Pay a short visit to your chosen Exploration Zone and answer a couple of questions while you’re there.',
-      'Come along to one of our workshops to plan out how you want the tech to work for your neighborhood, all over a free lunch.',
-      'Go and see your experiment come to life. Then, come together with our project’s tech partners over coffee to share your thoughts.',
-      'Come to a second workshop over lunch to reflect on your experiments and think about what we could do next.'
-    ];
+  constructor(private _dataSvc: DataService, private _formBuilder: FormBuilder) { 
 
     _dataSvc.getDataForUrl('/api/tech/get').subscribe((data: any) => {
 
@@ -45,9 +34,10 @@ export class TechComponent implements OnInit {
     this.userForm = this._formBuilder.group({
       'firstName': ['', [Validators.required, Validators.minLength(2)]],
       'lastName': ['', Validators.required],
-      'org': ['', Validators.required],
+      'url': ['', [Validators.required, Validators.pattern('(https?://)?([\\da-z.-]+)\\.([a-z.]{2,6})[/\\w .-]*/?')]],
       'email': ['', [Validators.required, Validators.email]],
-      'phone': ['', [Validators.required, this.phoneValidator]]
+      'phone': ['', [Validators.required, this.phoneValidator]],
+      'message': ['', [Validators.required, Validators.minLength(10)]]
     });
 
   }
@@ -86,7 +76,7 @@ export class TechComponent implements OnInit {
     }
 
     let data = this.userForm.value;
-    data.type = 'Explorer';
+    data.type = 'Partner';
     this._dataSvc.sendDataToUrl('/api/contact', data).subscribe((data: any) => {
 
       this.received = true;
@@ -94,18 +84,5 @@ export class TechComponent implements OnInit {
     });
 
   }
-
-  goToForm() {
-
-    this._scrollToService
-      .scrollTo({
-        target: document.getElementById('form'),
-        offset: 200,
-        easing: 'easeOutQuint',
-        duration: 700
-      });
-
-  }
-
 
 }

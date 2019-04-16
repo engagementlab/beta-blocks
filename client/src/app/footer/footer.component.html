@@ -4,28 +4,37 @@
 
     <div class="column is-11-mobile is-5-tablet">
         <a class="link" [class.active]="itemActive('about')" routerLink="/about">About</a>
-        <a class="link" [class.active]="itemActive('getinvolved')" routerLink="/getinvolved">Get Involved</a>
-        <a class="link" [class.active]="itemActive('zones')" routerLink="/zones">Exploration Zones</a>
-    </div>
+        <a class="link" [class.active]="itemActive('discover')" routerLink="/discover">Discover Boston</a>
+        <a class="link" [class.active]="itemActive('explorers')" routerLink="/explorer">Tech Explorers</a>
 
+    </div>
     <div class="column is-11-mobile is-5-tablet">
         <a class="link" [class.active]="itemActive('exhibit')" routerLink="/exhibit">Get to Know Exhibit</a>
-        <a class="link" [class.active]="itemActive('tech')" routerLink="/tech">Tech Explorers</a>
-        <a class="link" [class.active]="itemActive('tool')" routerLink="/tool">Data Tool</a>
+        <a class="link" [class.active]="itemActive('zones')" routerLink="/zones">Exploration Zones</a>
+        <a class="link" [class.active]="itemActive('tech')" routerLink="/tech">Tech Partners</a>
     </div>
 
 </div>
 
 <div id="info">
     <cdn-image cloudinaryId="img/logo" width="200" phoneWidth="160" svg="true" alt="Beta Blocks large logo"></cdn-image>
-    
+
     <p>160 Boylston St. Boston, MA 02116</p>
 
     <div id="logos">
 
-        <a href="https://elab.emerson.edu"><cdn-image cloudinaryId="img/elab-logo" width="141" phoneWidth="160" svg="true" alt="Engagement Lab logo"></cdn-image></a>
-        <a href="https://www.supernormal.io"><cdn-image cloudinaryId="img/supernormal-logo" width="199" phoneWidth="100" svg="true" alt="Supernormal logo"></cdn-image></a>
-        <a href="https://www.boston.gov/departments/new-urban-mechanics"><cdn-image cloudinaryId="img/monum-logo" width="167" phoneWidth="160" svg="true" alt="Mayor's Office of New Urban Mechanics logo"></cdn-image></a>
+        <a href="https://elab.emerson.edu">
+            <cdn-image cloudinaryId="img/elab-logo" width="141" phoneWidth="160" svg="true" alt="Engagement Lab logo">
+            </cdn-image>
+        </a>
+        <a href="https://www.supernormal.io">
+            <cdn-image cloudinaryId="img/supernormal-logo" width="199" phoneWidth="100" svg="true"
+                alt="Supernormal logo"></cdn-image>
+        </a>
+        <a href="https://www.boston.gov/departments/new-urban-mechanics">
+            <cdn-image cloudinaryId="img/monum-logo" width="167" phoneWidth="160" svg="true"
+                alt="Mayor's Office of New Urban Mechanics logo"></cdn-image>
+        </a>
 
     </div>
 </div>

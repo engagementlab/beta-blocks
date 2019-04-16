@@ -3,6 +3,7 @@ import { Routes, RouterModule } from '@angular/router';
 
 import { AboutComponent } from './about/about.component';
 import { ExhibitComponent } from './exhibit/exhibit.component';
+import { ExplorerComponent } from './explorer/explorer.component';
 import { GetinvolvedComponent } from './getinvolved/getinvolved.component';
 import { HomeComponent } from './home/home.component';
 import { ToolComponent } from './tool/tool.component';
@@ -12,11 +13,12 @@ import { ZonesComponent } from './zones/zones.component';
 const routes: Routes = [
   { path: '', component: HomeComponent },
   { path: 'about', component: AboutComponent },
-  { path: 'exhibit', component: ExhibitComponent },
   { path: 'getinvolved', component: GetinvolvedComponent },
+  { path: 'exhibit', component: ExhibitComponent },
+  { path: 'explore', component: ToolComponent },
+  { path: 'explorer', component: ExplorerComponent },
   { path: 'tech', component: TechComponent },
   { path: 'zones', component: ZonesComponent },
-  { path: 'tool', component: ToolComponent }
 ];
 
 @NgModule({
