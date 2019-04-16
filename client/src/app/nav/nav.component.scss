@@ -92,10 +92,10 @@ nav {
 
     &.show {
         display: flex;
-        animation: show 1s forwards;
+        animation: show .5s forwards;
 
         #links {
-            animation: show-links .7s forwards .7s;
+            animation: show-links .4s forwards .4s;
         }
         #close {
             animation: show-close .7s forwards .8s;
