@@ -45,7 +45,7 @@
     
             background-image: linear-gradient(to bottom, $rouge 1%, #ffffff 1%, #ffffff 100%);
             background-size: 100% 100%;
-    
+
             @include transition(all, .3s, ease-out);
 
             svg {

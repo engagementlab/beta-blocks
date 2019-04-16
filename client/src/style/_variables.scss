@@ -32,6 +32,7 @@ $cdn-product: 'beta-blocks';
         url('https://res.cloudinary.com/engagement-lab-home/raw/upload/beta-blocks/fonts/Lunchtype24-regular-expanded-webfont.ttf') format('truetype');
     /* Safari, Android, iOS */
 }
+
 @font-face {
     font-family: 'LunchtypeMed';
     src: url('https://res.cloudinary.com/engagement-lab-home/raw/upload/beta-blocks/fonts/lunchtype24-medium-expanded-webfont.woff2') format('woff2'),
@@ -65,18 +66,16 @@ $marigold: #fcbd0b;
 $wheat: #feca7c;
 $light-pink: #ffd7ed;
 
-$mq-breakpoints: (
-    mobile: 320px,
-    mobileLg: 375px,
-    tablet: 1024px,
-    tabletPortrait: 768px,
-    desktop: 980px,
-    wide: 1300px,
+$mq-breakpoints: (mobile: 320px,
+mobileLg: 375px,
+tablet: 1024px,
+tabletPortrait: 768px,
+desktop: 980px,
+wide: 1300px,
 
-    // Tweakpoints
-    desktopAd: 810px,
-    mobileLandscape: 480px
-);
+// Tweakpoints
+desktopAd: 810px,
+mobileLandscape: 480px);
 
 // Mixins 
 @import '../../node_modules/@engagementlab/el-scss/bundle';
@@ -87,15 +86,15 @@ $mq-breakpoints: (
     }
 
     &:hover {
+        svg {
+            path {
+                stroke: white !important;
+            }
+        }
+
         .btn {
             &::before {
                 @include transform(scaleX(1));
-            }
-            
-            svg {
-                path {
-                    stroke: white !important;
-                }
             }
         }
     }

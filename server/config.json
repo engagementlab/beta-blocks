@@ -1,5 +1,10 @@
 {
 	"name": "Beta Blocks API server",
 	"database": "beta-blocks",
-	"adminPath": "cms"
+	"adminPath": "cms",
+	"admin_nav": { 
+		"about": ["people"],
+		"exhibit/events": ["Exhibit", "events"],
+		"tech/zones": ["Tech", "Zone"]
+	}
 }
