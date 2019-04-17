@@ -1,18 +1,18 @@
 @import "~src/style/_variables";
 
-@keyframes show {
+@include keyframes(show) {
     0%     {background-color: rgba(64, 43, 89, 0);}
     100%  {background-color: rgba(64, 43, 89, 0.9);}
 }
-@keyframes hide {
+@include keyframes(hide) {
     0%     {background-color: rgba(64, 43, 89, 0.9);}
     100%  {background-color: rgba(64, 43, 89, 0);}
 }
-@keyframes show-links {
+@include keyframes(show-links) {
     0%     {opacity: 0;}
     100%  {opacity: 1;}
 }
-@keyframes show-close {
+@include keyframes(show-close) {
     0%     {opacity: 0;}
     100%  {opacity: 1;}
 }

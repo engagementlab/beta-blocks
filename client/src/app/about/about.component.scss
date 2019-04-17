@@ -1,5 +1,27 @@
 @import '~src/style/_variables';
 
+@include keyframes(hide) {
+
+    0% {
+        opacity: 1;
+    }
+
+    100% {
+        opacity: 0;
+    }
+}
+
+@include keyframes(show) {
+
+    0% {
+        opacity: 0;
+    }
+
+    100% {
+        opacity: 1;
+    }
+}
+
 #blurb {
     background-color: $light-pink;
 
@@ -154,6 +176,7 @@
 }
 
 #people {
+
     .column {
 
         &:nth-child(1) {
@@ -162,6 +185,8 @@
             @include pxtoem(18, 24);
             line-height: 1.17;
             letter-spacing: 1px;
+
+            padding: 2%;
 
             p {
                 display: inline-block;
@@ -172,7 +197,7 @@
                 }
 
                 &.active {
-                    border-bottom: solid 1px black;
+                    text-decoration: underline;
                 }
             }
         }
@@ -192,7 +217,11 @@
                 span {
                     color: rgba(0, 0, 0, 0.5);
                 }
-
+                
+                animation: show .5s forwards;
+                &.change {
+                    animation: hide .5s forwards;
+                }
             }
 
             .text {
@@ -201,11 +230,16 @@
                 font-stretch: expanded;
                 font-weight: 500;
                 line-height: 1.5;
-                letter-spacing: 1px;
-            }
+                
+                animation: show .5s forwards;
+                &.change {
+                    animation: hide .5s forwards;
+                }
 
-            ::ng-deep img {
-                @include translate(50%, -66%);
+                ::ng-deep a,
+                a:visited {
+                    color: black;
+                }
             }
         }
     }

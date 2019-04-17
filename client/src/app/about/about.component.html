@@ -7,8 +7,11 @@
 
     <div class="column is-11-mobile is-half-tablet">
       <div class="text">
-        <strong>Beta Blocks is an innovative strategy for supporting local Boston communities in pondering, questioning, and testing smart technology in exploration zones.</strong>
-        <p>Community members, in collaboration with technology providers and the City, set up real life experiments in the public realm and evaluate the impact of technologies on neighborhoods. This incorporates community values into the municipal technology procurement process from the very beginning.</p>
+        <strong>Beta Blocks is an innovative strategy for supporting local Boston communities in pondering, questioning,
+          and testing smart technology in exploration zones.</strong>
+        <p>Community members, in collaboration with technology providers and the City, set up real life experiments in
+          the public realm and evaluate the impact of technologies on neighborhoods. This incorporates community values
+          into the municipal technology procurement process from the very beginning.</p>
       </div>
     </div>
 
@@ -48,46 +51,52 @@
   <h2>People Involved</h2>
 
   <!-- PEOPLE INVOLVED -->
-  <div id="people" class="columns column is-full-mobile is-full-tablet" *ngIf="peopleLoaded">
+  <div id="people" class="columns column is-full-mobile is-full-tablet" *ngIf="hasContent">
 
     <div class="space-grotesk-semi column is-full-mobile">
-      <p (click)="getPerson(i)" *ngFor="let person of people; let i = index;">{{person.name.first}} {{person.name.last}}<span> / {{person.title}}</span></p>
+      <p (click)="getPerson(i)" [class.active]="i === 0" *ngFor="let person of people; let i = index;">
+        {{person.name.first}} {{person.name.last}}<span> / {{person.title}}</span></p>
     </div>
-    <div class="column is-full-mobile is-half-tablet">
-      <!-- <cdn-image cloudinaryId="img/about/gold" width="136" autoFormat="false" svg="false" [responsive]="false"
-        *ngIf="!isPhone">
-      </cdn-image> -->
-      <div class="space-grotesk-semi name">{{selectedName}} <span>/ {{selectedTitle}}</span></div>
+    <div class="column is-7-tablet">
+      <div class="space-grotesk-semi name">{{selectedName}} <span>{{selectedTitle}}</span></div>
       <div class="lunch-med text" [innerHtml]="selectedBio"></div>
     </div>
 
   </div>
 
   <cdn-image id="cone" cloudinaryId="img/about/cone" width="83" phoneWidth="54" autoFormat="false" svg="false"
-  [responsive]="false"></cdn-image>
+    [responsive]="false"></cdn-image>
 
   <!-- CONTACT -->
-  <form class="columns column is-11-mobile is-full-tablet is-multiline" [formGroup]="userForm" (submit)="submitForm()" *ngIf="!received">
-    <div class="column is-full-mobile is-6-tablet">
-      <input formControlName="name" id="name" placeholder="Your name" required />
-      <div *ngIf="submitted && f.name.invalid">Required</div>
-    </div>
-    
-    <div class="column is-full-mobile">
-      <input formControlName="email" id="email" placeholder="Your email" required />
-      <div *ngIf="submitted && f.email.invalid">
-        <span *ngIf="f.email.errors.required">Required. </span>
-        <span *ngIf="f.email.errors.email">Please enter a valid email address.</span>
-        </div>            
-    </div>
-    <div class="column is-full-mobile is-11-tablet is-full-desktop">
-      <textarea formControlName="message" id="message" name="message" placeholder="Enter your message here"
-      required></textarea>
-      <div *ngIf="submitted && f.message.invalid">Required</div>
-    </div>
-    <div class="column is-full-mobile is-11-tablet is-full-desktop">
+  <form class="columns column is-11-mobile is-full-tablet is-multiline" [formGroup]="userForm" (submit)="submitForm()"
+    *ngIf="!received">
+    <div class="fields">
 
+      <div class="column is-full-mobile is-6-tablet">
+        <input formControlName="name" id="name" placeholder="Your name" required />
+        <div *ngIf="submitted && f.name.invalid">Required</div>
+      </div>
+
+      <div class="column is-full-mobile">
+        <input formControlName="email" id="email" placeholder="Your email" required />
+        <div *ngIf="submitted && f.email.invalid">
+          <span *ngIf="f.email.errors.required">Required. </span>
+          <span *ngIf="f.email.errors.email">Please enter a valid email address.</span>
+        </div>
+      </div>
+      <div class="column is-full">
+        <textarea formControlName="message" id="message" name="message" placeholder="Enter your message here"
+          required></textarea>
+        <div *ngIf="submitted && f.message.invalid">Required</div>
+      </div>
+    </div>
+    <div class="column is-full-mobile is-5-tablet">
       <button type="submit">Submit</button>
+    </div>
+    <div class="center-all column">
+      <cdn-image cloudinaryId="img/about/gold" width="136" phoneWidth="79" autoFormat="false" svg="false"
+        [responsive]="false">
+      </cdn-image>
     </div>
   </form>
   <!-- email sent -->

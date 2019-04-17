@@ -1,4 +1,4 @@
-import { Component, OnInit, AfterViewChecked } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { FormBuilder, Validators } from '@angular/forms';
 
 import { DataService } from '../utils/data.service';
@@ -11,7 +11,7 @@ import * as _ from 'underscore';
   templateUrl: './about.component.html',
   styleUrls: ['./about.component.scss']
 })
-export class AboutComponent implements OnInit, AfterViewChecked {
+export class AboutComponent implements OnInit {
 
   public isPhone: boolean;
   public submitted: boolean;
@@ -25,7 +25,6 @@ export class AboutComponent implements OnInit, AfterViewChecked {
   public selectedBio: string;
 
   private userForm: any;
-  public peopleLoaded: boolean;
 
   constructor(private _dataSvc: DataService, private _formBuilder: FormBuilder) {
     
@@ -35,8 +34,9 @@ export class AboutComponent implements OnInit, AfterViewChecked {
 
       this.people = data.peopleData;
       this.hasContent = true;
-
       
+      this.getPerson(0);
+
     });
     
   }
@@ -47,14 +47,6 @@ export class AboutComponent implements OnInit, AfterViewChecked {
       'email': ['', [Validators.required, Validators.email]],
       'message': ['', [Validators.required, Validators.minLength(10)]]
     });
-  }
-  
-  ngAfterViewChecked() {
-
-    if(this.peopleLoaded) return;
-    
-    this.getPerson(0);
-
   }
   
   // convenience getter for easy access to form fields
@@ -83,27 +75,39 @@ export class AboutComponent implements OnInit, AfterViewChecked {
 
   getPerson(i:number) {
 
-    if(!this.people) return;
-    
-    // document.querySelector('#people .name').innerHTML = 
-    // ' / <span>' +
-    //  + '</span>';
-    
-    this.selectedName = this.people[i].name.first + ' ' + this.people[i].name.last;
-    this.selectedTitle = this.people[i].title;
+    let name = document.querySelector('#people .name');
+    let text = document.querySelector('#people .text');
+    if (name) {
+      name.classList.add('change');
+      text.classList.add('change');
+    }
+    setTimeout(() => {
 
-    this.selectedBio = this.people[i].bio.html;
-    
-    
-    this.peopleLoaded = true;
-    
+      this.selectedName = this.people[i].name.first + ' ' + this.people[i].name.last;
+      this.selectedTitle = '/ ' + this.people[i].title;
+      this.selectedBio = this.people[i].bio.html;
+
+    }, 600);
+
+    if (name) {
+      setTimeout(() => {
+
+        void name.clientLeft;
+        void text.clientLeft;
+        name.classList.remove('change');
+        text.classList.remove('change');
+
+      }, 600);
+    }
+
     let names = document.querySelectorAll('#people p');
     _.each(names, (name: HTMLElement, ind: number) => {
       name.className = '';
       
       if(ind === i)
-      name.className = 'active';
-    })
+        name.className = 'active';
+    });
+
   }
 
 }
