@@ -215,45 +215,15 @@
         z-index: 4;
     }
 
+    #shapes {
+        position: absolute;
+        right: 0;
+        z-index: 4;
+    }
+
     #circle-purple {
         position: absolute;
         @include translate(5%, 5%);
-    }
-
-    #circle-red,
-    #circle-yellow {
-        position: relative;
-        top: -30%;
-        left: 40%;
-        z-index: 5;
-    }
-
-    #circle-yellow {
-        @include phones {
-            max-width: 57px;
-        }
-    }
-
-    #circle-red {
-        left: 50%;
-
-        @include tablet-portrait {
-            left: 20%;
-        }
-
-        @include phones {
-            max-width: 39px;
-        }
-    }
-
-    #squiggle {
-        position: relative;
-        z-index: 5;
-        top: -30%;
-
-        @include phones {
-            max-width: 86px;
-        }
     }
 
 }

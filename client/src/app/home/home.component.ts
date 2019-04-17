@@ -1,7 +1,8 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, AfterViewInit } from '@angular/core';
 
 import { DataService } from '../utils/data.service';
 
+import * as AOS from 'aos';
 import * as _ from 'underscore';
 import * as ismobile from 'ismobilejs';
 
@@ -10,7 +11,7 @@ import * as ismobile from 'ismobilejs';
   templateUrl: './home.component.html',
   styleUrls: ['./home.component.scss']
 })
-export class HomeComponent implements OnInit {
+export class HomeComponent implements AfterViewInit {
 
   public isPhone: boolean;
   public hasContent: boolean;
@@ -25,12 +26,12 @@ export class HomeComponent implements OnInit {
     _dataSvc.getDataForUrl('/api/exhibit/get/current').subscribe((data: any) => {
 
       this.currentEvent = data.eventsData[0];  
-      _dataSvc.getDataForUrl('/api/events/get/eventbrite').subscribe((data: any) => {
+      this.hasContent = true;
+      // _dataSvc.getDataForUrl('/api/events/get/eventbrite').subscribe((data: any) => {
         
-        this.events = (data.eventbrite.length > 2) ? data.eventbrite.slice(0, 2) : data.eventbrite;
-        this.hasContent = true;
+      //   this.events = (data.eventbrite.length > 2) ? data.eventbrite.slice(0, 2) : data.eventbrite;
   
-      });
+      // });
   
 
     });
@@ -40,4 +41,13 @@ export class HomeComponent implements OnInit {
   ngOnInit() {
   }
 
+
+  ngAfterViewInit() {
+
+    AOS.init({
+      duration: 700,
+      easing: 'ease-in-out'
+    });
+
+  }
 }

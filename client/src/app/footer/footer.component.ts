@@ -1,14 +1,15 @@
-import { Component, OnInit } from '@angular/core';
-import { Router, NavigationEnd, NavigationStart } from '@angular/router';
+import { Component, AfterViewInit } from '@angular/core';
+import { Router, NavigationEnd } from '@angular/router';
 
 import { filter } from 'rxjs/operators';
+import * as AOS from 'aos';
 
 @Component({
   selector: 'app-footer',
   templateUrl: './footer.component.html',
   styleUrls: ['./footer.component.scss']
 })
-export class FooterComponent implements OnInit {
+export class FooterComponent implements AfterViewInit {
   
   private currentUrl: string;  
 
@@ -21,6 +22,15 @@ export class FooterComponent implements OnInit {
   }
 
   ngOnInit() {
+  }
+
+  ngAfterViewInit() {
+
+    AOS.init({
+      duration: 400,
+      easing: 'ease-in-out'
+    });
+
   }
 
   // Is passed route active?
