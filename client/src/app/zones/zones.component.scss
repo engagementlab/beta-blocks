@@ -100,6 +100,10 @@
         letter-spacing: 2px;  
     }
 
+    ::ng-deep a, a:visited {
+        color: black;
+    }
+
     .columns {
         margin-top: 8%;
 

@@ -36,7 +36,8 @@
 
   <div id="zones">
 
-    <div id="zone{{i}}" class="columns column is-offset-1-tablet is-11-tablet is-mobile" *ngFor="let i of locationIndices;">
+    <div id="zone{{i}}" class="columns column is-offset-1-tablet is-11-tablet is-mobile"
+      *ngFor="let i of locationIndices;">
 
       <div class="column is-11-mobile is-one-third-tablet">
         <cdn-image cloudinaryId="img/zones/{{i}}" width="500" [responsive]="true" autoFormat="true"
@@ -44,11 +45,14 @@
       </div>
 
       <div class="column is-11-mobile">
-      
+
         <h3>{{getLocationInfo(i).name}}</h3>
-        <h2>{{getLocationInfo(i).address}}</h2>
+        <a
+          href="https://www.google.com/maps/dir/{{getLocationInfo(i).address}}">
+          <h2>{{getLocationInfo(i).address}}</h2>
+        </a>
         <p class="lunch-med">{{getLocationInfo(i).description}}</p>
-      
+
       </div>
 
     </div>

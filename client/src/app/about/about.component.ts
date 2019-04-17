@@ -94,6 +94,7 @@ export class AboutComponent implements OnInit {
 
         void name.clientLeft;
         void text.clientLeft;
+        
         name.classList.remove('change');
         text.classList.remove('change');
 

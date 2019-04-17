@@ -68,29 +68,29 @@
     [responsive]="false"></cdn-image>
 
   <!-- CONTACT -->
-  <form class="columns column is-11-mobile is-full-tablet is-multiline" [formGroup]="userForm" (submit)="submitForm()"
+  <form class="columns column is-full-tablet is-multiline" [formGroup]="userForm" (submit)="submitForm()"
     *ngIf="!received">
     <div class="fields">
 
-      <div class="column is-full-mobile is-6-tablet">
+      <div class="column is-full-mobile is-half-tablet">
         <input formControlName="name" id="name" placeholder="Your name" required />
         <div *ngIf="submitted && f.name.invalid">Required</div>
       </div>
 
-      <div class="column is-full-mobile">
+      <div class="column is-full-mobile is-half-tablet">
         <input formControlName="email" id="email" placeholder="Your email" required />
         <div *ngIf="submitted && f.email.invalid">
           <span *ngIf="f.email.errors.required">Required. </span>
           <span *ngIf="f.email.errors.email">Please enter a valid email address.</span>
         </div>
       </div>
-      <div class="column is-full">
+    </div>
+      <div class="column is-full-mobile is-full">
         <textarea formControlName="message" id="message" name="message" placeholder="Enter your message here"
           required></textarea>
         <div *ngIf="submitted && f.message.invalid">Required</div>
       </div>
-    </div>
-    <div class="column is-full-mobile is-5-tablet">
+    <div class="column is-11-mobile is-5-tablet">
       <button type="submit">Submit</button>
     </div>
     <div class="center-all column">

@@ -1,12 +1,12 @@
 @import "~src/style/_variables";
 
 @include keyframes(show) {
-    0%     {background-color: rgba(64, 43, 89, 0);}
-    100%  {background-color: rgba(64, 43, 89, 0.9);}
+    0%    {opacity: 0;}
+    100%  {opacity: 1;}
 }
 @include keyframes(hide) {
-    0%     {background-color: rgba(64, 43, 89, 0.9);}
-    100%  {background-color: rgba(64, 43, 89, 0);}
+    0%  {opacity: 1;}
+    100%    {opacity: 0;}
 }
 @include keyframes(show-links) {
     0%     {opacity: 0;}
@@ -16,7 +16,6 @@
     0%     {opacity: 0;}
     100%  {opacity: 1;}
 }
-
 
 nav {
     position: relative;
@@ -169,6 +168,7 @@ nav {
         align-items: center;
 
         width: 50%;
+        background-color: rgba(64, 43, 89, 0.9);
 
         @include phones {
             width: 25%;

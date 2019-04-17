@@ -75,7 +75,7 @@ h4 {
 // Form styles
 form {
 
-  width: 90%;
+  // width: 90%;
 
   input,
   textarea {
@@ -100,22 +100,20 @@ form {
     }
   }
 
-  input {
+  input, textarea {
 
     width: 95%;
 
     &.full {
-      width: 100%;
+      @include not-phones {
+        width: 100%;
+      }
     }
     
     @include phones {
       width: 91%;
     }
 
-  }
-
-  textarea {
-    width: 100%;
   }
 
   input[type=submit] {
@@ -155,6 +153,17 @@ form {
 
     @include phones {
       flex-wrap: wrap;
+    }
+  }
+
+  .fields-mobile {
+    @include phones {
+
+    display: flex;
+    flex-direction: column;
+    flex-wrap: wrap;
+
+    width: 100%;
     }
   }
 }
