@@ -16,7 +16,7 @@ const routes: Routes = [
   { path: 'getinvolved', component: GetinvolvedComponent },
   { path: 'exhibit', component: ExhibitComponent },
   { path: 'explore', component: ToolComponent },
-  { path: 'explorer', component: ExplorerComponent },
+  { path: 'explorers', component: ExplorerComponent },
   { path: 'tech', component: TechComponent },
   { path: 'zones', component: ZonesComponent },
 ];
