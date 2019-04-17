@@ -10,7 +10,7 @@ import * as _ from 'underscore';
 })
 export class ExhibitComponent implements OnInit {
   
-  public hasContent;
+  public hasContent: boolean;
 
   public currentEvent: any;
   public events: any[];

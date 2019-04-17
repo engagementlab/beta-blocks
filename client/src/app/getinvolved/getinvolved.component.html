@@ -44,14 +44,14 @@
     <div class="column is-11-mobile is-4-tablet is-offset-1-tablet space-grotesk">
       <p>Apply to have your company’s technology featured in our interactive inflatable exhibit!</p>
 
-      <app-button clickData="true" (clickEvent)="goToForm()" label="sign up" class="grape"></app-button>
+      <app-button route="/tech" label="sign up" class="grape"></app-button>
 
     </div>
 
   </div>
 
   <!-- WORKSHOPS -->
-  <div id="workshops" class="no-margin column columns is-mobile is-multiline is-11-mobile is-11-tablet is-full-desktop" *ngIf="hasContent">
+  <!-- <div id="workshops" class="no-margin column columns is-mobile is-multiline is-11-mobile is-11-tablet is-full-desktop" *ngIf="hasContent">
     <h2 class="column is-full">Attend Beta Blocks workshops</h2>
 
     <div class="event column columns is-multiline is-full" *ngFor="let event of events">
@@ -75,6 +75,6 @@
     </div>
     </div>
 
-  </div>
+  </div> -->
 
 </section>

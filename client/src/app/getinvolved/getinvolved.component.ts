@@ -17,7 +17,7 @@ export class GetinvolvedComponent implements OnInit {
   public submitted: boolean;
   public received: boolean;
 
-  public hasContent;
+  public hasContent: boolean;
   public events: any[];
 
   constructor(private _dataSvc: DataService, private _scrollToService: ScrollToService) {

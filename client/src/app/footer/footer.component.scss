@@ -50,7 +50,7 @@ a.link {
     display: flex;
 
     font-family: 'Lunchtype';
-    @include pxtoem(18, 18);
+    @include pxtoem(14, 18);
     font-weight: 500;
     font-stretch: expanded;
     line-height: 1.33;
@@ -84,5 +84,9 @@ a.link {
 
         width: 50%;
         margin-top: 1%;
+
+        @include phones {
+            width: 100%;
+        }
     }
 }

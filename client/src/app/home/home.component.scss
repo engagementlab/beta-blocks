@@ -4,6 +4,13 @@
     margin-top: -8%;
 }
 
+#cta {
+    @include pxtoem(18, 36);
+
+    line-height: 48px;
+    letter-spacing: 4px;
+}
+
 #about {
 
     color: black;
