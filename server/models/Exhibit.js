@@ -24,8 +24,8 @@ var Exhibit = new keystone.List('Exhibit',
 	{
 		label: 'Exhibit Info',
 		singular: 'Exhibit Info',
-		// nodelete: true,
-		// nocreate: true
+		nodelete: true,
+		nocreate: true
 	});
 
 /**

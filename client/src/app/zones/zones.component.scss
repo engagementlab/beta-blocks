@@ -80,17 +80,10 @@
 
 #zones {
 
-    h2 {
-        text-transform: capitalize;
-        text-align: left;
-
-        @include pxtoem(18, 24);
-        
-        line-height: 1.42;
-        letter-spacing: 2px;
-    }
+   
     h3 {
         text-transform: uppercase;
+        letter-spacing: 6px;
     }
     p {
         @include pxtoem(14, 18);
@@ -99,19 +92,22 @@
         line-height: 1.33;
         letter-spacing: 2px;  
     }
-
-    ::ng-deep a, a:visited {
+    a {
+        @include pxtoem(18, 24);
+        letter-spacing: 2px;  
+        
+        text-decoration: none;
         color: black;
     }
+
+    // ::ng-deep a, a:visited {
+    // }
 
     .columns {
         margin-top: 8%;
 
         &:nth-child(even) {
             flex-direction: row-reverse;
-        }
-        .column:nth-child(2) {
-            margin-left: 9%;
         }
     }
 

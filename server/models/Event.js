@@ -70,27 +70,6 @@ Event.add({
 	}
 });
 
-Event.schema.add({
-	latlng: mongoose.Schema.Types.Mixed
-});
-
-Event.schema.pre('save', function (next) {
-	
-	const request = require('request'),
-		  url = 'https://api.opencagedata.com/geocode/v1/json?key=' + process.env.OPENCAGE_KEY + '&limit=1&no_annotations=1&q=' + this.address;
-
-	request(url, (err, response, body) => {
-		// Save latlng of address
-		let latlng = JSON.parse(body).results[0].geometry;
-		this.latlng = {
-			lat: latlng.lat,
-			lng: latlng.lng
-		}
-		next();
-	});
-
-
-});
 /**
  * Model Registration
  */

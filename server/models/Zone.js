@@ -25,7 +25,7 @@ var Zone = new keystone.List('Zone',
 		label: 'Exploration Zones',
 		singular: 'Exploration Zones',
 		nodelete: true,
-		// nocreate: true
+		nocreate: true
 	});
 
 /**
@@ -40,17 +40,17 @@ Zone.add(
     },
     'Location 1', {
         location1Name: { type: String, label: 'Name',required: true, initial: true },
-        location1Address: { type: String, label: 'Address',required: true, initial: true },
+        location1LatLng: { type: String, label: 'Lat/Lng', note: 'Seperate by comma', required: true, initial: true },
         location1Description: { type: String, label: 'Description',required: true, initial: true }
     },
     'Location 2', {
         location2Name: { type: String, label: 'Name',required: true, initial: true },
-        location2Address: { type: String, label: 'Address',required: true, initial: true },
+        location2LatLng: { type: String, label: 'Lat/Lng', note: 'Seperate by comma', required: true, initial: true },
         location2Description: { type: String, label: 'Description',required: true, initial: true }
     },
     'Location 3', {
         location3Name: { type: String, label: 'Name',required: true, initial: true },
-        location3Address: { type: String, label: 'Address',required: true, initial: true },
+        location3LatLng: { type: String, label: 'Lat/Lng', note: 'Seperate by comma', required: true, initial: true },
         location3Description: { type: String, label: 'Description',required: true, initial: true }
     }
 );

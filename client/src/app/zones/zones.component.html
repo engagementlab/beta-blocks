@@ -36,22 +36,22 @@
 
   <div id="zones">
 
-    <div id="zone{{i}}" class="columns column is-offset-1-tablet is-11-tablet is-mobile"
+    <div id="zone{{i}}" class="columns column is-11-tablet is-mobile"
       *ngFor="let i of locationIndices;">
 
-      <div class="column is-11-mobile is-one-third-tablet">
-        <cdn-image cloudinaryId="img/zones/{{i}}" width="500" [responsive]="true" autoFormat="true"
+      <div class="column is-11-mobile">
+        <cdn-image cloudinaryId="img/zones/{{i}}" width="800" [responsive]="true" autoFormat="true"
           alt="Image for {{getLocationInfo(i).name}} zone"></cdn-image>
       </div>
 
-      <div class="column is-11-mobile">
+      <div class="column is-11-mobile is-5-tablet">
 
         <h3>{{getLocationInfo(i).name}}</h3>
-        <a
-          href="https://www.google.com/maps/dir/{{getLocationInfo(i).address}}">
-          <h2>{{getLocationInfo(i).address}}</h2>
-        </a>
         <p class="lunch-med">{{getLocationInfo(i).description}}</p>
+        <a class="space-grotesk-semi"
+          href="https://www.google.com/maps/dir//{{getLocationInfo(i).latlng}}">
+          visit the tech
+        </a>
 
       </div>
 

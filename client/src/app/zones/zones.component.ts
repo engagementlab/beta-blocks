@@ -34,7 +34,7 @@ export class ZonesComponent implements OnInit {
     return {
       name: this.content['location' + i + 'Name'],
       description: this.content['location' + i + 'Description'],
-      address: this.content['location' + i + 'Address']
+      latlng: this.content['location' + i + 'LatLng']
     };
 
   }
