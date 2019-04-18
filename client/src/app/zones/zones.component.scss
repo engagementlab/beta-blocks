@@ -14,12 +14,12 @@
         letter-spacing: 2px;
     }
 
-        @include not-phones {
-            @include translate(-50%, 0);
-        }
-        @include tablet-portrait {
-            @include translate(-7%, 0);
-        }
+        // @include not-phones {
+        //     @include translate(-50%, 0);
+        // }
+        // @include tablet-portrait {
+        //     @include translate(-7%, 0);
+        // }
 }
 
 #map {

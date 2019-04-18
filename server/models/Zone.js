@@ -36,7 +36,6 @@ Zone.add(
     {
         name: { type: String, default: "Exploration Zones Page", hidden: true, required: true, initial: true },
         intro: { type: Types.Textarea, label: 'Intro Text', required: true, initial: true },
-        exampleImage: { type: Types.CloudinaryImage, folder: 'beta-blocks/cms', autoCleanup:true, required: true, initial: true }
     },
     'Location 1', {
         location1Name: { type: String, label: 'Name',required: true, initial: true },

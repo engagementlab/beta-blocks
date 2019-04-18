@@ -3,22 +3,6 @@
   <!-- EXPLORATION ZONES -->
   <h2>Exploration Zones</h2>
 
-  <div id="photo" class="bleed columns column is-full">
-
-    <div class="column is-8">
-      <cdn-image cloudinaryId="{{content.exampleImage.public_id}}" cloudinaryPrefix="/" width="900" [responsive]="true"
-        autoFormat="true" alt="Exploration Zone example image">
-      </cdn-image>
-    </div>
-
-    <div class="column right is-half">
-      <div class="text space-grotesk-semi">
-        The project has three Exploration Zones in three neighborhoods of Boston. These are the city blocks where you
-        will be invited to experiment with the tech and judge how well it’s working for your neighborhood.
-      </div>
-    </div>
-  </div>
-
   <div id="map" class="column is-full">
     <div id="legend" class="lunch-med">
       <span class="location" *ngFor="let i of locationIndices;" (click)="goToZone(i)">
@@ -34,6 +18,14 @@
     </div>
   </div>
 
+
+  <div class="column right is-half">
+      <div class="text space-grotesk-semi">
+        The project has three Exploration Zones in three neighborhoods of Boston. These are the city blocks where you
+        will be invited to experiment with the tech and judge how well it’s working for your neighborhood.
+      </div>
+    </div>
+    
   <div id="zones">
 
     <div id="zone{{i}}" class="columns column is-11-tablet is-mobile"
