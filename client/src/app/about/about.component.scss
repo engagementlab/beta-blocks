@@ -25,13 +25,14 @@
 #blurb {
     background-color: $light-pink;
 
-    @include pxtoem(12, 14);
+    // @include pxtoem(12, 14);/
     font-family: Lunchtype;
     font-stretch: expanded;
 
     line-height: 1.29;
     letter-spacing: 1px;
 
+    @include pxtoem(14, 18);
     @include not-phones {
         padding: 0;
     }
@@ -46,7 +47,6 @@
     }
 
     strong {
-        @include pxtoem(14, 18);
         font-family: 'LunchtypeMed';
         font-weight: 500;
         line-height: 1.5;

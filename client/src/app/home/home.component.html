@@ -48,7 +48,7 @@
     <div class="column is-12-tablet is-8-desktop left" data-aos="fade-right" *ngIf="!isPhone">
 
       <div id="events-box" class="space-grotesk text">
-        <div class="columns" *ngFor="let event of events">
+        <!-- <div class="columns" *ngFor="let event of events">
           <h3 class="column is-one-quarter">
             <b>{{event.date | date:'MM/dd'}}</b>
           </h3>
@@ -56,7 +56,8 @@
             <p class="space-grotesk-semi">{{event.name}}</p>
             {{event.description}}
           </div>
-        </div>
+        </div> -->
+        <p>Hodor. Hodor hodor, hodor. Hodor hodor hodor hodor hodor. Hodor. Hodor! Hodor hodor, hodor; hodor hodor hodor. Hodor. Hodor hodor; hodor hodor - hodor, hodor, hodor hodor.</p>
       </div>
 
       <a routerLink="/getinvolved">
@@ -75,11 +76,7 @@
     <div class="column is-full-mobile" *ngIf="isPhone">
 
       <div id="events-box" class="space-grotesk text">
-        <h3 class="column is-one-quarter">
-          <b>3/14</b><br />
-          With practice comes confidence.
-        </h3>
-        I thought today we would make a happy little stream that's just running through the woods here. Poor old tree.
+        
       </div>
 
       <a routerLink="/getinvolved">
@@ -171,7 +168,7 @@
   </div>
 
   <!-- SIGNUP -->
-  <h2 data-aos="fade">Stay In the Loop</h2>
+  <!-- <h2 data-aos="fade">Stay In the Loop</h2> -->
   <!-- <h2 class="cap">Life is too short to be alone, too precious. Share it with a friend.
   </h2> -->
 
@@ -213,14 +210,5 @@
     }(jQuery));
     var $mcj = jQuery.noConflict(true);
   </script> -->
-
-  <!-- SOCIAL -->
-  <div class="column is-full" data-aos="fade-up" id="social">
-    <div class="column center-all">
-      <a class="link space-grotesk-semi" href="https://www.boston.gov/departments/new-urban-mechanics/beta-blocks">
-        Visit the Boston.gov Beta Blocks site
-      </a>
-    </div>
-  </div>
 
 </section>
