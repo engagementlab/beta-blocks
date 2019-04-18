@@ -125,11 +125,6 @@
         }
     }
 
-    #squiggle {
-        @include translate(400%, 270%);
-        z-index: 1;
-    }
-
     @include phones {
         #red {
             ::ng-deep img {
@@ -147,34 +142,32 @@
                 margin-top: -15%;
             }
         }
-
-        #squiggle {
-            position: relative;
-            max-width: 103px;
-            z-index: -1;
-            @include translate(191%, 81%);
-        }
-    }
-
-    @include not-desktop {
-        #squiggle {
-            position: relative;
-            z-index: -1;
-            @include translate(100%, 170%);
-        }
     }
 }
 
 #cone {
     ::ng-deep img {
         position: relative;
-        right: -30%;
 
         margin-top: 4%;
         margin-bottom: 4%;
+        
+        @include phones {
+            @include translate(-200%, 100%);
+            margin: 0;
+        }
     }
 }
 
+#squiggle {
+    @include translate(500%, -100%);
+    z-index: 1;
+
+    @include phones {
+        @include transform(translate(150%, 20%) scale(0.6));
+    }
+}
+    
 #people {
 
     .column {

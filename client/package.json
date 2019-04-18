@@ -3,7 +3,7 @@
   "version": "0.0.3",
   "scripts": {
     "ng": "ng",
-    "start": "npm-run-all -l -p browser api",
+    "start": "npm-run-all -l -p browser-testing api",
     "browser": "ng serve --configuration=dev",
     "browser-testing": "ng serve --configuration=dev --port 8000 --host 0.0.0.0 --disableHostCheck true",
     "api": "cd ../server; nodemon",

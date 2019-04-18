@@ -42,8 +42,12 @@
             @include translate(-25%, 0);
         }
 
-        @include tablet-portrait {
+        @include until-tablet-wide {
             @include translate(-7%, 0);
+        }
+
+        @include phones {
+            @include translate(0, 0);
         }
 
     }
