@@ -1,22 +1,30 @@
 import { Component, OnInit } from '@angular/core';
-import { FormBuilder, Validators, FormGroup  } from '@angular/forms';
-
+// import { FormBuilder, Validators, FormGroup  } from '@angular/forms';
 import { DataService } from '../utils/data.service';
 
 import { ScrollToService } from '@nicky-lenaers/ngx-scroll-to';
+
+interface MailChimpResponse {
+  result: string;
+  msg: string;
+}
 
 @Component({
   selector: 'app-explorer',
   templateUrl: './explorer.component.html',
   styleUrls: ['./explorer.component.scss']
 })
+
 export class ExplorerComponent implements OnInit {
   
   public hasContent: boolean;
 
   public stepTxt: string[];
+  public formError: string;
 
-  constructor(private _dataSvc: DataService, private _formBuilder: FormBuilder, private _scrollToService: ScrollToService) {
+  private mailchimpUrl: string = "https://emerson.us6.list-manage.com/subscribe/post?u=8cb16e3042072f11cc0680d36&amp;id=58bb1def37";
+
+  constructor(private _dataSvc: DataService, private _scrollToService: ScrollToService) {
 
     this.stepTxt = [
       'Sign up to become a Tech Explorer below. Once you’re on board, start recording your thoughts and e-meet the other Explorers you’ll be working with.',
@@ -43,6 +51,29 @@ export class ExplorerComponent implements OnInit {
       });
 
   }
+  submitForm() {
+		this.formError = '';
+		// if (this.emailControl.status === 'VALID' && this.nameControl.status === 'VALID') {
 
+		// 	const params = new HttpParams()
+		// 		.set('NAME', this.nameControl.value)
+		// 		.set('EMAIL', this.emailControl.value)
+		// 		.set('b_123abc123abc123abc123abc123abc123abc', ''); // hidden input name
 
+		// 	const mailChimpUrl = this.mailChimpEndpoint + params.toString();
+
+    //   // 'c' refers to the jsonp callback param key. This is specific to Mailchimp
+		// 	this.http.jsonp<MailChimpResponse>(mailChimpUrl, 'c').subscribe(response => {
+		// 		if (response.result && response.result !== 'error') {
+		// 			this.submitted = true;
+		// 		}
+		// 		else {
+		// 			this.formError = response.msg;
+		// 		}
+		// 	}, error => {
+		// 		console.error(error);
+		// 		this.formError = 'Sorry, an error occurred.';
+		// 	});
+		// }
+}
 }
