@@ -1,6 +1,7 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { HttpClientJsonpModule } from '@angular/common/http';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
@@ -59,8 +60,9 @@ export const config: CloudinaryConfiguration = cloudinaryConfiguration;
     AppRoutingModule,
     BrowserModule,
     CloudinaryModule.forRoot(cloudinary, config),
-    HttpClientModule,
     FormsModule,
+    HttpClientModule,
+    HttpClientJsonpModule,
     ReactiveFormsModule,
     ScrollToModule.forRoot()
   ],
