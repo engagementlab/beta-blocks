@@ -3,6 +3,8 @@ import { Router, NavigationEnd, NavigationStart } from '@angular/router';
 
 import { filter } from 'rxjs/operators';
 
+import { environment } from '../../environments/environment';
+
 @Component({
   selector: 'app-nav',
   templateUrl: './nav.component.html',
@@ -10,10 +12,14 @@ import { filter } from 'rxjs/operators';
 })
 export class NavComponent implements OnInit {
 
+  public hideMenu: boolean;
+
   private currentUrl: string;
   @ViewChild('menu') menu: ElementRef;
 
   constructor(private _router: Router) { 
+
+    this.hideMenu = environment.production;
 
     // Close menu when nav starts
     _router.events.pipe(filter(e => e instanceof NavigationStart)).subscribe(e => {

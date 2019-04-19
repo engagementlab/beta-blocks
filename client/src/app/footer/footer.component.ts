@@ -4,6 +4,8 @@ import { Router, NavigationEnd } from '@angular/router';
 import { filter } from 'rxjs/operators';
 import * as AOS from 'aos';
 
+import { environment } from '../../environments/environment';
+
 @Component({
   selector: 'app-footer',
   templateUrl: './footer.component.html',
@@ -11,9 +13,13 @@ import * as AOS from 'aos';
 })
 export class FooterComponent implements AfterViewInit {
   
+  public hideLinks: boolean;
+
   private currentUrl: string;  
 
   constructor(private _router: Router) { 
+
+    this.hideLinks = environment.production;
 
     // Get nav route when nav ends
     _router.events.pipe(filter(e => e instanceof NavigationEnd)).subscribe(e => {

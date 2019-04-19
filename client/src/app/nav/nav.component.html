@@ -1,12 +1,13 @@
 <nav class="container desktop" id="nav">
 
   <div>
-      <a id="home" routerLink="/" (click)="logoClick()">
+      <a id="home" routerLink="/" (click)="logoClick()" *ngIf="!hideMenu">
         <cdn-image cloudinaryId="img/logo-sm" width="200" phoneWidth="150" svg="true" alt="Beta Blocks logo"></cdn-image>
-      </a>
+    </a>
+    <cdn-image cloudinaryId="img/logo-sm" width="200" phoneWidth="150" svg="true" alt="Beta Blocks logo" *ngIf="hideMenu"></cdn-image>
   </div>
 
-  <div>
+  <div *ngIf="!hideMenu">
       <a id="menu-btn" (click)="openCloseNav()" class="columns uppercase">
           <div id="lines">
               <span></span>
@@ -20,7 +21,7 @@
 
 </nav>
 
-<section id="menu" #menu>
+<section id="menu" #menu *ngIf="!hideMenu">
 
     <div id="links">
         <a id="home" routerLink="/" (click)="logoClick()">
