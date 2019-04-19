@@ -12,7 +12,7 @@ import { ZonesComponent } from './zones/zones.component';
 
 import { environment } from 'src/environments/environment';
 
-let routeList = [
+let routeList: Routes = [
 
   { path: '', component: HomeComponent },
   { path: 'about', component: AboutComponent },
@@ -25,17 +25,12 @@ let routeList = [
 
 ]
 // In production, for now route all traffic to explorer page
-let routeListPreview = [
+let routeListPreview: Routes = [
   { path: '', component: ExplorerComponent }
 ];
 
-let routes: Routes = routeList;
-
-if(environment.production)
-  routes = routeListPreview;
-
 @NgModule({
-  imports: [RouterModule.forRoot(routes)],
+  imports: [RouterModule.forRoot(environment.production ? routeListPreview : routeList)],
   exports: [RouterModule]
 })
 export class AppRoutingModule { }
