@@ -12,7 +12,7 @@
     "url": "git+https://github.com/engagementlab/beta-blocks.git"
   },
   "dependencies": {
-    "@engagementlab/el-bootstrapper": "^0.0.5",
+    "@engagementlab/el-bootstrapper": "^0.0.6",
     "axios": "^0.18.0",
     "bluebird": "^3.5.3",
     "cloudinary": "^1.13.2",
