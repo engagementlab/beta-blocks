@@ -12,7 +12,7 @@ import { ZonesComponent } from './zones/zones.component';
 
 import { environment } from 'src/environments/environment';
 
-let notQa = (environment.production && !environment.qa) || !environment.dev;
+let notQa = (environment.production && !environment.qa) || !(!environment.production && environment.dev);
 let routeList: Routes = [
 
   { path: '', component: HomeComponent },
