@@ -19,7 +19,7 @@ export class FooterComponent implements AfterViewInit {
 
   constructor(private _router: Router) { 
 
-    this.hideLinks = (environment.production && !environment.qa) || !environment.dev;
+    this.hideLinks = (environment.production && !environment.qa);
 
     // Get nav route when nav ends
     _router.events.pipe(filter(e => e instanceof NavigationEnd)).subscribe(e => {
