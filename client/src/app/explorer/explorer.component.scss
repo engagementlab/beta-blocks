@@ -16,33 +16,33 @@
     @include phones {
         padding-left: 0;
     }
-    
+
     .btn {
-    
+
         @include pxtoem(24, 48);
-    
+
         width: 100%;
         height: 200px;
-    
+
         flex-direction: row;
         text-align: center;
-    
+
         border: solid 4px $rouge;
         border-top-width: 2px;
         cursor: pointer;
-    
+
         @include phones {
             height: 100px;
         }
-    
+
         a {
-    
+
             height: 100%;
             line-height: 1.21;
             letter-spacing: 2px;
             text-decoration: none;
             color: $rouge;
-    
+
             background-image: linear-gradient(to bottom, $rouge 1%, #ffffff 1%, #ffffff 100%);
             background-size: 100% 100%;
 
@@ -51,23 +51,23 @@
             svg {
                 margin-left: 4%;
             }
-    
+
             svg path {
                 @include transition(all, .3s, ease-out);
             }
-    
+
             @include phones {
                 svg {
                     @include scale(.5);
                 }
             }
-    
+
         }
-    
+
         &:hover a {
             background-size: 100% 10000%;
             color: white;
-    
+
             svg path {
                 stroke: white;
             }
@@ -144,10 +144,12 @@
             line-height: 1.29;
             letter-spacing: 2px;
         }
+
         &:nth-child(2) {
             @include pxtoem(12, 14);
             line-height: 1.42;
         }
+
         &:nth-child(3) {
             @include pxtoem(14, 18);
             line-height: 1.33;
@@ -161,5 +163,66 @@
         line-height: 1.42;
         letter-spacing: 2px;
         text-align: center;
+    }
+}
+
+
+label {
+
+    position: relative;
+    justify-content: left;
+    margin-bottom: 12px;
+
+    @include pxtoem(18, 36);
+
+    &:hover input~.checkmark {
+        background-color: white;
+    }
+
+    #age {
+        opacity: 0;
+        cursor: pointer;
+        height: 0;
+        width: 0;
+        margin: 0;
+
+        &:checked~.checkmark {
+            background-color: white;
+
+            &:after {
+                display: block;
+            }
+        }
+
+    }
+
+    .checkmark {
+        display: inline-block;
+        top: 0;
+        left: 0;
+        height: 25px;
+        width: 25px;
+        padding: 15px;
+
+        background-color: $grape;
+        border: solid 3px $grape;
+
+        margin-right: 1%;
+
+        &:after {
+            content: "";
+            position: absolute;
+            display: none;
+
+            top: 7px;
+            left: 22px;
+            width: 15px;
+            height: 31px;
+            
+            border: solid $grape;
+            border-width: 0 4px 4px 0;
+         
+            @include rotate(45);
+        }
     }
 }

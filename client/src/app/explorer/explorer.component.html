@@ -82,6 +82,17 @@
       </div>
     </div>
 
+    <div class="column is-full">
+      <label for="age" class="center-all">
+        <input formControlName="age" type="checkbox" id="age" />
+      <span class="checkmark"></span>I am 13 years of age or older.
+
+      </label>
+      <div *ngIf="submitted && f.age.invalid">
+        <span *ngIf="f.age.errors.required || f.age.errors.requiredTrue">Please verify your age.</span>
+      </div>
+    </div>
+
     <div class="fields">
       <div class="column is-half-tablet">
         <p>{{formError}}</p>
@@ -93,8 +104,8 @@
   </form>
   <!-- signed up -->
   <div *ngIf="received" class="space-grotesk">
-    <span *ngIf="formError === ''">Thanks for signing up! You will receive an email shortly with further
-      information!</span>
+    <span *ngIf="formError === ''">Thanks for joining our pool of Tech Explorers! We'll reach out soon with details
+      about upcoming workshops you may want to join.</span>
     <span *ngIf="formError !== ''" [innerHtml]="formError"></span>
   </div>
 

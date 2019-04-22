@@ -46,7 +46,8 @@ export class ExplorerComponent implements OnInit {
     this.userForm = this._formBuilder.group({
       'email': ['', [Validators.required, Validators.email]],
       'firstName': ['', Validators.required],
-      'lastName': ['', Validators.required]
+      'lastName': ['', Validators.required],
+      'age': ['', [Validators.required, Validators.requiredTrue]]
     });
 
   }
