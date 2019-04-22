@@ -13,6 +13,8 @@ export class ExhibitComponent implements OnInit {
   public hasContent: boolean;
 
   public currentEvent: any;
+  public nextEvent: any;
+
   public events: any[];
   public info: any[];
 
@@ -22,7 +24,9 @@ export class ExhibitComponent implements OnInit {
 
       this.info = data.exhibitData;
       this.events = data.eventsData;
+  
       this.currentEvent = _.where(this.events, {current: true})[0];
+      this.nextEvent = _.where(this.events, {next: true})[0];
 
       this.hasContent = true;
 

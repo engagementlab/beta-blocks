@@ -67,6 +67,10 @@ Event.add({
 	current: {
 		type: Boolean,
 		label: 'Event is happening now.'
+	},
+	next: {
+		type: Boolean,
+		label: 'Event is coming up next.'
 	}
 });
 
@@ -74,5 +78,5 @@ Event.add({
  * Model Registration
  */
 Event.defaultSort = '-createdAt';
-Event.defaultColumns = 'name';
+Event.defaultColumns = 'name, current, next';
 Event.register();

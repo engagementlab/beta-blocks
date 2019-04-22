@@ -50,7 +50,7 @@
             border: solid 4px $rouge;
 
             @include not-phones {
-                @include translate(0, 52%);
+                @include translate(0, 56%);
             }
         }
     }

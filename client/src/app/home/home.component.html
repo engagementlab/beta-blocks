@@ -93,11 +93,15 @@
   <h2 data-aos="fade">Exhibit Location</h2>
   <div id="exhibit" class="columns column is-11-mobile is-multiline is-mobile no-margin" *ngIf="hasContent">
     <!-- Tablet+ -->
-    <div class="column is-half location" data-aos="fade-up" *ngIf="!isPhone">
+    <div class="column is-half location" data-aos="fade-up" *ngIf="!isPhone && (currentEvent || nextEvent)">
 
-      <h2 class="lower">The exhibit is now in . . .</h2>
-      <svg fill="none" viewBox="0 0 500 80"><text x="0%" y="98%">{{currentEvent.name}}</text></svg>
+      <h2 class="lower" *ngIf="currentEvent !== undefined">The exhibit is now in . . .</h2>
+      <h2 class="lower" *ngIf="nextEvent && !currentEvent">The exhibit will soon be in . . .</h2>
 
+      <svg fill="none" viewBox="0 0 500 80">
+          <text x="0" y="98%" *ngIf="currentEvent !== undefined">{{currentEvent.name}}</text>
+          <text x="0" y="98%" *ngIf="nextEvent && !currentEvent">{{nextEvent.name}}</text>
+      </svg>
       <app-button route="/exhibit" label="view more info"></app-button>
 
     </div>
@@ -143,11 +147,14 @@
     </div>
 
     <!-- Phones -->
-    <div class="column is-11-mobile location" data-aos="fade-up" *ngIf="isPhone">
+    <div class="column is-11-mobile location" data-aos="fade-up" *ngIf="isPhone && (currentEvent || nextEvent)">
 
-      <h2 class="lower">The exhibit is now in . . .</h2>
-      <svg width="500" height="80" fill="none" viewBox="0 0 500 80"><text x="0"
-          y="98%">{{currentEvent.name}}</text></svg>
+      <h2 class="lower" *ngIf="currentEvent !== undefined">The exhibit is now in . . .</h2>
+      <h2 class="lower" *ngIf="nextEvent && !currentEvent">The exhibit will soon be in . . .</h2>
+      <svg width="500" height="80" fill="none" viewBox="0 0 500 80">
+        <text x="0" y="98%" *ngIf="currentEvent !== undefined">{{currentEvent.name}}</text>
+        <text x="0" y="98%" *ngIf="nextEvent && !currentEvent">{{nextEvent.name}}</text>
+      </svg>
 
       <app-button route="/exhibit" label="view more info" class="center-all"></app-button>
 

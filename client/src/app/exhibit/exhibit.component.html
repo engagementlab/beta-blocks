@@ -11,24 +11,33 @@
 <section class="container desktop" id="offset" *ngIf="hasContent">
 
   <!-- LOCATION -->
-  <div id="location" class="columns column is-full">
+  <div id="location" class="columns column is-full" *ngIf="currentEvent || nextEvent">
 
     <div class="column is-half-tablet">
       <div class="text">
 
-        <h2 class="lower">The exhibit is now in . . .</h2>
-        <svg height="80" fill="none" viewBox="0 0 400 80" preserveAspectRatio="xMinYMin meet"><text x="0"
-            y="98%">{{currentEvent.name}}</text></svg>
-
+        <h2 class="lower" *ngIf="currentEvent !== undefined">The exhibit is now in . . .</h2>
+        <h2 class="lower" *ngIf="nextEvent && !currentEvent">The exhibit will soon be in . . .</h2>
+  
+        <svg height="80" fill="none" viewBox="0 0 400 80" preserveAspectRatio="xMinYMin meet">
+            <text x="0" y="98%" *ngIf="currentEvent !== undefined">{{currentEvent.name}}</text>
+            <text x="0" y="98%" *ngIf="nextEvent && !currentEvent">{{nextEvent.name}}</text>
+        </svg>
       </div>
     </div>
 
-    <div class="column">
-      <p>Nothing's gonna make your husband or wife madder than coming home and having a snow-covered dinner. There's
-        nothing wrong with having a tree as a friend. Steve wants reflections, so let's give him reflections.</p>
+    <div class="column" *ngIf="currentEvent !== undefined">
+      <p>{{currentEvent.description}}</p>
 
-      <p>04/01 — 04/05<br />
-        120 Boylston St. Boston, MA 02116
+      <p>{{currentEvent.startDate | date:'MM/dd'}} - {{currentEvent.endDate | date:'MM/dd'}}<br />
+        {{currentEvent.address}}
+      </p>
+    </div>
+    <div class="column" *ngIf="nextEvent !== undefined && !currentEvent">
+      <p>{{nextEvent.description}}</p>
+
+      <p>{{nextEvent.startDate | date:'MM/dd'}} - {{nextEvent.endDate | date:'MM/dd'}}<br />
+        {{nextEvent.address}}
       </p>
     </div>
 
