@@ -12,7 +12,7 @@ import { ZonesComponent } from './zones/zones.component';
 
 import { environment } from 'src/environments/environment';
 
-let notQa = (environment.production && !environment.qa) || environment.dev;
+let notQa = (environment.production && !environment.qa) || !environment.dev;
 let routeList: Routes = [
 
   { path: '', component: HomeComponent },
@@ -24,7 +24,7 @@ let routeList: Routes = [
   { path: 'tech', component: TechComponent },
   { path: 'zones', component: ZonesComponent }
 
-]
+];
 // In production, for now route all traffic to explorer page
 let routeListPreview: Routes = [
   { path: '', component: ExplorerComponent }
