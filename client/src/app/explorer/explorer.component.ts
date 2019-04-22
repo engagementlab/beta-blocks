@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, AfterViewInit } from '@angular/core';
 import { FormBuilder, Validators, FormGroup  } from '@angular/forms';
 import { HttpClient, HttpParams } from '@angular/common/http';
 
@@ -17,7 +17,7 @@ interface MailChimpResponse {
   styleUrls: ['./explorer.component.scss']
 })
 
-export class ExplorerComponent implements OnInit {
+export class ExplorerComponent implements OnInit, AfterViewInit {
   
   public hasContent: boolean;
   public submitted: boolean;
@@ -51,13 +51,21 @@ export class ExplorerComponent implements OnInit {
     });
 
   }
+  
+  ngAfterViewInit() {
+
+    if (window.location.hash === '#signup')
+      this.goToForm();
+
+  }
 
   goToForm() {
 
+    window.location.hash = '#signup';
     this._scrollToService
       .scrollTo({
         target: document.getElementById('form'),
-        offset: 200,
+        offset: 100,
         easing: 'easeOutQuint',
         duration: 700
       });
