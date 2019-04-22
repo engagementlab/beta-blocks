@@ -12,6 +12,7 @@ import { ZonesComponent } from './zones/zones.component';
 
 import { environment } from 'src/environments/environment';
 
+let notQa = (environment.production && !environment.qa) || environment.dev;
 let routeList: Routes = [
 
   { path: '', component: HomeComponent },
@@ -30,7 +31,7 @@ let routeListPreview: Routes = [
 ];
 
 @NgModule({
-  imports: [RouterModule.forRoot(environment.production ? routeListPreview : routeList)],
+  imports: [RouterModule.forRoot(notQa ? routeListPreview : routeList)],
   exports: [RouterModule]
 })
 export class AppRoutingModule { }
