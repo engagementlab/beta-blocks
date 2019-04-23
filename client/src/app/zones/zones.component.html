@@ -3,18 +3,17 @@
   <!-- EXPLORATION ZONES -->
   <h2>Exploration Zones</h2>
 
-  <div id="top" class="columns">
-    <div id="text" class="column right no-pad is-half">
+  <div id="top" class="columns is-mobile no-margin">
+    <div id="text" class="column right no-pad is-half-tablet">
       <div class="text space-grotesk-semi">
         The project has three Exploration Zones in three neighborhoods of Boston. These are the city blocks where you
         will be invited to experiment with the tech and judge how well it’s working for your neighborhood.
       </div>
     </div>
 
-    <div id="map" class="column is-9">
+    <div id="map" class="column is-full-tablet is-9-desktop">
       <div id="legend" class="lunch-med">
         <span class="location" *ngFor="let i of locationIndices;" (click)="goToZone(i)">
-
           <svg width="36" height="45" fill="none" viewBox="0 0 36 45">
             <path stroke-miterlimit="10" stroke-width="4"
               d="M34 18c0 8.8-16 24-16 24S2 26.8 2 18 9.2 2 18 2s16 7.2 16 16z" />
