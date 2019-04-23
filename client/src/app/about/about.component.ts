@@ -3,6 +3,7 @@ import { FormBuilder, Validators } from '@angular/forms';
 
 import { DataService } from '../utils/data.service';
 
+import * as AOS from 'aos';
 import * as ismobile from 'ismobilejs';
 import * as _ from 'underscore';
 
@@ -42,11 +43,18 @@ export class AboutComponent implements OnInit {
   }
   
   ngOnInit() {
+    
     this.userForm = this._formBuilder.group({
       'name': ['', Validators.required],
       'email': ['', [Validators.required, Validators.email]],
       'message': ['', [Validators.required, Validators.minLength(10)]]
     });
+
+    AOS.init({
+      duration: 700,
+      easing: 'ease-in-out'
+    });
+
   }
   
   // convenience getter for easy access to form fields

@@ -1,11 +1,11 @@
 <section class="container desktop">
 
-  <h2>About Beta Blocks</h2>
+  <h2 data-aos="fade">About Beta Blocks</h2>
 
   <!-- BLURB -->
   <div id="blurb" class="bleed columns column is-full">
 
-    <div class="column is-11-mobile is-half-tablet">
+    <div class="column is-11-mobile is-half-tablet" data-aos="fade">
       <div class="text">
         <strong>Beta Blocks supports local Boston communities to question how new technologies can make their lives better.</strong> Community members, in collaboration with technology providers and the City, set up real life experiments in the public realm and evaluate the impact of technologies on neighborhoods. This incorporates community values into the municipal technology procurement process from the very beginning.
       </div>
@@ -25,57 +25,58 @@
   </div>
 
   <div id="shapes">
-    <svg id="circle" width="58" height="58" fill="none" viewBox="0 0 58 58">
+
+    <div id="circle" data-aos="purple-circle">
+    <svg width="58" height="58" fill="none" viewBox="0 0 58 58">
       <path stroke="#402B59" stroke-miterlimit="10" stroke-width="6"
         d="M29 55c14.36 0 26-11.64 26-26S43.36 3 29 3 3 14.64 3 29s11.64 26 26 26z" />
     </svg>
+    </div>
 
     <cdn-image id="red" cloudinaryId="img/about/red" width="200" phoneWidth="135" autoFormat="false" svg="false"
-      [responsive]="false">
+      [responsive]="false" data-aos="red-torus">
     </cdn-image>
-    <!-- <cdn-image id="gold" cloudinaryId="img/about/gold" width="85" autoFormat="false" svg="false" [responsive]="false"
-      *ngIf="isPhone">
-    </cdn-image> -->
-
 
   </div>
 
-  <h2>People Involved</h2>
+  <h2 data-aos="fade">People Involved</h2>
 
   <!-- PEOPLE INVOLVED -->
   <div id="people" class="columns column is-full-mobile is-full-tablet" *ngIf="hasContent">
 
-    <div class="space-grotesk-semi column is-full-mobile">
+    <div class="space-grotesk-semi column is-full-mobile" data-aos="fade-right">
       <p (click)="getPerson(i)" [class.active]="i === 0" *ngFor="let person of people; let i = index;">
         {{person.name.first}} {{person.name.last}}<span> / {{person.title}}</span></p>
     </div>
-    <div class="column is-5-tablet">
+    <div class="column is-5-tablet" data-aos="fade-up">
       <div class="space-grotesk-semi name">{{selectedName}} <span>{{selectedTitle}}</span></div>
       <div class="lunch-med text" [innerHtml]="selectedBio"></div>
     </div>
 
   </div>
 
-  <svg id="squiggle" width="168" height="88" fill="none" viewBox="0 0 168 88">
+  <div id="squiggle" data-aos="squiggle" data-aos-delay="1500">
+  <svg width="168" height="88" fill="none" viewBox="0 0 168 88">
       <path stroke="#FFD7ED" stroke-linecap="round" stroke-miterlimit="10" stroke-width="12"
         d="M161.975 6.025c-14.895 8.755-21.843-3.001-36.737 5.753-14.895 8.755-8.003 20.35-22.897 29.104-14.895 8.755-21.843-3-36.737 5.754-14.895 8.754-8.002 20.35-22.897 29.104-14.895 8.754-21.787-2.841-36.682 5.913" />
     </svg>
+  </div>
   <cdn-image id="cone" cloudinaryId="img/about/cone" width="83" phoneWidth="54" autoFormat="false" svg="false"
-    [responsive]="false"></cdn-image>
+    [responsive]="false" data-aos="cone" data-aos-delay="1000"></cdn-image>
 
-  <h2>Contact Us</h2>
+  <h2 data-aos="fade">Contact Us</h2>
 
   <!-- CONTACT -->
   <form class="columns column is-full-tablet is-multiline" [formGroup]="userForm" (submit)="submitForm()"
     *ngIf="!received">
     <div class="fields">
 
-      <div class="column is-full-mobile is-half-tablet">
+      <div class="column is-full-mobile is-half-tablet" data-aos="fade-up" data-aos-delay="500">
         <input formControlName="name" id="name" placeholder="name" required />
         <div *ngIf="submitted && f.name.invalid">Required.</div>
       </div>
 
-      <div class="column is-full-mobile is-half-tablet">
+      <div class="column is-full-mobile is-half-tablet" data-aos="fade-up" data-aos-delay="1000">
         <input formControlName="email" id="email" placeholder="email" required />
         <div *ngIf="submitted && f.email.invalid">
           <span *ngIf="f.email.errors.required">Required.</span>
@@ -83,17 +84,17 @@
         </div>
       </div>
     </div>
-      <div class="column is-full-mobile is-full">
+      <div class="column is-full-mobile is-full" data-aos="fade-up" data-aos-delay="1500">
         <textarea formControlName="message" id="message" name="message" placeholder="message" class="full"
           required></textarea>
         <div *ngIf="submitted && f.message.invalid">Required.</div>
       </div>
-    <div class="column is-11-mobile is-5-tablet">
+    <div class="column is-11-mobile is-5-tablet" data-aos="fade-up" data-aos-delay="1500">
       <button type="submit">Submit</button>
     </div>
     <div class="center-all column">
       <cdn-image cloudinaryId="img/about/gold" width="136" phoneWidth="79" autoFormat="false" svg="false"
-        [responsive]="false">
+        [responsive]="false" data-aos="fade-left" data-aos-delay="2000">
       </cdn-image>
     </div>
   </form>
