@@ -234,3 +234,33 @@ form {
 #tagline {
   @include pxtoem(24, 48);
 }
+
+
+// AOS shape animations
+[data-aos="circle-purple"] {
+  transform: scale(0 ,0);
+  transform-origin: 20% 50%;
+
+  transition-property: transform, opacity;
+  transition-timing-function: ease-in-out;
+  transition-duration: 1.5s!important;
+
+  opacity: 0;
+
+  &.aos-animate {
+      transform: scale(1, 1);
+      opacity: 1;
+  }
+}
+
+[data-aos="shapes"] {
+  transition-property: all;
+  transition-timing-function: ease-in-out;
+  transition-duration: 1.5s!important;
+
+  clip-path: ellipse(0% 0% at 50% 50%);
+
+  &.aos-animate {    
+    clip-path: ellipse(100% 100% at 50% 50%);
+  }
+}
