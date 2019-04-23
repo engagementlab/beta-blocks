@@ -4,6 +4,8 @@
     .text {
         @include pxtoem(18, 24);
 
+        z-index: 2;
+
         background-color: $grape;
         align-self: flex-end;
 
@@ -24,7 +26,6 @@
 
     #text {
         position: relative;
-        z-index: 2;
     
         display: flex;
         align-items: flex-end;
@@ -45,8 +46,12 @@
         @include not-phones {
             right: 29%;
         }
+        @include tablet-portrait {
+            right: 50%;
+            width: 96%;
+        }
         @include phones {
-            background-image: cdn-image('img/zones/map', c_fill, f_auto, w_320);
+            background-image: cdn-image('img/zones/map-mobile', c_fill, f_auto, w_960);
         }
     
         #legend {
@@ -125,14 +130,18 @@
         color: black;
     }
 
-    // ::ng-deep a, a:visited {
-    // }
-
     .columns {
         margin-top: 8%;
 
         &:nth-child(even) {
             flex-direction: row-reverse;
+
+            @include desktop {
+                margin-left: 9%;
+            }
+            @include tablet-portrait {
+                margin-left: 5%;
+            }
         }
     }
 
