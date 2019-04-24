@@ -23,14 +23,14 @@ let routeList: Routes = [
   { path: 'tech', component: TechComponent },
   { path: 'zones', component: ZonesComponent }
 
-]
+];
 // In production, for now route all traffic to explorer page
 let routeListPreview: Routes = [
   { path: '', component: ExplorerComponent }
 ];
 
 @NgModule({
-  imports: [RouterModule.forRoot(environment.production ? routeListPreview : routeList)],
+  imports: [RouterModule.forRoot((environment.production && !environment.qa) ? routeListPreview : routeList)],
   exports: [RouterModule]
 })
 export class AppRoutingModule { }

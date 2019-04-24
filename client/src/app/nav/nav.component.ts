@@ -19,7 +19,7 @@ export class NavComponent implements OnInit {
 
   constructor(private _router: Router) { 
 
-    this.hideMenu = environment.production;
+    this.hideMenu = (environment.production && !environment.qa);
 
     // Close menu when nav starts
     _router.events.pipe(filter(e => e instanceof NavigationStart)).subscribe(e => {

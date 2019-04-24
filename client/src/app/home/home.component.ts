@@ -18,6 +18,7 @@ export class HomeComponent implements AfterViewInit {
 
   public events: any[];
   public currentEvent: any;
+  public nextEvent: any;
 
   constructor(private _dataSvc: DataService) {
     
@@ -25,13 +26,10 @@ export class HomeComponent implements AfterViewInit {
       
     _dataSvc.getDataForUrl('/api/exhibit/get/current').subscribe((data: any) => {
 
-      this.currentEvent = data.eventsData[0];  
+      this.currentEvent = _.where(data.eventsData, {current: true})[0];
+      this.nextEvent = _.where(data.eventsData, {current: false})[0];
+
       this.hasContent = true;
-      // _dataSvc.getDataForUrl('/api/events/get/eventbrite').subscribe((data: any) => {
-        
-      //   this.events = (data.eventbrite.length > 2) ? data.eventbrite.slice(0, 2) : data.eventbrite;
-  
-      // });
   
 
     });

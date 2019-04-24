@@ -16,7 +16,7 @@
   background-color: $rouge;
   border: solid 4px $rouge;
 
-  @include transition(background, .3s, ease-in-out);
+  @include transition(all, .3s, ease-in-out);
 
   cursor: pointer;
 
@@ -25,6 +25,13 @@
     width: 280px;
     height: 80px;
 
+  }
+
+
+  &.space-grotesk-semi {
+    font-family: 'SpaceGrotesk-SemiBold';
+    line-height: 1.42;
+    letter-spacing: 2px;
   }
 
   &.full {
@@ -44,7 +51,7 @@
 
     @include phones {
 
-      width: 100%;
+      width: 200px;
       height: 50px;
 
       svg {
@@ -67,8 +74,6 @@
 
 
   }
-
-  
 
   &::before {
     content: '';
@@ -99,11 +104,13 @@
 
     &.grape {
       color: $grape;
+      svg path {
+        stroke: $grape;
+      }
     }
 
     &::before {
       opacity: 1;
-
     }
   }
 }

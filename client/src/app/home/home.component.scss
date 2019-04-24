@@ -221,8 +221,9 @@
 
     #shapes {
         position: absolute;
-        right: 0;
         z-index: 4;
+
+        @include translate(0, -86%);
 
         @include phones {
             @include scale(.7);

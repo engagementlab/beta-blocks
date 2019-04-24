@@ -69,7 +69,7 @@ h3 {
 
 h4 {
   @include pxtoem(24, 48);
-  
+
   line-height: 1.42;
   letter-spacing: 4px;
 
@@ -78,8 +78,6 @@ h4 {
 
 // Form styles
 form {
-
-  // width: 90%;
 
   input,
   textarea {
@@ -104,7 +102,8 @@ form {
     }
   }
 
-  input, textarea {
+  input,
+  textarea {
 
     width: 95%;
 
@@ -113,7 +112,7 @@ form {
         width: 100%;
       }
     }
-    
+
     @include phones {
       width: 91%;
     }
@@ -163,11 +162,11 @@ form {
   .fields-mobile {
     @include phones {
 
-    display: flex;
-    flex-direction: column;
-    flex-wrap: wrap;
+      display: flex;
+      flex-direction: column;
+      flex-wrap: wrap;
 
-    width: 100%;
+      width: 100%;
     }
   }
 }
@@ -221,16 +220,106 @@ form {
 .space-grotesk {
   font-family: 'SpaceGrotesk';
 }
+
 .space-grotesk-semi {
   font-family: 'SpaceGrotesk-SemiBold';
 }
+
 .lunch-reg {
   font-family: 'Lunchtype';
 }
+
 .lunch-med {
   font-family: 'LunchtypeMed';
 }
 
 #tagline {
   @include pxtoem(24, 48);
+}
+
+
+// AOS shape animations
+[data-aos="circle-purple"] {
+  transform: scale(0, 0);
+  transform-origin: 20% 50%;
+
+  transition-property: transform, opacity;
+  transition-timing-function: ease-in-out;
+  transition-duration: 1.5s !important;
+
+  opacity: 0;
+
+  &.aos-animate {
+    transform: scale(1, 1);
+    opacity: 1;
+  }
+}
+
+[data-aos="shapes"] {
+  transition-property: all;
+  transition-timing-function: ease-in-out;
+  transition-duration: 1.5s !important;
+
+  clip-path: ellipse(0% 0% at 50% 50%);
+
+  &.aos-animate {
+    clip-path: ellipse(100% 100% at 50% 50%);
+  }
+}
+
+[data-aos="purple-circle"] {
+  transform: translate(25%, -105%);
+
+  transition-property: transform, opacity;
+  transition-timing-function: ease-in-out;
+  transition-duration: 1.5s !important;
+
+  opacity: 0;
+
+  &.aos-animate {
+    opacity: 1;
+    @include translate(16%, -67%);
+  }
+}
+
+[data-aos="red-torus"] {
+
+    display: block;
+
+    @include transition(all, 1.5s, ease-in-out);
+    transition-duration: 1.5s !important;
+    
+    @include translate(-15%, 20%);
+    opacity: 0;
+
+  &.aos-animate {
+    opacity: 1;
+    @include translate(0, 0);
+  }
+}
+
+[data-aos="squiggle"] {
+
+  @include transition(all, 1.5s, ease-in-out);
+  transition-duration: 1.5s !important;
+
+  clip-path: inset(0% 100% 0% 0%);
+
+  &.aos-animate {
+    clip-path: inset(0 0 0 0);
+  }
+
+}
+
+[data-aos="cone"] {
+
+  @include transition(all, 1.5s, ease-in-out);
+  transition-duration: 1.5s !important;
+
+  clip-path: polygon(29% 100%, 60% 100%, 100% 100%, 0% 100%);
+
+  &.aos-animate {
+    clip-path: polygon(0% 4%, 100% 0, 100% 92%, 0% 100%);
+  }
+
 }

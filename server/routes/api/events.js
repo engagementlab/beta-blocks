@@ -60,7 +60,7 @@ exports.get = function (req, res) {
         return;
     }
 
-    let eventFields = 'name description startDate endDate address current latlng -_id';
+    let eventFields = 'name description startDate endDate startDate2 endDate2 address current latlng -_id';
     let event = keystone.list('Event').model;
 
     // Get events

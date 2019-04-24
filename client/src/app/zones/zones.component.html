@@ -3,33 +3,32 @@
   <!-- EXPLORATION ZONES -->
   <h2>Exploration Zones</h2>
 
-  <div id="map" class="column is-full">
-    <div id="legend" class="lunch-med">
-      <span class="location" *ngFor="let i of locationIndices;" (click)="goToZone(i)">
-
-        <svg width="36" height="45" fill="none" viewBox="0 0 36 45">
-          <path stroke-miterlimit="10" stroke-width="4"
-            d="M34 18c0 8.8-16 24-16 24S2 26.8 2 18 9.2 2 18 2s16 7.2 16 16z" />
-          <path stroke-miterlimit="10" stroke-width="4" d="M18 22a5 5 0 1 0 0-10 5 5 0 0 0 0 10z" />
-        </svg>
-        {{getLocationInfo(i).name}}
-
-      </span>
-    </div>
-  </div>
-
-
-  <div class="column right is-half">
+  <div id="top" class="columns is-mobile no-margin">
+    <div id="text" class="column right no-pad is-half-tablet">
       <div class="text space-grotesk-semi">
         The project has three Exploration Zones in three neighborhoods of Boston. These are the city blocks where you
         will be invited to experiment with the tech and judge how well it’s working for your neighborhood.
       </div>
     </div>
-    
+
+    <div id="map" class="column is-full-tablet is-9-desktop">
+      <div id="legend" class="lunch-med">
+        <span class="location" *ngFor="let i of locationIndices;" (click)="goToZone(i)">
+          <svg width="36" height="45" fill="none" viewBox="0 0 36 45">
+            <path stroke-miterlimit="10" stroke-width="4"
+              d="M34 18c0 8.8-16 24-16 24S2 26.8 2 18 9.2 2 18 2s16 7.2 16 16z" />
+            <path stroke-miterlimit="10" stroke-width="4" d="M18 22a5 5 0 1 0 0-10 5 5 0 0 0 0 10z" />
+          </svg>
+          {{getLocationInfo(i).name}}
+        </span>
+      </div>
+    </div>
+
+  </div>
+
   <div id="zones">
 
-    <div id="zone{{i}}" class="columns column is-11-tablet is-mobile"
-      *ngFor="let i of locationIndices;">
+    <div id="zone{{i}}" class="columns column is-11-tablet is-mobile is-multiline" *ngFor="let i of locationIndices;">
 
       <div class="column is-11-mobile">
         <cdn-image cloudinaryId="img/zones/{{i}}" width="800" [responsive]="true" autoFormat="true"
@@ -40,10 +39,9 @@
 
         <h3>{{getLocationInfo(i).name}}</h3>
         <p class="lunch-med">{{getLocationInfo(i).description}}</p>
-        <a class="space-grotesk-semi"
-          href="https://www.google.com/maps/dir//{{getLocationInfo(i).latlng}}">
-          visit the tech
-        </a>
+
+        <app-button href="https://www.google.com/maps/dir//{{getLocationInfo(i).latlng}}" label="visit the tech"
+          class="full grape space-grotesk-semi" [arrow]="true"></app-button>
 
       </div>
 

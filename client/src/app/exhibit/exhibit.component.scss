@@ -15,6 +15,7 @@
 #offset {
     margin-top: -8%;
 }
+
 #location {
 
     margin-bottom: 9%;
@@ -24,12 +25,13 @@
             background-color: $rouge;
             color: white;
 
+            padding: 2%;
+
             h2 {
-                font-style: normal;
-                font-stretch: normal;
-                line-height: 1.17;
-                letter-spacing: 1px;
+                line-height: 1.42;
+                letter-spacing: 2px;
                 text-align: left;
+                padding: 0;
             }
 
             svg text {
@@ -39,18 +41,29 @@
                 paint-order: stroke;
                 stroke: white;
             }
+
+            p {
+                font-family: 'SpaceGrotesk-Bold';
+
+                @include pxtoem(18, 30);
+                line-height: 1.4;
+                letter-spacing: 6px;
+
+                text-transform: uppercase;
+            }
         }
 
         &:nth-child(2) {
             @include pxtoem(14, 18);
+
             font-family: 'LunchtypeMed';
             font-stretch: expanded;
             line-height: 1.5;
-            letter-spacing: 1px;
+
             border: solid 4px $rouge;
 
             @include not-phones {
-                @include translate(0, 52%);
+                @include translate(0, 33%);
             }
         }
     }
@@ -61,7 +74,7 @@
 
     font-family: Lunchtype;
     @include pxtoem(12, 14);
-    
+
     font-weight: 500;
     font-stretch: expanded;
 
@@ -74,7 +87,7 @@
         padding: 0;
 
         h4 {
-            margin: 0;  
+            margin: 0;
             color: white;
 
             font-family: 'VG5000';
@@ -99,7 +112,7 @@
 
         li {
             list-style: none;
-            
+
             div.columns {
                 max-height: 0;
                 overflow: hidden;
@@ -117,23 +130,29 @@
                 &:nth-child(1) h4 {
                     background-color: $grape;
                 }
+
                 &:nth-child(2) h4 {
                     background-color: $light-pink;
                     color: black;
+
                     svg line {
                         stroke: black;
                     }
                 }
+
                 &:nth-child(3) h4 {
                     background-color: $marigold;
                     color: black;
+
                     svg line {
                         stroke: black;
                     }
                 }
+
                 &:nth-child(4) h4 {
                     background-color: $rouge;
                 }
+
                 &:nth-child(5) h4 {
                     background-color: $grape;
                 }
@@ -176,62 +195,100 @@
     line-height: 1.5;
     letter-spacing: 1px;
 
-    .columns {
-        &:nth-child(4n+1) {
-            svg path {
-                stroke: $rouge;
-            }
-        }
-        &:nth-child(4n+2) {
-            svg path {
-                stroke: $marigold;
-            }
-        }
-        &:nth-child(4n+3) {
-            svg path {
-                stroke: $light-pink;
-            }
-        }
-        &:nth-child(4n+4) {
-            svg path {
-                stroke: $grape;
-            }
-        }
-
-        .column:nth-child(1) {
-            display: flex;
-            justify-content: center;
-        }
-    }
-
     .event {
+
+        display: flex;
+        flex-direction: column;
 
         margin-left: 2%;
         padding: 0;
+
+        svg {
+            align-self: center;
+        }
 
         strong {
 
             display: block;
             font-family: SpaceGrotesk;
-            @include pxtoem(14, 18);
-            
-            padding: 4%;
-            
+            @include pxtoem(18, 24);
+
+            padding: 4% 0 4% 0;
+
             font-weight: 600;
             line-height: 1.17;
+
+            border-bottom: solid 3px white;
 
         }
 
         .info {
-            padding: 4%;
-        }
+            text-align: center;
+            padding-bottom: 5%;
 
-        &.current {
-            border: solid 4px $marigold;
+            div {
+                padding-left: 10%;
+                padding-right: 10%;
 
-            strong {
-                border-bottom: solid 4px $marigold;
+                .day {
+                    @include pxtoem (14, 18);
+                    font-family: 'LunchtypeMed';
+                    margin-bottom: 0;
+                }
+            }
+
+            span {
+                display: block;
             }
         }
     }
+
+    .columns {
+        &:nth-child(3n+1) {
+            svg path {
+                stroke: $rouge;
+            }
+
+            .info {
+                border: solid 4px $rouge;
+
+                &.current {
+                    background-color: $rouge;
+                    color: white;
+                    border: none;
+                }
+            }
+        }
+
+        &:nth-child(3n+2) {
+            svg path {
+                stroke: $marigold;
+            }
+            .info {
+                border: solid 4px $marigold;
+
+                &.current {
+                    background-color: $marigold;
+                    color: white;
+                    border: none;
+                }
+            }
+        }
+
+        &:nth-child(3n+3) {
+            svg path {
+                stroke: $light-pink;
+            }   stroke: $marigold;
+        }
+        .info {
+            border: solid 4px $light-pink;
+
+            &.current {
+                background-color: $light-pink;
+                color: white;
+                border: none;
+            }
+        }
+    }
+
 }

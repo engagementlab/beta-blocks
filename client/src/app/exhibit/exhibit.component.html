@@ -11,25 +11,35 @@
 <section class="container desktop" id="offset" *ngIf="hasContent">
 
   <!-- LOCATION -->
-  <div id="location" class="columns column is-full">
+  <div id="location" class="columns column is-full" *ngIf="currentEvent || nextEvent">
 
     <div class="column is-half-tablet">
       <div class="text">
 
-        <h2 class="lower">The exhibit is now in . . .</h2>
-        <svg height="80" fill="none" viewBox="0 0 400 80" preserveAspectRatio="xMinYMin meet"><text x="0"
-            y="98%">{{currentEvent.name}}</text></svg>
+        <h2 class="lower space-grotesk-semi" *ngIf="currentEvent !== undefined">The exhibit is now in . . .</h2>
+        <h2 class="lower space-grotesk-semi" *ngIf="nextEvent && !currentEvent">The exhibit will soon be in . . .</h2>
 
+        <svg height="80" fill="none" viewBox="0 0 400 80" preserveAspectRatio="xMinYMin meet">
+          <text x="0" y="98%" *ngIf="currentEvent !== undefined">{{currentEvent.name}}</text>
+          <text x="0" y="98%" *ngIf="nextEvent && !currentEvent">{{nextEvent.name}}</text>
+        </svg>
+        <p *ngIf="currentEvent !== undefined" class="space-grotesk">{{currentEvent.startDate | date:'MM/dd'}} -
+          {{currentEvent.displayEndDate | date:'MM/dd'}}<br />
+          {{currentEvent.address}}
+        </p>
+        <p *ngIf="nextEvent && !currentEvent" class="space-grotesk">{{nextEvent.startDate | date:'MM/dd'}} -
+          {{nextEvent.displayEndDate | date:'MM/dd'}}<br />
+          {{nextEvent.address}}
+        </p>
       </div>
     </div>
 
-    <div class="column">
-      <p>Nothing's gonna make your husband or wife madder than coming home and having a snow-covered dinner. There's
-        nothing wrong with having a tree as a friend. Steve wants reflections, so let's give him reflections.</p>
+    <div class="column" *ngIf="currentEvent !== undefined">
+      <p>{{currentEvent.description}}</p>
 
-      <p>04/01 — 04/05<br />
-        120 Boylston St. Boston, MA 02116
-      </p>
+    </div>
+    <div class="column" *ngIf="nextEvent !== undefined && !currentEvent">
+      <p>{{nextEvent.description}}</p>
     </div>
 
   </div>
@@ -122,22 +132,43 @@
 
   <div id="events" class="columns column is-mobile is-multiline" *ngIf="events !== undefined">
 
-    <div class="columns column is-11-mobile is-half-tablet is-mobile" *ngFor="let event of events">
-   
+    <div class="columns column is-11-mobile is-one-third-tablet is-mobile" *ngFor="let event of events">
+
       <div class="column is-1-mobile is-2-tablet">
+      </div>
+
+      <div class="column event">
+
         <svg width="36" height="45" fill="none" viewBox="0 0 36 45">
           <path stroke-miterlimit="10" stroke-width="4"
             d="M34 18c0 8.8-16 24-16 24S2 26.8 2 18 9.2 2 18 2s16 7.2 16 16z" />
           <path stroke-miterlimit="10" stroke-width="4" d="M18 22a5 5 0 1 0 0-10 5 5 0 0 0 0 10z" />
         </svg>
-      </div>
-   
-      <div class="column event" [class.current]="event.current">
-        <strong>{{event.name}}</strong>
-        
-        <div class="info">
-          <div>{{event.startDate | date:'MM/dd'}} - {{event.endDate | date:'MM/dd'}}</div>
-          <div>{{event.address}}</div>
+
+        <br />
+
+        <div class="info" [class.current]="event.current" *ngIf="!event.endDate2">
+          <strong>{{event.name}}</strong>
+
+          <div>
+            <p class="day">{{event.startDate | date:'MM/dd'}}</p>
+            <span>{{event.startDate | date:'hh:mma'}} &#8212; {{event.endDate | date:'hh:mma'}}<br />
+              {{event.address}}</span>
+          </div>
+        </div>
+        <div class="info" [class.current]="event.current" *ngIf="event.endDate2">
+          <strong>{{event.name}}</strong>
+
+          <div>
+            <p class="day">{{event.startDate | date:'MM/dd'}}</p>
+            <span>{{event.startDate | date:'hh:mma'}} &#8212; {{event.endDate | date:'hh:mma'}}<br />
+              {{event.address}}</span>
+          </div>
+          <div>
+            <p class="day">{{event.startDate2 | date:'MM/dd'}}</p>
+            <span>{{event.startDate2 | date:'hh:mma'}} &#8212; {{event.endDate2 | date:'hh:mma'}}<br />
+              {{event.address}}</span>
+          </div>
         </div>
       </div>
 
