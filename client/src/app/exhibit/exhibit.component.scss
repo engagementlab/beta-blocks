@@ -195,6 +195,8 @@
     line-height: 1.5;
     letter-spacing: 1px;
 
+    justify-content: space-evenly;
+
     .event {
 
         display: flex;
@@ -205,6 +207,7 @@
 
         svg {
             align-self: center;
+            margin-bottom: 5%;
         }
 
         strong {
