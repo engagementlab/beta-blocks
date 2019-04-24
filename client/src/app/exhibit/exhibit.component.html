@@ -1,10 +1,10 @@
 <section class="container desktop">
 
-  <h2>Exhibit Location</h2>
+  <h2 data-aos="fade">Exhibit Location</h2>
 
 </section>
 
-<div id="map" class="column is-full">
+<div id="map" class="column is-full" data-aos="fade" data-aos-delay="500">
 
 </div>
 
@@ -13,7 +13,7 @@
   <!-- LOCATION -->
   <div id="location" class="columns column is-full" *ngIf="currentEvent || nextEvent">
 
-    <div class="column is-half-tablet">
+    <div class="column is-half-tablet" data-aos="fade-right">
       <div class="text">
 
         <h2 class="lower space-grotesk-semi" *ngIf="currentEvent !== undefined">The exhibit is now in . . .</h2>
@@ -35,21 +35,21 @@
     </div>
 
     <div class="column" *ngIf="currentEvent !== undefined">
-      <p>{{currentEvent.description}}</p>
+      <p data-aos="fade-up">{{currentEvent.description}}</p>
 
     </div>
     <div class="column" *ngIf="nextEvent !== undefined && !currentEvent">
-      <p>{{nextEvent.description}}</p>
+      <p data-aos="fade-up">{{nextEvent.description}}</p>
     </div>
 
   </div>
 
-  <h2>Activity Overview</h2>
+  <h2 data-aos="fade">Activity Overview</h2>
 
   <div id="info">
 
     <ul>
-      <li class="active" (click)="toggleInfo($event)">
+      <li class="active" (click)="toggleInfo($event)" data-aos="fade-up">
         <h4 class="columns is-mobile">
           <span class="column is-9-mobile is-10-tablet">See</span>
           <span class="column icon">
@@ -64,7 +64,7 @@
           <div class="column" [innerHtml]="info.see[1]"></div>
         </div>
       </li>
-      <li (click)="toggleInfo($event)">
+      <li (click)="toggleInfo($event)" data-aos="fade-up">
         <h4 class="columns is-mobile">
           <span class="column is-9-mobile is-10-tablet">Explore</span>
           <span class="column icon">
@@ -79,7 +79,7 @@
           <div class="column" [innerHtml]="info.explore[1]"></div>
         </div>
       </li>
-      <li (click)="toggleInfo($event)">
+      <li (click)="toggleInfo($event)" data-aos="fade-up">
         <h4 class="columns is-mobile">
           <span class="column is-9-mobile is-10-tablet">Reflect</span>
           <span class="column icon">
@@ -94,7 +94,7 @@
           <div class="column" [innerHtml]="info.reflect[1]"></div>
         </div>
       </li>
-      <li (click)="toggleInfo($event)">
+      <li (click)="toggleInfo($event)" data-aos="fade-up">
         <h4 class="columns is-mobile">
           <span class="column is-9-mobile is-10-tablet">Gather</span>
           <span class="column icon">
@@ -109,7 +109,7 @@
           <div class="column" [innerHtml]="info.gather[0]"></div>
         </div>
       </li>
-      <li (click)="toggleInfo($event)">
+      <li (click)="toggleInfo($event)" data-aos="fade-up">
         <h4 class="columns is-mobile">
           <span class="column is-9-mobile is-10-tablet">Tinker</span>
           <span class="column icon">
@@ -128,13 +128,13 @@
 
   </div>
 
-  <h2>Visit Exhibit</h2>
+  <h2 data-aos="fade">Visit Exhibit</h2>
 
   <div id="events" class="columns column is-mobile is-multiline is-centered" *ngIf="events !== undefined">
 
-    <div class="columns column is-11-mobile is-3-tablet is-mobile" *ngFor="let event of events">
+    <div class="columns column is-11-mobile is-3-tablet is-mobile" *ngFor="let event of events; let i = index;">
 
-      <div class="column event">
+      <div class="column event" data-aos="fade-right" [attr.data-aos-delay]="(i*300)">
 
         <svg width="36" height="45" fill="none" viewBox="0 0 36 45">
           <path stroke-miterlimit="10" stroke-width="4"
