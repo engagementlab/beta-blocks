@@ -24,7 +24,7 @@ exports.get = function (req, res) {
     let event = keystone.list('Event').model;
     
     // Get exhibit info and events (exhibit locations)
-    let eventFields = 'name description startDate endDate address current next latlng -_id';
+    let eventFields = 'name description startDate endDate startDate2 endDate2 address current next latlng -_id';
     
     let filter = req.params.current ? ({$or: [{current:true}, {next:true}]}) : {};
     let exhibitData = exhibit.findOne({}, 'see explore reflect gather tinker -_id');

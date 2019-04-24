@@ -47,11 +47,25 @@ Event.add({
 	},
 	startDate: {
 		type: Types.Datetime,
+		label: 'Start Time',
 		required: true,
 		initial: true
 	},
 	endDate: {
-		type: Types.Datetime
+		label: 'End Time',
+		type: Types.Datetime,
+		required: true,
+		initial: true
+	},
+	startDate2: {
+		type: Types.Datetime,
+		label: 'Start Time 2',
+		note: 'Use if event occurs over two days'
+	},
+	endDate2: {
+		label: 'End Time 2',
+		type: Types.Datetime,
+		note: 'Use if event occurs over two days'
 	},
 	address: {
 		type: String,

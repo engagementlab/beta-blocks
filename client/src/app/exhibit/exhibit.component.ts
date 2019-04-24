@@ -1,6 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 
 import { DataService } from '../utils/data.service';
+
+import * as AOS from 'aos';
 import * as _ from 'underscore';
 
 @Component({
@@ -28,6 +30,9 @@ export class ExhibitComponent implements OnInit {
       this.currentEvent = _.where(this.events, {current: true})[0];
       this.nextEvent = _.where(this.events, {next: true})[0];
 
+      this.currentEvent.displayEndDate = (this.currentEvent.endDate2 ? this.currentEvent.endDate2 : this.currentEvent.endDate) 
+      this.nextEvent.displayEndDate = (this.nextEvent.endDate2 ? this.nextEvent.endDate2 : this.nextEvent.endDate) 
+
       this.hasContent = true;
 
     });
@@ -35,6 +40,12 @@ export class ExhibitComponent implements OnInit {
   };
 
   ngOnInit() {
+
+    AOS.init({
+      duration: 700,
+      easing: 'ease-in-out'
+    });
+
   }
 
   toggleInfo(evt: Event) {
