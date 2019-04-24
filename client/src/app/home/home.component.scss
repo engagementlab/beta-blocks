@@ -12,6 +12,7 @@
 
     a, a:visited {
         color: $rouge;
+        text-decoration: underline;
     }
 
     @include phones {
@@ -59,27 +60,24 @@
     color: black;
     text-decoration: none;
 
+    @include phones {
+        display: flex;
+        flex-direction: column-reverse;
+    }
+
     .text {
         position: relative;
         z-index: 2;
         background-color: $marigold;
+        
+        padding: 4%;
 
         @include not-phones {
             @include translate(-4%, 0);
         }
 
-        padding: 5%;
-    }
-
-    .left {
-        display: flex;
-    }
-
-    #events-box {
-        @include not-phones {
-            display: flex;
-            align-items: center;
-            min-height: 380px;
+        @include phones {
+            padding: 8%;
         }
 
         p {
@@ -87,25 +85,38 @@
             line-height: 1.42;
             letter-spacing: 2px;
         }
+
+        svg {
+            @include transition(transform, .3s, ease-out);
+        }
+
+        .right {
+            display: flex;
+            align-items: center;
+        }
+    }
+    #events-box {
+        @include not-phones {
+            display: flex;
+            align-items: center;
+            min-height: 380px;
+        }
     }
 
     #photo {
-        margin-top: -21.5%;
-        margin-left: 15.7%;
-
+        
         @include tablet-portrait {
             margin-top: -43%;
             margin-left: 12.6%;
         }
-
-        @include phones {
-            margin-top: 0;
-        }
     }
 
     a {
-        @include not-phones {
-            @include translate(-1%, 0);
+        text-decoration: none;
+        &:hover {
+            svg {
+                @include translate(20%);                
+            }
         }
     }
 

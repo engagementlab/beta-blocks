@@ -8,7 +8,8 @@
   </div>
 
   <div id="cta" class="column is-11-mobile is-8-tablet is-offset-4-tablet" data-aos="fade-left">
-    <p>Visit the traveling exhibit or actively experiment with new technologies.</p>
+    <p><a routeerLink="/exhibit">Visit</a> the traveling exhibit or actively <a routeerLink="/zones">experiment</a> with
+      new technologies.</p>
   </div>
 
   <h2 data-aos="fade">About</h2>
@@ -42,42 +43,56 @@
   <h2 data-aos="fade">Get Involved</h2>
 
   <!-- GET INVOLVED -->
-  <div id="events" class="bleed columns column is-11-tablet is-full-desktop is-multiline" *ngIf="hasContent">
+  <div id="events" class="bleed no-pad column is-11-tablet is-full-desktop is-multiline" *ngIf="hasContent">
 
-    <div class="column is-12-tablet is-8-desktop left" data-aos="fade-right" *ngIf="!isPhone">
+    <div class="text column is-12-tablet is-5-desktop">
 
-      <div id="events-box" class="space-grotesk text">
-        <p>Hodor. Hodor hodor, hodor. Hodor hodor hodor hodor hodor. Hodor. Hodor! Hodor hodor, hodor; hodor hodor
-          hodor. Hodor. Hodor hodor; hodor hodor - hodor, hodor, hodor hodor.</p>
-      </div>
+      <a class="columns is-mobile" routerLink="/explorers">
+        <div class="no-pad column is-10-tablet space-grotesk">
+          <p class="space-grotesk-semi">Become a Tech Explorer</p>
+          Experiment with new technologies before they arrive in your neighborhood!
+        </div>
 
-      <a routerLink="/getinvolved">
-        <div class="arrow marigold btn">
-          <svg width="110" height="110" fill="none" viewBox="0 0 110 110">
-            <path stroke="#FCBD0B" stroke-width="4" d="M53.084 1.416L106.17 54.5l-53.085 53.084M0 54.5h106.103" />
+        <div class="right column no-pad is-2-mobile is-offset-1-tablet">
+          <svg width="52" height="52" fill="none" viewBox="0 0 52 52">
+            <path stroke="#000" stroke-width="2" d="M25.285.715L50.57 26 25.285 51.285M0 25.942h50.538" />
           </svg>
         </div>
       </a>
+
+      <a class="columns is-mobile" routerLink="/exhibit">
+        <div class="no-pad column is-10-tablet space-grotesk">
+          <p class="space-grotesk-semi">Visit Exhibit</p>
+          Our interactive inflatable exhibit features a technology partner with fun activities to consider how you would use that tech.
+        </div>
+        
+        <div class="right no-pad column is-2-mobile is-offset-1-tablet">
+          <svg width="52" height="52" fill="none" viewBox="0 0 52 52">
+            <path stroke="#000" stroke-width="2" d="M25.285.715L50.57 26 25.285 51.285M0 25.942h50.538" />
+          </svg>
+        </div>
+      </a>
+
+      <a class="columns is-mobile" routerLink="/tech">
+        <div class="column no-pad is-10-tablet space-grotesk">
+          <p class="space-grotesk-semi">Become a Tech Partner</p>
+          Apply to have your company’s technology featured in our interactive inflatable exhibit!
+        </div>
+        
+        <div class="right no-pad column is-2-mobile is-offset-1-tablet">
+          <svg width="52" height="52" fill="none" viewBox="0 0 52 52">
+            <path stroke="#000" stroke-width="2" d="M25.285.715L50.57 26 25.285 51.285M0 25.942h50.538" />
+          </svg>
+        </div>
+      </a>
+
     </div>
+
     <div id="photo" class="column is-10-tablet" data-aos="fade-up">
       <cdn-image cloudinaryId="img/home/events" width="700" [responsive]="true" autoFormat="true" alt="'About' image">
       </cdn-image>
     </div>
-
-    <div class="column is-full-mobile" *ngIf="isPhone">
-
-      <div id="events-box" class="space-grotesk text">
-
-      </div>
-
-      <a routerLink="/getinvolved">
-        <div class="arrow marigold">
-          <svg width="110" height="110" fill="none" viewBox="0 0 110 110">
-            <path stroke="#FCBD0B" stroke-width="4" d="M53.084 1.416L106.17 54.5l-53.085 53.084M0 54.5h106.103" />
-          </svg>
-        </div>
-      </a>
-    </div>
+    
   </div>
 
   <!-- LOCATION -->
@@ -100,21 +115,27 @@
     <!-- Map -->
     <div class="column is-11-mobile">
       <div data-aos="circle-purple">
-      <svg id="circle-purple" width="116" height="116" fill="none" viewBox="0 0 116 116">
-        <path fill="#402B59" d="M58 116c32.032 0 58-25.968 58-58S90.032 0 58 0 0 25.968 0 58s25.968 58 58 58z" />
-      </svg>
-    </div>
+        <svg id="circle-purple" width="116" height="116" fill="none" viewBox="0 0 116 116">
+          <path fill="#402B59" d="M58 116c32.032 0 58-25.968 58-58S90.032 0 58 0 0 25.968 0 58s25.968 58 58 58z" />
+        </svg>
+      </div>
       <cdn-image id="map" cloudinaryId="img/home/boston-map" width="600" [responsive]="true" autoFormat="true"
         alt="Boston map" data-aos="fade-left" data-aos-offset="-300">
       </cdn-image>
 
       <div id="shapes" data-aos="shapes">
-      <svg viewBox="0 0 584 200" width="584" height="295" fill="none" xmlns="http://www.w3.org/2000/svg">
-        <path d="M 507.696 170.836 C 529.235 170.836 546.696 153.375 546.696 131.836 C 546.696 110.297 529.235 92.836 507.696 92.836 C 486.157 92.836 468.696 110.297 468.696 131.836 C 468.696 153.375 486.157 170.836 507.696 170.836 Z" fill="#B5191D"/>
-        <path d="M 165.42 27.146 C 150.585 35.865 143.665 24.157 128.831 32.876 C 113.996 41.595 120.861 53.144 106.026 61.863 C 91.192 70.582 84.272 58.874 69.437 67.593 C 54.603 76.312 61.467 87.86 46.633 96.579 C 31.799 105.298 24.934 93.75 10.099 102.469" stroke="#FFD7ED" stroke-width="12" stroke-miterlimit="10" stroke-linecap="round"/>
-        <path d="M 513.196 122.836 C 544.952 122.836 570.696 96.869 570.696 64.836 C 570.696 32.803 544.952 6.836 513.196 6.836 C 481.44 6.836 455.696 32.803 455.696 64.836 C 455.696 96.869 481.44 122.836 513.196 122.836 Z" stroke="#FCBD0B" stroke-width="12" stroke-miterlimit="10"/>
-      </svg>
-</div>
+        <svg viewBox="0 0 584 200" width="584" height="295" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <path
+            d="M 507.696 170.836 C 529.235 170.836 546.696 153.375 546.696 131.836 C 546.696 110.297 529.235 92.836 507.696 92.836 C 486.157 92.836 468.696 110.297 468.696 131.836 C 468.696 153.375 486.157 170.836 507.696 170.836 Z"
+            fill="#B5191D" />
+          <path
+            d="M 165.42 27.146 C 150.585 35.865 143.665 24.157 128.831 32.876 C 113.996 41.595 120.861 53.144 106.026 61.863 C 91.192 70.582 84.272 58.874 69.437 67.593 C 54.603 76.312 61.467 87.86 46.633 96.579 C 31.799 105.298 24.934 93.75 10.099 102.469"
+            stroke="#FFD7ED" stroke-width="12" stroke-miterlimit="10" stroke-linecap="round" />
+          <path
+            d="M 513.196 122.836 C 544.952 122.836 570.696 96.869 570.696 64.836 C 570.696 32.803 544.952 6.836 513.196 6.836 C 481.44 6.836 455.696 32.803 455.696 64.836 C 455.696 96.869 481.44 122.836 513.196 122.836 Z"
+            stroke="#FCBD0B" stroke-width="12" stroke-miterlimit="10" />
+        </svg>
+      </div>
     </div>
 
     <!-- Phones -->
@@ -131,49 +152,5 @@
 
     </div>
   </div>
-
-  <!-- SIGNUP -->
-  <!-- <h2 data-aos="fade">Stay In the Loop</h2> -->
-  <!-- <h2 class="cap">Life is too short to be alone, too precious. Share it with a friend.
-  </h2> -->
-
-  <!-- Begin MailChimp Signup Form -->
-  <!-- <div id="newsletter">
-    <form
-      action="https://engagementgamelab.us6.list-manage.com/subscribe/post?u=8cb16e3042072f11cc0680d36&amp;id=e9f56f4f4d"
-      method="post" id="mc-embedded-subscribe-form" name="mc-embedded-subscribe-form" class="validate" target="_blank"
-      novalidate>
-      <div id="mc_embed_signup_scroll">
-
-        <div class="mc-field-group">
-          <input type="email" placeholder="your email" name="EMAIL" class="required email" id="mce-EMAIL">
-          <input type="submit" value="Sign up" name="subscribe" id="mc-embedded-subscribe" class="button">
-        </div>
-
-        <div id="mce-responses" class="clear">
-          <div class="response" id="mce-error-response" style="display:none"></div>
-          <div class="response" id="mce-success-response" style="display:none"></div>
-        </div>
-        <div style="position: absolute; left: -5000px;" aria-hidden="true"><input type="text"
-            name="b_8cb16e3042072f11cc0680d36_e9f56f4f4d" tabindex="-1" value=""></div>
-      </div>
-    </form>
-  </div>
-  <script type='text/javascript' src='//s3.amazonaws.com/downloads.mailchimp.com/js/mc-validate.js'></script>
-  <script type='text/javascript'>
-    (function ($) {
-      window.fnames = new Array();
-      window.ftypes = new Array();
-      fnames[0] = 'EMAIL';
-      ftypes[0] = 'email';
-      fnames[1] = 'FNAME';
-      ftypes[1] = 'text';
-      fnames[2] = 'LNAME';
-      ftypes[2] = 'text';
-      fnames[3] = 'MMERGE3';
-      ftypes[3] = 'text';
-    }(jQuery));
-    var $mcj = jQuery.noConflict(true);
-  </script> -->
 
 </section>
