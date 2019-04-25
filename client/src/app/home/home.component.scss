@@ -72,10 +72,6 @@
         
         padding: 4%;
 
-        @include not-phones {
-            @include translate(-4%, 0);
-        }
-
         @include phones {
             padding: 8%;
         }
@@ -104,20 +100,31 @@
     }
 
     #photo {
-        
+
+        margin-top: -21.5%;
+        margin-left: 15.7%;
+
         @include tablet-portrait {
             margin-top: -43%;
             margin-left: 12.6%;
         }
+
+        @include phones {
+            margin-top: 0;
+            margin-left: 0;
+        }
+
     }
 
     a {
+
         text-decoration: none;
         &:hover {
             svg {
                 @include translate(20%);                
             }
         }
+
     }
 
 }
