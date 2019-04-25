@@ -63,7 +63,7 @@
             border: solid 4px $rouge;
 
             @include not-phones {
-                @include translate(0, 33%);
+                margin-top: 10%;
             }
         }
     }
@@ -118,6 +118,25 @@
                 overflow: hidden;
                 color: black;
                 @include transition(max-height, 500ms, ease-out);
+
+                ::ng-deep strong {
+                    font-family: 'SpaceGrotesk-SemiBold';
+                    text-transform: uppercase;
+
+                    @include pxtoem(18, 30);
+                }
+
+                .space-grotesk-semi {
+                    @include pxtoem(18, 24);
+                    ::ng-deep p {
+                        width: 80%;
+                    }
+                }
+
+                &.text {
+                    margin-left: 0;
+                    margin-right: 0;
+                }
             }
 
             .icon {
@@ -180,7 +199,6 @@
 
             div.columns {
                 max-height: 1000px;
-                // opacity: 1;
             }
         }
     }
