@@ -15,18 +15,17 @@
   <h2 data-aos="fade">About</h2>
 
   <!-- ABOUT -->
-  <div id="about" class="bleed columns column is-11-tablet is-full-desktop">
+  <div id="about" class="bleed columns column is-11-tablet is-full-desktop is-multiline">
 
-    <div class="column is-half" data-aos="fade-right">
+    <div class="column is-full-tablet is-half-desktop no-pad" data-aos="fade-right">
       <cdn-image cloudinaryId="img/home/about" width="700" [responsive]="true" autoFormat="true" alt="'About' image">
       </cdn-image>
     </div>
-    <div class="column is-half right" data-aos="fade-up">
+    <div class="column is-full-tablet is-half-desktop no-pad right" data-aos="fade-up">
 
-      <div id="about-box" class="space-grotesk">
+      <div id="about-box" class="space-grotesk-semi">
         <div class="text">
-          <p>Beta blocks is a collaboration between the City of Boston Mayor's Office of New Urban Mechanics, the
-            Engagement Lab @ Emerson College, and Supernormal.</p>
+          <p>Beta Blocks supports local Boston communities to question how new technologies can make their lives better. Community members, in collaboration with technology providers and the City, set up real life experiments in the public realm and evaluate the impact of technologies on neighborhoods. This incorporates community values into the municipal technology procurement process from the very beginning.</p>
         </div>
 
         <a routerLink="/about">
@@ -43,7 +42,7 @@
   <h2 data-aos="fade">Get Involved</h2>
 
   <!-- GET INVOLVED -->
-  <div id="events" class="bleed no-pad column is-11-tablet is-full-desktop is-multiline" *ngIf="hasContent">
+  <div id="getinvolved" class="bleed no-pad column is-11-tablet is-full-desktop is-multiline" *ngIf="hasContent">
 
     <div class="text column is-12-tablet is-5-desktop" data-aos="get-involved">
 
@@ -88,8 +87,8 @@
 
     </div>
 
-    <div id="photo" class="column is-10-tablet" data-aos="fade-up" data-aos-delay="700">
-      <cdn-image cloudinaryId="img/home/events" width="700" [responsive]="true" autoFormat="true" alt="'About' image">
+    <div id="photo" class="column no-pad is-12-tablet is-10-desktop" data-aos="fade-up" data-aos-delay="700">
+      <cdn-image cloudinaryId="img/home/getinvolved" width="700" [responsive]="true" autoFormat="true" alt="'About' image">
       </cdn-image>
     </div>
     

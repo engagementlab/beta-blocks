@@ -39,15 +39,10 @@
 
         @include pxtoem(18, 24);
 
-        @include not-phones {
+        @include desktop {
             @include translate(-25%, 0);
         }
-
-        @include until-tablet-wide {
-            @include translate(-7%, 0);
-        }
-
-        @include phones {
+        @include not-desktop {
             @include translate(0, 0);
         }
 
@@ -55,7 +50,7 @@
 
 }
 
-#events {
+#getinvolved {
 
     color: black;
     text-decoration: none;
@@ -104,12 +99,12 @@
         margin-top: -21.5%;
         margin-left: 15.7%;
 
-        @include tablet-portrait {
-            margin-top: -43%;
-            margin-left: 12.6%;
-        }
+        // @include tablet-portrait {
+        //     margin-top: -43%;
+        //     margin-left: 12.6%;
+        // }
 
-        @include phones {
+        @include not-desktop {
             margin-top: 0;
             margin-left: 0;
         }
@@ -148,8 +143,6 @@
         border-left: none;
         width: 200px;
         height: 200px;
-
-        @include translate(-1.6rem, 0);
     }
 
     @include btnhover();
