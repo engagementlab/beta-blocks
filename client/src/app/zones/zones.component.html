@@ -1,17 +1,17 @@
 <section class="container desktop" *ngIf="hasContent">
 
   <!-- EXPLORATION ZONES -->
-  <h2>Exploration Zones</h2>
+  <h2 data-aos="fade">Exploration Zones</h2>
 
   <div id="top" class="columns is-mobile no-margin">
     <div id="text" class="column right no-pad is-half-tablet">
-      <div class="text space-grotesk-semi">
+      <div class="text space-grotesk-semi" data-aos="get-involved">
         The project has three Exploration Zones in three neighborhoods of Boston. These are the city blocks where you
         will be invited to experiment with the tech and judge how well it’s working for your neighborhood.
       </div>
     </div>
 
-    <div id="map" class="column is-full-tablet is-9-desktop">
+    <div id="map" class="column is-full-tablet is-9-desktop" data-aos="fade-up">
       <div id="legend" class="lunch-med">
         <span class="location" *ngFor="let i of locationIndices;" (click)="goToZone(i)">
           <svg width="36" height="45" fill="none" viewBox="0 0 36 45">
@@ -30,12 +30,12 @@
 
     <div id="zone{{i}}" class="columns column is-11-tablet is-mobile is-multiline" *ngFor="let i of locationIndices;">
 
-      <div class="column is-11-mobile">
+      <div class="column is-11-mobile" [attr.data-aos]="(i==2 ? 'fade-left' : 'fade-right')" [attr.data-aos-delay]="(i*300)">
         <cdn-image cloudinaryId="img/zones/{{i}}" width="800" [responsive]="true" autoFormat="true"
           alt="Image for {{getLocationInfo(i).name}} zone"></cdn-image>
       </div>
 
-      <div class="column is-11-mobile is-5-tablet">
+      <div class="column is-11-mobile is-5-tablet" data-aos="fade-up" [attr.data-aos-delay]="(i*400)">
 
         <h3>{{getLocationInfo(i).name}}</h3>
         <p class="lunch-med">{{getLocationInfo(i).description}}</p>

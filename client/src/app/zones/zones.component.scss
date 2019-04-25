@@ -1,9 +1,11 @@
 @import '~src/style/_variables';
 
 .right {
+    
     .text {
         @include pxtoem(18, 24);
-
+        
+        position: relative;
         z-index: 2;
 
         background-color: $grape;

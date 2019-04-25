@@ -4,6 +4,7 @@ import { HttpClient, HttpParams } from '@angular/common/http';
 
 import { DataService } from '../utils/data.service';
 
+import * as AOS from 'aos';
 import { ScrollToService } from '@nicky-lenaers/ngx-scroll-to';
 
 interface MailChimpResponse {
@@ -48,6 +49,11 @@ export class ExplorerComponent implements OnInit, AfterViewInit {
       'firstName': ['', Validators.required],
       'lastName': ['', Validators.required],
       'age': ['', [Validators.required, Validators.requiredTrue]]
+    });
+
+    AOS.init({
+      duration: 700,
+      easing: 'ease-in-out'
     });
 
   }
