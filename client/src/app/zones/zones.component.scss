@@ -122,12 +122,10 @@
         line-height: 1.33;
         letter-spacing: 2px;  
     }
-    a {
-        @include pxtoem(18, 24);
-        letter-spacing: 2px;  
-        
-        text-decoration: none;
-        color: black;
+
+    app-button {
+        display: block;
+        margin-top: 10%;
     }
 
     .columns {
