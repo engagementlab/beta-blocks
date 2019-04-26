@@ -99,11 +99,6 @@
         margin-top: -21.5%;
         margin-left: 15.7%;
 
-        // @include tablet-portrait {
-        //     margin-top: -43%;
-        //     margin-left: 12.6%;
-        // }
-
         @include not-desktop {
             margin-top: 0;
             margin-left: 0;
@@ -237,15 +232,29 @@
         @include translate(0, -86%);
 
         @include phones {
-            @include scale(.7);
+            @include transform(scale(.7) translate(0, -86%));
+        }
+
+        @include not-desktop {
+            #red, #yellow {
+                @include translate(-40%, 0);
+            }
+        }
+        @include phones {
+            // #red, #yellow {
+            //     @include translate(-40%, -40%);
+            // }
         }
     }
 
-    #circle-purple {
-        position: absolute;
-        @include translate(5%, 5%);
+    #circle-parent {
+        position: relative;
+        z-index: 5;
+     
+        #circle-purple {
+            @include translate(5%, 65%);
+        }   
     }
-
 }
 
 #social {

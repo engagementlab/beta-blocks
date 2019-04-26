@@ -70,32 +70,33 @@
         <input formControlName="lastName" id="lastName" placeholder="last name" required />
         <div *ngIf="submitted && f.lastName.invalid">Required.</div>
       </div>
-    </div>
 
-    <div class="column is-full" data-aos="fade-up" data-aos-delay="800">
-      <input formControlName="email" id="email" placeholder="email" class="full" required />
-      <div *ngIf="submitted && f.email.invalid">
-        <span *ngIf="f.email.errors.required">Required.</span>
-        <span *ngIf="f.email.errors.email">Please enter a valid email address.</span>
+      <div class="column is-full-mobile is-full-tablet" data-aos="fade-up" data-aos-delay="800">
+        <input formControlName="email" id="email" placeholder="email" class="full" required />
+        <div *ngIf="submitted && f.email.invalid">
+          <span *ngIf="f.email.errors.required">Required.</span>
+          <span *ngIf="f.email.errors.email">Please enter a valid email address.</span>
+        </div>
       </div>
+  
     </div>
 
     <div class="column is-full" data-aos="fade-up" data-aos-delay="1000">
       <label for="age" class="center-all">
         <input formControlName="age" type="checkbox" id="age" />
       <span class="checkmark"></span>I am 13 years of age or older.
-
       </label>
+
       <div *ngIf="submitted && f.age.invalid">
         <span *ngIf="f.age.errors.required || f.age.errors.requiredTrue">Please verify your age.</span>
       </div>
     </div>
 
     <div class="fields">
-      <div class="column is-half-tablet">
+      <div class="column is-full-mobile is-half-tablet">
         <p>{{formError}}</p>
       </div>
-      <div class="column" data-aos="fade-up" data-aos-delay="1200">
+      <div class="column is-full-mobile" data-aos="fade-up" data-aos-delay="1200">
         <button type="submit">Sign up</button>
       </div>
     </div>

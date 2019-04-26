@@ -9,6 +9,10 @@
 
     background-image: cdn-image('img/exhibit/map', c_fill, f_auto, w_1440);
     background-size: cover;
+    
+    @include phones {
+        background-image: cdn-image('img/exhibit/map_mobile', c_fill, f_auto, w_320);
+    }
 
 }
 

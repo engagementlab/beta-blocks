@@ -193,7 +193,10 @@ label {
                 display: block;
             }
         }
-
+        
+        @include phones {
+            padding-left: 0;
+        }
     }
 
     .checkmark {

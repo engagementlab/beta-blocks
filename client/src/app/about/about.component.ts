@@ -6,6 +6,7 @@ import { DataService } from '../utils/data.service';
 import * as AOS from 'aos';
 import * as ismobile from 'ismobilejs';
 import * as _ from 'underscore';
+import { ScrollToService } from '@nicky-lenaers/ngx-scroll-to';
 
 @Component({
   selector: 'app-about',
@@ -27,7 +28,7 @@ export class AboutComponent implements OnInit {
 
   private userForm: any;
 
-  constructor(private _dataSvc: DataService, private _formBuilder: FormBuilder) {
+  constructor(private _dataSvc: DataService, private _formBuilder: FormBuilder, private _scrollToService: ScrollToService) {
     
     this.isPhone = ismobile.phone;
 
@@ -85,10 +86,12 @@ export class AboutComponent implements OnInit {
 
     let name = document.querySelector('#people .name');
     let text = document.querySelector('#people .text');
+    
     if (name) {
       name.classList.add('change');
       text.classList.add('change');
     }
+
     setTimeout(() => {
 
       this.selectedName = this.people[i].name.first + ' ' + this.people[i].name.last;
@@ -105,6 +108,14 @@ export class AboutComponent implements OnInit {
         
         name.classList.remove('change');
         text.classList.remove('change');
+
+        this._scrollToService
+        .scrollTo({
+          target: document.getElementById('bio'),
+          offset: 100,
+          easing: 'easeOutQuint',
+          duration: 700
+        });
 
       }, 600);
     }
