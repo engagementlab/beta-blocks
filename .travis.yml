@@ -31,9 +31,9 @@ script:
 deploy:
   skip_cleanup: true
   provider: script
-  script: ".travis/deploy.sh $QA_SERVER"
+  script: chmod +x .travis/deploy.sh && .travis/deploy.sh $QA_SERVER
   on:
-    all_branches: true
+    branch: master
 
 notifications:
   slack:
