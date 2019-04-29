@@ -4,23 +4,6 @@
     margin-top: -8%;
 }
 
-#cta {
-    @include pxtoem(18, 36);
-
-    line-height: 48px;
-    letter-spacing: 4px;
-
-    a, a:visited {
-        color: $rouge;
-        text-decoration: underline;
-    }
-
-    @include phones {
-        line-height: 24px;
-        letter-spacing: 1px;
-    }
-}
-
 #about {
 
     color: black;
