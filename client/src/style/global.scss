@@ -18,6 +18,10 @@ body {
   @include mobile-only {
     font-size: 12px;
   }
+
+  &.kiosk {
+    margin: 0;
+  }
 }
 
 a {
