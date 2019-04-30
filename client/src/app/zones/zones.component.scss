@@ -54,6 +54,7 @@
         }
         @include phones {
             min-height: 563px;
+            right: 0;
             
             background-size: contain;
             background-image: cdn-image('img/zones/map-mobile', c_fill, f_auto, w_360);

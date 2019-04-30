@@ -239,6 +239,9 @@ form {
 
 #tagline {
   @include pxtoem(24, 48);
+
+  line-height: 1.42;
+  letter-spacing: 4px;
 }
 
 @mixin aos-transition {

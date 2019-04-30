@@ -47,7 +47,7 @@
   <!-- PEOPLE INVOLVED -->
   <div id="people" class="columns column is-full-mobile is-full-tablet" *ngIf="hasContent">
 
-    <div class="space-grotesk-semi column is-full-mobile" data-aos="fade-right">
+    <div class="space-grotesk-semi column" data-aos="fade-right">
       <p (click)="getPerson(i)" [class.active]="i === 0" *ngFor="let person of people; let i = index;">
         {{person.name.first}} {{person.name.last}}<span> / {{person.title}}</span></p>
     </div>

@@ -1,7 +1,11 @@
 @import '~src/style/_variables';
 
-#offset {
-    margin-top: -8%;
+#abovefold {
+
+    ::ng-deep img {
+        margin-top: -3%;
+    }
+
 }
 
 #about {
