@@ -15,9 +15,7 @@
         android:theme="@android:style/Theme.Material.Light.NoActionBar.Fullscreen"
         tools:ignore="NewApi">
         <activity
-            android:name=".WebActivity"
-            android:configChanges="orientation"
-            android:screenOrientation="landscape" >
+            android:name=".WebActivity" >
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 

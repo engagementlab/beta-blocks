@@ -22,9 +22,10 @@ import org.json.JSONObject;
 
 public class WebActivity extends Activity {
 
-    String urlString = "https://qa.betablocks.city";
+    String urlString = "https://qa.betablocks.city/kiosk";
     WebView gameWebView;
     AlertDialog connectionAlert;
+
     boolean webViewLoaded = false;
 
     public class WebAppInterface {
@@ -123,11 +124,11 @@ public class WebActivity extends Activity {
         getWindow().addFlags(WindowManager.LayoutParams.FLAG_KEEP_SCREEN_ON);
 
         if(BuildConfig.ENVIRONMENT == "staging") {
-            urlString = "https://qa.betablocks.city";
+            urlString = "https://qa.betablocks.city/kiosk";
 
         }
         if(BuildConfig.ENVIRONMENT == "production") {
-            urlString = "https://betablocks.city";
+            urlString = "https://betablocks.city/kiosk";
         }
 
         gameWebView = findViewById(R.id.webView);
