@@ -29,6 +29,7 @@
         @include desktop {
             @include translate(-25%, 0);
         }
+
         @include not-desktop {
             @include translate(0, 0);
         }
@@ -51,7 +52,7 @@
         position: relative;
         z-index: 2;
         background-color: $marigold;
-        
+
         padding: 4%;
 
         @include phones {
@@ -73,6 +74,7 @@
             align-items: center;
         }
     }
+
     #events-box {
         @include not-phones {
             display: flex;
@@ -96,9 +98,10 @@
     a {
 
         text-decoration: none;
+
         &:hover {
             svg {
-                @include translate(20%);                
+                @include translate(20%);
             }
         }
 
@@ -141,12 +144,7 @@
     &::before {
 
         content: "";
-        // position: absolute;
         z-index: -1;
-        // top: 0;
-        // bottom: 0;
-        // left: 0;
-        // right: 0;
 
         display: block;
         width: 203px;
@@ -232,10 +230,13 @@
         }
 
         @include not-desktop {
-            #red, #yellow {
+
+            #red,
+            #yellow {
                 @include translate(-40%, 0);
             }
         }
+
         @include phones {
             // #red, #yellow {
             //     @include translate(-40%, -40%);
@@ -246,10 +247,10 @@
     #circle-parent {
         position: relative;
         z-index: 5;
-     
+
         #circle-purple {
             @include translate(5%, 65%);
-        }   
+        }
     }
 }
 
