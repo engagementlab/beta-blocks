@@ -1,23 +1,23 @@
 <nav class="container desktop" id="nav">
 
-  <div>
-      <a id="home" routerLink="/" (click)="logoClick()">
-        <cdn-image cloudinaryId="img/logo-sm" width="200" phoneWidth="150" svg="true" alt="Beta Blocks logo"></cdn-image>
-    </a>
-    <cdn-image cloudinaryId="img/logo-sm" width="200" phoneWidth="150" svg="true" alt="Beta Blocks logo"></cdn-image>
-  </div>
+    <div>
+        <a id="home" routerLink="/" (click)="logoClick()">
+            <cdn-image cloudinaryId="img/logo-sm" width="200" phoneWidth="150" svg="true" alt="Beta Blocks logo">
+            </cdn-image>
+        </a>
+    </div>
 
-  <div>
-      <a id="menu-btn" (click)="openCloseNav()" class="columns uppercase">
-          <div id="lines">
-              <span></span>
-              <span></span>
-          </div>
-          <div id="label">
-              Me<br />nu
-          </div>
-      </a>
-  </div>
+    <div>
+        <a id="menu-btn" (click)="openCloseNav()" class="columns uppercase">
+            <div id="lines">
+                <span></span>
+                <span></span>
+            </div>
+            <div id="label">
+                Me<br />nu
+            </div>
+        </a>
+    </div>
 
 </nav>
 
@@ -25,14 +25,15 @@
 
     <div id="links">
         <a id="home" routerLink="/" (click)="logoClick()">
-            <cdn-image cloudinaryId="img/logo-sm" width="200" phoneWidth="150" svg="true" alt="Beta Blocks logo"></cdn-image>
+            <cdn-image cloudinaryId="img/logo-sm" width="200" phoneWidth="150" svg="true" alt="Beta Blocks logo">
+            </cdn-image>
         </a>
 
         <a *ngIf="itemActive('about')" class="active link" (click)="openCloseNav()">About</a>
         <a *ngIf="!itemActive('about')" class="link" routerLink="/about">About</a>
 
         <a *ngIf="itemActive('discover')" class="active link" (click)="openCloseNav()">Discover Boston</a>
-        <a *ngIf="!itemActive('discover')" class="link" routerLink="/discover">Discover Boston</a> 
+        <a *ngIf="!itemActive('discover')" class="link" routerLink="/discover">Discover Boston</a>
 
         <a *ngIf="itemActive('explorers')" class="active link" (click)="openCloseNav()">Tech Explorers</a>
         <a *ngIf="!itemActive('explorers')" class="link" routerLink="/explorers">Tech Explorers</a>
@@ -42,16 +43,17 @@
 
         <a *ngIf="itemActive('zones')" class="active link" (click)="openCloseNav()">Exploration Zones</a>
         <a *ngIf="!itemActive('zones')" class="link" routerLink="/zones">Exploration Zones</a>
-            
+
         <a *ngIf="itemActive('tech')" class="active link" (click)="openCloseNav()">Tech Partners</a>
         <a *ngIf="!itemActive('tech')" class="link" routerLink="/tech">Tech Partners</a>
-            
+
     </div>
 
     <div id="close">
-        <svg xmlns="http://www.w3.org/2000/svg" width="204" height="204" fill="none" viewBox="0 0 204 204" (click)="openCloseNav()">
-            <path stroke="#fff" stroke-width="4" d="M2 2h200v200H2zM50.414 47.586l106 106M156.598 50.414l-106 106"/>
-        </svg>  
+        <svg xmlns="http://www.w3.org/2000/svg" width="204" height="204" fill="none" viewBox="0 0 204 204"
+            (click)="openCloseNav()">
+            <path stroke="#fff" stroke-width="4" d="M2 2h200v200H2zM50.414 47.586l106 106M156.598 50.414l-106 106" />
+        </svg>
     </div>
-        
+
 </section>
