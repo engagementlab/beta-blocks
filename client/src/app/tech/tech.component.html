@@ -24,7 +24,6 @@
 
   </div>
 
-
   <!-- TECH -->
   <h2 data-aos="fade">Featured Tech</h2>
 
@@ -32,8 +31,8 @@
 
     <div id="partners">
 
-      <div class="partner columns column is-full is-mobile" *ngFor="let partner of partners;">
-        <div class="bleed no-pad column is-full-mobile is-half-tablet lunch-reg" data-aos="fade-right">
+      <div class="partner columns column is-full is-mobile" *ngFor="let partner of partners; let odd = odd;">
+        <div class="bleed no-pad column is-full-mobile lunch-reg" data-aos="fade-right" [class.is-5-tablet]="!odd">
           <div class="text">
             <h2>{{partner.name}}</h2>
             <strong class="lunch-med">{{partner.subheading}}</strong>
@@ -41,9 +40,12 @@
             <a href="{{partner.website}}">{{partner.website | prettyUrl}}</a>
           </div>
         </div>
-        <div class="no-pad is-full-mobile is-half-tablet column" data-aos="fade-left">
-          <cdn-image cloudinaryId="{{partner.image.public_id}}" cloudinaryPrefix="/" width="585" [responsive]="true"
-            autoFormat="true" alt="Image for {{partner.name}} tech">
+        <div class="no-pad is-full-mobile column" data-aos="fade-left" [class.odd]="odd" [class.is-5-tablet]="odd">
+          <cdn-image cloudinaryId="{{partner.image.public_id}}" cloudinaryPrefix="/" width="525" [responsive]="true"
+            autoFormat="true" alt="Image for {{partner.name}} tech" *ngIf="!odd">
+          </cdn-image>
+          <cdn-image cloudinaryId="{{partner.image.public_id}}" cloudinaryPrefix="/" width="525" [responsive]="false" svg="false"
+           autoFormat="false" alt="Image for {{partner.name}} tech" *ngIf="odd">
           </cdn-image>
         </div>
       </div>
