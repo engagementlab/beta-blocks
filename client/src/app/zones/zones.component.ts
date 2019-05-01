@@ -3,6 +3,8 @@ import { DataService } from '../utils/data.service';
 
 import { ScrollToService } from '@nicky-lenaers/ngx-scroll-to';
 
+import * as AOS from 'aos';
+
 @Component({
   selector: 'app-zones',
   templateUrl: './zones.component.html',
@@ -27,6 +29,12 @@ export class ZonesComponent implements OnInit {
   }
 
   ngOnInit() {
+
+    AOS.init({
+      duration: 700,
+      easing: 'ease-in-out'
+    });
+
   }
 
   getLocationInfo(i: number) {

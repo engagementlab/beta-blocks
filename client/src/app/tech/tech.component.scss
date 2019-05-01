@@ -1,8 +1,73 @@
 @import "~src/style/_variables";
 
+#top {
+
+    @include pxtoem(24, 36);
+
+    line-height: 1.56;
+    letter-spacing: 2px;
+
+    .column {
+
+        &:nth-child(1) {
+            p {
+                &:nth-child(1) span {
+                    color: $grape;
+                }
+
+                &:nth-child(2) span {
+                    color: $rouge;
+                }
+            }
+
+            @include phones {
+                padding-bottom: 0;
+            }
+        }
+
+        &:nth-child(2) {
+            p {
+                &:nth-child(1) span {
+                    color: $marigold;
+                }
+
+                &:nth-child(2) span {
+                    color: $grape;
+                }
+            }
+
+            @include phones {
+                padding-top: 0;
+
+                p:nth-child(1) {
+                    margin-top: 0;
+                }
+            }
+        }
+
+        span {
+            text-transform: uppercase;
+        }
+
+    }
+}
+
+h5 {
+
+    @include pxtoem(14, 18);
+
+    font-stretch: expanded;
+    line-height: 1.33;
+    letter-spacing: 2px;
+    color: $grape;
+    
+}
+
 #partners {
 
     .partner {
+        margin-top: 7%;
+
         @include phones {
             flex-direction: column-reverse;
         }
@@ -24,6 +89,7 @@
 
         .bleed {
             display: grid;
+            align-content: flex-start;
         }
 
         .text {
@@ -37,6 +103,11 @@
             a:visited {
                 color: black;
             }
+        }
+
+        .odd {
+            display: flex;
+            justify-content: flex-end;
         }
 
         ::ng-deep cl-image {

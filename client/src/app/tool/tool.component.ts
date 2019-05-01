@@ -1,5 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 
+import * as ismobilejs from 'ismobilejs';
+
 @Component({
   selector: 'app-tool',
   templateUrl: './tool.component.html',
@@ -7,17 +9,15 @@ import { Component, OnInit } from '@angular/core';
 })
 export class ToolComponent implements OnInit {
 
-  public mapType = 'default';
-  public toolStep: number = 0;
+  public isPhone: boolean;
+  
+  constructor() {
 
-  constructor() { }
+    this.isPhone = ismobilejs.phone;
 
-  ngOnInit() {
   }
 
-  nextStep() {
-    this.toolStep++;
-    this.mapType = 'sidewalk';
+  ngOnInit() {
   }
 
 }

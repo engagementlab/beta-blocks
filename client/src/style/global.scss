@@ -18,6 +18,10 @@ body {
   @include mobile-only {
     font-size: 12px;
   }
+
+  &.kiosk {
+    margin: 0;
+  }
 }
 
 a {
@@ -235,17 +239,38 @@ form {
 
 #tagline {
   @include pxtoem(24, 48);
+
+  line-height: 1.42;
+  letter-spacing: 4px;
 }
 
+@mixin aos-transition {
+
+  @include transition(all, 1.5s, ease-in-out);
+  transition-duration: 1.5s !important;
+
+}
 
 // AOS shape animations
+[data-aos="get-involved"] {
+
+  @include aos-transition();
+  transform: translate(-55%, 0);
+  
+  transform-style: preserve-3d;
+  opacity: 0;
+  
+  &.aos-animate {
+    opacity: 1;
+    transform: translate(0, 0);
+  }
+}
 [data-aos="circle-purple"] {
+
+  @include aos-transition();
+
   transform: scale(0, 0);
   transform-origin: 20% 50%;
-
-  transition-property: transform, opacity;
-  transition-timing-function: ease-in-out;
-  transition-duration: 1.5s !important;
 
   opacity: 0;
 
@@ -256,9 +281,8 @@ form {
 }
 
 [data-aos="shapes"] {
-  transition-property: all;
-  transition-timing-function: ease-in-out;
-  transition-duration: 1.5s !important;
+
+  @include aos-transition();
 
   clip-path: ellipse(0% 0% at 50% 50%);
 
@@ -268,12 +292,10 @@ form {
 }
 
 [data-aos="purple-circle"] {
+
+  @include aos-transition();
+
   transform: translate(25%, -105%);
-
-  transition-property: transform, opacity;
-  transition-timing-function: ease-in-out;
-  transition-duration: 1.5s !important;
-
   opacity: 0;
 
   &.aos-animate {
@@ -284,13 +306,12 @@ form {
 
 [data-aos="red-torus"] {
 
-    display: block;
 
-    @include transition(all, 1.5s, ease-in-out);
-    transition-duration: 1.5s !important;
-    
-    @include translate(-15%, 20%);
-    opacity: 0;
+  display: block;
+
+  @include aos-transition();
+  @include translate(-15%, 20%);
+  opacity: 0;
 
   &.aos-animate {
     opacity: 1;
@@ -300,8 +321,7 @@ form {
 
 [data-aos="squiggle"] {
 
-  @include transition(all, 1.5s, ease-in-out);
-  transition-duration: 1.5s !important;
+  @include aos-transition();
 
   clip-path: inset(0% 100% 0% 0%);
 
@@ -313,8 +333,7 @@ form {
 
 [data-aos="cone"] {
 
-  @include transition(all, 1.5s, ease-in-out);
-  transition-duration: 1.5s !important;
+  @include aos-transition();
 
   clip-path: polygon(29% 100%, 60% 100%, 100% 100%, 0% 100%);
 

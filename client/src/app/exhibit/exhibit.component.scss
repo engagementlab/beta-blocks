@@ -9,6 +9,10 @@
 
     background-image: cdn-image('img/exhibit/map', c_fill, f_auto, w_1440);
     background-size: cover;
+    
+    @include phones {
+        background-image: cdn-image('img/exhibit/map_mobile', c_fill, f_auto, w_320);
+    }
 
 }
 
@@ -63,7 +67,7 @@
             border: solid 4px $rouge;
 
             @include not-phones {
-                @include translate(0, 33%);
+                margin-top: 10%;
             }
         }
     }
@@ -118,6 +122,25 @@
                 overflow: hidden;
                 color: black;
                 @include transition(max-height, 500ms, ease-out);
+
+                ::ng-deep strong {
+                    font-family: 'SpaceGrotesk-SemiBold';
+                    text-transform: uppercase;
+
+                    @include pxtoem(18, 30);
+                }
+
+                .space-grotesk-semi {
+                    @include pxtoem(18, 24);
+                    ::ng-deep p {
+                        width: 80%;
+                    }
+                }
+
+                &.text {
+                    margin-left: 0;
+                    margin-right: 0;
+                }
             }
 
             .icon {
@@ -180,7 +203,6 @@
 
             div.columns {
                 max-height: 1000px;
-                // opacity: 1;
             }
         }
     }
@@ -195,6 +217,8 @@
     line-height: 1.5;
     letter-spacing: 1px;
 
+    justify-content: space-evenly;
+
     .event {
 
         display: flex;
@@ -205,6 +229,7 @@
 
         svg {
             align-self: center;
+            margin-bottom: 5%;
         }
 
         strong {
@@ -269,7 +294,7 @@
 
                 &.current {
                     background-color: $marigold;
-                    color: white;
+                    color: black;
                     border: none;
                 }
             }
@@ -285,7 +310,7 @@
 
             &.current {
                 background-color: $light-pink;
-                color: white;
+                color: black;
                 border: none;
             }
         }

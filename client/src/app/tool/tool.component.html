@@ -1,36 +1,5 @@
-<div class="columns">
+<iframe id="tool" src="https://311-proto-4.surge.sh/" *ngIf="!isPhone"></iframe>
 
-    <div class="column is-5">
-
-        <map-box mapType="{{mapType}}" [width]="646" [height]="736"></map-box>
-
-    </div>
-
-    <div class="column">
-        <div id="avg"></div>
-    </div>
-
-    <div class="column is-three-quarters">
-
-        <p>Next, here’s a map with some demographic data attached. Specifically, the percent of people who are</p>
-        <b>
-            <ul>
-                <li>Over 65 years old</li>
-                <li>Under 6 years old</li>
-                <li>At or below the poverty line</li>
-            </ul>
-        </b>
-        <p>1. Look at the overall map. Do you understand what it’s showing? Does anything surprise you?
-
-            2. Tap or click on your current location, then look at the boxes to the left. How does this area compare to
-            Boston as a whole? Tap or click a different location and compare that too.
-
-            3. Do you think the information in this map is an important factor when deciding where to make street
-            repairs?</p>
-
-        <app-button ></app-button>
-        <app-button label="{{ {desktop:'Click',mobile:'Tap'} | deviceAction }} here to continue" ariaLabel="{{ {desktop:'Click',mobile:'Tap'} | deviceAction }} here to continue" clickData="true" (click)="nextStep()"></app-button>
-
-    </div>
-
+<div id="tagline" class="column is-11-mobile is-10-tablet" data-aos="fade-up" data-aos-offset="100" *ngIf="isPhone">
+    <p>Unfortunately, this page must be viewed on a desktop computer or tablet device.</p>
 </div>

@@ -13,13 +13,9 @@ import { environment } from '../../environments/environment';
 })
 export class FooterComponent implements AfterViewInit {
   
-  public hideLinks: boolean;
-
   private currentUrl: string;  
 
   constructor(private _router: Router) { 
-
-    this.hideLinks = (environment.production && !environment.qa);
 
     // Get nav route when nav ends
     _router.events.pipe(filter(e => e instanceof NavigationEnd)).subscribe(e => {

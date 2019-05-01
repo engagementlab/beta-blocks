@@ -1,9 +1,11 @@
 @import '~src/style/_variables';
 
 .right {
+    
     .text {
         @include pxtoem(18, 24);
-
+        
+        position: relative;
         z-index: 2;
 
         background-color: $grape;
@@ -36,13 +38,13 @@
         position: relative;
     
         min-height: 700px;
-    
+        
         background-image: cdn-image('img/zones/map', c_fill, f_auto, w_1000);
         background-repeat: no-repeat;
         background-size: cover;
         
         border: solid 4px $grape;
-    
+        
         @include not-phones {
             right: 29%;
         }
@@ -51,7 +53,11 @@
             width: 96%;
         }
         @include phones {
-            background-image: cdn-image('img/zones/map-mobile', c_fill, f_auto, w_960);
+            min-height: 563px;
+            right: 0;
+            
+            background-size: contain;
+            background-image: cdn-image('img/zones/map-mobile', c_fill, f_auto, w_360);
         }
     
         #legend {
@@ -122,12 +128,10 @@
         line-height: 1.33;
         letter-spacing: 2px;  
     }
-    a {
-        @include pxtoem(18, 24);
-        letter-spacing: 2px;  
-        
-        text-decoration: none;
-        color: black;
+
+    app-button {
+        display: block;
+        margin-top: 10%;
     }
 
     .columns {

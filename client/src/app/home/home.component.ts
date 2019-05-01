@@ -31,7 +31,6 @@ export class HomeComponent implements AfterViewInit {
 
       this.hasContent = true;
   
-
     });
 
   }

@@ -108,6 +108,10 @@
                 width: 50%;
             }
 
+            @include tablet-portrait {
+                width: 45%;
+            }
+
             &.space-grotesk-semi {
                 @include pxtoem(18, 24);
 
@@ -193,7 +197,10 @@ label {
                 display: block;
             }
         }
-
+        
+        @include phones {
+            padding-left: 0;
+        }
     }
 
     .checkmark {

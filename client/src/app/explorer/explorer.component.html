@@ -1,14 +1,14 @@
 <section class="container desktop">
 
   <!-- BECOMING A TECH EXPLORER -->
-  <h2>Becoming a Tech Explorer</h2>
+  <h2 data-aos="fade">Becoming a Tech Explorer</h2>
 
   <div class="columns" id="top">
-    <div class="center-all column is-7" id="tagline">
-        TECH EXPLORERS ARE THE HEART OF BETA BLOCKS
+    <div class="center-all column is-7" id="tagline" data-aos="fade-up">
+      Tech Explorers are the heart of Beta Blocks.
     </div>
 
-    <div class="center-all column is-full-mobile" id="right">
+    <div class="center-all column is-full-mobile" id="right" data-aos="fade-left">
 
       <div class="arrow btn space-grotesk-semi">
         <a (click)="goToForm()" class="center-all">
@@ -24,19 +24,22 @@
 
   <div id="explorer" class="columns column is-full is-multiline">
 
-    <div class="left column is-11-mobile is-5-tablet space-grotesk-semi">
-      Communities know their blocks inside and out. Becoming a Tech Explorer gives you the chance to question, test and evaluate new tech before it hits the streets. Be part of the conversation about the future of your neighborhood.
+    <div class="left column is-11-mobile is-5-tablet space-grotesk-semi" data-aos="fade-right">
+      Communities know their blocks inside and out. Becoming a Tech Explorer gives you the chance to question, test and
+      evaluate new tech before it hits the streets. Be part of the conversation about the future of your neighborhood.
     </div>
-    <div class="lunch-reg column is-full-mobile is-offset-1-tablet">
-        As a Tech Explorer, you’ll also get to set up real life tech experiments in the public realm, and make sure your community’s values are a key part of the City of Boston’s technology planning process.
+    <div class="lunch-reg column is-full-mobile is-offset-1-tablet" data-aos="fade-right" data-aos-delay="500">
+      As a Tech Explorer, you’ll also get to set up real life tech experiments in the public realm, and make sure your
+      community’s values are a key part of the City of Boston’s technology planning process.
       <br />
       <br />
     </div>
 
-    <h5 class="lunch-reg column is-full center-all">Find out more about Tech Explorers below.</h5>
+    <h5 class="lunch-reg column is-full center-all" data-aos="fade">Find out more about Tech Explorers below.</h5>
 
     <div id="steps" class="columns column is-full is-mobile is-multiline">
-      <div class="column is-4-tablet" *ngFor="let txt of stepTxt; let i = index;">
+      <div class="column is-4-tablet" *ngFor="let txt of stepTxt; let i = index;" data-aos="fade-up"
+        [attr.data-aos-delay]="(i*300)">
         <h2>STEP</h2>
         <strong>{{i+1}}</strong>
         <br />
@@ -54,25 +57,26 @@
   </div>
 
   <!-- SIGNUP -->
-  <h2 id="form">Sign up to become a Tech Explorer!</h2>
+  <h2 id="form" data-aos="fade">Sign up to become a Tech Explorer!</h2>
 
   <form class="columns column is-11-mobile is-full-tablet is-multiline" [formGroup]="userForm" (submit)="submitForm()"
     *ngIf="!received">
 
     <div class="fields">
 
-      <div class="column is-full-mobile is-half-tablet">
+      <div class="column is-full-mobile is-half-desktop" data-aos="fade-up" data-aos-delay="500">
         <input formControlName="firstName" id="firstName" placeholder="first name" required />
         <div *ngIf="submitted && f.firstName.invalid">Required.</div>
       </div>
 
-      <div class="column is-full-mobile is-half-tablet">
+      <div class="column is-full-mobile is-half-desktop" data-aos="fade-up" data-aos-delay="600">
         <input formControlName="lastName" id="lastName" placeholder="last name" required />
         <div *ngIf="submitted && f.lastName.invalid">Required.</div>
       </div>
+
     </div>
 
-    <div class="column is-full">
+    <div class="column is-full-mobile is-full-tablet" data-aos="fade-up" data-aos-delay="800">
       <input formControlName="email" id="email" placeholder="email" class="full" required />
       <div *ngIf="submitted && f.email.invalid">
         <span *ngIf="f.email.errors.required">Required.</span>
@@ -80,22 +84,22 @@
       </div>
     </div>
 
-    <div class="column is-full">
+    <div class="column is-full" data-aos="fade-up" data-aos-delay="1000">
       <label for="age" class="center-all">
         <input formControlName="age" type="checkbox" id="age" />
-      <span class="checkmark"></span>I am 13 years of age or older.
-
+        <span class="checkmark"></span>I am 13 years of age or older.
       </label>
+
       <div *ngIf="submitted && f.age.invalid">
         <span *ngIf="f.age.errors.required || f.age.errors.requiredTrue">Please verify your age.</span>
       </div>
     </div>
 
     <div class="fields">
-      <div class="column is-half-tablet">
+      <div class="column is-full-mobile is-half-tablet">
         <p>{{formError}}</p>
       </div>
-      <div class="column">
+      <div class="column is-full-mobile" data-aos="fade-up" data-aos-delay="1200">
         <button type="submit">Sign up</button>
       </div>
     </div>
@@ -110,16 +114,18 @@
 
   <div id="end" class="columns column is-full is-multiline">
 
-    <div class="column is-11-mobile is-half-tablet">
+    <div class="column is-11-mobile is-half-tablet" data-aos="fade-right">
       <p class="space-grotesk-semi">All we ask is that:</p>
 
       <p class="lunch-med">You’re at least 13 years old;<br />
         You live or work in the City of Boston;<br />
         You can commit to 6 hours’ worth of workshops and meet-ups over the course of a month.</p>
 
-      <p class="lunch-med">NO technical knowledge is required. All you need is enthusiasm and a commitment to the future of your community!</p>
+      <p class="lunch-med">NO technical knowledge is required. All you need is enthusiasm and a commitment to the future
+        of your community!</p>
     </div>
-    <div class="space-grotesk-semi center-all column is-full-mobile is-offset-1-tablet">
+    <div class="space-grotesk-semi center-all column is-11-mobile is-offset-1-tablet" data-aos="fade"
+      data-aos-delay="10008">
       For those who complete all of the requirements, a thank-you incentive awaits in the form of a $100 gift card.
     </div>
 

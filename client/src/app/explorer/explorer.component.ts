@@ -4,6 +4,7 @@ import { HttpClient, HttpParams } from '@angular/common/http';
 
 import { DataService } from '../utils/data.service';
 
+import * as AOS from 'aos';
 import { ScrollToService } from '@nicky-lenaers/ngx-scroll-to';
 
 interface MailChimpResponse {
@@ -32,11 +33,13 @@ export class ExplorerComponent implements OnInit, AfterViewInit {
   constructor(private _dataSvc: DataService, private _scrollToService: ScrollToService, private _formBuilder: FormBuilder, private _http: HttpClient) {
 
     this.stepTxt = [
+    
       'Sign up below to join our pool of potential Tech Explorers. You’ll get a follow up email inviting you to choose a neighborhood from the 3 available zones (currently including Lower Allston, Chinatown, or Codman Square).',
       'Sign up for a workshop series in your chosen neighborhood. Please note that spaces may be limited and in case of high volume, slots will be assigned a first-come, first served basis.',
       'Attend an initial workshop in the neighborhood to meet your fellow explorers, and learn about the featured technology. Propose an idea for using the tech in your neighborhood, and enjoy some refreshments.',
       'Go and see your proposal brought to life in a trial deployment of the technology. Then, come together with our project’s explorer partners over coffee to share your thoughts.',
       'Come to a second workshop with refreshments to reflect on the technology, evaluate its impact, and propose a way forward.'
+    
     ];
 
   }
@@ -48,6 +51,11 @@ export class ExplorerComponent implements OnInit, AfterViewInit {
       'firstName': ['', Validators.required],
       'lastName': ['', Validators.required],
       'age': ['', [Validators.required, Validators.requiredTrue]]
+    });
+
+    AOS.init({
+      duration: 700,
+      easing: 'ease-in-out'
     });
 
   }

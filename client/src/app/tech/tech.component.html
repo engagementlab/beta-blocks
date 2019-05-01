@@ -1,14 +1,38 @@
 <section class="container desktop">
 
+  <!-- JOIN -->
+  <h2 data-aos="fade">Join Beta Blocks as a Tech Partner</h2>
+
+  <div id="top" class="space-grotesk-semi columns column is-multiline is-mobile">
+
+    <div class="column is-11-mobile is-half-tablet">
+      <p>
+        <span>Test</span> your tech in the City with streamlined permitting
+      </p>
+      <p>
+        <span>Collect</span> direct feedback from users
+      </p>
+    </div>
+    <div class="column is-11-mobile">
+      <p>
+        <span>Experiment</span> with novel approaches and new ideas
+      </p>
+      <p>
+        <span>Enhance</span> Boston’s public realm and build an exciting future
+      </p>
+    </div>
+
+  </div>
+
   <!-- TECH -->
-  <h2>Featured Tech</h2>
+  <h2 data-aos="fade">Featured Tech</h2>
 
   <div id="tech" class="columns column is-full is-multiline">
 
     <div id="partners">
 
-      <div class="partner columns column is-full is-mobile" *ngFor="let partner of partners;">
-        <div class="bleed no-pad column is-full-mobile is-half-tablet lunch-reg">
+      <div class="partner columns column is-full is-mobile" *ngFor="let partner of partners; let odd = odd;">
+        <div class="bleed no-pad column is-full-mobile lunch-reg" data-aos="fade-right" [class.is-5-tablet]="!odd">
           <div class="text">
             <h2>{{partner.name}}</h2>
             <strong class="lunch-med">{{partner.subheading}}</strong>
@@ -16,38 +40,41 @@
             <a href="{{partner.website}}">{{partner.website | prettyUrl}}</a>
           </div>
         </div>
-        <div class="no-pad is-full-mobile is-half-tablet column">
-          <cdn-image cloudinaryId="{{partner.image.public_id}}" cloudinaryPrefix="/" width="585" [responsive]="true"
-            autoFormat="true" alt="Image for {{partner.name}} tech">
+        <div class="no-pad is-full-mobile column" data-aos="fade-left" [class.odd]="odd" [class.is-5-tablet]="odd">
+          <cdn-image cloudinaryId="{{partner.image.public_id}}" cloudinaryPrefix="/" width="525" [responsive]="true"
+            autoFormat="true" alt="Image for {{partner.name}} tech" *ngIf="!odd">
+          </cdn-image>
+          <cdn-image cloudinaryId="{{partner.image.public_id}}" cloudinaryPrefix="/" width="525" [responsive]="false" svg="false"
+           autoFormat="false" alt="Image for {{partner.name}} tech" *ngIf="odd">
           </cdn-image>
         </div>
       </div>
 
     </div>
 
-    <h5 class="lunch-reg column is-full center-all">Watch this space for more smart tech ...</h5>
+    <h5 class="lunch-med column is-full center-all" data-aos="fade">Watch this space for more smart tech ...</h5>
   </div>
 
   <!-- SIGNUP -->
-  <h2 id="form">Sign up to become a Tech Partner!</h2>
+  <h2 id="form" data-aos="fade">Sign up to become a Tech Partner!</h2>
 
   <form class="columns column is-full-tablet is-multiline" [formGroup]="userForm" (submit)="submitForm()"
     *ngIf="!received">
     <div class="fields">
 
-      <div class="column is-full-mobile is-half-tablet">
+      <div class="column is-full-mobile is-half-tablet" data-aos="fade-up" data-aos-delay="500">
         <input formControlName="firstName" id="firstName" placeholder="first name" required />
         <div *ngIf="submitted && f.firstName.invalid">Required</div>
       </div>
 
-      <div class="column is-full-mobile is-half-tablet">
+      <div class="column is-full-mobile is-half-tablet" data-aos="fade-up" data-aos-delay="600">
         <input formControlName="lastName" id="lastName" placeholder="last name" required />
         <div *ngIf="submitted && f.lastName.invalid">Required</div>
       </div>
     </div>
 
     <div class="fields">
-      <div class="column is-full-mobile is-half-tablet">
+      <div class="column is-full-mobile is-half-tablet" data-aos="fade-up" data-aos-delay="700">
         <input formControlName="email" id="email" placeholder="email" required />
         <div *ngIf="submitted && f.email.invalid">
           <span *ngIf="f.email.errors.required">Required. </span>
@@ -55,7 +82,7 @@
         </div>
       </div>
 
-      <div class="column is-full-mobile is-half-tablet">
+      <div class="column is-full-mobile is-half-tablet" data-aos="fade-up" data-aos-delay="800">
         <input formControlName="phone" id="phone" placeholder="phone" required />
         <div *ngIf="submitted && f.phone.invalid">
           <span *ngIf="f.phone.errors.required">Required. </span>
@@ -65,7 +92,7 @@
       </div>
     </div>
 
-    <div class="column is-full-mobile is-full">
+    <div class="column is-full-mobile is-full" data-aos="fade-up" data-aos-delay="1000">
       <input formControlName="url" id="url" class="full" type="url" placeholder="company website url" required />
       <div *ngIf="submitted && f.url.invalid">
         <span *ngIf="f.url.errors.required">Required. </span>
@@ -73,7 +100,7 @@
       </div>
     </div>
 
-    <div class="column is-full-mobile is-full">
+    <div class="column is-full-mobile is-full" data-aos="fade-up" data-aos-delay="1200">
       <textarea formControlName="message" id="message" class="full" name="message"
         placeholder="description of technology" rows="3" required></textarea>
       <div *ngIf="submitted && f.message.invalid">Required</div>
@@ -81,7 +108,7 @@
 
     <div class="fields">
       <div class="column is-half-tablet"></div>
-      <div class="column">
+      <div class="column" data-aos="fade-up" data-aos-delay="1400">
         <button type="submit">Sign up</button>
       </div>
     </div>

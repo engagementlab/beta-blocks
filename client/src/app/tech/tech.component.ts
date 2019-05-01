@@ -3,6 +3,8 @@ import { FormGroup, FormBuilder, Validators } from '@angular/forms';
 
 import { DataService } from '../utils/data.service';
 
+import * as AOS from 'aos';
+
 @Component({
   selector: 'app-tech',
   templateUrl: './tech.component.html',
@@ -38,6 +40,11 @@ export class TechComponent implements OnInit {
       'email': ['', [Validators.required, Validators.email]],
       'phone': ['', [Validators.required, this.phoneValidator]],
       'message': ['', [Validators.required, Validators.minLength(10)]]
+    });
+
+    AOS.init({
+      duration: 700,
+      easing: 'ease-in-out'
     });
 
   }
