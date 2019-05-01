@@ -12,14 +12,10 @@ import { environment } from '../../environments/environment';
 })
 export class NavComponent implements OnInit {
 
-  public hideMenu: boolean;
-
   private currentUrl: string;
   @ViewChild('menu') menu: ElementRef;
 
   constructor(private _router: Router) { 
-
-    this.hideMenu = (environment.production && !environment.qa);
 
     // Close menu when nav starts
     _router.events.pipe(filter(e => e instanceof NavigationStart)).subscribe(e => {

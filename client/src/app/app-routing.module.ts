@@ -10,8 +10,6 @@ import { ToolComponent } from './tool/tool.component';
 import { TechComponent } from './tech/tech.component';
 import { ZonesComponent } from './zones/zones.component';
 
-import { environment } from 'src/environments/environment';
-
 let routeList: Routes = [
 
   { path: '', component: HomeComponent },
@@ -28,13 +26,9 @@ let routeList: Routes = [
   { path: 'zones', component: ZonesComponent }
 
 ];
-// In production, for now route all traffic to explorer page
-let routeListPreview: Routes = [
-  { path: '', component: ExplorerComponent }
-];
 
 @NgModule({
-  imports: [RouterModule.forRoot((environment.production && !environment.qa) ? routeListPreview : routeList)],
+  imports: [RouterModule.forRoot(routeList)],
   exports: [RouterModule]
 })
 export class AppRoutingModule { }
