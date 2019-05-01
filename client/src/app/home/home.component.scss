@@ -282,54 +282,93 @@
     }
 }
 
-// MC Email form
-#newsletter {
+#name {
 
-    input[type=email] {
-        font-family: 'SpaceGrotesk-SemiBold';
-        @include pxtoem(24, 48);
-        color: white;
-        border: none;
-
-        background-color: $grape;
-
-        flex: none;
-
-        padding-top: 5%;
-        padding-bottom: 5%;
-        padding-left: 5%;
-
-        @include mq($until: 759px) {
-            width: 95%;
-
-        }
-
-        @include mq($from: 760px) {
-            width: 60%;
-        }
-
-        @include placeholder {
-            font-family: 'SpaceGrotesk-SemiBold';
-            color: rgba(255, 255, 255, .5);
-        }
+    #link {
+        display: flex;
+        justify-items: end;
     }
 
-    input[type=submit] {
-        @include pxtoem(24, 48);
-        background: none;
+    a {
+        display: flex;
+        @include pxtoem(18, 24);
+        background-color: white;
+        text-decoration: none;
+        font-weight: 600;
+        line-height: 1.17;
+        letter-spacing: 1px;
 
-        color: rgba(64, 43, 89, .5);
-        border: solid 4px rgba(64, 43, 89, .5);
+        color: black;
+        border-left: solid 1px $rouge;
 
-        padding: 5%;
-        width: 100%;
+        background-image: linear-gradient(to right, $rouge 1%, #ffffff 1%, #ffffff 100%);
+        background-size: 100% 100%;
 
-    }
+        @include transition(all, .3s, ease-out);
 
-    @include not-phones {
-        .mc-field-group {
+        span {
+            padding: 5%;
+            border: solid 4px $rouge;
             display: flex;
+            align-items: center;
         }
+
+        div {
+
+            padding: 5%;
+            border: solid 4px $rouge;
+            flex-grow: 1;
+        }
+
+        svg path {
+            @include transition(all, .3s, ease-out);
+        }
+
+        @include phones {
+            svg {
+                @include scale(.5);
+            }
+        }
+
+        @include not-phones {
+            margin-left: 0;
+        }
+
+        &:hover {
+            background-size: 10000% 100%;
+            color: white;
+
+            svg path {
+                stroke: white;
+            }
+        }
+    }
+}
+
+#inflatable {
+    display: block;
+
+    @include desktop {
+        @include translate(20%, 15%);
+    }
+
+    @include not-desktop {
+        @include translate(0, 0);
+    }
+}
+
+#name-box {
+    position: relative;
+    align-self: center;
+
+    .text {
+
+        background-color: $rouge;
+        color: white;
+        padding: 5%;
+
+        @include pxtoem(18, 24);
+
     }
 
 }
