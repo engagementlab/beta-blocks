@@ -39,6 +39,7 @@ router.get('/api/events/get/:eventbrite?', routeIncludes, routes.api.events.get)
 router.get('/api/people/get', routeIncludes, routes.api.people.get);
 router.get('/api/tech/get', routeIncludes, routes.api.tech.get);
 router.get('/api/zones/get', routeIncludes, routes.api.zones.get);
+router.get('/api/tool/get', routeIncludes, routes.api.tool.get);
 
 router.post('/api/contact', routeIncludes, routes.api.contact.send);
 
