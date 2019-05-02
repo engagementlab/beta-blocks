@@ -23,7 +23,7 @@ import org.json.JSONObject;
 
 public class WebActivity extends Activity {
 
-    String urlString = "https://qa.betablocks.city/kiosk";
+    String urlString = "https://betablocks.city/kiosk";
     WebView gameWebView;
     AlertDialog connectionAlert;
 
