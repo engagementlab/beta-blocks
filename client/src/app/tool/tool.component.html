@@ -1,5 +1,6 @@
-<iframe id="tool" [src]="url" *ngIf="!isPhone && url"></iframe>
-
+<div id="container">
+    <iframe id="tool" [src]="url" *ngIf="!isPhone && url"></iframe>
+</div>
 <div id="tagline" class="column is-11-mobile is-10-tablet" data-aos="fade-up" data-aos-offset="100" *ngIf="isPhone">
     <p>Unfortunately, this page must be viewed on a desktop computer or tablet device.</p>
 </div>
