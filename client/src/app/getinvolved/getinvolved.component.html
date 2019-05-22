@@ -84,39 +84,55 @@
       </div>
     </div>
 
-    <div class="column is-full" data-aos="fade-up" data-aos-delay="1000">
-      <label for="age" class="center-all">
-        <input formControlName="age" type="checkbox" id="age" />
-        <span class="checkmark"></span>I am 13 years of age or older.
-      </label>
+    <div class="columns column is-full is-multiline" data-aos="fade-up" data-aos-delay="1000">
+      <div class="column is-full" data-aos="fade-up" data-aos-delay="1000">
+        <hr class="1" />
+      </div>
+      <!-- <p>I am interested in...</p> -->
+      <div class="column is-half" data-aos="fade-up" data-aos-delay="1000">
+        <label for="zone" class="center-all">
+          <input formControlName="zone" type="checkbox" id="zone" />
+          <span class="checkmark"></span>Zone Advisory Group
+        </label>
+      </div>
 
-      <div *ngIf="submitted && f.age.invalid">
-        <span *ngIf="f.age.errors.required || f.age.errors.requiredTrue">Please verify your age.</span>
+      <div class="column" data-aos="fade-up" data-aos-delay="1000">
+        <label for="explorer" class="center-all">
+          <input formControlName="explorer" type="checkbox" id="explorer" />
+          <span class="checkmark"></span>Tech Explorers
+        </label>
+      </div>
+
+      <div class="column is-half" data-aos="fade-up" data-aos-delay="1000">
+        <label for="tours" class="center-all">
+          <input formControlName="tours" type="checkbox" id="tours" />
+          <span class="checkmark"></span>Walking Tours
+        </label>
       </div>
     </div>
     <div class="column is-full" data-aos="fade-up" data-aos-delay="1000">
-      <p>I am interested in...</p>
-      <label for="zone" class="center-all">
-        <input formControlName="zone" type="checkbox" id="zone" />
-        <span class="checkmark"></span>Zone Advisory Group
-      </label>
-      <label for="explorer" class="center-all">
-        <input formControlName="explorer" type="checkbox" id="explorer" />
-        <span class="checkmark"></span>Tech Explorers
-      </label>
-      <label for="tours" class="center-all">
-        <input formControlName="tours" type="checkbox" id="tours" />
-        <span class="checkmark"></span>Walking Tours
-      </label>
+      <hr class="2" />
+    </div>
+    <div class="column columns is-full">
+      <div class="column is-half" data-aos="fade-up" data-aos-delay="1000">
+        <label id="age-label" for="age" class="center-all">
+          <input formControlName="age" type="checkbox" id="age" />
+          <span class="checkmark"></span>I am 13 years of age or older.
+        </label>
+        <div *ngIf="submitted && f.age.invalid">
+          <span *ngIf="f.age.errors.required || f.age.errors.requiredTrue">Please verify your age.</span>
+        </div>
+      </div>
+
+      <div class="column is-full-mobile is-5-tablet" data-aos="fade-up" data-aos-delay="1200">
+        <button type="submit">Sign up</button>
+      </div>
+      <div class="column is-full">
+        <p>{{formError}}</p>
+      </div>
     </div>
 
     <div class="fields">
-      <div class="column is-full-mobile is-half-tablet">
-        <p>{{formError}}</p>
-      </div>
-      <div class="column is-full-mobile" data-aos="fade-up" data-aos-delay="1200">
-        <button type="submit">Sign up</button>
-      </div>
     </div>
   </form>
   <!-- signed up -->

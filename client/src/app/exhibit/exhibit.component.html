@@ -130,9 +130,9 @@
 
   <h2 data-aos="fade">Visit Exhibit</h2>
 
-  <div id="events" class="columns column is-mobile is-multiline is-centered" *ngIf="events !== undefined">
+  <div id="events" class="columns column is-mobile is-multiline" *ngIf="events !== undefined">
 
-    <div class="columns column is-11-mobile is-3-tablet is-mobile" *ngFor="let event of events; let i = index;">
+    <div class="columns column is-11-mobile is-5-tablet is-mobile" *ngFor="let event of events; let i = index;">
 
       <div class="column event" data-aos="fade-right" [attr.data-aos-delay]="(i*300)">
 
