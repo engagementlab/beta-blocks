@@ -95,30 +95,32 @@ export class GetInvolvedComponent implements OnInit, AfterViewInit {
       return;
     }
 
-    const params = new HttpParams()
+    let params = new HttpParams()
       .set('FNAME', this.userForm.controls['firstName'].value)
       .set('LNAME', this.userForm.controls['lastName'].value)
       .set('EMAIL', this.userForm.controls['email'].value)
       .set('b_8cb16e3042072f11cc0680d36_58bb1def37', ''); // hidden input name
 
-    //  if(this.userForm.controls['zone'].value)
-    //   params.set();
-
+    if(this.userForm.controls['zone'].value)
+      params = params.set('group[19409][1]', '1');
+    if(this.userForm.controls['explorer'].value)
+      params = params.set('group[19409][2]', '2');
+    if(this.userForm.controls['tours'].value)
+      params = params.set('group[19409][4]', '4');
 
     const mailChimpUrl = this.mailchimpUrl + params.toString();
-    this.received = true;
 
     // 'c' refers to the jsonp callback param key. This is specific to Mailchimp
-    // this._http.jsonp<MailChimpResponse>(mailChimpUrl, 'c').subscribe(response => {
-    //   if (response.result) {
-    //     this.received = true;
+    this._http.jsonp<MailChimpResponse>(mailChimpUrl, 'c').subscribe(response => {
+        if (response.result) {
+            this.received = true;
         
-    //     if(response.result === 'error')
-    //       this.formError = response.msg;
-    //   }
-    // }, error => {
-    //   this.formError = 'Sorry, an error occurred.';
-    // });
+        if(response.result === 'error')
+          this.formError = response.msg;
+      }
+    }, error => {
+      this.formError = 'Sorry, an error occurred.';
+    });
   }
 
 }

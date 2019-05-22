@@ -22,14 +22,17 @@
     </div>
   </div>
 
-  <div id="explorer" class="columns column is-full is-multiline">
+  <div id="getinvolved" class="columns column is-full is-multiline">
 
     <div class="left column is-11-mobile is-5-tablet space-grotesk-semi" data-aos="fade-right">
-      Communities know their blocks inside and out. Becoming a Zone Advisory Group member or a Youth Tech Explorer gives you the chance to question, test and evaluate new tech before it hits the streets.
+      Communities know their blocks inside and out. Becoming a Zone Advisory Group member or a Youth Tech Explorer gives
+      you the chance to question, test and evaluate new tech before it hits the streets.
     </div>
     <div class="right lunch-reg column is-full-mobile is-offset-1-tablet" data-aos="fade-right" data-aos-delay="500">
       <p class="lunch-med">Let's work together on the the future of your neighborhood.</p>
-      As a Zone Advisory Group member or Youth Tech Explorer, you’ll also get to set up real life tech experiments in the public realm, attend an interorganizational community hackathon, and help to provide more substantive feedback about community values to the City of Boston.
+      As a Zone Advisory Group member or Youth Tech Explorer, you’ll also get to set up real life tech experiments in
+      the public realm, attend an interorganizational community hackathon, and help to provide more substantive feedback
+      about community values to the City of Boston.
     </div>
 
     <!-- <h5 class="lunch-reg column is-full center-all" data-aos="fade">Find out more about Tech Explorers below.</h5> -->
@@ -47,7 +50,7 @@
         </svg>
         <h5 class="space-grotesk-semi">{{txt[0]}}</h5>
         <p class="lunch-med">{{txt[1]}}<br /><br /><span>{{txt[2]}}</span></p>
-        
+
       </div>
     </div>
 
@@ -102,7 +105,7 @@
         <span class="checkmark"></span>Tech Explorers
       </label>
       <label for="tours" class="center-all">
-      <input formControlName="tours" type="checkbox" id="tours" />
+        <input formControlName="tours" type="checkbox" id="tours" />
         <span class="checkmark"></span>Walking Tours
       </label>
     </div>
@@ -118,7 +121,8 @@
   </form>
   <!-- signed up -->
   <div *ngIf="received" class="space-grotesk">
-    <span *ngIf="formError === ''">Thanks for your interest in Beta Blocks! We’ll reach out soon with details about upcoming events you may want to join.</span>
+    <span *ngIf="formError === ''">Thanks for your interest in Beta Blocks! We’ll reach out soon with details about
+      upcoming events you may want to join.</span>
     <span *ngIf="formError !== ''" [innerHtml]="formError"></span>
   </div>
 

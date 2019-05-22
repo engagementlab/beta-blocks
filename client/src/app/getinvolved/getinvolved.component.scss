@@ -106,7 +106,7 @@
     line-height: 1.29;
 }
 
-#explorer {
+#getinvolved {
 
     #steps {
 
@@ -215,7 +215,7 @@ label {
     &:hover input~.checkmark {
         background-color: white;
     }
-
+    
     #age, #zone, #explorer, #tours {
         opacity: 0;
         cursor: pointer;
@@ -252,7 +252,7 @@ label {
         &:after {
             content: "";
             position: absolute;
-            display: none;
+            // display: none;
 
             top: 7px;
             left: 22px;
@@ -263,6 +263,7 @@ label {
             border-width: 0 4px 4px 0;
 
             @include rotate(45);
+            @include transition(transform, .3s, ease-out);
         }
     }
 }
