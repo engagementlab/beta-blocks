@@ -23,12 +23,12 @@
           <text x="0" y="98%" *ngIf="currentEvent !== undefined">{{currentEvent.name}}</text>
           <text x="0" y="98%" *ngIf="nextEvent && !currentEvent">{{nextEvent.name}}</text>
         </svg>
-        <p *ngIf="currentEvent !== undefined" class="space-grotesk">{{currentEvent.startDate | date:'MM/dd'}} -
-          {{currentEvent.displayEndDate | date:'MM/dd'}}<br />
+        <p *ngIf="currentEvent !== undefined" class="space-grotesk">{{currentEvent.startDate | date:'MM/dd'}}<span *ngIf="currentEvent.displayEndDate"> - {{currentEvent.displayEndDate | date:'MM/dd'}}
+          </span><br />
           {{currentEvent.address}}
         </p>
-        <p *ngIf="nextEvent && !currentEvent" class="space-grotesk">{{nextEvent.startDate | date:'MM/dd'}} -
-          {{nextEvent.displayEndDate | date:'MM/dd'}}<br />
+        <p *ngIf="nextEvent && !currentEvent" class="space-grotesk">{{nextEvent.startDate | date:'MM/dd'}}<span *ngIf="nextEvent.displayEndDate"> - {{currentEvent.displayEndDate | date:'MM/dd'}}
+          </span><br />
           {{nextEvent.address}}
         </p>
       </div>
@@ -149,7 +149,8 @@
 
           <div>
             <p class="day">{{event.startDate | date:'MM/dd'}}</p>
-            <span>{{event.startDate | date:'hh:mma'}} &#8212; {{event.endDate | date:'hh:mma'}}<br />
+            <span>{{event.startDate | date:'hh:mma'}}<span *ngIf="event.endDate"> &#8212; {{event.endDate | date:'hh:mma'}}</span>
+              <br />
               {{event.address}}</span>
           </div>
         </div>
