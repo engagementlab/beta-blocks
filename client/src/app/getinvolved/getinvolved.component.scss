@@ -156,11 +156,12 @@
             font-weight: 500;
             line-height: 1.33;
             letter-spacing: 2px;
-        span {
-            font-size: .8em;
-            text-align: left;
-            letter-spacing: normal;
-        }
+
+            span {
+                font-size: .8em;
+                text-align: left;
+                letter-spacing: normal;
+            }
         }
 
         strong {
@@ -205,10 +206,14 @@
 }
 
 form {
-hr.2 {
-    margin-top: 5%;
-    margin-bottom: 5%;
-}
+    hr {
+        margin-top: 2%;
+    }
+
+    #interest {
+        margin-top: 7%;
+
+    }
 }
 
 label {
@@ -219,7 +224,8 @@ label {
     justify-content: left;
     margin-bottom: 12px;
     letter-spacing: 2px;
-    color: $grape;
+
+    color: rgba(64, 43, 89, 0.5);
 
     @include pxtoem(18, 36);
 
@@ -227,22 +233,37 @@ label {
         @include pxtoem(14, 24);
     }
 
+    &:hover {
+        color: $grape;
+    }
+
     &:hover input~.checkmark {
         background-color: white;
     }
-    
-    #age, #zone, #explorer, #tours {
+
+    #age,
+    #zone,
+    #explorer,
+    #tours {
         opacity: 0;
         cursor: pointer;
         height: 0;
         width: 0;
         margin: 0;
 
+        &:checked {
+            color: $grape;
+        }
+
         &:checked~.checkmark {
             background-color: white;
 
+            &+.txt {
+                color: $grape;
+
+            }
+
             &:after {
-                // display: block;
                 @include transform(rotate(45deg) scale(1));
 
             }
@@ -270,16 +291,16 @@ label {
             content: "";
             position: absolute;
 
-            top: 7px;
-            left: 22px;
-            width: 15px;
-            height: 31px;
+            top: 14px;
+            left: 42px;
+            width: 30px;
+            height: 62px;
 
             border: solid $grape;
             border-width: 0 4px 4px 0;
 
             @include transform(rotate(45deg) scale(0));
-            @include transition(transform, .3s, ease-out);
+            @include transition(transform, .3s, ease-in-out);
         }
     }
 }
