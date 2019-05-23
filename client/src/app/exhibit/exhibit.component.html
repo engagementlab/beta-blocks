@@ -23,12 +23,12 @@
           <text x="0" y="98%" *ngIf="currentEvent !== undefined">{{currentEvent.name}}</text>
           <text x="0" y="98%" *ngIf="nextEvent && !currentEvent">{{nextEvent.name}}</text>
         </svg>
-        <p *ngIf="currentEvent !== undefined" class="space-grotesk">{{currentEvent.startDate | date:'MM/dd'}} -
-          {{currentEvent.displayEndDate | date:'MM/dd'}}<br />
+        <p *ngIf="currentEvent !== undefined" class="space-grotesk">{{currentEvent.startDate | date:'MM/dd'}}<span *ngIf="currentEvent.displayEndDate"> - {{currentEvent.displayEndDate | date:'MM/dd'}}
+          </span><br />
           {{currentEvent.address}}
         </p>
-        <p *ngIf="nextEvent && !currentEvent" class="space-grotesk">{{nextEvent.startDate | date:'MM/dd'}} -
-          {{nextEvent.displayEndDate | date:'MM/dd'}}<br />
+        <p *ngIf="nextEvent && !currentEvent" class="space-grotesk">{{nextEvent.startDate | date:'MM/dd'}}<span *ngIf="nextEvent.displayEndDate"> - {{currentEvent.displayEndDate | date:'MM/dd'}}
+          </span><br />
           {{nextEvent.address}}
         </p>
       </div>
@@ -130,9 +130,9 @@
 
   <h2 data-aos="fade">Visit Exhibit</h2>
 
-  <div id="events" class="columns column is-mobile is-multiline is-centered" *ngIf="events !== undefined">
+  <div id="events" class="columns column is-mobile is-multiline" *ngIf="events !== undefined">
 
-    <div class="columns column is-11-mobile is-3-tablet is-mobile" *ngFor="let event of events; let i = index;">
+    <div class="columns column is-11-mobile is-5-tablet is-mobile" *ngFor="let event of events; let i = index;">
 
       <div class="column event" data-aos="fade-right" [attr.data-aos-delay]="(i*300)">
 
@@ -149,7 +149,8 @@
 
           <div>
             <p class="day">{{event.startDate | date:'MM/dd'}}</p>
-            <span>{{event.startDate | date:'hh:mma'}} &#8212; {{event.endDate | date:'hh:mma'}}<br />
+            <span>{{event.startDate | date:'hh:mma'}}<span *ngIf="event.endDate"> &#8212; {{event.endDate | date:'hh:mma'}}</span>
+              <br />
               {{event.address}}</span>
           </div>
         </div>

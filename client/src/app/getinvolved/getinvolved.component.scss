@@ -1,104 +1,306 @@
-@import '~src/style/_variables';
+@import "~src/style/_variables";
 
-p {
-    font-family: 'SpaceGrotesk';
-    @include pxtoem(18, 24);
-    font-weight: 600;
-    line-height: 1.17;
-    letter-spacing: 1px;
-}
+#top {
 
-#explorer {
-    
-    ::ng-deep img {
-        width: 700px;
-        max-width: 100%;
+    background-color: $rouge;
+    color: white;
+
+    #tagline {
+        padding-left: 5%;
     }
 
 }
 
-#exhibit, #partner {
-    margin-top: 21%;
-}
+#right {
 
-#exhibit {
-    
+    padding-top: 0;
+    padding-bottom: 0;
+
     @include phones {
-        flex-direction: column-reverse;
+        padding-left: 0;
     }
 
-}
+    .btn {
 
-#workshops {
+        @include pxtoem(24, 48);
 
-    margin-top: 15%;
+        width: 100%;
+        height: 200px;
 
-    @include phones {
-        app-button {
-            width: 100%;
+        flex-direction: row;
+        text-align: center;
+
+        border: solid 4px $rouge;
+        border-top-width: 2px;
+        cursor: pointer;
+
+        @include phones {
+            height: 100px;
+        }
+
+        a {
+
+            height: 100%;
+            line-height: 1.21;
+            letter-spacing: 2px;
+            text-decoration: none;
+            color: $rouge;
+
+            background-image: linear-gradient(to bottom, $rouge 1%, #ffffff 1%, #ffffff 100%);
+            background-size: 100% 100%;
+
+            @include transition(all, .3s, ease-out);
+
+            svg {
+                margin-left: 4%;
+            }
+
+            svg path {
+                @include transition(all, .3s, ease-out);
+            }
+
+            @include phones {
+                svg {
+                    @include scale(.5);
+                }
+            }
+
+        }
+
+        &:hover a {
+            background-size: 100% 10000%;
+            color: white;
+
+            svg path {
+                stroke: white;
+            }
         }
     }
 
-    .button {
-        display: flex;
-        align-items: center;
-        justify-content: center;
+}
 
-        /* @include not-phones {
-            margin-top: 5%;
-        } */
-    }
+.left {
 
-    .event {
+    @include pxtoem(18, 24);
 
-        font-family: 'Lunchtype';
-        @include pxtoem(14, 14);
+    line-height: 1.42;
+    letter-spacing: 2px;
+
+}
+
+.right {
+
+    p {
+        @include pxtoem(14, 18);
 
         font-stretch: expanded;
         line-height: 1.29;
-        letter-spacing: 2px;
+        letter-spacing: 1px;
+    }
 
-        span {
-            color: $rouge;
+}
 
-            display: block;
-            padding: 2%;
+.lunch-reg {
+    @include pxtoem(12, 14);
 
-            &.time,
-            &.address {
-                border-top: solid 2px $rouge;
-            }
+    line-height: 1.29;
+}
+
+#getinvolved {
+
+    #steps {
+
+        margin-top: 7.5%;
+        justify-content: center;
+
+        @include desktop {
+            justify-content: space-between;
         }
 
-        .info {
-            display: flex;
-            flex-direction: column;
+        .column {
+            text-align: center;
 
-            border: solid 2px $rouge;
+            width: 28%;
+            flex-basis: auto;
 
-            @include phones {
-                padding-bottom: 0;
-            }
-
-            @include desktop {
-                padding: 0;
-            }
-        }
-
-        .description {
-            border-top: solid 2px $rouge;
-            border-right: solid 2px $rouge;
-            border-bottom: solid 2px $rouge;
+            line-height: 1.33;
+            letter-spacing: 2px;
 
             @include not-desktop {
-                border-top: 0;
-                border-left: solid 2px $rouge;
+                width: 90%;
+            }
+
+            &.space-grotesk-semi {
+                @include pxtoem(18, 24);
+
+                line-height: 1.42;
+                letter-spacing: 2px;
+                color: $rouge;
+            }
+        }
+
+        h5 {
+            @include pxtoem(18, 24);
+            font-weight: 600;
+            line-height: 1.42;
+            letter-spacing: 2px;
+            font-stretch: expanded;
+            color: $grape;
+
+        }
+
+        p {
+            text-align: left;
+
+            @include pxtoem(14, 18);
+            font-weight: 500;
+            line-height: 1.33;
+            letter-spacing: 2px;
+
+            span {
+                font-size: .8em;
+                text-align: left;
+                letter-spacing: normal;
+            }
+        }
+
+        strong {
+            font-family: 'VG5000';
+            @include pxtoem(48, 72);
+
+            letter-spacing: 2px;
+            color: $rouge;
+        }
+
+    }
+}
+
+#end {
+    p {
+        &:nth-child(1) {
+            @include pxtoem(18, 24);
+            font-stretch: expanded;
+            line-height: 1.29;
+            letter-spacing: 2px;
+        }
+
+        &:nth-child(2) {
+            @include pxtoem(12, 14);
+            line-height: 1.42;
+        }
+
+        &:nth-child(3) {
+            @include pxtoem(14, 18);
+            line-height: 1.33;
+        }
+    }
+
+    .column:nth-child(2) {
+        @include pxtoem(18, 24);
+        color: $grape;
+
+        line-height: 1.42;
+        letter-spacing: 2px;
+        text-align: center;
+    }
+}
+
+form {
+    hr {
+        margin-top: 2%;
+    }
+
+    #interest {
+        margin-top: 7%;
+
+    }
+}
+
+label {
+
+    font-family: 'SpaceGrotesk-SemiBold';
+
+    position: relative;
+    justify-content: left;
+    margin-bottom: 12px;
+    letter-spacing: 2px;
+
+    color: rgba(64, 43, 89, 0.5);
+
+    @include pxtoem(18, 36);
+
+    &#age-label {
+        @include pxtoem(14, 24);
+    }
+
+    &:hover {
+        color: $grape;
+    }
+
+    &:hover input~.checkmark {
+        background-color: white;
+    }
+
+    #age,
+    #zone,
+    #explorer,
+    #tours {
+        opacity: 0;
+        cursor: pointer;
+        height: 0;
+        width: 0;
+        margin: 0;
+
+        &:checked {
+            color: $grape;
+        }
+
+        &:checked~.checkmark {
+            background-color: white;
+
+            &+.txt {
+                color: $grape;
 
             }
 
-            @include desktop {
-                padding: 0;
+            &:after {
+                @include transform(rotate(45deg) scale(1));
+
             }
+        }
+
+        @include phones {
+            padding-left: 0;
+        }
+    }
+
+    .checkmark {
+        display: inline-block;
+        top: 0;
+        left: 0;
+        height: 80px;
+        width: 80px;
+        padding: 15px;
+
+        background-color: $grape;
+        border: solid 3px $grape;
+
+        margin-right: 5%;
+
+        &:after {
+            content: "";
+            position: absolute;
+
+            top: 14px;
+            left: 42px;
+            width: 30px;
+            height: 62px;
+
+            border: solid $grape;
+            border-width: 0 4px 4px 0;
+
+            @include transform(rotate(45deg) scale(0));
+            @include transition(transform, .3s, ease-in-out);
         }
     }
 }

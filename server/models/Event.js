@@ -54,7 +54,6 @@ Event.add({
 	endDate: {
 		label: 'End Time',
 		type: Types.Datetime,
-		required: true,
 		initial: true
 	},
 	startDate2: {

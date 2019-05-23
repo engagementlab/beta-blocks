@@ -1,17 +1,15 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
-import { HttpClientJsonpModule } from '@angular/common/http';
+import { HttpClientModule, HttpClientJsonpModule } from '@angular/common/http';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
-import { MapBoxComponent } from './map-box/map-box.component';
 import { ToolComponent } from './tool/tool.component';
 import { HomeComponent } from './home/home.component';
-import { HttpClientModule } from '@angular/common/http';
-import { ExplorerComponent } from './explorer/explorer.component';
+
 import { NavComponent } from './nav/nav.component';
-import { GetinvolvedComponent } from './getinvolved/getinvolved.component';
+import { GetInvolvedComponent } from './getinvolved/getinvolved.component';
 import { FooterComponent } from './footer/footer.component';
 import { CdnImageComponent } from './utils/cdn-image/cdn-image.component';
 import { AboutComponent } from './about/about.component';
@@ -41,18 +39,16 @@ export const config: CloudinaryConfiguration = cloudinaryConfiguration;
     AppComponent,
     CdnImageComponent,
     DeviceactionPipe,
-    MapBoxComponent,
     ToolComponent,
     HomeComponent,
     NavComponent,
-    GetinvolvedComponent,
+    GetInvolvedComponent,
     ButtonComponent,
     FooterComponent,
     LinebreakPipe,
     AboutComponent,
     ExhibitComponent,
     ZonesComponent,
-    ExplorerComponent,
     PrettyUrlPipe,
     TechComponent
   ],

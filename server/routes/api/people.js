@@ -23,7 +23,7 @@ exports.get = function (req, res) {
     let person = keystone.list('Person').model;
 
     // Get people
-    let peopleData = person.find({}, 'name title bio.html websiteURL -_id');
+    let peopleData = person.find({}, 'name title bio.html websiteURL -_id').sort({'name.first': 1});
 
     Bluebird.props({
             peopleData

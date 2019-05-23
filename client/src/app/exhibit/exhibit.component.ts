@@ -30,11 +30,18 @@ export class ExhibitComponent implements OnInit {
       this.currentEvent = _.where(this.events, {current: true})[0];
       this.nextEvent = _.where(this.events, {next: true})[0];
 
-      if(this.currentEvent)
-        this.currentEvent.displayEndDate = (this.currentEvent.endDate2 ? this.currentEvent.endDate2 : this.currentEvent.endDate) 
-
-      if(this.nextEvent)
-        this.nextEvent.displayEndDate = (this.nextEvent.endDate2 ? this.nextEvent.endDate2 : this.nextEvent.endDate) 
+      if (this.currentEvent) {
+        if (this.currentEvent.endDate2)
+          this.currentEvent.displayEndDate = this.currentEvent.endDate2;
+        else if (this.currentEvent.endDate)
+          this.currentEvent.displayEndDate = this.currentEvent.endDate;
+      }
+      if (this.nextEvent) {
+        if (this.nextEvent.endDate2)
+          this.nextEvent.displayEndDate = this.nextEvent.endDate2;
+        else if (this.nextEvent.endDate)
+          this.nextEvent.displayEndDate = this.nextEvent.endDate;
+      }
 
       this.hasContent = true;
 
