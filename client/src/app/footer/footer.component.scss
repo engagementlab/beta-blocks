@@ -75,6 +75,17 @@ a.link {
         padding-right: 5%;
     }
 
+    #top {
+        display: flex;
+        flex-direction: row;
+
+        justify-content: space-evenly;
+        align-items: center;
+
+        width: 40%;
+        
+    }
+
     #logos {
         display: flex;
         flex-direction: row;

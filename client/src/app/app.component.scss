@@ -20,6 +20,42 @@
         }
 }
 
+#banner {
+	font-family: 'LunchtypeMed';
+	
+	background-color: $light-pink;
+	text-align: center;
+	text-transform: uppercase;
+	text-decoration: none;
+
+	display: flex;
+	align-items: center;
+	justify-content: center;
+
+	position: relative;
+	top: 0;
+	width: 100%;
+	height: 70px;
+
+	@include pxtoem(18, 24);
+
+	span {
+		color: $rouge;
+		font-size: 1.2em;
+		margin-right: 1%;
+	}
+	svg {
+		margin-left: 1%;
+		@include transition(transform, .4s, ease-in-out);
+	}
+
+	&:hover {
+		svg {
+			@include translate(10px, 0);
+		}
+	}
+}
+
 #qa-build {
 	position: fixed;
 	top: calc(100% + 76px);

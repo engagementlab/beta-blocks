@@ -13,6 +13,7 @@ export class AppComponent implements OnInit {
   
   public isQABuild: boolean;
   public isKiosk: boolean;
+  public onHome: boolean;
 
   title = 'Beta Blocks';
 
@@ -26,12 +27,16 @@ constructor(private _router: Router, private _titleSvc: Title) {
  ngOnInit() {
 
   this._router.events.subscribe((evt: RouterEvent) => {
+    
+    if (evt instanceof NavigationStart)
+      this.onHome = evt.url === '/';
 
     if (!(evt instanceof NavigationStart)) {
       if(evt.url === '/kiosk') {
         this.isKiosk = true;
         document.body.classList.add('kiosk');
       }
+    
     }
 
     if (!(evt instanceof NavigationEnd)) {
