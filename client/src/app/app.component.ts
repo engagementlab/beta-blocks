@@ -28,8 +28,6 @@ constructor(private _router: Router, private _titleSvc: Title) {
 
   this._router.events.subscribe((evt: RouterEvent) => {
     
-    console.log(evt.url)
-
     if (evt && evt instanceof NavigationStart)
       this.onHome = evt.url === '/';
 

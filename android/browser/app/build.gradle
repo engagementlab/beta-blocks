@@ -10,12 +10,24 @@ android {
         versionName "1.0"
     }
     buildTypes {
-        debug {
+        staging {
             buildConfigField "boolean", "REPORT_CRASHES", "true"
-            buildConfigField "String", "ENVIRONMENT", '"debug"'
+            buildConfigField "String", "ENVIRONMENT", '"staging"'
             signingConfig signingConfigs.debug
             debuggable true
         }
+        release {
+            buildConfigField "boolean", "REPORT_CRASHES", "true"
+            buildConfigField "String", "ENVIRONMENT", '"production"'
+            debuggable false
+            signingConfig signingConfigs.debug
+        }
+    }
+    lintOptions {
+        checkReleaseBuilds false
+        // Or, if you prefer, you can continue to check for errors in release builds,
+        // but continue the build even when errors are found:
+        abortOnError false
     }
 }
 

@@ -1,4 +1,4 @@
-import { Component, AfterViewInit } from '@angular/core';
+import { Component, AfterViewInit, Input } from '@angular/core';
 import { Router, NavigationEnd } from '@angular/router';
 
 import { filter } from 'rxjs/operators';
@@ -14,6 +14,7 @@ import { environment } from '../../environments/environment';
 export class FooterComponent implements AfterViewInit {
   
   private currentUrl: string;  
+  @Input() kiosk: boolean;
 
   constructor(private _router: Router) { 
 

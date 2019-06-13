@@ -127,11 +127,11 @@ public class WebActivity extends Activity {
         setRequestedOrientation(ActivityInfo.SCREEN_ORIENTATION_LANDSCAPE);
 
         if(BuildConfig.ENVIRONMENT == "staging") {
-            urlString = "https://qa.betablocks.city/kiosk";
+            urlString = "https://qa.betablocks.city/?kiosk";
 
         }
         if(BuildConfig.ENVIRONMENT == "production") {
-            urlString = "https://betablocks.city/kiosk";
+            urlString = "https://betablocks.city/?kiosk";
         }
 
         gameWebView = findViewById(R.id.webView);

@@ -4,12 +4,13 @@
 
     <div class="column is-11-mobile is-5-tablet">
         <a class="link" [class.active]="itemActive('about')" routerLink="/about" data-aos="fade-up">About</a>
-        <a class="link" [class.active]="itemActive('discover')" routerLink="/discover" data-aos="fade-up" data-aos-offset="100">Discover Boston</a>
+        <a *ngIf="!kiosk" class="link" [class.active]="itemActive('discover')" routerLink="/discover" data-aos="fade-up" data-aos-offset="100">Discover Boston</a>
         <a class="link" [class.active]="itemActive('getinvolved')" routerLink="/getinvolved" data-aos="fade-up" data-aos-offset="200">Get Involved</a>
+        <a *ngIf="kiosk" class="link" [class.active]="itemActive('exhibit')" routerLink="/exhibit" data-aos="fade-up">Get to Know Exhibit</a>
             
     </div>
     <div class="column is-11-mobile is-5-tablet">
-        <a class="link" [class.active]="itemActive('exhibit')" routerLink="/exhibit" data-aos="fade-up">Get to Know Exhibit</a>
+        <a *ngIf="!kiosk" class="link" [class.active]="itemActive('exhibit')" routerLink="/exhibit" data-aos="fade-up">Get to Know Exhibit</a>
         <a class="link" [class.active]="itemActive('zones')" routerLink="/zones" data-aos="fade-up" data-aos-offset="100">Exploration Zones</a>
         <a class="link" [class.active]="itemActive('tech')" routerLink="/tech" data-aos="fade-up" data-aos-offset="200">Tech Partners</a>
     </div>
