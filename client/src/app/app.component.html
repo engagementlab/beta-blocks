@@ -9,7 +9,7 @@
 
 <router-outlet></router-outlet>
 
-<app-footer></app-footer>
+<app-footer [kiosk]="isKiosk"></app-footer>
 
 <!-- QA Build Banner -->
 <div *ngIf="isQABuild === true" id="qa-build"> 
