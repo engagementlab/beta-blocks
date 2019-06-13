@@ -15,10 +15,7 @@ let routeList: Routes = [
   { path: 'about', component: AboutComponent },
   { path: 'exhibit', component: ExhibitComponent },
   { path: 'discover', component: ToolComponent },
-  
-  // Kiosk goes to data tool
-  { path: 'kiosk', component: ToolComponent },
-  
+    
   { path: 'getinvolved', component: GetInvolvedComponent },
   { path: 'explorers', component: GetInvolvedComponent },
   { path: 'tech', component: TechComponent },

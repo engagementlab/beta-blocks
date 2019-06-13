@@ -32,8 +32,8 @@
         <a *ngIf="itemActive('about')" class="active link" (click)="openCloseNav()">About</a>
         <a *ngIf="!itemActive('about')" class="link" routerLink="/about">About</a>
 
-        <a *ngIf="itemActive('discover')" class="active link" (click)="openCloseNav()">Discover Boston</a>
-        <a *ngIf="!itemActive('discover')" class="link" routerLink="/discover">Discover Boston</a>
+        <a *ngIf="itemActive('discover') && !kiosk" class="active link" (click)="openCloseNav()">Discover Boston</a>
+        <a *ngIf="!itemActive('discover') && !kiosk" class="link" routerLink="/discover">Discover Boston</a>
 
         <a *ngIf="itemActive('getinvolved')" class="active link" (click)="openCloseNav()">Get Involved</a>
         <a *ngIf="!itemActive('getinvolved')" class="link" routerLink="/getinvolved">Get Involved</a>

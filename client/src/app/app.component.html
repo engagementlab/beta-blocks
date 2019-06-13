@@ -5,11 +5,11 @@
     </svg>
 </a>
 
-<app-nav *ngIf="!isKiosk"></app-nav>
+<app-nav [kiosk]="isKiosk"></app-nav>
 
 <router-outlet></router-outlet>
 
-<app-footer *ngIf="!isKiosk"></app-footer>
+<app-footer></app-footer>
 
 <!-- QA Build Banner -->
 <div *ngIf="isQABuild === true" id="qa-build"> 
