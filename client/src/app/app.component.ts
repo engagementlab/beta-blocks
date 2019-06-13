@@ -28,11 +28,13 @@ constructor(private _router: Router, private _titleSvc: Title) {
 
   this._router.events.subscribe((evt: RouterEvent) => {
     
-    if (evt instanceof NavigationStart)
+    console.log(evt.url)
+
+    if (evt && evt instanceof NavigationStart)
       this.onHome = evt.url === '/';
 
-    if (!(evt instanceof NavigationStart)) {
-      if(evt.url === '/kiosk') {
+    if (evt && !(evt instanceof NavigationStart)) {
+      if(evt.url && evt.url.indexOf('?kiosk') > -1) {
         this.isKiosk = true;
         document.body.classList.add('kiosk');
       }
