@@ -28,7 +28,7 @@ exports.get = function (req, res) {
     
     let filter = req.params.current ? ({$or: [{current:true}, {next:true}]}) : {};
     let exhibitData = exhibit.findOne({}, 'see explore reflect gather tinker -_id');
-    let eventsData = event.find(filter, eventFields);
+    let eventsData = event.find(filter, eventFields).sort({'startDate': 1});
 
     let queryProps = {
         exhibitData,
