@@ -64,7 +64,7 @@ exports.get = function (req, res) {
     let event = keystone.list('Event').model;
 
     // Get events
-    let eventsData = event.find({}, eventFields);
+    let eventsData = event.find({}, eventFields).sort({'startDate': 1});
 
     Bluebird.props({
             events: eventsData
