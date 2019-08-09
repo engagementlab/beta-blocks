@@ -34,8 +34,8 @@ export class TechComponent implements OnInit {
   ngOnInit() {
 
     this.userForm = this._formBuilder.group({
-      'firstName': ['', [Validators.required, Validators.minLength(2)]],
-      'lastName': ['', Validators.required],
+      'firstName': ['',],
+      'lastName': [''],
       'loc': ['', [Validators.required]],
       'email': ['', [Validators.email]],
       'phone': [''],

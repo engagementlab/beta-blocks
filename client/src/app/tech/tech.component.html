@@ -5,7 +5,8 @@
 
   <div id="top" class="space-grotesk-semi column is-full is-mobile center">
 
-    <p>Beta Blocks temporarily installs technologies in public spaces in Boston. Scroll through to learn more about them, or provide feedback!</p>
+    <p>Beta Blocks temporarily installs technologies in public spaces in Boston. Scroll through to learn more about
+      them, or provide feedback!</p>
 
   </div>
 
@@ -29,8 +30,8 @@
           <cdn-image cloudinaryId="{{partner.image.public_id}}" cloudinaryPrefix="/" width="525" [responsive]="true"
             autoFormat="true" alt="Image for {{partner.name}} tech" *ngIf="!odd">
           </cdn-image>
-          <cdn-image cloudinaryId="{{partner.image.public_id}}" cloudinaryPrefix="/" width="525" [responsive]="false" svg="false"
-           autoFormat="false" alt="Image for {{partner.name}} tech" *ngIf="odd">
+          <cdn-image cloudinaryId="{{partner.image.public_id}}" cloudinaryPrefix="/" width="525" [responsive]="false"
+            svg="false" autoFormat="false" alt="Image for {{partner.name}} tech" *ngIf="odd">
           </cdn-image>
         </div>
       </div>
@@ -47,15 +48,33 @@
     *ngIf="!received">
     <div class="fields">
 
-      <div class="column is-full-mobile is-half-tablet" data-aos="fade-up" data-aos-delay="500">
-        <input formControlName="firstName" id="firstName" placeholder="first name" required />
-        <div *ngIf="submitted && f.firstName.invalid">Required</div>
+      <div class="column is-full-mobile is-full" data-aos="fade-up" data-aos-delay="1000">
+        <input formControlName="loc" id="loc" class="full" type="loc" placeholder="location" required />
+        <div *ngIf="submitted && f.loc.invalid">
+          <span *ngIf="f.loc.errors.required">Required. </span>
+        </div>
       </div>
+    </div>
 
-      <div class="column is-full-mobile is-half-tablet" data-aos="fade-up" data-aos-delay="600">
-        <input formControlName="lastName" id="lastName" placeholder="last name" required />
-        <div *ngIf="submitted && f.lastName.invalid">Required</div>
+    <div class="fields">
+      <div class="column is-full-mobile is-full" data-aos="fade-up" data-aos-delay="1200">
+        <textarea formControlName="message" id="message" class="full" name="message"
+        placeholder="feedback on technology" rows="3" required></textarea>
+        <div *ngIf="submitted && f.message.invalid">Required</div>
       </div>
+    </div>
+    
+    <h5>Optional:</h5>
+    <div class="fields">
+    <div class="column is-full-mobile is-half-tablet" data-aos="fade-up" data-aos-delay="500">
+      <input formControlName="firstName" id="firstName" placeholder="first name" />
+      <div *ngIf="submitted && f.firstName.invalid">Required</div>
+    </div>
+
+    <div class="column is-full-mobile is-half-tablet" data-aos="fade-up" data-aos-delay="600">
+      <input formControlName="lastName" id="lastName" placeholder="last name" />
+      <div *ngIf="submitted && f.lastName.invalid">Required</div>
+    </div>
     </div>
 
     <div class="fields">
@@ -73,19 +92,6 @@
         </div>
 
       </div>
-    </div>
-
-    <div class="column is-full-mobile is-full" data-aos="fade-up" data-aos-delay="1000">
-      <input formControlName="loc" id="loc" class="full" type="loc" placeholder="location" required />
-      <div *ngIf="submitted && f.loc.invalid">
-        <span *ngIf="f.loc.errors.required">Required. </span>
-      </div>
-    </div>
-
-    <div class="column is-full-mobile is-full" data-aos="fade-up" data-aos-delay="1200">
-      <textarea formControlName="message" id="message" class="full" name="message"
-        placeholder="feedback on technology" rows="3" required></textarea>
-      <div *ngIf="submitted && f.message.invalid">Required</div>
     </div>
 
     <div class="fields">
