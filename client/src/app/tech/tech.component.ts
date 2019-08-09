@@ -36,10 +36,10 @@ export class TechComponent implements OnInit {
     this.userForm = this._formBuilder.group({
       'firstName': ['', [Validators.required, Validators.minLength(2)]],
       'lastName': ['', Validators.required],
-      'url': ['', [Validators.required, Validators.pattern('(https?://)?([\\da-z.-]+)\\.([a-z.]{2,6})[/\\w .-]*/?')]],
-      'email': ['', [Validators.required, Validators.email]],
-      'phone': ['', [Validators.required, this.phoneValidator]],
-      'message': ['', [Validators.required, Validators.minLength(10)]]
+      'loc': ['', [Validators.required]],
+      'email': ['', [Validators.email]],
+      'phone': [''],
+      'message': ['', [Validators.required]]
     });
 
     AOS.init({
@@ -47,26 +47,6 @@ export class TechComponent implements OnInit {
       easing: 'ease-in-out'
     });
 
-  }
-
-  // Validates US phone numbers
-  private phoneValidator(number): any {
-
-    if (number.pristine) {
-      return null;
-    }
-
-    const PHONE_REGEXP = /^(\([0-9]{3}\) |[0-9]{3}-)[0-9]{3}-[0-9]{4}$/;
-
-    number.markAsTouched();
-
-    if (PHONE_REGEXP.test(number.value)) {
-      return null;
-    }
-
-    return {
-      invalidNumber: true
-    };
   }
 
   // convenience getter for easy access to form fields
@@ -83,7 +63,7 @@ export class TechComponent implements OnInit {
     }
 
     let data = this.userForm.value;
-    data.type = 'Partner';
+    data.type = 'Tech';
     this._dataSvc.sendDataToUrl('/api/contact', data).subscribe((data: any) => {
 
       this.received = true;
