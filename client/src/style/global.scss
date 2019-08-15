@@ -94,9 +94,14 @@ form {
       letter-spacing: 1px;
        
       padding-top: 1%;
+      // margin-right: 20px;
 
       color: $light-pink;
       text-transform: uppercase;
+
+      &.show {
+        display: block;
+      }
   }
 
   input,

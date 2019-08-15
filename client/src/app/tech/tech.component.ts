@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, AfterViewInit } from '@angular/core';
 import { FormGroup, FormBuilder, Validators } from '@angular/forms';
 
 import { DataService } from '../utils/data.service';
@@ -10,7 +10,7 @@ import * as AOS from 'aos';
   templateUrl: './tech.component.html',
   styleUrls: ['./tech.component.scss']
 })
-export class TechComponent implements OnInit {
+export class TechComponent implements OnInit, AfterViewInit {
 
   public submitted: boolean;
   public received: boolean;
@@ -46,6 +46,26 @@ export class TechComponent implements OnInit {
 
   }
 
+  ngAfterViewInit() {
+
+    // A little hack to show 'required' label on inputs
+    for(let id in this.userForm.controls) {
+      if(this.userForm.controls[id].errors && this.userForm.controls[id].errors.required) {
+
+        let errorEl = (document.querySelector("span[data-field='"+ id +"'") as HTMLElement);
+        let targetEl = document.getElementById(id);
+        let targetWidth = targetEl.clientWidth;
+        let offsetWidth = targetWidth-(errorEl.clientWidth/2);
+        
+        // Make error span width of input field
+        errorEl.style.width = offsetWidth + 'px';
+        errorEl.style.display = 'block';
+      }
+      
+    }
+
+  }
+
   // convenience getter for easy access to form fields
   get f() {
     return this.userForm.controls;
@@ -61,7 +81,7 @@ export class TechComponent implements OnInit {
         let errorEl = (document.querySelector("span[data-field='"+ id +"'") as HTMLElement);
         let targetEl = document.getElementById(id);
         let targetWidth = targetEl.clientWidth;
-        let offsetWidth = targetWidth-(targetWidth*.01);
+        let offsetWidth = targetWidth-errorEl.clientWidth;
         
         // Make error span width of input field
         errorEl.style.width = offsetWidth + 'px';
@@ -83,6 +103,15 @@ export class TechComponent implements OnInit {
       this.received = true;
 
     });
+
+  }
+
+  public formClear(target: HTMLElement) {
+    
+    let errorEl = (document.querySelector("span[data-field='"+ target.id +"'") as HTMLElement);
+    
+    errorEl.style.display = 'none';
+    target.classList.remove('error');
 
   }
 
