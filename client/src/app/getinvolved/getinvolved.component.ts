@@ -47,9 +47,6 @@ export class GetInvolvedComponent implements OnInit, AfterViewInit {
       'email': ['', [Validators.required, Validators.email]],
       'firstName': ['', Validators.required],
       'lastName': ['', Validators.required],
-      'zone': [],
-      'explorer': [],
-      'tours': [],
       'age': ['', [Validators.required, Validators.requiredTrue]]
     });
 
@@ -100,13 +97,6 @@ export class GetInvolvedComponent implements OnInit, AfterViewInit {
       .set('LNAME', this.userForm.controls['lastName'].value)
       .set('EMAIL', this.userForm.controls['email'].value)
       .set('b_8cb16e3042072f11cc0680d36_58bb1def37', ''); // hidden input name
-
-    if(this.userForm.controls['zone'].value)
-      params = params.set('group[19409][1]', '1');
-    if(this.userForm.controls['explorer'].value)
-      params = params.set('group[19409][2]', '2');
-    if(this.userForm.controls['tours'].value)
-      params = params.set('group[19409][4]', '4');
 
     const mailChimpUrl = this.mailchimpUrl + params.toString();
 

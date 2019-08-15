@@ -49,56 +49,39 @@
     <div class="fields">
 
       <div class="column is-full-mobile is-full" data-aos="fade-up" data-aos-delay="1000">
-        <input formControlName="loc" id="loc" class="full" type="loc" placeholder="location" required />
-        <div *ngIf="submitted && f.loc.invalid">
-          <span *ngIf="f.loc.errors.required">Required. </span>
-        </div>
+          <span data-field="loc" class="formerror">
+              Required
+          </span>
+        <input formControlName="loc" id="loc" class="full" type="loc"
+          placeholder="technology location" required />
       </div>
     </div>
 
     <div class="fields">
       <div class="column is-full-mobile is-full" data-aos="fade-up" data-aos-delay="1200">
-        <textarea formControlName="message" id="message" class="full" name="message"
-        placeholder="feedback on technology" rows="3" required></textarea>
-        <div *ngIf="submitted && f.message.invalid">Required</div>
+        <span data-field="message" class="formerror">
+            Required
+        </span>
+        <textarea formControlName="message" id="message" class="full"
+          name="message" placeholder="feedback on technology" rows="3" required></textarea>
       </div>
-    </div>
-    
-    <h5>Optional:</h5>
-    <div class="fields">
-    <div class="column is-full-mobile is-half-tablet" data-aos="fade-up" data-aos-delay="500">
-      <input formControlName="firstName" id="firstName" placeholder="first name" />
-      <div *ngIf="submitted && f.firstName.invalid">Required</div>
-    </div>
-
-    <div class="column is-full-mobile is-half-tablet" data-aos="fade-up" data-aos-delay="600">
-      <input formControlName="lastName" id="lastName" placeholder="last name" />
-      <div *ngIf="submitted && f.lastName.invalid">Required</div>
-    </div>
     </div>
 
     <div class="fields">
       <div class="column is-full-mobile is-half-tablet" data-aos="fade-up" data-aos-delay="700">
+        <span data-field="email" class="formerror">
+          Invalid Email
+        </span>
         <input formControlName="email" id="email" placeholder="email" />
-        <div *ngIf="submitted && f.email.invalid">
-          <span *ngIf="f.email.errors.email">Please enter a valid email address.</span>
-        </div>
       </div>
-
-      <div class="column is-full-mobile is-half-tablet" data-aos="fade-up" data-aos-delay="800">
-        <input formControlName="phone" id="phone" placeholder="phone" />
-        <div *ngIf="submitted && f.phone.invalid">
-          <span *ngIf="f.phone.errors.invalidNumber">Please enter a valid phone number.</span>
-        </div>
-
+      <div class="column" data-aos="fade-up" data-aos-delay="1400">
+        <button type="submit">Submit</button>
       </div>
     </div>
 
     <div class="fields">
       <div class="column is-half-tablet"></div>
-      <div class="column" data-aos="fade-up" data-aos-delay="1400">
-        <button type="submit">Send</button>
-      </div>
+
     </div>
 
   </form>

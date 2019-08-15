@@ -34,12 +34,9 @@ export class TechComponent implements OnInit {
   ngOnInit() {
 
     this.userForm = this._formBuilder.group({
-      'firstName': ['',],
-      'lastName': [''],
       'loc': ['', [Validators.required]],
-      'email': ['', [Validators.email]],
-      'phone': [''],
-      'message': ['', [Validators.required]]
+      'message': ['', [Validators.required]],
+      'email': ['', [Validators.email]]
     });
 
     AOS.init({
@@ -57,6 +54,23 @@ export class TechComponent implements OnInit {
   submitForm() {
     this.submitted = true;
 
+    // A little hack to get error inside input fields
+    for(let id in this.userForm.controls) {
+      if(this.userForm.controls[id].invalid || this.userForm.controls[id].errors !== null) {
+
+        let errorEl = (document.querySelector("span[data-field='"+ id +"'") as HTMLElement);
+        let targetEl = document.getElementById(id);
+        let targetWidth = targetEl.clientWidth;
+        let offsetWidth = targetWidth-(targetWidth*.01);
+        
+        // Make error span width of input field
+        errorEl.style.width = offsetWidth + 'px';
+        errorEl.style.display = 'block';
+        targetEl.classList.add('error');
+      }
+      
+    }
+    
     // stop here if form is invalid
     if (this.userForm.invalid) {
       return;
