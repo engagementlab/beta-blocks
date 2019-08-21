@@ -82,6 +82,28 @@ h4 {
 // Form styles
 form {
 
+  .formerror {
+      position: absolute;
+      display: none;
+      text-align: right;
+
+      font-family: 'IBM Plex Mono', monospace;
+      @include pxtoem(12, 14);
+
+      line-height: 1.29;
+      letter-spacing: 1px;
+       
+      padding-top: 1%;
+      // margin-right: 20px;
+
+      color: $light-pink;
+      text-transform: uppercase;
+
+      &.show {
+        display: block;
+      }
+  }
+
   input,
   textarea {
     font-family: 'SpaceGrotesk-SemiBold';
@@ -102,6 +124,10 @@ form {
 
       letter-spacing: 2px;
       color: rgba(255, 255, 255, .5);
+    }
+
+    &.error {
+      background-color: $rouge;
     }
   }
 

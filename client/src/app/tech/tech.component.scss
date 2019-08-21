@@ -1,11 +1,17 @@
 @import "~src/style/_variables";
 
+@import url('https://fonts.googleapis.com/css?family=IBM+Plex+Mono&display=swap');
+
 #top {
 
     @include pxtoem(24, 36);
 
     line-height: 1.56;
     letter-spacing: 2px;
+    
+    p {
+        font-family: 'VG5000';
+    }
 
     .column {
 
@@ -139,5 +145,22 @@ h5 {
                 flex-direction: row-reverse
             }
         }
+    }
+}
+
+form {
+    .note {
+        font-family: 'IBM Plex Mono', monospace;
+        @include pxtoem(12, 14);
+
+        line-height: 1.29;
+        letter-spacing: 1px;
+         
+        position: absolute;
+        right: 0;
+        padding: 1%;
+
+        color: $light-pink;
+        text-transform: uppercase;
     }
 }

@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, AfterViewInit } from '@angular/core';
 import { FormGroup, FormBuilder, Validators } from '@angular/forms';
 
 import { DataService } from '../utils/data.service';
@@ -10,7 +10,7 @@ import * as AOS from 'aos';
   templateUrl: './tech.component.html',
   styleUrls: ['./tech.component.scss']
 })
-export class TechComponent implements OnInit {
+export class TechComponent implements OnInit, AfterViewInit {
 
   public submitted: boolean;
   public received: boolean;
@@ -34,12 +34,9 @@ export class TechComponent implements OnInit {
   ngOnInit() {
 
     this.userForm = this._formBuilder.group({
-      'firstName': ['', [Validators.required, Validators.minLength(2)]],
-      'lastName': ['', Validators.required],
-      'url': ['', [Validators.required, Validators.pattern('(https?://)?([\\da-z.-]+)\\.([a-z.]{2,6})[/\\w .-]*/?')]],
-      'email': ['', [Validators.required, Validators.email]],
-      'phone': ['', [Validators.required, this.phoneValidator]],
-      'message': ['', [Validators.required, Validators.minLength(10)]]
+      'loc': ['', [Validators.required]],
+      'message': ['', [Validators.required]],
+      'email': ['', [Validators.email]]
     });
 
     AOS.init({
@@ -49,24 +46,24 @@ export class TechComponent implements OnInit {
 
   }
 
-  // Validates US phone numbers
-  private phoneValidator(number): any {
+  ngAfterViewInit() {
 
-    if (number.pristine) {
-      return null;
+    // A little hack to show 'required' label on inputs
+    for(let id in this.userForm.controls) {
+      if(this.userForm.controls[id].errors && this.userForm.controls[id].errors.required) {
+
+        let errorEl = (document.querySelector("span[data-field='"+ id +"'") as HTMLElement);
+        let targetEl = document.getElementById(id);
+        let targetWidth = targetEl.clientWidth;
+        let offsetWidth = targetWidth-(errorEl.clientWidth/2);
+        
+        // Make error span width of input field
+        errorEl.style.width = offsetWidth + 'px';
+        errorEl.style.display = 'block';
+      }
+      
     }
 
-    const PHONE_REGEXP = /^(\([0-9]{3}\) |[0-9]{3}-)[0-9]{3}-[0-9]{4}$/;
-
-    number.markAsTouched();
-
-    if (PHONE_REGEXP.test(number.value)) {
-      return null;
-    }
-
-    return {
-      invalidNumber: true
-    };
   }
 
   // convenience getter for easy access to form fields
@@ -77,18 +74,44 @@ export class TechComponent implements OnInit {
   submitForm() {
     this.submitted = true;
 
+    // A little hack to get error inside input fields
+    for(let id in this.userForm.controls) {
+      if(this.userForm.controls[id].invalid || this.userForm.controls[id].errors !== null) {
+
+        let errorEl = (document.querySelector("span[data-field='"+ id +"'") as HTMLElement);
+        let targetEl = document.getElementById(id);
+        let targetWidth = targetEl.clientWidth;
+        let offsetWidth = targetWidth-errorEl.clientWidth;
+        
+        // Make error span width of input field
+        errorEl.style.width = offsetWidth + 'px';
+        errorEl.style.display = 'block';
+        targetEl.classList.add('error');
+      }
+      
+    }
+    
     // stop here if form is invalid
     if (this.userForm.invalid) {
       return;
     }
 
     let data = this.userForm.value;
-    data.type = 'Partner';
+    data.type = 'Tech';
     this._dataSvc.sendDataToUrl('/api/contact', data).subscribe((data: any) => {
 
       this.received = true;
 
     });
+
+  }
+
+  public formClear(target: HTMLElement) {
+    
+    let errorEl = (document.querySelector("span[data-field='"+ target.id +"'") as HTMLElement);
+    
+    errorEl.style.display = 'none';
+    target.classList.remove('error');
 
   }
 

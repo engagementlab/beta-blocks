@@ -15,7 +15,8 @@ const _ = require('underscore'),
 exports.send = function (req, res) {
 
     let type = req.body.type;
-    let subjectLine = 'BB Website: ' + type + ' Inquiry';
+    let subjectPostfix = type === 'Tech' ? 'Tech Feedback' : (type + ' Inquiry');
+    let subjectLine = 'BB Website: ' + subjectPostfix;
     // let body = '<img src="http://bit.ly/2YKMNyC" style="width:120px"><h4>Form Message</h4>';
 
     delete req.body.type;
@@ -29,9 +30,10 @@ exports.send = function (req, res) {
         apiKey: process.env.MAILGUN_KEY,
         domain: process.env.MAILGUN_DOMAIN
     });
+    let validEmail = (req.body.email !== undefined && req.body.email.length > 0);
     let data = {
-        from: '<' + req.body.email + '>',
-        to: process.env.MAILGUN_CONTACT,
+        from: '<' + (validEmail ? req.body.email : 'noreply@betablocks.city') + '>',
+        to: type === 'Tech' ? process.env.MAILGUN_CONTACT_TECH : process.env.MAILGUN_CONTACT,
         subject: subjectLine,
         text: body
     };
