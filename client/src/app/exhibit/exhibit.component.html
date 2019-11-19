@@ -1,48 +1,17 @@
 <section class="container desktop">
 
-  <h2 data-aos="fade">Exhibit Location</h2>
+  <h2 data-aos="fade">Exhibit</h2>
 
 </section>
 
-<div id="map" class="column is-full" data-aos="fade" data-aos-delay="500">
+<div class="column is-full" data-aos="fade" data-aos-delay="500">
+
+  <cdn-image cloudinaryId="img/exhibit/blob" width="1280" [responsive]="true" autoFormat="true" alt="Image of 'Beta Blob'">
+  </cdn-image>
 
 </div>
 
 <section class="container desktop" id="offset" *ngIf="hasContent">
-
-  <!-- LOCATION -->
-  <div id="location" class="columns column is-full" *ngIf="currentEvent || nextEvent">
-
-    <div class="column is-half-tablet" data-aos="fade-right">
-      <div class="text">
-
-        <h2 class="lower space-grotesk-semi" *ngIf="currentEvent !== undefined">The exhibit is now in . . .</h2>
-        <h2 class="lower space-grotesk-semi" *ngIf="nextEvent && !currentEvent">The exhibit will soon be in . . .</h2>
-
-        <svg height="80" fill="none" viewBox="0 0 400 80" preserveAspectRatio="xMinYMin meet">
-          <text x="0" y="98%" *ngIf="currentEvent !== undefined">{{currentEvent.name}}</text>
-          <text x="0" y="98%" *ngIf="nextEvent && !currentEvent">{{nextEvent.name}}</text>
-        </svg>
-        <p *ngIf="currentEvent !== undefined" class="space-grotesk">{{currentEvent.startDate | date:'MM/dd'}}<span *ngIf="currentEvent.displayEndDate"> - {{currentEvent.displayEndDate | date:'MM/dd'}}
-          </span><br />
-          {{currentEvent.address}}
-        </p>
-        <p *ngIf="nextEvent && !currentEvent" class="space-grotesk">{{nextEvent.startDate | date:'MM/dd'}}<span *ngIf="nextEvent.displayEndDate"> - {{currentEvent.displayEndDate | date:'MM/dd'}}
-          </span><br />
-          {{nextEvent.address}}
-        </p>
-      </div>
-    </div>
-
-    <div class="column" *ngIf="currentEvent !== undefined">
-      <p data-aos="fade-up">{{currentEvent.description}}</p>
-
-    </div>
-    <div class="column" *ngIf="nextEvent !== undefined && !currentEvent">
-      <p data-aos="fade-up">{{nextEvent.description}}</p>
-    </div>
-
-  </div>
 
   <h2 data-aos="fade">Activity Overview</h2>
 
@@ -128,48 +97,4 @@
 
   </div>
 
-  <h2 data-aos="fade">Visit Exhibit</h2>
-
-  <div id="events" class="columns column is-mobile is-multiline" *ngIf="events !== undefined">
-
-    <div class="columns column is-11-mobile is-5-tablet is-mobile" *ngFor="let event of events; let i = index;">
-
-      <div class="column event" data-aos="fade-right" [attr.data-aos-delay]="(i*300)">
-
-        <svg width="36" height="45" fill="none" viewBox="0 0 36 45">
-          <path stroke-miterlimit="10" stroke-width="4"
-            d="M34 18c0 8.8-16 24-16 24S2 26.8 2 18 9.2 2 18 2s16 7.2 16 16z" />
-          <path stroke-miterlimit="10" stroke-width="4" d="M18 22a5 5 0 1 0 0-10 5 5 0 0 0 0 10z" />
-        </svg>
-
-        <br />
-
-        <div class="info" [class.current]="event.current" *ngIf="!event.endDate2">
-          <strong>{{event.name}}</strong>
-
-          <div>
-            <p class="day">{{event.startDate | date:'MM/dd'}}</p>
-            <span>{{event.startDate | date:'hh:mma'}}<span *ngIf="event.endDate"> &#8212; {{event.endDate | date:'hh:mma'}}</span>
-              <br />
-              {{event.address}}</span>
-          </div>
-        </div>
-        <div class="info" [class.current]="event.current" *ngIf="event.endDate2">
-          <strong>{{event.name}}</strong>
-
-          <div>
-            <p class="day">{{event.startDate | date:'MM/dd'}}</p>
-            <span>{{event.startDate | date:'hh:mma'}} &#8212; {{event.endDate | date:'hh:mma'}}<br />
-              {{event.address}}</span>
-          </div>
-          <div>
-            <p class="day">{{event.startDate2 | date:'MM/dd'}}</p>
-            <span>{{event.startDate2 | date:'hh:mma'}} &#8212; {{event.endDate2 | date:'hh:mma'}}<br />
-              {{event.address}}</span>
-          </div>
-        </div>
-      </div>
-
-    </div>
-  </div>
 </section>

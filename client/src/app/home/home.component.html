@@ -20,8 +20,9 @@
 
       <div id="about-box" class="space-grotesk-semi">
         <div class="text">
-          <p>What will the future of Boston be like? Will there be flying cars? Will services, like education and street maintenance, be equitable?</p>
-          <p>Beta Blocks is a participatory imagination project for Boston communities to question and explore the role of new technologies in the places they live. Community members, technology companies, and the City will imagine how technologies can help solve the problems neighborhoods face and set up experiments and discussions to evaluate the impact of technologies on the places we live.</p>
+          <p>Beta Blocks established temporary relaxed permitting in four block “Exploration Zones” for Boston’s Chinatown, Codman Square, and Lower Allston neighborhoods, with the help of the Mayor’s Office of New Urban Mechanics.</p>
+          <p>The Engagement Lab @ Emerson College partnered with companies to temporarily install technologies in the Zones, and facilitated community feedback to the companies and the City of Boston in a series of meetings and walking tours of the technologies.</p>
+          <p>Supernormal designed and fabricated the “Beta Blob” that visited Boston neighborhoods, inviting people to participate.</p>
         </div>
 
         <a routerLink="/about">
@@ -35,75 +36,16 @@
     </div>
   </div>
 
-  <!-- LOCATION -->
-  <h2 data-aos="fade">Exhibit Location</h2>
-  <div id="exhibit" class="columns column is-11-mobile is-multiline is-mobile no-margin" *ngIf="hasContent">
-    <!-- Tablet+ -->
-    <div class="column is-half location" data-aos="fade-up" *ngIf="!isPhone && (currentEvent || nextEvent)">
+  <h2 data-aos="fade">Learn More</h2>
 
-      <h2 class="lower" *ngIf="currentEvent !== undefined">The exhibit is now in . . .</h2>
-      <h2 class="lower" *ngIf="nextEvent && !currentEvent">The exhibit will soon be in . . .</h2>
-
-      <svg fill="none" viewBox="0 0 500 80">
-        <text x="0" y="98%" *ngIf="currentEvent !== undefined">{{currentEvent.name}}</text>
-        <text x="0" y="98%" *ngIf="nextEvent && !currentEvent">{{nextEvent.name}}</text>
-      </svg>
-      <app-button route="/exhibit" label="view more info"></app-button>
-
-    </div>
-
-    <!-- Map -->
-    <div class="column is-11-mobile">
-      <div id="circle-parent" data-aos="circle-purple">
-        <svg id="circle-purple" width="116" height="116" fill="none" viewBox="0 0 116 116">
-          <path fill="#402B59" d="M58 116c32.032 0 58-25.968 58-58S90.032 0 58 0 0 25.968 0 58s25.968 58 58 58z" />
-        </svg>
-      </div>
-      <cdn-image id="map" cloudinaryId="img/home/map_allston" width="600" [responsive]="true" autoFormat="true"
-        alt="Boston map" data-aos="fade-left" data-aos-offset="-300">
-      </cdn-image>
-
-      <div id="shapes" data-aos="shapes">
-        <svg viewBox="0 0 584 200" width="584" height="295" fill="none" xmlns="http://www.w3.org/2000/svg">
-          <path
-            d="M 507.696 170.836 C 529.235 170.836 546.696 153.375 546.696 131.836 C 546.696 110.297 529.235 92.836 507.696 92.836 C 486.157 92.836 468.696 110.297 468.696 131.836 C 468.696 153.375 486.157 170.836 507.696 170.836 Z"
-            fill="#B5191D" id="red" />
-          <path
-            d="M 165.42 27.146 C 150.585 35.865 143.665 24.157 128.831 32.876 C 113.996 41.595 120.861 53.144 106.026 61.863 C 91.192 70.582 84.272 58.874 69.437 67.593 C 54.603 76.312 61.467 87.86 46.633 96.579 C 31.799 105.298 24.934 93.75 10.099 102.469"
-            stroke="#FFD7ED" stroke-width="12" stroke-miterlimit="10" stroke-linecap="round" />
-          <path
-            d="M 513.196 122.836 C 544.952 122.836 570.696 96.869 570.696 64.836 C 570.696 32.803 544.952 6.836 513.196 6.836 C 481.44 6.836 455.696 32.803 455.696 64.836 C 455.696 96.869 481.44 122.836 513.196 122.836 Z"
-            stroke="#FCBD0B" stroke-width="12" stroke-miterlimit="10" id="yellow" />
-        </svg>
-      </div>
-    </div>
-
-    <!-- Phones -->
-    <div class="column is-11-mobile location" data-aos="fade-up" *ngIf="isPhone && (currentEvent || nextEvent)">
-
-      <h2 class="lower" *ngIf="currentEvent !== undefined">The exhibit is now in . . .</h2>
-      <h2 class="lower" *ngIf="nextEvent && !currentEvent">The exhibit will soon be in . . .</h2>
-      <svg width="500" height="80" fill="none" viewBox="0 0 500 80">
-        <text x="0" y="98%" *ngIf="currentEvent !== undefined">{{currentEvent.name}}</text>
-        <text x="0" y="98%" *ngIf="nextEvent && !currentEvent">{{nextEvent.name}}</text>
-      </svg>
-
-      <app-button route="/exhibit" label="view more info" class="center-all"></app-button>
-
-    </div>
-  </div>
-
-  <h2 data-aos="fade">Get Involved</h2>
-
-  <!-- GET INVOLVED -->
+  <!-- GET INVOLVED/LEARN MORE -->
   <div id="getinvolved" class="bleed no-pad column is-11-tablet is-full-desktop is-multiline" *ngIf="hasContent">
 
     <div class="text column is-12-tablet is-5-desktop" data-aos="get-involved">
 
-      <a class="columns is-mobile" routerLink="/getinvolved">
+      <a class="columns is-mobile" routerLink="/discover">
         <div class="no-pad column is-10-tablet space-grotesk">
-          <p class="space-grotesk-semi">Participate in your community</p>
-          Experiment with new technologies before they arrive in your neighborhood!
+          <p class="space-grotesk-semi">Discover Boston through data</p>
         </div>
 
         <div class="right column no-pad is-2-mobile is-offset-1-tablet">
@@ -115,8 +57,7 @@
 
       <a class="columns is-mobile" routerLink="/exhibit">
         <div class="no-pad column is-10-tablet space-grotesk">
-          <p class="space-grotesk-semi">Visit the exhibit</p>
-          Our interactive inflatable exhibit, featuring fun activities and demos, kickstarts the conversation about the future of Boston!
+          <p class="space-grotesk-semi">Experience the exhibit</p>
         </div>
         
         <div class="right no-pad column is-2-mobile is-offset-1-tablet">
@@ -128,8 +69,7 @@
 
       <a class="columns is-mobile" routerLink="/tech">
         <div class="column no-pad is-10-tablet space-grotesk">
-          <p class="space-grotesk-semi">Learn About Our Tech Partners</p>
-          Discover the technologies we featured on the streets of Boston in a community-led trial!
+          <p class="space-grotesk-semi">Meet our technology partners</p>
         </div>
         
         <div class="right no-pad column is-2-mobile is-offset-1-tablet">
