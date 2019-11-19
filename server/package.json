@@ -13,7 +13,7 @@
   },
   "dependencies": {
     "@engagementlab/el-bootstrapper": "^0.0.6",
-    "axios": "^0.18.0",
+    "axios": "^0.18.1",
     "bluebird": "^3.5.3",
     "cloudinary": "^1.13.2",
     "connect-flash": "^0.1.1",
