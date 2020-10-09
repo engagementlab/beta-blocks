@@ -1,12 +1,22 @@
-import { Component, OnInit } from '@angular/core';
-import { FormBuilder, Validators } from '@angular/forms';
+import {
+  Component,
+  OnInit
+} from '@angular/core';
+import {
+  FormBuilder,
+  Validators
+} from '@angular/forms';
 
-import { DataService } from '../utils/data.service';
+import {
+  DataService
+} from '../utils/data.service';
 
 import * as AOS from 'aos';
-import * as ismobile from 'ismobilejs';
+import isMobile from 'ismobilejs';
 import * as _ from 'underscore';
-import { ScrollToService } from '@nicky-lenaers/ngx-scroll-to';
+import {
+  ScrollToService
+} from '@nicky-lenaers/ngx-scroll-to';
 
 @Component({
   selector: 'app-about',
@@ -29,22 +39,20 @@ export class AboutComponent implements OnInit {
   private userForm: any;
 
   constructor(private _dataSvc: DataService, private _formBuilder: FormBuilder, private _scrollToService: ScrollToService) {
-    
-    this.isPhone = ismobile.phone;
 
-    _dataSvc.getDataForUrl('/api/people/get').subscribe((data: any) => {
+    this.isPhone = isMobile(window.navigator.userAgent).phone;
 
-      this.people = data.peopleData;
-      this.hasContent = true;
-      
-      this.getPerson(0);
-
-    });
-    
   }
-  
-  ngOnInit() {
-    
+
+  async ngOnInit() {
+
+    const data = await this._dataSvc.getDataForUrl('/api/people/get');
+
+    this.people = data['peopleData'];
+    this.hasContent = true;
+
+    this.getPerson(0);
+
     this.userForm = this._formBuilder.group({
       'name': ['', Validators.required],
       'email': ['', [Validators.required, Validators.email]],
@@ -57,7 +65,7 @@ export class AboutComponent implements OnInit {
     });
 
   }
-  
+
   // convenience getter for easy access to form fields
   get f() {
     return this.userForm.controls;
@@ -69,7 +77,7 @@ export class AboutComponent implements OnInit {
 
     // stop here if form is invalid
     if (this.userForm.invalid) {
-        return;
+      return;
     }
 
     let data = this.userForm.value;
@@ -82,11 +90,11 @@ export class AboutComponent implements OnInit {
 
   }
 
-  getPerson(i:number) {
+  getPerson(i: number) {
 
     let name = document.querySelector('#people .name');
     let text = document.querySelector('#people .text');
-    
+
     if (name) {
       name.classList.add('change');
       text.classList.add('change');
@@ -105,17 +113,17 @@ export class AboutComponent implements OnInit {
 
         void name.clientLeft;
         void text.clientLeft;
-        
+
         name.classList.remove('change');
         text.classList.remove('change');
 
         this._scrollToService
-        .scrollTo({
-          target: document.getElementById('bio'),
-          offset: 100,
-          easing: 'easeOutQuint',
-          duration: 700
-        });
+          .scrollTo({
+            target: document.getElementById('bio'),
+            offset: 100,
+            easing: 'easeOutQuint',
+            duration: 700
+          });
 
       }, 600);
     }
@@ -123,8 +131,8 @@ export class AboutComponent implements OnInit {
     let names = document.querySelectorAll('#people p');
     _.each(names, (name: HTMLElement, ind: number) => {
       name.className = '';
-      
-      if(ind === i)
+
+      if (ind === i)
         name.className = 'active';
     });
 

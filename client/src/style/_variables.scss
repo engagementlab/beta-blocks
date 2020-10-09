@@ -78,7 +78,7 @@ desktopAd: 810px,
 mobileLandscape: 480px);
 
 // Mixins 
-@import '../../node_modules/@engagementlab/el-scss/bundle';
+@import '../../node_modules/@engagementlab/el-scss/src/all.scss';
 
 @mixin btnhover() {
     svg path {

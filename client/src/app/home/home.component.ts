@@ -4,7 +4,7 @@ import { DataService } from '../utils/data.service';
 
 import * as AOS from 'aos';
 import * as _ from 'underscore';
-import * as ismobile from 'ismobilejs';
+import isMobile from 'ismobilejs';
 
 @Component({
   selector: 'app-home',
@@ -22,20 +22,19 @@ export class HomeComponent implements AfterViewInit {
 
   constructor(private _dataSvc: DataService) {
     
-    this.isPhone = ismobile.phone;
-      
-    _dataSvc.getDataForUrl('/api/exhibit/get/current').subscribe((data: any) => {
-
-      this.currentEvent = _.where(data.eventsData, {current: true})[0];
-      this.nextEvent = _.where(data.eventsData, {current: false})[0];
-
-      this.hasContent = true;
-  
-    });
+    this.isPhone = isMobile(window.navigator.userAgent).phone;
 
   }
 
-  ngOnInit() {
+  async ngOnInit() {
+
+    const data = await this._dataSvc.getDataForUrl('/api/exhibit/get/current');
+
+    this.currentEvent = _.where(data['eventsData'], {current: true})[0];
+    this.nextEvent = _.where(data['eventsData'], {current: false})[0];
+
+    this.hasContent = true;
+
   }
 
 

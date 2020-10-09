@@ -28,6 +28,7 @@ import cloudinaryConfiguration from './cdn.config';
 import { ScrollToModule } from '@nicky-lenaers/ngx-scroll-to';
 import { ZonesComponent } from './zones/zones.component';
 import { TechComponent } from './tech/tech.component';
+import { ScullyLibModule } from '@scullyio/ng-lib';
 
 export const cloudinary = {
   Cloudinary: CloudinaryCore
@@ -60,7 +61,8 @@ export const config: CloudinaryConfiguration = cloudinaryConfiguration;
     HttpClientModule,
     HttpClientJsonpModule,
     ReactiveFormsModule,
-    ScrollToModule.forRoot()
+    ScrollToModule.forRoot(),
+    ScullyLibModule
   ],
   providers: [
     DataService

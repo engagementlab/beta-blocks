@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { DomSanitizer, SafeUrl } from '@angular/platform-browser';
 
-import * as ismobilejs from 'ismobilejs';
+import isMobile from 'ismobilejs';
 import { DataService } from '../utils/data.service';
 
 @Component({
@@ -16,18 +16,15 @@ export class ToolComponent implements OnInit {
   
   constructor(private _dataSvc: DataService, private _sanitizer: DomSanitizer) {
 
-    this.isPhone = ismobilejs.phone;
+    this.isPhone = isMobile(window.navigator.userAgent).phone;
 
-    _dataSvc.getDataForUrl('/api/tool/get').subscribe((data: any) => {
-
-      this.url = _sanitizer.bypassSecurityTrustResourceUrl(data.toolData.url);
-      
-    });
 
 
   }
 
-  ngOnInit() {
+  async ngOnInit() {
+    const data = await this._dataSvc.getDataForUrl('/api/tool/get');
+    this.url = this._sanitizer.bypassSecurityTrustResourceUrl(data['toolData'].url);
   }
 
 }

@@ -32,43 +32,4 @@
   <cdn-image id="cone" cloudinaryId="img/about/cone" width="83" phoneWidth="54" autoFormat="false" svg="false"
     [responsive]="false" data-aos="cone" data-aos-delay="1000"></cdn-image>
 
-  <h2 data-aos="fade">Contact Us</h2>
-
-  <!-- CONTACT -->
-  <form class="columns column is-11-mobile is-full-tablet is-multiline" [formGroup]="userForm" (submit)="submitForm()"
-    *ngIf="!received">
-    <div class="fields">
-
-      <div class="column is-full-mobile is-half-tablet" data-aos="fade-up" data-aos-delay="500">
-        <input formControlName="name" id="name" placeholder="name" required />
-        <div *ngIf="submitted && f.name.invalid">Required.</div>
-      </div>
-
-      <div class="column is-full-mobile is-half-tablet" data-aos="fade-up" data-aos-delay="1000">
-        <input formControlName="email" id="email" placeholder="email" required />
-        <div *ngIf="submitted && f.email.invalid">
-          <span *ngIf="f.email.errors.required">Required.</span>
-          <span *ngIf="f.email.errors.email">Please enter a valid email address.</span>
-        </div>
-      </div>
-    </div>
-    <div class="column is-full-mobile is-full" data-aos="fade-up" data-aos-delay="1500">
-      <textarea formControlName="message" id="message" name="message" placeholder="message" class="full"
-        required></textarea>
-      <div *ngIf="submitted && f.message.invalid">Required.</div>
-    </div>
-    <div class="column is-full-mobile is-5-tablet" data-aos="fade-up" data-aos-delay="1500">
-      <button type="submit">Submit</button>
-    </div>
-    <div class="center-all column">
-      <cdn-image cloudinaryId="img/about/gold" width="136" phoneWidth="79" autoFormat="false" svg="false"
-        [responsive]="false" data-aos="fade-left" data-aos-delay="2000">
-      </cdn-image>
-    </div>
-  </form>
-  <!-- email sent -->
-  <div *ngIf="received" class="space-grotesk">
-    Thanks for your message! Somebody will be in touch with you shortly!
-  </div>
-
 </section>

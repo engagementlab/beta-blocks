@@ -1,6 +1,11 @@
-import { Component, OnInit } from '@angular/core';
+import {
+  Component,
+  OnInit
+} from '@angular/core';
 
-import { DataService } from '../utils/data.service';
+import {
+  DataService
+} from '../utils/data.service';
 
 import * as AOS from 'aos';
 import * as _ from 'underscore';
@@ -11,7 +16,7 @@ import * as _ from 'underscore';
   styleUrls: ['./exhibit.component.scss']
 })
 export class ExhibitComponent implements OnInit {
-  
+
   public hasContent: boolean;
 
   public currentEvent: any;
@@ -20,36 +25,36 @@ export class ExhibitComponent implements OnInit {
   public events: any[];
   public info: any[];
 
-  constructor(private _dataSvc: DataService) {
-    
-    _dataSvc.getDataForUrl('/api/exhibit/get').subscribe((data: any) => {
+  constructor(private _dataSvc: DataService) {};
 
-      this.info = data.exhibitData;
-      this.events = data.eventsData;
-  
-      this.currentEvent = _.where(this.events, {current: true})[0];
-      this.nextEvent = _.where(this.events, {next: true})[0];
+  async ngOnInit() {
+    const data = await this._dataSvc.getDataForUrl('/api/exhibit/get');
 
-      if (this.currentEvent) {
-        if (this.currentEvent.endDate2)
-          this.currentEvent.displayEndDate = this.currentEvent.endDate2;
-        else if (this.currentEvent.endDate)
-          this.currentEvent.displayEndDate = this.currentEvent.endDate;
-      }
-      if (this.nextEvent) {
-        if (this.nextEvent.endDate2)
-          this.nextEvent.displayEndDate = this.nextEvent.endDate2;
-        else if (this.nextEvent.endDate)
-          this.nextEvent.displayEndDate = this.nextEvent.endDate;
-      }
+    this.info = data['exhibitData'];
+    this.events = data['eventsData'];
 
-      this.hasContent = true;
+    this.currentEvent = _.where(this.events, {
+      current: true
+    })[0];
+    this.nextEvent = _.where(this.events, {
+      next: true
+    })[0];
 
-    });
+    if (this.currentEvent) {
+      if (this.currentEvent.endDate2)
+        this.currentEvent.displayEndDate = this.currentEvent.endDate2;
+      else if (this.currentEvent.endDate)
+        this.currentEvent.displayEndDate = this.currentEvent.endDate;
+    }
+    if (this.nextEvent) {
+      if (this.nextEvent.endDate2)
+        this.nextEvent.displayEndDate = this.nextEvent.endDate2;
+      else if (this.nextEvent.endDate)
+        this.nextEvent.displayEndDate = this.nextEvent.endDate;
+    }
 
-  };
+    this.hasContent = true;
 
-  ngOnInit() {
 
     AOS.init({
       duration: 700,
@@ -59,12 +64,12 @@ export class ExhibitComponent implements OnInit {
   }
 
   toggleInfo(evt: Event) {
-    
+
     let items = document.querySelectorAll('#info ul li');
     _.each(items, (item) => {
       item.classList.remove('active');
     });
-    (<Element>evt.currentTarget).classList.toggle('active');
+    ( < Element > evt.currentTarget).classList.toggle('active');
 
   }
 

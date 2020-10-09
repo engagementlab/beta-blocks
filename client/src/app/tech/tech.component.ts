@@ -1,7 +1,17 @@
-import { Component, OnInit, AfterViewInit } from '@angular/core';
-import { FormGroup, FormBuilder, Validators } from '@angular/forms';
+import {
+  Component,
+  OnInit,
+  AfterViewInit
+} from '@angular/core';
+import {
+  FormGroup,
+  FormBuilder,
+  Validators
+} from '@angular/forms';
 
-import { DataService } from '../utils/data.service';
+import {
+  DataService
+} from '../utils/data.service';
 
 import * as AOS from 'aos';
 
@@ -20,18 +30,16 @@ export class TechComponent implements OnInit, AfterViewInit {
 
   public userForm: FormGroup;
 
-  constructor(private _dataSvc: DataService, private _formBuilder: FormBuilder) { 
-
-    _dataSvc.getDataForUrl('/api/tech/get').subscribe((data: any) => {
-
-      this.partners = data.techData;
-      this.hasContent = true;
-
-    });
+  constructor(private _dataSvc: DataService, private _formBuilder: FormBuilder) {
 
   }
 
-  ngOnInit() {
+  async ngOnInit() {
+    const data = await this._dataSvc.getDataForUrl('/api/tech/get');
+
+    this.partners = data['techData'];
+    this.hasContent = true;
+
 
     this.userForm = this._formBuilder.group({
       'loc': ['', [Validators.required]],
@@ -49,19 +57,19 @@ export class TechComponent implements OnInit, AfterViewInit {
   ngAfterViewInit() {
 
     // A little hack to show 'required' label on inputs
-    for(let id in this.userForm.controls) {
-      if(this.userForm.controls[id].errors && this.userForm.controls[id].errors.required) {
+    for (let id in this.userForm.controls) {
+      if (this.userForm.controls[id].errors && this.userForm.controls[id].errors.required) {
 
-        let errorEl = (document.querySelector("span[data-field='"+ id +"'") as HTMLElement);
+        let errorEl = (document.querySelector("span[data-field='" + id + "'") as HTMLElement);
         let targetEl = document.getElementById(id);
         let targetWidth = targetEl.clientWidth;
-        let offsetWidth = targetWidth-(errorEl.clientWidth/2);
-        
+        let offsetWidth = targetWidth - (errorEl.clientWidth / 2);
+
         // Make error span width of input field
         errorEl.style.width = offsetWidth + 'px';
         errorEl.style.display = 'block';
       }
-      
+
     }
 
   }
@@ -75,22 +83,22 @@ export class TechComponent implements OnInit, AfterViewInit {
     this.submitted = true;
 
     // A little hack to get error inside input fields
-    for(let id in this.userForm.controls) {
-      if(this.userForm.controls[id].invalid || this.userForm.controls[id].errors !== null) {
+    for (let id in this.userForm.controls) {
+      if (this.userForm.controls[id].invalid || this.userForm.controls[id].errors !== null) {
 
-        let errorEl = (document.querySelector("span[data-field='"+ id +"'") as HTMLElement);
+        let errorEl = (document.querySelector("span[data-field='" + id + "'") as HTMLElement);
         let targetEl = document.getElementById(id);
         let targetWidth = targetEl.clientWidth;
-        let offsetWidth = targetWidth-errorEl.clientWidth;
-        
+        let offsetWidth = targetWidth - errorEl.clientWidth;
+
         // Make error span width of input field
         errorEl.style.width = offsetWidth + 'px';
         errorEl.style.display = 'block';
         targetEl.classList.add('error');
       }
-      
+
     }
-    
+
     // stop here if form is invalid
     if (this.userForm.invalid) {
       return;
@@ -107,9 +115,9 @@ export class TechComponent implements OnInit, AfterViewInit {
   }
 
   public formClear(target: HTMLElement) {
-    
-    let errorEl = (document.querySelector("span[data-field='"+ target.id +"'") as HTMLElement);
-    
+
+    let errorEl = (document.querySelector("span[data-field='" + target.id + "'") as HTMLElement);
+
     errorEl.style.display = 'none';
     target.classList.remove('error');
 
