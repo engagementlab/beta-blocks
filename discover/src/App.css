@@ -1,0 +1,680 @@
+
+:root {  
+  --grape: #402b59;
+  --grape-purple: #7b223b;
+  --rouge: #b5191d;
+  --rusty-orange: #d96b14;
+  --marigold: #fcbd0b;
+  --wheat: #feca7c;
+  --light-pink: #ffd7ed;
+}
+.invisible {
+  opacity: 0;
+}
+.line {
+  margin-top: 32px;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+/* prevent scrolling */
+
+body {
+  position: fixed;
+}
+
+body {
+  color: #000;
+  font-family: "SpaceGrotesk-SemiBold", serif;
+  display: grid;
+  place-items: center center;
+
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+html,
+body {
+  min-width: 100vw;
+  min-height: 100vh;
+}
+
+#root {
+  width: 100vw;
+  height: 100vh;
+}
+
+.App {
+  position: relative;
+
+  width: 100%;
+  height: 100%;
+
+
+  xbackground-color: #0E212E;
+  display: grid;
+  grid-template-columns: 460px 1fr;
+  grid-template-rows: 1fr;
+
+  user-select: none;
+  xdisplay: none;
+}
+
+/* These are for an iPad 10.5" */
+/*
+body {
+  background: #000 center center url('./res/img/iPad Background.png') no-repeat;
+  background-size: calc(1326px) calc(912px);
+}
+.App {
+  width: 1112px;
+  height: 834px;
+  margin: auto auto;
+  margin-top: calc((100vh - 832px) / 2);
+}
+*/
+
+.App-sidebar {
+  
+  font-size: 24px;
+  padding: 35px 45px 15px 45px;
+  background: rgba(255, 255, 255, 0.8);
+  z-index: 1;
+  display: flex;
+  flex-direction: column;
+  /* !!! Fixes a rounding bug at 75% zoom;
+  otherwise the map peeks through */
+  margin-bottom: -1px;
+  animation: fade ease-in 0.5s;
+  transition: background 0.5s ease-out;
+  /* doesn't seem to do anything? */
+  height: 100%;
+  max-height: 100%;
+}
+
+.App-sidebar .sidebar-option {
+  cursor: pointer;
+  margin-top: 0.5em;
+}
+
+.App-sidebar .sidebar-option .title {
+  color: var(--rouge);
+  text-decoration: underline;
+
+  font-weight: bold;
+  font-size: calc(1.25 * 14px);
+  line-height: 21px;
+}
+
+.App-sidebar .sidebar-option .sample {
+  font-size: 14px;
+  font-weight: 300;
+  font-size: calc(1.25 * 12px);
+  line-height: 18px;
+}
+
+.App-sidebar .sidebar-option.active {
+  font-weight: bold;
+}
+
+.App-map-legend {
+  box-sizing: content-box;
+  margin-top: 1em;
+  font-size: 16px;
+  width: 215px;
+  height: 67px;
+
+  position: absolute;
+  bottom: 15px;
+  right: 15px;
+
+  padding: 15px;
+  padding-bottom: 25px;
+
+  /* color: white; */
+  transform: scale(1.1);
+  transform-origin: 100% 100%;
+}
+
+.App-map-legend .Legend-label {
+  margin-bottom: 1em;
+  white-space: nowrap;
+  font-size: 0.9em;
+  text-align: center;
+}
+
+.App-map-legend .Legend-inner {
+  position: relative;
+}
+
+.App-map-legend .Legend-inner .Legend-coverup {
+  width: 215px;
+  height: 35px;
+  position: relative;
+  bottom: 0;
+  left: 0;
+  pointer-events: none;
+}
+
+.App-map-legend .Legend-inner .Legend-coverup svg text {
+  dominant-baseline: middle;
+  text-anchor: middle;
+  fill: black;
+}
+
+.App-map-legend .Legend-inner .Legend-coverup img {
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  pointer-events: none;
+}
+
+@keyframes fade {
+  from {
+    opacity: 0;
+  }
+
+  to {
+    opacity: 1;
+  }
+}
+
+.App-subtitle {
+  
+  font-weight: bold;
+  
+  font-family: SpaceGrotesk-Bold;
+  font-size: 18px;
+  font-weight: bold;
+  
+  letter-spacing: 6px;
+  color: var(--rouge);
+  text-transform: uppercase;
+
+  margin-top: 19px;
+}
+
+.App-sidebar h1 {
+  font-family: 'VG5000', serif;
+  font-size: 36px;
+  
+  letter-spacing: 4px;
+  color: var(--grape);
+}
+
+.Map {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 0;
+  overflow: hidden;
+}
+
+.Map-container {
+  height: 100%;
+  /* hide the mapbox footer for now */
+  /* note this will throw off centering calculations */
+  height: calc(100% + 30px);
+}
+
+.MapOverlay {
+  z-index: 1;
+  pointer-events: none;
+}
+
+.App-sidebar p:first-of-type {
+  margin-top: 1.5em;
+}
+
+.App-sidebar p {
+  margin-top: 1em;
+  line-height: 1.5;
+}
+.App-sidebar p.sm {
+  font-size: 18px;
+}
+.SectionNavigator {
+  margin: 0 -20px;
+  /* push into the sidebar padding */
+  margin-top: auto;
+}
+
+.SectionNavigator-main {
+
+  font-size: 24px;
+  width: 380px;
+  height: 90px;
+  letter-spacing: 0.5px;
+  
+  align-items: center;
+  justify-content: center;
+  display: flex;
+  cursor: pointer;
+  user-select: none;
+  
+  transition: all 0.2s ease-out;
+
+  border: solid 4px var(--marigold);
+ 
+  background-image: linear-gradient(to right, var(--marigold) 0%, #ffffff 0%, #ffffff 100%);
+  background-size: 100% 100%; 
+}
+
+.SectionNavigator-main.last {
+  border-color: var(--grape)
+}
+
+.SectionNavigator-main .App-subtitle {
+  color: var(--grape);
+}
+
+.SectionNavigator-main .NextButton {
+  border-left: solid 4px var(--marigold);
+}
+.SectionNavigator-main .NextButton.flip {
+  border-left: solid 4px var(--grape);
+}
+
+.SectionNavigator-main:active {
+  
+  background-image: linear-gradient(to right, var(--marigold) 1%, #ffffff 1%, #ffffff 100%);
+  background-size: 10000% 100%;
+  
+}
+.SectionNavigator-main:active .SectionNavigator-title {
+  color: white;
+}
+
+.SectionNavigator-main:active .NextButton svg {
+  transform: scale(1.2, 1.2);
+}
+.SectionNavigator-main:active .NextButton svg path {
+  stroke: white;
+}
+
+.SectionNavigator-heading {
+  margin-left: 37px;
+}
+
+.SectionNavigator-title {  
+  /* line-height: 2;
+  letter-spacing: 0.5px; */
+  color: var(--grape);
+}
+
+
+.SectionNavigator-dots {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+.SectionNavigator-dots .dots {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 15px;
+  width: 85%;
+}
+
+.SectionNavigator-dot {
+  cursor: pointer;
+  height: 20px;
+  width: 20px;
+  
+  border: solid 2px var(--grape);
+  background-color: white;
+
+  border-radius: 99px;
+  transition: all ease-out 0.5s;
+  margin: 2px 10px;
+}
+
+.SectionNavigator-dots .border {
+  display: block;
+  position: relative;
+  z-index: -3;
+  height: 2px;
+  width: 66%;
+  top: 27px;
+
+  border-bottom: 2px solid var(--grape);
+}
+
+.SectionNavigator-dot.active {
+  background: var(--grape);
+}
+
+.NextButton {
+  
+  height: 100%;
+  width: 70px;
+  line-height: 1.0;
+  text-align: center;
+  font-size: 42px;
+  font-weight: bold;
+  align-items: center;
+  justify-content: center;
+  display: flex;
+  margin: 7px 10px;
+  margin-left: auto;
+  transition: all 0.2s ease-out;
+  
+}
+
+.NextButton svg {
+  transition: all 0.2s ease-out;
+  
+}
+
+.NextButton.flip {
+  border-left: none;
+}
+.NextButton.flip svg {
+  transform: scaleX(-1);
+}
+.NextButton.flip svg path {
+  stroke: var(--grape);  
+}
+
+.NextButton:active {
+  cursor: pointer;
+  user-select: none;
+  border-width: 4px;
+}
+
+.NextButton:active svg {
+}
+.NextButton:active svg path {
+  stroke: white;
+}
+
+.NextButton:active {
+  background: #FEEFEB;
+}
+
+.App-intro {
+  position: absolute;
+  z-index: 1;
+  width: 100%;
+  height: 100%;
+  background: rgba(255, 255, 255, 0.75);
+  animation: fade ease-in 0.5s;
+}
+
+
+/* todo: redo the vertical layout here with flexbox */
+
+.App-intro h1 {
+
+  font-family: 'VG5000';
+  text-align: center;
+  margin-top: 70px;
+
+  font-size: 52px;
+  /* line-height: 1.5; */
+  letter-spacing: 4px;
+  color: var(--grape);
+
+}
+
+.App-intro h1 div {
+
+  font-size: 48px;
+  line-height: 1.63;
+  letter-spacing: 4px;
+  color: var(--grape);
+
+}
+
+.App-intro .App-subtitle {
+  line-height: 29px;
+  font-size: 23px;
+  text-align: center;
+  margin-bottom: 45px;
+}
+
+.App-intro-ps {
+  
+  border: solid 4px var(--marigold);
+  background-color: var(--marigold);
+  margin: 0 auto;
+  padding: 25px;
+  width: 912px;
+
+}
+
+.App-intro p {
+  /* width: 600px; */
+  margin-bottom: 1em;
+  font-size: 23px;
+  font-weight: 600;
+  line-height: 1.5;
+  letter-spacing: 2px;
+}
+
+.App-get-started {
+
+  display: flex;
+  justify-content: space-evenly;
+  align-items: center;
+  flex-direction: row;
+
+  width: 490px;
+  height: 150px;
+
+  margin: 0 auto;
+  cursor: pointer;
+  
+  color: var(--marigold);
+  border: solid 4px var(--marigold);
+
+  font-size: 36px;
+  line-height: 1.33;
+  letter-spacing: 2px;
+
+  transition: all .3s;
+  transform: translateX(43%);
+
+  background-image: linear-gradient(to right, var(--marigold) 0%, #ffffff 0%, #ffffff 100%);
+  background-size: 100% 100%;
+}
+.App-get-started:hover {
+  background-image: linear-gradient(to right, var(--marigold) 1%, #ffffff 1%, #ffffff 100%);
+
+  background-size: 10000% 100%;
+  color: white;
+}
+.App-get-started:hover svg path {
+  stroke: white;
+}
+
+.App-get-started div {  
+  border-left: solid 4px var(--marigold);
+  display: flex;
+
+  justify-items: center;
+  align-items: center;
+
+  height: 100%;
+}
+
+.App-get-started svg {
+  display: block;
+  /* transform: scale(1.2, 1.2); */
+  transform: translate(32px)
+}
+.App-get-started:hover svg path {
+  transition: all .3s ease-out;
+}
+.App-get-started:active .NextButton {
+  xbackground: #ddd;
+  xborder-color: #ddd;
+}
+
+.hover-instruction {
+  color: #fff;
+
+  padding: 15px;
+  position: absolute;
+  top: 45px;
+  left: 460px;
+  /* from the grid forcing the sidebar width */
+  width: 300px;
+  height: 85px;
+}
+
+.hover-info {
+  color: #000;
+
+  padding: 15px;
+  position: absolute;
+  top: 45px;
+  left: 460px;
+  /* from the grid forcing the sidebar width */
+  width: 300px;
+  height: 85px;
+
+  xbackground: linear-gradient(180deg, #FFFFFF 0%, rgba(255, 255, 255, 0) 100%), #FEEFEB;
+  background: url('./res/img/Hover Details.svg') -10px -10px no-repeat;
+  ;
+  border-radius: 7px;
+  box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.66);
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  xanimation: fade ease-in 0.5s;
+  font-variant-numeric: tabular-nums;
+
+}
+
+.hover-info .more {
+  color: green;
+}
+
+
+.hover-info .less {
+  color: red;
+}
+
+
+.sidewalk-score {
+  color: #fb3852;
+}
+
+.walkability-score {
+  color: #0c73ff;
+}
+
+.social-need-score {
+  color: #007d32;
+}
+
+.scores {
+  font-size: 0.75em;
+}
+
+.TriangleSlider {
+  margin-top: -53%;
+  margin-left: 15%;
+}
+
+.TriangleSlider circle,
+.TriangleSlider path {
+  cursor: pointer;
+
+}
+
+.label-img-marker {
+  pointer-events: none;
+  opacity: 1;
+  transition: opacity 0.5s ease-out;
+  transition-delay: 3s;
+  xbackground: blue;
+}
+
+.App.introHex .label-img-marker,
+.App.mapOfBoston .label-img-marker,
+.App.conclusions .label-img-marker {
+  transition-delay: 0s;
+  opacity: 0;
+  xbackground: red;
+}
+
+.link {
+  text-decoration: underline;
+  cursor: pointer;
+}
+
+.App-module-picker {
+  width: 550px;
+  height: 45px;
+  
+  
+  line-height: 1.89;
+  /* letter-spacing: 2px; */
+  margin: 0 auto;
+  margin-top: 30px;
+  margin-bottom: -50px;
+  
+  cursor: pointer;
+  
+  font-size: 18px;
+  font-weight: 500;
+  font-stretch: expanded;
+  
+  background-color: white;
+  color: black;
+  
+  border-radius: 50px;
+  /* border: solid 2px var(--light-pink); */
+  
+}
+
+.App-module-picker div {
+  height: 100%;
+  transition: all .3s ease-in-out;
+}
+
+.App-module-picker.m-311 div.m-scoring,
+.App-module-picker.m-scoring div.m-311 {
+  background-color: var(--light-pink);
+  /* color: white;   */
+
+}
+
+.App-module-picker.m-311 div.m-311 {
+  border: solid 2px var(--light-pink);
+}
+.App-module-picker.m-scoring div.m-scoring {
+  border: solid 2px var(--light-pink);
+}
+
+.App-module-picker div {
+  text-align: center;
+
+}
+
+.App-module-picker div:first-child {
+  float: left;
+  width: 50%;
+  border-radius: 20px 0 0 20px;
+
+}
+
+.App-module-picker div:last-child {
+  width: 50%;
+  float: right;
+  border-radius: 0 25px 25px 0;
+}

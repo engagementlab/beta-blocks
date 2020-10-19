@@ -1,0 +1,101 @@
+@font-face {
+    font-family: "Valkyrie T3";
+    src: url("res/fonts/Valkyrie-WOFF/valkyrie_t3_regular.woff") format('woff');
+}
+
+@font-face {
+    font-family: "Valkyrie T3";
+    src: url("res/fonts/Valkyrie-WOFF/valkyrie_t3_bold.woff") format('woff');
+    font-weight: bold;
+}
+
+@font-face {
+    font-family: "Valkyrie T3";
+    src: url("res/fonts/Valkyrie-WOFF/valkyrie_t3_bold_italic.woff") format('woff');
+    font-weight: bold;
+    font-style: italic;
+}
+
+@font-face {
+    font-family: "Valkyrie T3";
+    src: url("res/fonts/Valkyrie-WOFF/valkyrie_t4_italic.woff") format('woff');
+    font-style: italic;
+}
+
+
+@font-face {
+    font-family: "Valkyrie T4";
+    src: url("res/fonts/Valkyrie-WOFF/valkyrie_t4_regular.woff") format('woff');
+}
+
+@font-face {
+    font-family: "Valkyrie T4";
+    src: url("res/fonts/Valkyrie-WOFF/valkyrie_t4_bold.woff") format('woff');
+    font-weight: bold;
+}
+
+@font-face {
+    font-family: "Valkyrie T4";
+    src: url("res/fonts/Valkyrie-WOFF/valkyrie_t4_bold_italic.woff") format('woff');
+    font-weight: bold;
+    font-style: italic;
+}
+
+@font-face {
+    font-family: "Valkyrie T4";
+    src: url("res/fonts/Valkyrie-WOFF/valkyrie_t4_italic.woff") format('woff');
+    font-style: italic;
+}
+
+@font-face {
+    font-family: "Valkyrie C3";
+    src: url("res/fonts/Valkyrie-WOFF/valkyrie_c3_regular.woff") format('woff');
+}
+
+@font-face {
+    font-family: "Valkyrie C3";
+    src: url("res/fonts/Valkyrie-WOFF/valkyrie_c3_bold.woff") format('woff');
+    font-weight: bold;
+}
+
+
+@font-face {
+    font-family: "Valkyrie C4";
+    src: url("res/fonts/Valkyrie-WOFF/valkyrie_c4_regular.woff") format('woff');
+}
+
+@font-face {
+    font-family: "Valkyrie C4";
+    src: url("res/fonts/Valkyrie-WOFF/valkyrie_c4_bold.woff") format('woff');
+    font-weight: bold;
+}
+
+@font-face {
+    font-family: 'VG5000';
+    src: url('https://res.cloudinary.com/engagement-lab-home/raw/upload/beta-blocks/fonts/VG5000-Regular.otf') format('opentype');
+}
+
+@font-face {
+    font-family: 'SpaceGrotesk';
+    src: url('https://res.cloudinary.com/engagement-lab-home/raw/upload/beta-blocks/fonts/SpaceGrotesk-Regular.otf') format('opentype');
+}
+
+@font-face {
+    font-family: 'SpaceGrotesk-SemiBold';
+    src: url('https://res.cloudinary.com/engagement-lab-home/raw/upload/beta-blocks/fonts/SpaceGrotesk-SemiBold.otf') format('opentype');
+}
+
+@font-face {
+    font-family: 'SpaceGrotesk-Bold';
+    src: url('https://res.cloudinary.com/engagement-lab-home/raw/upload/beta-blocks/fonts/SpaceGrotesk-Bold.otf') format('opentype');
+}
+
+@font-face {
+    font-family: 'LunchtypeMed';
+    src: url('https://res.cloudinary.com/engagement-lab-home/raw/upload/beta-blocks/fonts/lunchtype24-medium-expanded-webfont.woff2') format('woff2'),
+        /* Super modern browsers */
+        url('https://res.cloudinary.com/engagement-lab-home/raw/upload/beta-blocks/fonts/lunchtype24-medium-expanded-webfont.woff') format('woff'),
+        /* Modern browsers */
+        url('https://res.cloudinary.com/engagement-lab-home/raw/upload/beta-blocks/fonts/Lunchtype24-medium-expanded-webfont.ttf') format('truetype');
+    /* Safari, Android, iOS */
+}

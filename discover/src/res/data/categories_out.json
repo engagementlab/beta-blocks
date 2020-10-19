@@ -1,0 +1,912 @@
+{
+  "Sidewalk Repair (Make Safe)": {
+    "subcategory": 200,
+    "type": "Sidewalk Repair (Make Safe)",
+    "category": "STREETS, SIDEWALKS, AND PARKS"
+  },
+  "Abandoned Building": {
+    "subcategory": 1200,
+    "type": "Abandoned Building",
+    "category": "LIVING CONDITIONS"
+  },
+  "Illegal Occupancy": {
+    "subcategory": 1200,
+    "type": "Illegal Occupancy",
+    "category": "LIVING CONDITIONS"
+  },
+  "Fire Department Request": {
+    "subcategory": 1800,
+    "type": "Fire Department Request",
+    "category": "?"
+  },
+  "Request for Snow Plowing": {
+    "subcategory": 500,
+    "type": "Request for Snow Plowing",
+    "category": "SNOW"
+  },
+  "Major System Failure": {
+    "subcategory": 1700,
+    "type": "Major System Failure",
+    "category": "LIVING CONDITIONS"
+  },
+  "Park Improvement Requests": {
+    "subcategory": 200,
+    "type": "Park Improvement Requests",
+    "category": "STREETS, SIDEWALKS, AND PARKS"
+  },
+  "Contractor Complaints": {
+    "subcategory": 1300,
+    "type": "Contractor Complaints",
+    "category": "BUILDING AND CONSTRUCTION"
+  },
+  "No-Tow Complaint Confirmation": {
+    "subcategory": 1400,
+    "type": "No-Tow Complaint Confirmation",
+    "category": "TRANSPORTATION, VEHICLES, AND BICYCLES"
+  },
+  "Animal Lost": {
+    "subcategory": 800,
+    "type": "Animal Lost",
+    "category": "ANIMALS"
+  },
+  "Oil Truck - No Receipt": {
+    "subcategory": 2000,
+    "type": "Oil Truck - No Receipt",
+    "category": "OTHER"
+  },
+  "Illegal Use": {
+    "subcategory": 2000,
+    "type": "Illegal Use",
+    "category": "OTHER"
+  },
+  "Chronic Dampness/Mold": {
+    "subcategory": 1200,
+    "type": "Chronic Dampness/Mold",
+    "category": "LIVING CONDITIONS"
+  },
+  "Rodent Activity": {
+    "subcategory": 900,
+    "type": "Rodent Activity",
+    "category": "LIVING CONDITIONS"
+  },
+  "Squalid Living Conditions": {
+    "subcategory": 1200,
+    "type": "Squalid Living Conditions",
+    "category": "LIVING CONDITIONS"
+  },
+  "Sticker Request": {
+    "subcategory": 1600,
+    "type": "Sticker Request",
+    "category": "?"
+  },
+  "Overcrowding": {
+    "subcategory": 1200,
+    "type": "Overcrowding",
+    "category": "LIVING CONDITIONS"
+  },
+  "Sidewalk Cover / Manhole": {
+    "subcategory": 200,
+    "type": "Sidewalk Cover / Manhole",
+    "category": "STREETS, SIDEWALKS, AND PARKS"
+  },
+  "Product Short Measure": {
+    "subcategory": 2000,
+    "type": "Product Short Measure",
+    "category": "OTHER"
+  },
+  "Watermain Break": {
+    "subcategory": 1700,
+    "type": "Watermain Break",
+    "category": "LIVING CONDITIONS"
+  },
+  "Automotive Noise Disturbance": {
+    "subcategory": 1400,
+    "type": "Automotive Noise Disturbance",
+    "category": "TRANSPORTATION, VEHICLES, AND BICYCLES"
+  },
+  "General Comments For a Program or Policy": {
+    "subcategory": 1800,
+    "type": "General Comments For a Program or Policy",
+    "category": "?"
+  },
+  "Protection of Adjoining Property": {
+    "subcategory": 1200,
+    "type": "Protection of Adjoining Property",
+    "category": "LIVING CONDITIONS"
+  },
+  "Animal Found": {
+    "subcategory": 800,
+    "type": "Animal Found",
+    "category": "ANIMALS"
+  },
+  "Unsatisfactory Utilities - Electrical  Plumbing": {
+    "subcategory": 1200,
+    "type": "Unsatisfactory Utilities - Electrical  Plumbing",
+    "category": "LIVING CONDITIONS"
+  },
+  "Rooftop & Mechanical Disturbances": {
+    "subcategory": 1200,
+    "type": "Rooftop & Mechanical Disturbances",
+    "category": "LIVING CONDITIONS"
+  },
+  "Parks General Request": {
+    "subcategory": 200,
+    "type": "Parks General Request",
+    "category": "STREETS, SIDEWALKS, AND PARKS"
+  },
+  "Food Alert - Confirmed": {
+    "subcategory": 1200,
+    "type": "Food Alert - Confirmed",
+    "category": "LIVING CONDITIONS"
+  },
+  "Graffiti Removal": {
+    "subcategory": 1000,
+    "type": "Graffiti Removal",
+    "category": "STREETS, SIDEWALKS, AND PARKS"
+  },
+  "Missing Sign": {
+    "subcategory": 400,
+    "type": "Missing Sign",
+    "category": "STREETS, SIDEWALKS, AND PARKS"
+  },
+  "Working Beyond Hours": {
+    "subcategory": 2000,
+    "type": "Working Beyond Hours",
+    "category": "OTHER"
+  },
+  "Work Hours-Loud Noise Complaints": {
+    "subcategory": 2000,
+    "type": "Work Hours-Loud Noise Complaints",
+    "category": "OTHER"
+  },
+  "New Tree Requests": {
+    "subcategory": 700,
+    "type": "New Tree Requests",
+    "category": "STREETS, SIDEWALKS, AND PARKS"
+  },
+  "Walk-In Service Inquiry": {
+    "subcategory": 2000,
+    "type": "Walk-In Service Inquiry",
+    "category": "OTHER"
+  },
+  "Construction Debris": {
+    "subcategory": 1300,
+    "type": "Construction Debris",
+    "category": "BUILDING AND CONSTRUCTION"
+  },
+  "Requests for Directional or Roadway Changes": {
+    "subcategory": 1400,
+    "type": "Requests for Directional or Roadway Changes",
+    "category": "TRANSPORTATION, VEHICLES, AND BICYCLES"
+  },
+  "Electrical": {
+    "subcategory": 1300,
+    "type": "Electrical",
+    "category": "BUILDING AND CONSTRUCTION"
+  },
+  "No Utilities - Food Establishment - Water": {
+    "subcategory": 1500,
+    "type": "No Utilities - Food Establishment - Water",
+    "category": "LIVING CONDITIONS"
+  },
+  "Pest Infestation - Residential": {
+    "subcategory": 900,
+    "type": "Pest Infestation - Residential",
+    "category": "LIVING CONDITIONS"
+  },
+  "Schedule a Bulk Item Pickup SS": {
+    "subcategory": 300,
+    "type": "Schedule a Bulk Item Pickup SS",
+    "category": "TRASH, RECYCLING, AND WASTE"
+  },
+  "Space Savers": {
+    "subcategory": 100,
+    "type": "Space Savers",
+    "category": "PARKING"
+  },
+  "Municipal Parking Lot Complaints": {
+    "subcategory": 100,
+    "type": "Municipal Parking Lot Complaints",
+    "category": "PARKING"
+  },
+  "Pavement Marking Inspection": {
+    "subcategory": 200,
+    "type": "Pavement Marking Inspection",
+    "category": "STREETS, SIDEWALKS, AND PARKS"
+  },
+  "Illegal Vending": {
+    "subcategory": 2000,
+    "type": "Illegal Vending",
+    "category": "OTHER"
+  },
+  "Pigeon Infestation": {
+    "subcategory": 900,
+    "type": "Pigeon Infestation",
+    "category": "LIVING CONDITIONS"
+  },
+  "Request for Snow Plowing (Emergency Responder)": {
+    "subcategory": 500,
+    "type": "Request for Snow Plowing (Emergency Responder)",
+    "category": "SNOW"
+  },
+  "General Comments For An Employee": {
+    "subcategory": 2000,
+    "type": "General Comments For An Employee",
+    "category": "OTHER"
+  },
+  "Install New Lighting": {
+    "subcategory": 400,
+    "type": "Install New Lighting",
+    "category": "STREETS, SIDEWALKS, AND PARKS"
+  },
+  "Misc. Snow Complaint": {
+    "subcategory": 600,
+    "type": "Misc. Snow Complaint",
+    "category": "SNOW"
+  },
+  "No Utilities Residential - Electricity": {
+    "subcategory": 1200,
+    "type": "No Utilities Residential - Electricity",
+    "category": "LIVING CONDITIONS"
+  },
+  "Zoning": {
+    "subcategory": 1800,
+    "type": "Zoning",
+    "category": "?"
+  },
+  "Litter Basket Maintenance": {
+    "subcategory": 300,
+    "type": "Litter Basket Maintenance",
+    "category": "TRASH, RECYCLING, AND WASTE"
+  },
+  "Needle Pickup": {
+    "subcategory": 1100,
+    "type": "Needle Pickup",
+    "category": "LIVING CONDITIONS"
+  },
+  "Unshoveled Sidewalk": {
+    "subcategory": 200,
+    "type": "Unshoveled Sidewalk",
+    "category": "STREETS, SIDEWALKS, AND PARKS"
+  },
+  "Schedule a Bulk Item Pickup": {
+    "subcategory": 300,
+    "type": "Schedule a Bulk Item Pickup",
+    "category": "TRASH, RECYCLING, AND WASTE"
+  },
+  "Mechanical": {
+    "subcategory": 1200,
+    "type": "Mechanical",
+    "category": "LIVING CONDITIONS"
+  },
+  "Parking Enforcement": {
+    "subcategory": 100,
+    "type": "Parking Enforcement",
+    "category": "PARKING"
+  },
+  "New Tree Warrantee Inspection": {
+    "subcategory": 700,
+    "type": "New Tree Warrantee Inspection",
+    "category": "STREETS, SIDEWALKS, AND PARKS"
+  },
+  "Sign Shop WO": {
+    "subcategory": 2000,
+    "type": "Sign Shop WO",
+    "category": "OTHER"
+  },
+  "StreetLight Pole WO": {
+    "subcategory": 400,
+    "type": "StreetLight Pole WO",
+    "category": "STREETS, SIDEWALKS, AND PARKS"
+  },
+  "Unsafe Dangerous Conditions": {
+    "subcategory": 1700,
+    "type": "Unsafe Dangerous Conditions",
+    "category": "LIVING CONDITIONS"
+  },
+  "Public Events Noise Disturbances": {
+    "subcategory": 2000,
+    "type": "Public Events Noise Disturbances",
+    "category": "OTHER"
+  },
+  "Roadway Repair": {
+    "subcategory": 200,
+    "type": "Roadway Repair",
+    "category": "STREETS, SIDEWALKS, AND PARKS"
+  },
+  "Rat Bite": {
+    "subcategory": 900,
+    "type": "Rat Bite",
+    "category": "LIVING CONDITIONS"
+  },
+  "Improper Storage of Trash (Barrels)": {
+    "subcategory": 300,
+    "type": "Improper Storage of Trash (Barrels)",
+    "category": "TRASH, RECYCLING, AND WASTE"
+  },
+  "Water in Gas - High Priority": {
+    "subcategory": 1700,
+    "type": "Water in Gas - High Priority",
+    "category": "LIVING CONDITIONS"
+  },
+  "BWSC General Request": {
+    "subcategory": 200,
+    "type": "BWSC General Request",
+    "category": "STREETS, SIDEWALKS, AND PARKS"
+  },
+  "Requests for Traffic Signal Studies or Reviews": {
+    "subcategory": 400,
+    "type": "Requests for Traffic Signal Studies or Reviews",
+    "category": "STREETS, SIDEWALKS, AND PARKS"
+  },
+  "Unsanitary Conditions - Employees": {
+    "subcategory": 1500,
+    "type": "Unsanitary Conditions - Employees",
+    "category": "LIVING CONDITIONS"
+  },
+  "Sign Repair": {
+    "subcategory": 400,
+    "type": "Sign Repair",
+    "category": "STREETS, SIDEWALKS, AND PARKS"
+  },
+  "Transportation General Request": {
+    "subcategory": 1400,
+    "type": "Transportation General Request",
+    "category": "TRANSPORTATION, VEHICLES, AND BICYCLES"
+  },
+  "Billing Complaint": {
+    "subcategory": 2000,
+    "type": "Billing Complaint",
+    "category": "OTHER"
+  },
+  "BWSC Pothole": {
+    "subcategory": 200,
+    "type": "BWSC Pothole",
+    "category": "STREETS, SIDEWALKS, AND PARKS"
+  },
+  "Snow Emergency": {
+    "subcategory": 600,
+    "type": "Snow Emergency",
+    "category": "SNOW"
+  },
+  "Alert Boston": {
+    "subcategory": 2000,
+    "type": "Alert Boston",
+    "category": "OTHER"
+  },
+  "News Boxes": {
+    "subcategory": 300,
+    "type": "News Boxes",
+    "category": "TRASH, RECYCLING, AND WASTE"
+  },
+  "Request for Pothole Repair": {
+    "subcategory": 200,
+    "type": "Request for Pothole Repair",
+    "category": "STREETS, SIDEWALKS, AND PARKS"
+  },
+  "Animal Generic Request": {
+    "subcategory": 800,
+    "type": "Animal Generic Request",
+    "category": "ANIMALS"
+  },
+  "Request for Recycling Cart": {
+    "subcategory": 300,
+    "type": "Request for Recycling Cart",
+    "category": "TRASH, RECYCLING, AND WASTE"
+  },
+  "Recycling Cart Return": {
+    "subcategory": 300,
+    "type": "Recycling Cart Return",
+    "category": "TRASH, RECYCLING, AND WASTE"
+  },
+  "No Utilities - Food Establishment - Sewer": {
+    "subcategory": 1500,
+    "type": "No Utilities - Food Establishment - Sewer",
+    "category": "LIVING CONDITIONS"
+  },
+  "Private Parking Lot Complaints": {
+    "subcategory": 100,
+    "type": "Private Parking Lot Complaints",
+    "category": "PARKING"
+  },
+  "Tree in Park": {
+    "subcategory": 700,
+    "type": "Tree in Park",
+    "category": "STREETS, SIDEWALKS, AND PARKS"
+  },
+  "No Price on Gas/Wrong Price": {
+    "subcategory": 2000,
+    "type": "No Price on Gas/Wrong Price",
+    "category": "OTHER"
+  },
+  "Utility Casting Repair": {
+    "subcategory": 200,
+    "type": "Utility Casting Repair",
+    "category": "STREETS, SIDEWALKS, AND PARKS"
+  },
+  "Catchbasin": {
+    "subcategory": 200,
+    "type": "Catchbasin",
+    "category": "STREETS, SIDEWALKS, AND PARKS"
+  },
+  "OCR Front Desk Interactions   ": {
+    "subcategory": 1800,
+    "type": "OCR Front Desk Interactions   ",
+    "category": "?"
+  },
+  "Call Log": {
+    "subcategory": 2000,
+    "type": "Call Log",
+    "category": "OTHER"
+  },
+  "Carbon Monoxide": {
+    "subcategory": 1700,
+    "type": "Carbon Monoxide",
+    "category": "LIVING CONDITIONS"
+  },
+  "Illegal Rooming House": {
+    "subcategory": 1200,
+    "type": "Illegal Rooming House",
+    "category": "LIVING CONDITIONS"
+  },
+  "Overflowing or Un-kept Dumpster": {
+    "subcategory": 300,
+    "type": "Overflowing or Un-kept Dumpster",
+    "category": "TRASH, RECYCLING, AND WASTE"
+  },
+  "Maintenance - Homeowner": {
+    "subcategory": 1200,
+    "type": "Maintenance - Homeowner",
+    "category": "LIVING CONDITIONS"
+  },
+  "Pickup/Clear Conduit": {
+    "subcategory": 1300,
+    "type": "Pickup/Clear Conduit",
+    "category": "BUILDING AND CONSTRUCTION"
+  },
+  "Abandoned Bicycle": {
+    "subcategory": 1400,
+    "type": "Abandoned Bicycle",
+    "category": "TRANSPORTATION, VEHICLES, AND BICYCLES"
+  },
+  "Knockdown Replacement": {
+    "subcategory": 200,
+    "type": "Knockdown Replacement",
+    "category": "STREETS, SIDEWALKS, AND PARKS"
+  },
+  "Mosquitoes (West Nile)": {
+    "subcategory": 900,
+    "type": "Mosquitoes (West Nile)",
+    "category": "LIVING CONDITIONS"
+  },
+  "Poor Ventilation": {
+    "subcategory": 1200,
+    "type": "Poor Ventilation",
+    "category": "LIVING CONDITIONS"
+  },
+  "Street Light Knock Downs": {
+    "subcategory": 400,
+    "type": "Street Light Knock Downs",
+    "category": "STREETS, SIDEWALKS, AND PARKS"
+  },
+  "PWD Graffiti": {
+    "subcategory": 1000,
+    "type": "PWD Graffiti",
+    "category": "STREETS, SIDEWALKS, AND PARKS"
+  },
+  "Tree Maintenance Requests": {
+    "subcategory": 700,
+    "type": "Tree Maintenance Requests",
+    "category": "STREETS, SIDEWALKS, AND PARKS"
+  },
+  "Fire in Food Establishment": {
+    "subcategory": 1500,
+    "type": "Fire in Food Establishment",
+    "category": "LIVING CONDITIONS"
+  },
+  "Heat - Excessive  Insufficient": {
+    "subcategory": 1900,
+    "type": "Heat - Excessive  Insufficient",
+    "category": "LIVING CONDITIONS"
+  },
+  "Occupying W/Out A Valid CO/CI": {
+    "subcategory": 1300,
+    "type": "Occupying W/Out A Valid CO/CI",
+    "category": "BUILDING AND CONSTRUCTION"
+  },
+  "Traffic Signal Repair": {
+    "subcategory": 400,
+    "type": "Traffic Signal Repair",
+    "category": "STREETS, SIDEWALKS, AND PARKS"
+  },
+  "Rental Unit Delivery Conditions": {
+    "subcategory": 1200,
+    "type": "Rental Unit Delivery Conditions",
+    "category": "LIVING CONDITIONS"
+  },
+  "Dumpster & Loading Noise Disturbances": {
+    "subcategory": 2000,
+    "type": "Dumpster & Loading Noise Disturbances",
+    "category": "OTHER"
+  },
+  "Tree Emergencies": {
+    "subcategory": 700,
+    "type": "Tree Emergencies",
+    "category": "STREETS, SIDEWALKS, AND PARKS"
+  },
+  "Work w/out Permit": {
+    "subcategory": 1300,
+    "type": "Work w/out Permit",
+    "category": "BUILDING AND CONSTRUCTION"
+  },
+  "Empty Litter Basket": {
+    "subcategory": 300,
+    "type": "Empty Litter Basket",
+    "category": "TRASH, RECYCLING, AND WASTE"
+  },
+  "Cross Metering - Sub-Metering": {
+    "subcategory": 2000,
+    "type": "Cross Metering - Sub-Metering",
+    "category": "OTHER"
+  },
+  "Loud Parties/Music/People": {
+    "subcategory": 2000,
+    "type": "Loud Parties/Music/People",
+    "category": "OTHER"
+  },
+  "Sewage/Septic Back-Up": {
+    "subcategory": 1200,
+    "type": "Sewage/Septic Back-Up",
+    "category": "LIVING CONDITIONS"
+  },
+  "No Utilities - Food Establishment - Flood": {
+    "subcategory": 1500,
+    "type": "No Utilities - Food Establishment - Flood",
+    "category": "LIVING CONDITIONS"
+  },
+  "Mice Infestation - Residential": {
+    "subcategory": 900,
+    "type": "Mice Infestation - Residential",
+    "category": "LIVING CONDITIONS"
+  },
+  "No Utilities Residential - Gas": {
+    "subcategory": 1200,
+    "type": "No Utilities Residential - Gas",
+    "category": "LIVING CONDITIONS"
+  },
+  "Parking on Front/Back Yards (Illegal Parking)": {
+    "subcategory": 100,
+    "type": "Parking on Front/Back Yards (Illegal Parking)",
+    "category": "PARKING"
+  },
+  "Egress": {
+    "subcategory": 1200,
+    "type": "Egress",
+    "category": "LIVING CONDITIONS"
+  },
+  "Pavement Marking Maintenance": {
+    "subcategory": 200,
+    "type": "Pavement Marking Maintenance",
+    "category": "STREETS, SIDEWALKS, AND PARKS"
+  },
+  "Bicycle Issues": {
+    "subcategory": 1400,
+    "type": "Bicycle Issues",
+    "category": "TRANSPORTATION, VEHICLES, AND BICYCLES"
+  },
+  "No Utilities Residential - Water": {
+    "subcategory": 1200,
+    "type": "No Utilities Residential - Water",
+    "category": "LIVING CONDITIONS"
+  },
+  "Upgrade Existing Lighting": {
+    "subcategory": 400,
+    "type": "Upgrade Existing Lighting",
+    "category": "STREETS, SIDEWALKS, AND PARKS"
+  },
+  "Aircraft Noise Disturbance": {
+    "subcategory": 2000,
+    "type": "Aircraft Noise Disturbance",
+    "category": "OTHER"
+  },
+  "City/State Snow Issues": {
+    "subcategory": 600,
+    "type": "City/State Snow Issues",
+    "category": "SNOW"
+  },
+  "Bed Bugs": {
+    "subcategory": 900,
+    "type": "Bed Bugs",
+    "category": "LIVING CONDITIONS"
+  },
+  "Poor Conditions of Property": {
+    "subcategory": 1200,
+    "type": "Poor Conditions of Property",
+    "category": "LIVING CONDITIONS"
+  },
+  "Phone Bank Service Inquiry": {
+    "subcategory": 400,
+    "type": "Phone Bank Service Inquiry",
+    "category": "STREETS, SIDEWALKS, AND PARKS"
+  },
+  "Planting": {
+    "subcategory": 200,
+    "type": "Planting",
+    "category": "STREETS, SIDEWALKS, AND PARKS"
+  },
+  "Trash on Vacant Lot": {
+    "subcategory": 1200,
+    "type": "Trash on Vacant Lot",
+    "category": "LIVING CONDITIONS"
+  },
+  "Notification": {
+    "subcategory": 2000,
+    "type": "Notification",
+    "category": "OTHER"
+  },
+  "Plumbing": {
+    "subcategory": 1200,
+    "type": "Plumbing",
+    "category": "LIVING CONDITIONS"
+  },
+  "Student Move-in Issues": {
+    "subcategory": 2000,
+    "type": "Student Move-in Issues",
+    "category": "OTHER"
+  },
+  "New Sign  Crosswalk or Pavement Marking": {
+    "subcategory": 200,
+    "type": "New Sign  Crosswalk or Pavement Marking",
+    "category": "STREETS, SIDEWALKS, AND PARKS"
+  },
+  "General Lighting Request": {
+    "subcategory": 200,
+    "type": "General Lighting Request",
+    "category": "STREETS, SIDEWALKS, AND PARKS"
+  },
+  "Bridge Maintenance": {
+    "subcategory": 200,
+    "type": "Bridge Maintenance",
+    "category": "STREETS, SIDEWALKS, AND PARKS"
+  },
+  "Undefined Noise Disturbance": {
+    "subcategory": 2000,
+    "type": "Undefined Noise Disturbance",
+    "category": "OTHER"
+  },
+  "Utility Call-In": {
+    "subcategory": 1200,
+    "type": "Utility Call-In",
+    "category": "LIVING CONDITIONS"
+  },
+  "Illegal Posting of Signs": {
+    "subcategory": 400,
+    "type": "Illegal Posting of Signs",
+    "category": "STREETS, SIDEWALKS, AND PARKS"
+  },
+  "Big Buildings Recycling (INTERNAL)": {
+    "subcategory": 300,
+    "type": "Big Buildings Recycling (INTERNAL)",
+    "category": "TRASH, RECYCLING, AND WASTE"
+  },
+  "Maintenance Complaint - Residential": {
+    "subcategory": 1200,
+    "type": "Maintenance Complaint - Residential",
+    "category": "LIVING CONDITIONS"
+  },
+  "Short Measure - Gas": {
+    "subcategory": 2000,
+    "type": "Short Measure - Gas",
+    "category": "OTHER"
+  },
+  "Lead": {
+    "subcategory": 1700,
+    "type": "Lead",
+    "category": "LIVING CONDITIONS"
+  },
+  "Unsatisfactory Living Conditions": {
+    "subcategory": 1200,
+    "type": "Unsatisfactory Living Conditions",
+    "category": "LIVING CONDITIONS"
+  },
+  "Illegal Dumping": {
+    "subcategory": 300,
+    "type": "Illegal Dumping",
+    "category": "TRASH, RECYCLING, AND WASTE"
+  },
+  "Missed Trash/Recycling/Yard Waste/Bulk Item": {
+    "subcategory": 300,
+    "type": "Missed Trash/Recycling/Yard Waste/Bulk Item",
+    "category": "TRASH, RECYCLING, AND WASTE"
+  },
+  "Big Buildings Online Request": {
+    "subcategory": 1300,
+    "type": "Big Buildings Online Request",
+    "category": "BUILDING AND CONSTRUCTION"
+  },
+  "Unit Pricing Wrong/Missing": {
+    "subcategory": 2000,
+    "type": "Unit Pricing Wrong/Missing",
+    "category": "OTHER"
+  },
+  "Abandoned Vehicles": {
+    "subcategory": 1400,
+    "type": "Abandoned Vehicles",
+    "category": "TRANSPORTATION, VEHICLES, AND BICYCLES"
+  },
+  "Scale Not Visible": {
+    "subcategory": 2000,
+    "type": "Scale Not Visible",
+    "category": "OTHER"
+  },
+  "Traffic Signal Inspection": {
+    "subcategory": 400,
+    "type": "Traffic Signal Inspection",
+    "category": "STREETS, SIDEWALKS, AND PARKS"
+  },
+  "Parks Lighting/Electrical Issues": {
+    "subcategory": 200,
+    "type": "Parks Lighting/Electrical Issues",
+    "category": "STREETS, SIDEWALKS, AND PARKS"
+  },
+  "Student Overcrowding": {
+    "subcategory": 1200,
+    "type": "Student Overcrowding",
+    "category": "LIVING CONDITIONS"
+  },
+  "Valet Parking Problems": {
+    "subcategory": 100,
+    "type": "Valet Parking Problems",
+    "category": "PARKING"
+  },
+  "Equipment Repair": {
+    "subcategory": 400,
+    "type": "Equipment Repair",
+    "category": "STREETS, SIDEWALKS, AND PARKS"
+  },
+  "Recycling Cart Inquiry": {
+    "subcategory": 300,
+    "type": "Recycling Cart Inquiry",
+    "category": "TRASH, RECYCLING, AND WASTE"
+  },
+  "Requests for Street Cleaning": {
+    "subcategory": 200,
+    "type": "Requests for Street Cleaning",
+    "category": "STREETS, SIDEWALKS, AND PARKS"
+  },
+  "No Utilities - Food Establishment - Electricity": {
+    "subcategory": 1500,
+    "type": "No Utilities - Food Establishment - Electricity",
+    "category": "LIVING CONDITIONS"
+  },
+  "Food Alert - Unconfirmed": {
+    "subcategory": 1500,
+    "type": "Food Alert - Unconfirmed",
+    "category": "LIVING CONDITIONS"
+  },
+  "Scanning Overcharge": {
+    "subcategory": 2000,
+    "type": "Scanning Overcharge",
+    "category": "OTHER"
+  },
+  "Cemetery Maintenance Request": {
+    "subcategory": 2000,
+    "type": "Cemetery Maintenance Request",
+    "category": "OTHER"
+  },
+  "Building Inspection Request": {
+    "subcategory": 1300,
+    "type": "Building Inspection Request",
+    "category": "BUILDING AND CONSTRUCTION"
+  },
+  "Street Light Outages": {
+    "subcategory": 400,
+    "type": "Street Light Outages",
+    "category": "STREETS, SIDEWALKS, AND PARKS"
+  },
+  "CE Collection": {
+    "subcategory": 300,
+    "type": "CE Collection",
+    "category": "TRASH, RECYCLING, AND WASTE"
+  },
+  "Contractors Complaint": {
+    "subcategory": 1300,
+    "type": "Contractors Complaint",
+    "category": "BUILDING AND CONSTRUCTION"
+  },
+  "Item Price Missing": {
+    "subcategory": 2000,
+    "type": "Item Price Missing",
+    "category": "OTHER"
+  },
+  "Breathe Easy": {
+    "subcategory": 2000,
+    "type": "Breathe Easy",
+    "category": "OTHER"
+  },
+  "Sidewalk Repair": {
+    "subcategory": 200,
+    "type": "Sidewalk Repair",
+    "category": "STREETS, SIDEWALKS, AND PARKS"
+  },
+  "Pick up Dead Animal": {
+    "subcategory": 800,
+    "type": "Pick up Dead Animal",
+    "category": "ANIMALS"
+  },
+  "Exceeding Terms of Permit": {
+    "subcategory": 1300,
+    "type": "Exceeding Terms of Permit",
+    "category": "BUILDING AND CONSTRUCTION"
+  },
+  "Request for Litter Basket Installation": {
+    "subcategory": 300,
+    "type": "Request for Litter Basket Installation",
+    "category": "TRASH, RECYCLING, AND WASTE"
+  },
+  "Public Works General Request": {
+    "subcategory": 200,
+    "type": "Public Works General Request",
+    "category": "STREETS, SIDEWALKS, AND PARKS"
+  },
+  "General Traffic Engineering Request": {
+    "subcategory": 1400,
+    "type": "General Traffic Engineering Request",
+    "category": "TRANSPORTATION, VEHICLES, AND BICYCLES"
+  },
+  "Unsanitary Conditions - Food": {
+    "subcategory": 1500,
+    "type": "Unsanitary Conditions - Food",
+    "category": "LIVING CONDITIONS"
+  },
+  "Ground Maintenance": {
+    "subcategory": 200,
+    "type": "Ground Maintenance",
+    "category": "STREETS, SIDEWALKS, AND PARKS"
+  },
+  "Parking Meter Repairs": {
+    "subcategory": 400,
+    "type": "Parking Meter Repairs",
+    "category": "STREETS, SIDEWALKS, AND PARKS"
+  },
+  "Fire Hydrant": {
+    "subcategory": 200,
+    "type": "Fire Hydrant",
+    "category": "STREETS, SIDEWALKS, AND PARKS"
+  },
+  "Unsanitary Conditions - Establishment": {
+    "subcategory": 1500,
+    "type": "Unsanitary Conditions - Establishment",
+    "category": "LIVING CONDITIONS"
+  },
+  "Snow/Ice Control": {
+    "subcategory": 600,
+    "type": "Snow/Ice Control",
+    "category": "SNOW"
+  },
+  "Illegal Auto Body Shop": {
+    "subcategory": 2000,
+    "type": "Illegal Auto Body Shop",
+    "category": "OTHER"
+  },
+  "Heat/Fuel Assistance": {
+    "subcategory": 1900,
+    "type": "Heat/Fuel Assistance",
+    "category": "LIVING CONDITIONS"
+  },
+  "Idea Collection": {
+    "subcategory": 2000,
+    "type": "Idea Collection",
+    "category": "OTHER"
+  },
+  "Animal Noise Disturbances": {
+    "subcategory": 800,
+    "type": "Animal Noise Disturbances",
+    "category": "ANIMALS"
+  },
+  "Capital Improvement Long Term": {
+    "subcategory": 1800,
+    "type": "Capital Improvement Long Term",
+    "category": "?"
+  }
+}
