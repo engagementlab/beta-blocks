@@ -25,7 +25,7 @@
     "mailgun-js": "^0.22.0",
     "mongoose": "^5.7.5",
     "redis": "^2.8.0",
-    "underscore": "^1.9.1",
+    "underscore": "^1.12.1",
     "validator": "^10.9.0",
     "winston": "^3.2.1",
     "yieldable-json": "^1.0.1"
