@@ -3,7 +3,7 @@
   "version": "0.1.0",
   "private": true,
   "dependencies": {
-    "d3": "^5.9.2",
+    "d3": "^7.6.1",
     "h3-js": "^3.4.2",
     "lodash": "^4.17.11",
     "mapbox-gl": "^0.54.0",
